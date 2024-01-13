@@ -1,12 +1,11 @@
-package com.EatToday.EatToday.Service;
+package com.EatToday.EatToday.service;
 
-import com.EatToday.EatToday.DTO.StoreDto;
-import com.EatToday.EatToday.Entity.Store;
-import com.EatToday.EatToday.mapper.StoreRepository;
+import com.EatToday.EatToday.dto.StoreDto;
+import com.EatToday.EatToday.entity.Store;
+import com.EatToday.EatToday.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;

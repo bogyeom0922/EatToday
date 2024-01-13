@@ -1,1 +1,29 @@
-login
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1> welcome Eattoday!</h1>
+
+<form action = "/login" method="post"> <!-- get으로 받아서 데이터 맞는지 확인, action = login 창으로-->
+    <div class="mb-3">
+        <label for="uid" class="form-label">id</label>
+        <input type="uid" class="form-control" name="uid">
+    </div>
+    <div class="mb-3">
+        <label for="upassword" class="form-label">Password</label>
+        <input type="upassword" class="form-control" name="upassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+<form action = "/user/Signup">
+    <button type="submit">Sign up</button>
+</form>
+
+</body>
+</html>

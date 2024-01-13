@@ -1,13 +1,10 @@
-package com.EatToday.EatToday.DTO;
+package com.EatToday.EatToday.dto;
 
-import com.EatToday.EatToday.Entity.Store;
-import jakarta.persistence.*;
+import com.EatToday.EatToday.entity.Store;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.math.BigInteger;
 
 @Getter
 @Setter
