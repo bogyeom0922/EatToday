@@ -1,6 +1,6 @@
 package com.EatToday.EatToday.repository;
 
-import com.EatToday.EatToday.entity.Rest;
+import com.EatToday.EatToday.Entity.Rest;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;

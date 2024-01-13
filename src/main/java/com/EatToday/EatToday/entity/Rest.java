@@ -1,4 +1,4 @@
-package com.EatToday.EatToday.entity;
+package com.EatToday.EatToday.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

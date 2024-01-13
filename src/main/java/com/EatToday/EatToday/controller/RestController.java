@@ -1,6 +1,6 @@
 package com.EatToday.EatToday.controller;
 
-import com.EatToday.EatToday.entity.Rest;
+import com.EatToday.EatToday.Entity.Rest;
 import com.EatToday.EatToday.repository.RestRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
