@@ -65,6 +65,7 @@ public class LoginController {
     public String login(userForm form, HttpSession session)
     {
         userForm loginResult = userService.login(form);
+
         if(loginResult != null)
         {
             //login 성공

@@ -22,7 +22,7 @@ public class userForm {
         return new User(null, uid,uname,upassword);
     }
 
-    public static userForm touserFrom(User user)
+    public static userForm toUserFrom(User user)
     {
         userForm form = new userForm();
         form.setId(user.getId());
