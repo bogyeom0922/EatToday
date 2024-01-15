@@ -9,4 +9,11 @@ public interface UserRepository extends JpaRepository<User, Long> {//CrudReposit
 
     //uid로 회원 정보 조회 (select * from User_table where uid = ?)
     Optional<User> findByuid(String uid);
+
+    //uid 중복 검사
+    boolean existsByuid(String uid);
+    //uname 중복 검사
+    boolean existsByuname(String uname);
+
+
 }

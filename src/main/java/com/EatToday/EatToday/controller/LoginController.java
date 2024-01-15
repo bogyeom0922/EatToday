@@ -81,8 +81,10 @@ public class LoginController {
         else {
             //login 실패
             log.info("Login failed");
-            return "category";
+            return "user/login";
         }
+
+
     }
 
 
