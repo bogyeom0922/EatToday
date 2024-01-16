@@ -6,9 +6,13 @@ import com.EatToday.EatToday.dto.userForm;
 import com.EatToday.EatToday.entity.User;
 import com.EatToday.EatToday.service.UserService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -41,7 +45,7 @@ public class LoginController {
 
 
     @PostMapping("/user/Signup")
-    public String Createuser(userForm form)
+    public String Createuser(@Valid userForm form, BindingResult bindingResult)
     {
 
         //위에 로깅 어노테이션 추가함으로써 아래 코드 필요없어짐, 아래 코드는 컨트롤러가 제대로 동작하는지 확인하기 위함
@@ -56,6 +60,17 @@ public class LoginController {
         User saved = userRepository.save(user); //entity(user) 객체 반환받아서 saved 객체에 반환
         log.info(saved.toString());
 
+        //중복 방지 기능
+        if(userService.checkuidDuplicate(form.getUid()))
+        {
+            bindingResult.addError(new FieldError("userform", "uid", "로그인 아이디가 중복됩니다."));
+        }
+
+        if(userService.checkunameDuplicate(form.getUname()))
+        {
+            bindingResult.addError(new FieldError("userform", "uname", "닉네임이 중복됩니다."));
+        }
+
         return "user/login";
     }
 
@@ -67,7 +82,7 @@ public class LoginController {
 
     //로그인 처리 로직 , 기본적으로 login 할 때 postmapping 사용, Security 쓰면 알아서 postmapping 해주기 때문에 getmapping만 썼던 것임
     @PostMapping("/login")
-    public String login(userForm form, HttpSession session)
+    public String login(userForm form, HttpSession session, Model model)
     {
         userForm loginResult = userService.login(form);
 
@@ -75,6 +90,7 @@ public class LoginController {
         {
             //login 성공
             session.setAttribute("uname",loginResult.getUname());
+            model.addAttribute("uname",loginResult.getUname());
             log.info("Login successful for user: {}", loginResult.getUname());
             return "category";
         }

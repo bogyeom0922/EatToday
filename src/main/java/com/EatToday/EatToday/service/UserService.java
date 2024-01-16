@@ -50,4 +50,15 @@ public class UserService {
 
 .orElse(null): 사용자 정보가 없거나 비밀번호가 일치하지 않을 경우 null을 반환합니다.*/
     }
+
+    //회원가입 중복 방지 기능
+    public boolean checkuidDuplicate(String uid)
+    {
+        return userRepository.existsByuid(uid);
+    }
+
+    public  boolean checkunameDuplicate(String uname)
+    {
+        return userRepository.existsByuname(uname);
+    }
 }

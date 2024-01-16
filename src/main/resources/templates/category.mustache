@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -47,9 +47,10 @@
         </div>
     </div>
 </nav>
-{{#session.uname}}
-    <h1>Welcome {{session.uname}}님!!</h1>
-{{/session.uname}}
+
+    <h1>{{uname}}님 안녕하세요 !!</h1>
+
+
 
 </body>
 </html>
