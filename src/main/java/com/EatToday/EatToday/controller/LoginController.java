@@ -1,9 +1,9 @@
 package com.EatToday.EatToday.controller;
 
 
-import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.dto.userForm;
 import com.EatToday.EatToday.entity.User;
+import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -44,8 +43,8 @@ public class LoginController {
     }
 
 
-    @PostMapping("/user/Signup")
-    public String Createuser(@Valid userForm form, BindingResult bindingResult)
+    @PostMapping("/user/Signup") //POST 요청을 받았을 때, 해당 요청 값들로 구성된 객체를 검증하는 어노테이션, 각 필드의 입력값이 정해진 Validation 규칙을 따르는지 판단
+    public String Createuser(@Valid userForm form, BindingResult bindingResult) //파라미터의 위치는 @Valid 객체 바로 뒤에 선언해야 함 (중요)
     {
 
         //위에 로깅 어노테이션 추가함으로써 아래 코드 필요없어짐, 아래 코드는 컨트롤러가 제대로 동작하는지 확인하기 위함
@@ -63,12 +62,16 @@ public class LoginController {
         //중복 방지 기능
         if(userService.checkuidDuplicate(form.getUid()))
         {
-            bindingResult.addError(new FieldError("userform", "uid", "로그인 아이디가 중복됩니다."));
+            log.info("uid: "+ form.getUid()+" 중복");
         }
 
         if(userService.checkunameDuplicate(form.getUname()))
         {
-            bindingResult.addError(new FieldError("userform", "uname", "닉네임이 중복됩니다."));
+                log.info("uname: "+form.getUname()+" 중복");
+        }
+
+        if(bindingResult.hasErrors()) { //만약 에러 위에서 에러 있으면
+            return "user/Signup";
         }
 
         return "user/login";

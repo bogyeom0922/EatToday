@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,18 +9,20 @@
 <body>
 <h1> welcome Eattoday!</h1>
 
-<form action = "/user/Signup"  th:object="${userform}" method="post"><!-- post로 데이터 생성, action = Eattoday 이동-->
+<form action = "/user/Signup"  method="post"><!-- post로 데이터 생성, action = Eattoday 이동-->
     <div class="mb-3">
         <label for="uid" class="form-label">id</label>
-        <input type="uid" class="form-control" name="uid"><!-- 여기서 name은 dto 필드와 동일하게-->
+        <input type="text" class="form-control" name="uid" th:field="*{uid}" ><!-- 여기서 name은 dto 필드와 동일하게-->
+        <p th:if="${#fields.hasErrors('uid')}" th:errors="*{uid}">id 중복</p>
     </div>
     <div class="mb-3">
         <label for="upassword" class="form-label">Password</label>
-        <input type="upassword" class="form-control" name="upassword">
+        <input type="password" class="form-control" name="upassword">
     </div>
     <div class="mb-3">
         <label for="nickname" class="form-label">Nickname</label>
-        <input type="nickname" class="form-control" name="uname">
+        <input type="text" class="form-control" name="uname" th:field="*{uname}">
+        <p th:if="${#fields.hasErrors('uname')}" th:errors="*{uname}"> Nickname 중복</p>
     </div>
 
     <button type="submit" class="btn btn-primary">Create</button>
