@@ -5,6 +5,7 @@ import com.EatToday.EatToday.dto.userForm;
 import com.EatToday.EatToday.entity.User;
 import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -91,14 +92,22 @@ public class LoginController {
 
     //로그인 처리 로직 , 기본적으로 login 할 때 postmapping 사용, Security 쓰면 알아서 postmapping 해주기 때문에 getmapping만 썼던 것임
     @PostMapping("/login")
-    public String login(userForm form, HttpSession session, Model model)
+    public String login(userForm form, HttpServletRequest httpServlet, Model model)
     {
         userForm loginResult = userService.login(form);
 
         if(loginResult != null)
         {
             //login 성공
-            session.setAttribute("uname",loginResult.getUname());
+
+            //기존 세션 파기
+            httpServlet.getSession().invalidate();
+            //세션 생성
+            HttpSession session = httpServlet.getSession(true);
+            session.setAttribute("uname",loginResult.getUname()); //sesiion에 uname넣어줌
+
+            session.setMaxInactiveInterval(1800); // session 30분 유지
+
             model.addAttribute("uname",loginResult.getUname());
             log.info("Login successful for user: {}", loginResult.getUname());
             return "category";
