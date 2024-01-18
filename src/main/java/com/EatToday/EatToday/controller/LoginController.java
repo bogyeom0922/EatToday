@@ -121,6 +121,19 @@ public class LoginController {
 
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request)
+    {
+        HttpSession session = request.getSession(false); // Session이 없으면 null return
+
+        if(session != null) //session에 값 있으면
+        {
+            session.invalidate(); //세션 초기화
+        }
+
+        return "user/login";
+    }
+
 
 
 }
