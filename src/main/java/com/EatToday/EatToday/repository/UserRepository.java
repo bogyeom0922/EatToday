@@ -1,4 +1,4 @@
-package com.EatToday.EatToday.UserRepository;
+package com.EatToday.EatToday.repository;
 
 import com.EatToday.EatToday.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

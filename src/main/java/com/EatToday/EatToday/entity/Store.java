@@ -1,29 +1,36 @@
-package com.EatToday.EatToday.Entity;
+package com.EatToday.EatToday.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.math.BigInteger;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "Store")
 @NoArgsConstructor
-
 public class Store{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String category;
+    @Column
     private String store_name;
+    @Column
     private String store_address;
+    @Column
     private String store_phone;
+    @Column
     private String store_img;
+    @Column
     private String store_star;
+    @Column
     private String store_time;
+    @Column
     private String review_content;
+    @Column
     private String store_menu;
    @Builder
     public Store(long id,String category, String store_name, String store_address,String store_phone,

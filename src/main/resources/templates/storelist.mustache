@@ -44,6 +44,20 @@
     </div>
 </nav>
 <h2>매장 정보</h2>
+<div class = "filter_box" onsubmit="return false">
+    <form name = "filter_form" action = "storelist/filter">
+        <div class = "select_box">
+            <select id = "filterType" name = "filterType" title = "검색 유형">
+                <option value = "전체검색">전체 검색</option>
+                <option value = "음식 종류">음식 종류</option>
+                <option value = "별점">별점</option>
+                <option value = "지역">지역</option>
+            </select>
+            <input type = "text" id = "keyword" name = "keyword" placeholder="키워드를 입력해주세요">
+            <button type = "button" class = "filter_btn" value = "검색">검색</button>
+        </div>
+    </form>
+</div>
 <div>
     <table>
         <thead class="Store">
@@ -77,6 +91,7 @@
         {{/list}}
         </tbody>
     </table>
+
 </div>
 </body>
 </html>
