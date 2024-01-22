@@ -1,0 +1,27 @@
+{{>layouts/detail_header}}
+<div>
+    <table>
+        <thead class="Store">
+        <tr>
+            <th>이미지</th>
+            <th>이름</th>
+            <th>시간</th>
+            <th>전화번호</th>
+            <th>별점</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#list}}
+            <tr>
+                <td>{{store_img}}</td>
+                <td><a href="/rest/{{id}}">{{store_name}}</a></td>
+                <td>{{store_time}}</td>
+                <td>{{store_phone}}</td>
+                <td>{{store_star}}</td>
+            </tr>
+        {{/list}}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

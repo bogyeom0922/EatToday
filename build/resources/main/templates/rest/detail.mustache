@@ -1,0 +1,30 @@
+{{>layouts/detail_header}}
+
+<div class="background"></div>
+<img src="/img/sample.jpeg" class="rest_img">
+<div class="background2"></div>
+
+<div class="store_name">
+    {{#rest}}{{store_name}}{{/rest}}
+</div>
+<div class="subtitle">
+    별점 {{#rest}}{{store_star}}{{/rest}}&emsp;&emsp;&emsp;&emsp;리뷰 개
+</div>
+
+<div class="rest_detail">
+    {{#rest}}
+        주소&emsp;&emsp;: {{store_address}}<br>
+        대표번호 : {{store_phone}}<br>
+        영업시간 : {{store_time}}<br>
+        {{store_menu}}<br>
+        {{review_content}}<br>
+    {{/rest}}
+</div>
+
+
+<form>
+    <label></label>
+</form>
+
+
+{{>layouts/footer}}
