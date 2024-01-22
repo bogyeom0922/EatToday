@@ -1,7 +1,7 @@
 package com.EatToday.EatToday.controller;
 
 
-import com.EatToday.EatToday.UserRepository.UserRepository;
+import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.dto.userForm;
 import com.EatToday.EatToday.entity.User;
 import com.EatToday.EatToday.service.UserService;
