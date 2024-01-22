@@ -1,6 +1,7 @@
 package com.EatToday.EatToday.dto; //회원가입 dto
 
 import com.EatToday.EatToday.entity.User;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Setter
@@ -11,8 +12,14 @@ import lombok.*;
 public class userForm {
 
     private Long id;
+
+    @NotBlank(message = "아이디를 입력해주세요.")
     private String uid;
+
+    @NotBlank(message = "비밀번호를 입력해주세요.")
     private String upassword;
+
+    @NotBlank(message = "닉네임을 입력해주세요.")
     private String uname;
 
 

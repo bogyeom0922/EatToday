@@ -1,7 +1,7 @@
 package com.EatToday.EatToday.controller;
 
 
-import com.EatToday.EatToday.repository.UserRepository;
+import com.EatToday.EatToday.UserRepository.UserRepository;
 import com.EatToday.EatToday.dto.userForm;
 import com.EatToday.EatToday.entity.User;
 import com.EatToday.EatToday.service.UserService;
@@ -23,15 +23,10 @@ public class LoginController {
     //@Autowired
     private final UserService userService;
 
-    @GetMapping("/")
-    public String home() {
-        return "home";
-    }
-
-    @GetMapping("/user/login") //처음 localhost8080 페이지 설정
-    public String login()
+    @GetMapping("/") //처음 localhost8080 페이지 설정
+    public String home()
     {
-        return "user/login";
+        return "Eattoday";
     }
 
     @GetMapping("/user/Signup") //Signup 페이지 띄어줌
@@ -40,7 +35,7 @@ public class LoginController {
     }
 
 
-    @PostMapping("/user/Signup")
+    @PostMapping("/") //Eattoday로 생성한 정보 보냄(가입)
     public String Createuser(userForm form)
     {
 
@@ -56,13 +51,13 @@ public class LoginController {
         User saved = userRepository.save(user); //entity(user) 객체 반환받아서 saved 객체에 반환
         log.info(saved.toString());
 
-        return "user/login";
+        return "Eattoday";
     }
 
-    @GetMapping("/category")//getmapping(/login)-> return login 받아옴, url 요청 받는것
-    public String category(){ //Model model 로 model 객체 받아옴, login html에 있는 uname 채울 수 있음
+    @GetMapping("/login")//getmapping(/login)-> return login 받아옴, url 요청 받는것
+    public String login(){ //Model model 로 model 객체 받아옴, login html에 있는 uname 채울 수 있음
 
-        return "category";
+        return "login";
     }
 
     //로그인 처리 로직 , 기본적으로 login 할 때 postmapping 사용, Security 쓰면 알아서 postmapping 해주기 때문에 getmapping만 썼던 것임
@@ -76,12 +71,12 @@ public class LoginController {
             //login 성공
             session.setAttribute("uname",loginResult.getUname());
             log.info("Login successful for user: {}", loginResult.getUname());
-            return "category";
+            return "login";
         }
         else {
             //login 실패
             log.info("Login failed");
-            return "category";
+            return "Eattoday";
         }
     }
 
