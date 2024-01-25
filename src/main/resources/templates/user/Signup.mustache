@@ -11,9 +11,9 @@
 
 <form action = "/user/Signup"  method="post" th:object="${Signup}"><!-- post로 데이터 생성, action = Eattoday 이동-->
     <div class="mb-3">
-        <label for="uid" class="form-label">id</label>
-        <input type="text" class="form-control" name="uid" th:field="*{uid}" th:errorclass="error-input"><!-- 여기서 name은 dto 필드와 동일하게-->
-        <div class="error-class" th:errors="*{uid}"></div>
+        <label th:for="uid" class="form-label">id</label>
+        <input type="text" class="form-control" name="uid" th:field="*{uid}" th:errorclass="${#fields.hasErrors('uid')} ? 'error-input' : ''"><!-- 여기서 name은 dto 필드와 동일하게-->
+        <div class="error-class" th:if="${#fields.hasErrors('uid')}" th:errors="*{uid}"></div>
     </div>
     <div class="mb-3">
         <label for="upassword" class="form-label">Password</label>
@@ -21,8 +21,8 @@
 
     </div>
     <div class="mb-3">
-        <label for="nickname" class="form-label">Nickname</label>
-        <input type="text" class="form-control" name="uname" th:field="*{uname}" th:errorclass="error-input">
+        <label th:for="nickname" class="form-label">Nickname</label>
+        <input type="text" class="form-control" name="uname" th:field="*{uname}" th:errorclass="error-input" />
         <div class="error-class" th:errors="*{uname}"></div>
 
     </div>
