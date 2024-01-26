@@ -4,7 +4,7 @@ package com.EatToday.EatToday.controller;
 import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.dto.userForm;
 import com.EatToday.EatToday.entity.User;
-import com.EatToday.EatToday.service.UserService;
+import com.EatToday.EatToday.Service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

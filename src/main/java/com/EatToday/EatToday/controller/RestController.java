@@ -1,16 +1,22 @@
 package com.EatToday.EatToday.controller;
 
-import com.EatToday.EatToday.service.StoreService;
+import com.EatToday.EatToday.Service.StoreService;
 import com.EatToday.EatToday.dto.StoreDto;
 import com.EatToday.EatToday.repository.StoreRepository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.EatToday.EatToday.entity.Store;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,12 +34,39 @@ public class RestController {
     }
 
     @GetMapping(value ="/storelist")
-    public String home(Model model) throws IOException {
-        List<StoreDto> storeDtoList = storeService.getBoardList();
+    public String home(Model model,@PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
+        Page<Store> storeList = storeService.storePage(pageable);
 
-        model.addAttribute("list",storeDtoList);
-
+        model.addAttribute("list",storeList);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        model.addAttribute("hasNext", storeList.hasNext());
+        model.addAttribute("hasPrev", storeList.hasPrevious());
         return "storelist";
+    }
+
+    @GetMapping(value ="/storelist/filter")
+    public String search(Model model, @RequestParam(value = "search-option") String option,
+                         @RequestParam(value = "search")String keyword, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
+        Page<Store> storeList = null;
+
+        if(option.equals("region")){
+            storeList = storeService.search2(keyword, pageable);
+            }
+        else{
+            storeList = storeService.search(keyword, pageable);
+        }
+
+        if(storeList == null)
+            return "/storelist";
+
+        model.addAttribute("filterList",storeList);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        model.addAttribute("hasNext", storeList.hasNext());
+        model.addAttribute("hasPrev", storeList.hasPrevious());
+        model.addAttribute("keyword", keyword);
+        return "/storelist-filter";
     }
  
     @GetMapping("/rest/{id}")

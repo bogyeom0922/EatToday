@@ -44,20 +44,16 @@
     </div>
 </nav>
 <h2>매장 정보</h2>
-<div class = "filter_box" onsubmit="return false">
-    <form name = "filter_form" action = "storelist/filter">
-        <div class = "select_box">
-            <select id = "filterType" name = "filterType" title = "검색 유형">
-                <option value = "전체검색">전체 검색</option>
-                <option value = "음식 종류">음식 종류</option>
-                <option value = "별점">별점</option>
-                <option value = "지역">지역</option>
-            </select>
-            <input type = "text" id = "keyword" name = "keyword" placeholder="키워드를 입력해주세요">
-            <button type = "button" class = "filter_btn" value = "검색">검색</button>
-        </div>
-    </form>
-</div>
+<form action="/storelist/filter" method="GET" class="form-inline p-2 bd-highlight" role="search">
+    <select name = "search-option">
+        <option value = "region">지역</option>
+        <option value = "category">카테고리</option>
+    </select>
+    <input type="text" name="search" class="form-control" id="search" placeholder="검색">
+    <button class="btn btn-success bi bi-search">
+
+</button>
+</form>
 <div>
     <table>
         <thead class="Store">
@@ -91,6 +87,19 @@
         {{/list}}
         </tbody>
     </table>
+    {{! Page }}
+    <div class="pagination justify-content-center">
+    {{#hasPrev}}
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill">이전</a>{{/hasPrev}}
+    {{^hasPrev}}
+        <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>{{/hasPrev}}
+    {{#hasNext}}
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill">다음</a>
+{{/hasNext}}
+    {{^hasNext}}
+        <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+    {{/hasNext}}
+</div>
 
 </div>
 </body>

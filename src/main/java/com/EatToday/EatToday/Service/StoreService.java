@@ -1,10 +1,12 @@
-package com.EatToday.EatToday.service;
+package com.EatToday.EatToday.Service;
 
 import com.EatToday.EatToday.dto.StoreDto;
 import com.EatToday.EatToday.entity.Store;
 import com.EatToday.EatToday.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,10 +44,24 @@ public class StoreService{
         }
         return storeDtoList;
     }
+
     @Transactional
-    public ArrayList<Store> filter(String keyword){
-        ArrayList<Store> filtered = storeRepository.findByCategory(keyword);
-        return filtered;
+    public Page<Store> storePage(Pageable pageable){
+        Page<Store> storePage = storeRepository.findAll(pageable);
+        return storePage;
     }
+    @Transactional
+    public Page<Store> search(String category, Pageable pageable){
+        Page<Store> search = storeRepository.findByCategory(category, pageable);
+        return search;
+    }
+
+    @Transactional
+    public Page<Store> search2(String address, Pageable pageable){
+        Page<Store> search2 = storeRepository.findByStore_addressContaining(address, pageable);
+
+        return search2;
+    }
+
 
 }
