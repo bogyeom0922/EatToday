@@ -59,12 +59,6 @@ public class LoginController {
         return "user/login";
     }
 
-    @GetMapping("/category")//getmapping(/login)-> return login 받아옴, url 요청 받는것
-    public String category(){ //Model model 로 model 객체 받아옴, login html에 있는 uname 채울 수 있음
-
-        return "category";
-    }
-
     //로그인 처리 로직 , 기본적으로 login 할 때 postmapping 사용, Security 쓰면 알아서 postmapping 해주기 때문에 getmapping만 썼던 것임
     @PostMapping("/login")
     public String login(userForm form, HttpSession session)

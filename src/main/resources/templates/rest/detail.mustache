@@ -23,8 +23,36 @@
 
 
 <form>
-    <label></label>
+    <div>
+        <label>리뷰</label>
+        <textarea type="text" rows="3" id="new-review-body"></textarea>
+    </div>
+{{#rest}}
+        <input type="hidden" id="new-review-store-id" value="{{id}}">
+{{/rest}}
+    <button type="button" id="review-create-btn">댓글작성</button>
 </form>
 
-
 {{>layouts/footer}}
+
+<script>
+    {
+        const reviewCreateBtn = document.querySelector("#review-create-btn");
+        reviewCreateBtn.addEventListener("click", function() {
+            const review = {
+                body: document.querySelector("#new-review-body").value,
+                storeId: document.querySelector("#new-review-store-id").value
+            };
+            console.log(review);
+
+            const url = "/api/store/" + review.storeId + "/review";
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(review)
+            });
+        });
+    }
+</script>

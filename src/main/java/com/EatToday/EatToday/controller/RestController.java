@@ -30,7 +30,6 @@ public class RestController {
     @GetMapping(value ="/storelist")
     public String home(Model model) throws IOException {
         List<StoreDto> storeDtoList = storeService.getBoardList();
-
         model.addAttribute("list",storeDtoList);
 
         return "storelist";
@@ -46,4 +45,25 @@ public class RestController {
         // 3. 뷰 페이지 반환하기
         return "rest/detail";
     }
+
+    @GetMapping("/category")
+    public String category(Model model) {
+        int randInt1 = (int)((Math.random()*329)+988);
+        Long id1=Long.valueOf(randInt1);
+        Store storeentity1 = storeRepository.findById(id1).orElse(null);
+        model.addAttribute("randomStore1", storeentity1);
+
+        int randInt2 = (int)((Math.random()*329)+988);
+        Long id2=Long.valueOf(randInt2);
+        Store storeentity2 = storeRepository.findById(id2).orElse(null);
+        model.addAttribute("randomStore2", storeentity2);
+
+        int randInt3 = (int)((Math.random()*329)+988);
+        Long id3=Long.valueOf(randInt3);
+        Store storeentity3 = storeRepository.findById(id3).orElse(null);
+        model.addAttribute("randomStore3", storeentity3);
+        return "category";
+    }
+
 }
+
