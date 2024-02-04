@@ -84,12 +84,6 @@ public class LoginController {
         return "user/login";
     }
 
-    @GetMapping("/category")//getmapping(/login)-> return login 받아옴, url 요청 받는것
-    public String category(){ //Model model 로 model 객체 받아옴, login html에 있는 uname 채울 수 있음
-
-        return "category";
-    }
-
     //로그인 처리 로직 , 기본적으로 login 할 때 postmapping 사용, Security 쓰면 알아서 postmapping 해주기 때문에 getmapping만 썼던 것임
     @PostMapping("/login")
     public String login(userForm form, HttpServletRequest httpServlet, Model model)
@@ -121,6 +115,78 @@ public class LoginController {
 
     }
 
+    @GetMapping("/user/findid") //아이디 찾기 뷰
+    public String findidview()
+    {
+        return "user/findid";
+    }
+
+    @PostMapping("/user/findid") //아이디 찾기
+    public String findid(userForm form, Model model)
+    {
+        userForm findidResult = userService.findid(form);
+
+        if(findidResult != null)
+        {
+            log.info("id = "+findidResult.getUid());
+            model.addAttribute("message", findidResult.getUname()+"님의 id : "+findidResult.getUid());
+            return "user/findidComplete";
+        }
+        else
+        {
+            log.info("find id fail");
+            return "user/findid";
+        }
+
+    }
+
+    @GetMapping("/user/findpassword") //비밀번호 찾기 뷰
+    public String findpassword_view()
+    {
+        return "user/findpassword";
+    }
+
+    @PostMapping("/user/findpassword") //비밀번호 찾기
+    public String findpassword(userForm form, Model model)
+    {
+        userForm findidResult = userService.findpassword(form);
+
+        if(findidResult != null)
+        {
+            log.info("password = "+findidResult.getUpassword());
+            model.addAttribute("message", findidResult.getUname()+"님의 password : "+findidResult.getUpassword());
+            return "user/findidComplete";
+        }
+        else
+        {
+            log.info("find password fail");
+            return "user/findpasswrod";
+        }
+
+    }
+
+
+    @GetMapping("/logout") //로그아웃
+    public String logout(HttpServletRequest request)
+    {
+        HttpSession session = request.getSession(false); // Session이 없으면 null return
+
+        if(session != null) //session에 값 있으면
+        {
+            session.invalidate(); //세션 초기화
+            log.info("세션 초기화 성공");
+        }
+
+        return "user/login";
+    }
+
+    @GetMapping("/loginfo")
+    public String loginfo(Model model)
+    {
+        model.addAttribute("uname","dd");
+
+        return "user/loginfo";
+    }
 
 
 }

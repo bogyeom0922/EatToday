@@ -14,16 +14,20 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+
+    //로그인 서비스
     public userForm login(userForm form)
     {
         // 1. 회원이 입력 uid로 db조회
         Optional<User> userOptional = userRepository.findByuid(form.getUid());
 
 
-        // 2. db에 있는 pw와 입력한 pw 같은지 확인
+
         if(userOptional.isPresent()) //조회 결과가 있다
         {
-            User user = userOptional.get(); //optional로 감싸진 객체를 벗겨내는 작, optional 벗겨내고 entity 객체 가져옴
+            User user = userOptional.get(); //optional로 감싸진 객체를 벗겨내는 작업, optional 벗겨내고 entity 객체 가져옴
+
+            // 2. db에 있는 pw와 입력한 pw 같은지 확인
             if(user.getUpassword().equals(form.getUpassword())){
                 //entity 와 dto 가져온게 일체할 경우
                 //entity -> dto로 변환 후 리턴
@@ -61,4 +65,41 @@ public class UserService {
     {
         return userRepository.existsByuname(uname);
     }
+
+    //닉네임으로 아이디 찾기 서비스
+    public userForm findid(userForm form)
+    {
+        Optional<User> Nickname = userRepository.findByuname(form.getUname());
+
+        if(Nickname.isPresent())//닉네임 조회 결과 있으면
+        {
+            User user = Nickname.get(); //엔티티로 가져와서
+            userForm dto = userForm.toUserFrom(user); // dto로 변환
+
+            return dto; //dto반환
+
+        }
+        else {
+            return null;
+        }
+
+    }
+
+    //아이디로 비밀번호 찾기 서비스
+    public userForm findpassword(userForm form)
+    {
+        Optional<User> id = userRepository.findByuid(form.getUid()); //uid 관한 정보 가져옴
+        if(id.isPresent()) //있는 아이디면
+        {
+            User user = id.get(); //uid 관한 정보 엔티티 가져와서
+            userForm dto = userForm.toUserFrom(user); //dto로 반환
+
+            return dto;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }
