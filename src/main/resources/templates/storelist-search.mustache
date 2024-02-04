@@ -44,11 +44,7 @@
     </div>
 </nav>
 <h2>매장 정보</h2>
-<form action="/storelist/filter" method="GET" class="form-inline p-2 bd-highlight" role="search">
-    <select name = "search-option">
-        <option value = "region">지역</option>
-        <option value = "category">카테고리</option>
-    </select>
+<form action="/storelist/search" method="GET" class="form-inline p-2 bd-highlight" role="search">
     <input type="text" name="search" class="form-control" id="search" placeholder="검색">
     <button class="btn btn-success bi bi-search">
 
@@ -72,7 +68,7 @@
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#filterList}}
+        {{#searchList}}
             <tr>
                 <td>{{id}}</td>
                 <td>{{category}}</td>
@@ -85,7 +81,7 @@
                 <td>{{review_content}}</td>
                 <td>{{store_menu}}</td>
             </tr>
-        {{/filterList}}
+        {{/searchList}}
         </tbody>
     </table>
 

@@ -1,4 +1,4 @@
-package com.EatToday.EatToday.Service;
+package com.EatToday.EatToday.service;
 
 import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.dto.userForm;

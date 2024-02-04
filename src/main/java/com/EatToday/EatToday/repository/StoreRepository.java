@@ -23,4 +23,6 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     Page<Store> findByStore_addressContaining(String address, Pageable pageable);
 
 
+    @Query(value = "select p from Store p where p.store_img Like %?1% OR p.store_name Like %?1% OR p.store_time Like %?1% OR p.store_phone Like %?1% OR p.store_star Like %?1%")
+    Page<Store> findByAllContent(String keyword, Pageable pageable);
 }

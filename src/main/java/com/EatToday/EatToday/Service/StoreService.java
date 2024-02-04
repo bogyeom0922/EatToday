@@ -1,4 +1,4 @@
-package com.EatToday.EatToday.Service;
+package com.EatToday.EatToday.service;
 
 import com.EatToday.EatToday.dto.StoreDto;
 import com.EatToday.EatToday.entity.Store;
@@ -51,16 +51,23 @@ public class StoreService{
         return storePage;
     }
     @Transactional
-    public Page<Store> search(String category, Pageable pageable){
+    public Page<Store> filterByCategory(String category, Pageable pageable){
         Page<Store> search = storeRepository.findByCategory(category, pageable);
         return search;
     }
 
     @Transactional
-    public Page<Store> search2(String address, Pageable pageable){
+    public Page<Store> filterByStore_address(String address, Pageable pageable){
         Page<Store> search2 = storeRepository.findByStore_addressContaining(address, pageable);
 
         return search2;
+    }
+
+    @Transactional
+    public Page<Store> allSearch(String keyword, Pageable pageable){
+        Page<Store> allSearch = storeRepository.findByAllContent(keyword, pageable);
+
+        return allSearch;
     }
 
 

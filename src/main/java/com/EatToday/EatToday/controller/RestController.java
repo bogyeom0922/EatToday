@@ -1,7 +1,6 @@
 package com.EatToday.EatToday.controller;
 
-import com.EatToday.EatToday.Service.StoreService;
-import com.EatToday.EatToday.dto.StoreDto;
+import com.EatToday.EatToday.service.StoreService;
 import com.EatToday.EatToday.repository.StoreRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -15,11 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.EatToday.EatToday.entity.Store;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
-import java.util.List;
 
 @Slf4j
 @Controller
@@ -45,30 +42,41 @@ public class RestController {
         return "storelist";
     }
 
-    @GetMapping(value ="/storelist/filter") //검색 기능을 통한 식당 조회
-    public String search(Model model, @RequestParam(value = "search-option") String option,
+    @GetMapping(value ="/storelist/search") //검색 기능을 통한 식당 조회
+    public String search(Model model,
                          @RequestParam(value = "search")String keyword, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
         Page<Store> storeList = null;
 
-        if(option.equals("region")){
-            storeList = storeService.search2(keyword, pageable);
-            }
-        else{
-            storeList = storeService.search(keyword, pageable);
-        }
+        storeList = storeService.allSearch(keyword,pageable);
 
         if(storeList == null)
             return "storelist";
 
-        model.addAttribute("filterList",storeList);
+        model.addAttribute("searchList",storeList);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next",pageable.next().getPageNumber());
         model.addAttribute("hasNext", storeList.hasNext());
         model.addAttribute("hasPrev", storeList.hasPrevious());
         model.addAttribute("keyword", keyword);
-        return "storelist-filter";
+        return "storelist-search";
     }
- 
+
+    @GetMapping(value = "/storelist/filter/{filter}")
+    public String filter(@PathVariable String filter, Model model,@PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException{
+            String[] keyword = filter.split("-");
+            String filter_name = keyword[1];
+
+            Page<Store> FilteredList = null;
+            if(filter.contains("category")){
+                FilteredList = storeService.filterByCategory(filter_name, pageable);
+            }
+            else if(filter.contains("region")){
+                FilteredList = storeService.filterByStore_address(filter_name, pageable);
+            }
+            model.addAttribute("filterList", FilteredList);
+            return "redirect:/storelist/filter";
+    }
+
     @GetMapping("/rest/{id}")
     public String show(@PathVariable Long id, Model model) {
         log.info("id = " + id);
