@@ -33,7 +33,7 @@ public class RestController {
         this.storeService = storeService;
     }
 
-    @GetMapping(value ="/storelist")
+    @GetMapping(value ="/storelist") //전체 식당 조회
     public String home(Model model,@PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
         Page<Store> storeList = storeService.storePage(pageable);
 
@@ -45,7 +45,7 @@ public class RestController {
         return "storelist";
     }
 
-    @GetMapping(value ="/storelist/filter")
+    @GetMapping(value ="/storelist/filter") //검색 기능을 통한 식당 조회
     public String search(Model model, @RequestParam(value = "search-option") String option,
                          @RequestParam(value = "search")String keyword, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
         Page<Store> storeList = null;
@@ -58,7 +58,7 @@ public class RestController {
         }
 
         if(storeList == null)
-            return "/storelist";
+            return "storelist";
 
         model.addAttribute("filterList",storeList);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
@@ -66,7 +66,7 @@ public class RestController {
         model.addAttribute("hasNext", storeList.hasNext());
         model.addAttribute("hasPrev", storeList.hasPrevious());
         model.addAttribute("keyword", keyword);
-        return "/storelist-filter";
+        return "storelist-filter";
     }
  
     @GetMapping("/rest/{id}")
