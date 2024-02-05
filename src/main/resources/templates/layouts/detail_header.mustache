@@ -18,9 +18,11 @@
 <img src="/img/logo.png" width="100" class="detail_head_img">
 <div class="detail_head_list">
     <a href="#">Category&emsp;</a>
-    <a href="#">MyPage</a>
+    {{#user}}
+    <a href="/{{uid}}">MyPage</a>
+    {{/user}}
 </div>
 <div class="logout">
-    <a href="#">LOGOUT</a>
+    <a href="/logout">LOGOUT</a>
 </div>
 </div>

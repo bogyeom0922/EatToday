@@ -9,11 +9,11 @@
 <body>
 <h1> welcome Eattoday!</h1>
 
-<form action = "/user/Signup"  method="post" th:object="${Signup}"><!-- post로 데이터 생성, action = Eattoday 이동-->
+<form action = "/user/Signup"  method="post"><!-- post로 데이터 생성, action = Eattoday 이동-->
     <div class="mb-3">
         <label th:for="uid" class="form-label">id</label>
-        <input type="text" class="form-control" name="uid" th:field="*{uid}" th:errorclass="${#fields.hasErrors('uid')} ? 'error-input' : ''"><!-- 여기서 name은 dto 필드와 동일하게-->
-        <div class="error-class" th:if="${#fields.hasErrors('uid')}" th:errors="*{uid}"></div>
+        <input type="text" class="form-control" name="uid" ><!-- 여기서 name은 dto 필드와 동일하게-->
+
     </div>
     <div class="mb-3">
         <label for="upassword" class="form-label">Password</label>

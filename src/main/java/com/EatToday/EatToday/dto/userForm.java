@@ -26,7 +26,7 @@ public class userForm {
     // dto(userForm)에서 entity(User)로 값 넘겨줌
     public User toEntity()
     {
-        return new User(null, uid,uname,upassword);
+        return new User(id, uid,uname,upassword);
     }
 
     public static userForm toUserFrom(User user)

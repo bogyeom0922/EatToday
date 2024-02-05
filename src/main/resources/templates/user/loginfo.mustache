@@ -1,15 +1,25 @@
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1>{{uname}}님 정보</h1>
+{{>layouts/detail_header}}
+{{#user}}
+    <input name = "uname" type="hidden" value="{{uname}}"> <!-- 몇 번 id 수정해야 하는지 알려주기 위함-->
+    <h2>{{uname}} 님의 마이페이지</h2>
+    <a href="/{{uid}}">회원수정</a>
+    <tr>
+        <h1> 프로필 이미지</h1>
+        <th>이미지</th> <a href="">이미지 수정 /</a><a href="">삭제</a>
 
 
+        <h1> 닉네임 변경 </h1>
+        <form action = "/uname/update" method="post"> <!-- get으로 받아서 데이터 맞는지 확인, action = login 창으로-->
+            <input name = "id"  type="hidden" value="{{id}}">
+            <input name = "uid"  type="hidden" value="{{uid}}">
+            <input name = "upassword"  type="hidden" value="{{upassword}}">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="uname" placeholder="새로운 닉네임을 입력하세요.">
+            </div>
 
-</body>
-</html>
+            <button type="submit" class="btn btn-primary">변경</button>
+        </form>
+    </tr>
+{{/user}}
+
+{{>layouts/footer}}
