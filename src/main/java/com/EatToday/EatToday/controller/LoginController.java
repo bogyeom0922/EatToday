@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Slf4j // 로깅확인 어노테이션
@@ -84,36 +85,47 @@ public class LoginController {
         return "user/login";
     }
 
-    //로그인 처리 로직 , 기본적으로 login 할 때 postmapping 사용, Security 쓰면 알아서 postmapping 해주기 때문에 getmapping만 썼던 것임
+
     @PostMapping("/login")
-    public String login(userForm form, HttpServletRequest httpServlet, Model model)
-    {
+    public String login(userForm form, HttpServletRequest httpServlet, Model model) {
+
         userForm loginResult = userService.login(form);
 
-        if(loginResult != null)
-        {
-            //login 성공
+        if (loginResult != null) { //로그인 성공
 
             //기존 세션 파기
             httpServlet.getSession().invalidate();
             //세션 생성
             HttpSession session = httpServlet.getSession(true);
-            session.setAttribute("uname",loginResult.getUname()); //sesiion에 uname넣어줌
-
+            session.setAttribute("sessionUser", loginResult.getUid());
+            model.addAttribute("uname",loginResult.getUname());
             session.setMaxInactiveInterval(1800); // session 30분 유지
 
-            model.addAttribute("uname",loginResult.getUname());
+            User userEntity = form.toEntity();
+
             log.info("Login successful for user: {}", loginResult.getUname());
-            return "category";
-        }
-        else {
+            return "redirect:/login/"+userEntity.getUid();
+        } else {
             //login 실패
             log.info("Login failed");
-            return "user/login";
+            return "redirect:/user/login";
         }
 
 
     }
+
+    @GetMapping("/login/{uid}")
+    public String successLogin(@PathVariable String uid,Model model)
+    {
+        log.info("uid = "+uid);
+
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+
+        model.addAttribute("user",userEntity);
+        return "category";
+    }
+
+
 
     @GetMapping("/user/findid") //아이디 찾기 뷰
     public String findidview()
@@ -173,20 +185,52 @@ public class LoginController {
 
         if(session != null) //session에 값 있으면
         {
-            session.invalidate(); //세션 초기화
+            session.removeAttribute("sessionUser"); //세션 초기화
             log.info("세션 초기화 성공");
         }
 
         return "user/login";
     }
 
-    @GetMapping("/loginfo")
-    public String loginfo(Model model)
+    @GetMapping("/{uid}") //마이페이지
+    public String loginfo(@PathVariable String uid, Model model)
     {
-        model.addAttribute("uname","dd");
+        log.info("uid = "+uid);
+
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+
+        model.addAttribute("user", userEntity);
 
         return "user/loginfo";
     }
+    @PostMapping("/uname/update") //닉네임 변경
+    public String nicknameUpdate(@Valid userForm userForm)
+    {
+        if(userService.checkunameDuplicate(userForm.getUname())) //nickname 중복
+        {
+            log.info("uname: "+userForm.getUname()+" 중복");
+            return "redirect:/"+userForm.getUid();
+        }
+
+
+        log.info(userForm.toString());
+
+        User userEntity = userForm.toEntity();
+        log.info(userEntity.toString());
+        //기존 값 가져오기
+        User target = userRepository.findByuid(userEntity.getUid()).orElse(null); //
+
+        if(target != null)
+        {
+            userRepository.save(userEntity);
+        }
+        log.info("닉네임 변경 성공");
+        return "redirect:/"+userEntity.getUid();
+
+    }
+
+
+
 
 
 }

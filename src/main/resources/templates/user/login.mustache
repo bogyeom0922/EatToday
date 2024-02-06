@@ -1,13 +1,22 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="/css/main.css?after" rel="stylesheet">
+    <title>restaurant</title>
 </head>
 <body>
-<h1> welcome Eattoday!</h1>
+
+<!--head-->
+<div class="detail_head">
+    <img src="/img/logo.png" width="100" class="detail_head_img">
+</div>
 
 <form action = "/login" method="post"> <!-- get으로 받아서 데이터 맞는지 확인, action = login 창으로-->
     <div class="mb-3">
@@ -31,5 +40,11 @@
     <button type="submit"> 비밀번호 찾기</button>
 </form>
 
+
+<!--site info-->
+<hr style="margin-top: 350px">
+<div class="footer">
+    <a href="https://github.com/bogyeom0922/EatToday">Git</a> | <a href="https://www.notion.so/Team-Project-b0df429aa1584c4b8dfc6742be384227?pvs=4">Notion</a></p>
+</div>
 </body>
 </html>
