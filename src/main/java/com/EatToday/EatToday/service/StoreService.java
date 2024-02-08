@@ -43,4 +43,11 @@ public class StoreService{
         return storeDtoList;
     }
 
+    public List<Store> index() {
+        return storeRepository.findAll();
+    }
+
+    public Store show(Long id) {
+        return storeRepository.findById(id).orElse(null);
+    }
 }

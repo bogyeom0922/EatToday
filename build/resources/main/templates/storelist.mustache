@@ -1,27 +1,162 @@
-{{>layouts/detail_header}}
-<div>
-    <table>
-        <thead class="Store">
-        <tr>
-            <th>이미지</th>
-            <th>이름</th>
-            <th>시간</th>
-            <th>전화번호</th>
-            <th>별점</th>
-        </tr>
-        </thead>
-        <tbody id="tbody">
-        {{#list}}
-            <tr>
-                <td>{{store_img}}</td>
-                <td><a href="/rest/{{id}}">{{store_name}}</a></td>
-                <td>{{store_time}}</td>
-                <td>{{store_phone}}</td>
-                <td>{{store_star}}</td>
-            </tr>
-        {{/list}}
-        </tbody>
-    </table>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="/css/main.css?after" rel="stylesheet">
+    <title>restaurant</title>
+</head>
+<body>
+
+<!--head-->
+<div class="detail_head">
+    <img src="/img/logo.png" width="100" class="detail_head_img">
+    <div class="search">
+        <input style="font-size:16px; width:80%; padding:10px; border:0; outline:none; float:left;" type="text" placeholder="매장명을 입력하세요">
+        <button style="height:100%; width:100px; border:0; background:rgba(0,100,0,0.76); color:#fff; font-size:16px; font-weight:bold; float:right">검색</button>
+    </div>
+    <div class="detail_head_list">
+        <a href="#">Category&emsp;</a>
+        <a href="#">MyPage</a>
+    </div>
+    <div class="logout">
+        <a href="#">LOGOUT</a>
+    </div>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="category_box">
+<!--        메뉴별 필터-->
+        <p style="font-size: 20px; font-weight: 400;">MENU</p>
+        <div class="menu">
+        <table style="width:95%">
+            <tr>
+                <td colspan = "3" ><a href="">전체보기</a></td>
+            </tr>
+            <tr>
+                <td style="width:20%"><a href="/category-백반">백반</a></td>
+                <td style="width:20%"><a href="/category-국밥">국밥</a></td>
+                <td style="width:20%"><a href="/category-찌개">찌개</a></td>
+                <td style="width:20%"><a href="/category-전골">전골</a></td>
+                <td style="width:20%"><a href="/category-쌈밥">쌈밥</a></td>
+            </tr>
+            <tr>
+                <td><a href="/category-조림">조림</a></td>
+                <td><a href="/category-찜">찜</a></td>
+                <td><a href="/category-도시락">도시락</a></td>
+                <td><a href="/category-죽">죽</a></td>
+                <td><a href="/category-전">전</a></td>
+            </tr>
+            <tr>
+                <td><a href="/category-분식">분식</a></td>
+                <td><a href="/category-곱창">곱창</a></td>
+                <td><a href="/category-족발">족발</a></td>
+                <td><a href="/category-보쌈">보쌈</a></td>
+                <td><a href="/category-치킨">치킨</a></td>
+            </tr>
+            <tr>
+                <td><a href="/category-갈비">갈비</a></td>
+                <td><a href="/category-소고기">소고기</a></td>
+                <td><a href="/category-삼겹살">삼겹살</a></td>
+            </tr>
+        </table>
+    </div>
+
+<!--        지역별 필터-->
+        <p style="font-size: 20px; font-weight: 400;">REGION</p>
+        <div class="menu">
+            <table style="width:100%">
+                <tr>
+                    <td colspan = "3" ><a href="">전체보기</a></td>
+                </tr>
+                <tr>
+                    <td style="width:20%"><a href="/category-마포구">마포구</a></td>
+                    <td style="width:20%"><a href="/category-서대문구">서대문구</a></td>
+                    <td style="width:20%"><a href="/category-은평구">은평구</a></td>
+                    <td style="width:20%"><a href="/category-종로구">종로구</a></td>
+                    <td style="width:20%"><a href="/category-중구">중구</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/category-용산구">용산구</a></td>
+                    <td><a href="/category-성동구">성동구</a></td>
+                    <td><a href="/category-광진구">광진구</a></td>
+                    <td><a href="/category-동대문구">동대문구</a></td>
+                    <td><a href="/category-성북구">성북구</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/category-강북구">강북구</a></td>
+                    <td><a href="/category-도봉구">도봉구</a></td>
+                    <td><a href="/category-노원구">노원구</a></td>
+                    <td><a href="/category-중랑구">중랑구</a></td>
+                    <td><a href="/category-강동구">강동구</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/category-송파구">송파구</a></td>
+                    <td><a href="/category-강남구">강남구</a></td>
+                    <td><a href="/category-서초구">서초구</a></td>
+                    <td><a href="/category-관악구">관악구</a></td>
+                    <td><a href="/category-동작구">동작구</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/category-영등포구">영등포구</a></td>
+                    <td><a href="/category-금천구">금천구</a></td>
+                    <td><a href="/category-구로구">구로구</a></td>
+                    <td><a href="/category-양천구">양천구</a></td>
+                    <td><a href="/category-강서구">강서구</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<div class="store_list_box">
+        <table style="border-spacing: 20px;">
+            <thead class="Store" >
+            <tr>
+    <!--            <th>이미지</th>-->
+                <th>이름</th>
+                <th>시간</th>
+                <th>전화번호</th>
+                <th>별점</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#list}}
+                <tr>
+    <!--                <td>{{store_img}}</td>-->
+                    <td><a href="/rest/{{id}}">{{store_name}}</a></td>
+                    <td>{{store_time}}</td>
+                    <td>{{store_phone}}</td>
+                    <td>{{store_star}}</td>
+                </tr>
+            {{/list}}
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>

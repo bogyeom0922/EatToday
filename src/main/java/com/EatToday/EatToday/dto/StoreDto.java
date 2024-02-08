@@ -11,7 +11,7 @@ import lombok.Setter;
 @Data
 
 public class StoreDto {
-    private long id;
+    private Long id;
     private String category;
     private String store_name;
     private String store_address;
