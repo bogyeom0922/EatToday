@@ -79,6 +79,8 @@ public class LoginController {
         }
     }
 
-
-
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "user/mypage";
+    }
 }

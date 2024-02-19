@@ -1,6 +1,8 @@
 package com.EatToday.EatToday.controller;
 
 import com.EatToday.EatToday.dto.ReviewDto;
+import com.EatToday.EatToday.entity.User;
+import com.EatToday.EatToday.repository.UserRepository;
 import com.EatToday.EatToday.service.ReviewService;
 import com.EatToday.EatToday.service.StoreService;
 import com.EatToday.EatToday.dto.StoreDto;

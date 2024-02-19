@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 랜덤 식당 추천">
+    <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 리뷰 기능 추가">
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,52 +14,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fe0b932-e60f-43ce-9284-e9b4285109cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9fe0b932-e60f-43ce-9284-e9b4285109cc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/api/ReviewApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/api/ReviewApiController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/RestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/RestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/dto/ReviewDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/dto/ReviewDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/dto/StoreDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/dto/StoreDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/entity/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/entity/Review.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/entity/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/entity/Store.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/repository/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/repository/ReviewRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/service/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/service/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/service/StoreService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/META-INF/orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/META-INF/orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/repository/UserRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/category.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layouts/detail_header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layouts/detail_header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layouts/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layouts/footer.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/storelist.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/storelist.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RestController.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RestController.class.uniqueId0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/ReviewRepositoryTest.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/ReviewRepositoryTest.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/api/ReviewApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/api/ReviewApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/RestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/RestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/dto/ReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/dto/ReviewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/dto/StoreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/dto/StoreDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/entity/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/entity/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/entity/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/service/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/service/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layouts/detail_header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layouts/detail_header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layouts/footer.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layouts/footer.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/storelist.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/storelist.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/EatToday/EatToday/repository/ReviewRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/Signup.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/Signup.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +92,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bogyeom/5" />
+        <entry key="$PROJECT_DIR$" value="bogyeom/8" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -155,18 +128,18 @@
     &quot;Spring Boot.EatTodayApplication.executor&quot;: &quot;Run&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;bogyeom/8&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;bogyeom/14&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bogyeom/EatToday/src/main/resources/templates/user&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bogyeom/EatToday&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -227,6 +200,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -253,6 +233,14 @@
       <workItem from="1707106584017" duration="1443000" />
       <workItem from="1707108564894" duration="475000" />
       <workItem from="1707291714209" duration="12448000" />
+      <workItem from="1707365007909" duration="243000" />
+      <workItem from="1707369397148" duration="83000" />
+      <workItem from="1707369489500" duration="274000" />
+      <workItem from="1707369774120" duration="121000" />
+      <workItem from="1707406188329" duration="7799000" />
+      <workItem from="1707415973260" duration="871000" />
+      <workItem from="1707421842611" duration="6679000" />
+      <workItem from="1708101852939" duration="12427000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -318,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706344685467</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Feat: 리뷰 기능 추가">
+      <option name="closed" value="true" />
+      <created>1707365241273</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707365241274</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +335,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="test commit" />
     <MESSAGE value="Feat: 랜덤 식당 추천" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: 랜덤 식당 추천" />
+    <MESSAGE value="Feat: 리뷰 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: 리뷰 기능 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
