@@ -5,34 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 리뷰 기능 추가">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fe0b932-e60f-43ce-9284-e9b4285109cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9fe0b932-e60f-43ce-9284-e9b4285109cc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/RestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/RestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/category.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layouts/detail_header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layouts/detail_header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/storelist.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/storelist.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/RestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/controller/RestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/EatToday/EatToday/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/category.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layouts/detail_header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layouts/detail_header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/storelist.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/storelist.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/Signup.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/Signup.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/Signup.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/Signup.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/login.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/login.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +216,7 @@
       <workItem from="1707406188329" duration="7799000" />
       <workItem from="1707415973260" duration="871000" />
       <workItem from="1707421842611" duration="6679000" />
-      <workItem from="1708101852939" duration="12427000" />
+      <workItem from="1708101852939" duration="13007000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -314,7 +290,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707365241274</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Feat: 리뷰 기능 추가">
+      <option name="closed" value="true" />
+      <created>1708313104771</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708313104772</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Feat: 리뷰 기능 추가">
+      <option name="closed" value="true" />
+      <created>1708313168593</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708313168593</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
