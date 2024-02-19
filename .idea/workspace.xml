@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 리뷰 기능 추가" />
+    <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 오류수정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -211,7 +211,7 @@
       <workItem from="1707406188329" duration="7799000" />
       <workItem from="1707415973260" duration="871000" />
       <workItem from="1707421842611" duration="6679000" />
-      <workItem from="1708101852939" duration="13411000" />
+      <workItem from="1708101852939" duration="13780000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -309,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708313680556</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Feat: 오류수정">
+      <option name="closed" value="true" />
+      <created>1708314136415</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1708314136415</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +339,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="Feat: 랜덤 식당 추천" />
     <MESSAGE value="Feat: 리뷰 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: 리뷰 기능 추가" />
+    <MESSAGE value="Feat: 오류수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: 오류수정" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
