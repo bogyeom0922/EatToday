@@ -1,4 +1,16 @@
 <!doctype html>
+{{#msg}}
+    <script>
+            {{msg}}
+    </script>
+{{/msg}}
+
+{{#logmsg}}
+    <script>
+            {{logmsg}}
+    </script>
+{{/logmsg}}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +28,7 @@
 <!--head-->
 <div class="detail_head">
     <img src="/img/logo.png" width="100" class="detail_head_img">
+
 </div>
 
 <form action = "/login" method="post"> <!-- get으로 받아서 데이터 맞는지 확인, action = login 창으로-->
@@ -27,6 +40,7 @@
         <label for="upassword" class="form-label">Password</label>
         <input type="upassword" class="form-control" name="upassword" placeholder="비밀번호를 입력하세요.">
     </div>
+
     <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
 
