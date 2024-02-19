@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 리뷰 기능 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/EatToday/EatToday/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/Signup.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/Signup.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/login.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/login.mustache" afterDir="false" />
-    </list>
+    <list default="true" id="3f0abea5-636d-46dd-96fe-01241d6bfdd8" name="Changes" comment="Feat: 리뷰 기능 추가" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -216,7 +211,7 @@
       <workItem from="1707406188329" duration="7799000" />
       <workItem from="1707415973260" duration="871000" />
       <workItem from="1707421842611" duration="6679000" />
-      <workItem from="1708101852939" duration="13007000" />
+      <workItem from="1708101852939" duration="13411000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -306,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708313168593</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Feat: 리뷰 기능 추가">
+      <option name="closed" value="true" />
+      <created>1708313680556</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1708313680556</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
