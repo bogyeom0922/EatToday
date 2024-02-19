@@ -17,6 +17,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Slf4j // 로깅확인 어노테이션
 @Controller
@@ -87,7 +88,7 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public String login(userForm form, HttpServletRequest httpServlet, Model model) {
+    public String login(userForm form, HttpServletRequest httpServlet, Model model,RedirectAttributes rttr) {
 
         userForm loginResult = userService.login(form);
 
@@ -108,6 +109,7 @@ public class LoginController {
         } else {
             //login 실패
             log.info("Login failed");
+            rttr.addFlashAttribute("logmsg","아이디 또는 비밀번호가 틀렸습니다");
             return "redirect:/user/login";
         }
 
@@ -227,6 +229,25 @@ public class LoginController {
         log.info("닉네임 변경 성공");
         return "redirect:/"+userEntity.getUid();
 
+    }
+
+    @GetMapping("/{uid}/delete") //계정 삭제
+    public String deleteAccount(@PathVariable String uid, RedirectAttributes rttr)
+    {
+        log.info("계정 삭제 요청");
+
+        //1. 삭제할 대상 가져오기
+        User target = userRepository.findByuid(uid).orElse(null);
+        log.info(target.toString());
+
+        //2. 대상 엔티티 삭제
+        if(target != null)
+        {
+            userRepository.delete(target);
+            rttr.addFlashAttribute("msg", "계정이 삭제됐습니다!");
+        }
+
+        return "redirect:/user/login";
     }
 
 

@@ -1,6 +1,8 @@
 {{>layouts/detail_header}}
+
+
 {{#user}}
-    <input name = "uname" type="hidden" value="{{uname}}"> <!-- 몇 번 id 수정해야 하는지 알려주기 위함-->
+    <input name = "uname" type="hidden" value="{{uid}}"> <!-- 몇 번 id 수정해야 하는지 알려주기 위함-->
     <h2>{{uname}} 님의 마이페이지</h2>
     <a href="/{{uid}}">회원수정</a>
     <tr>
@@ -20,6 +22,10 @@
             <button type="submit" class="btn btn-primary">변경</button>
         </form>
     </tr>
+
+    <a href="/{{uid}}/delete" class = "btn btn-danger">계정 삭제</a>
 {{/user}}
+
+
 
 {{>layouts/footer}}
