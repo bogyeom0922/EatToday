@@ -1,0 +1,27 @@
+/*전체 페이지 기본 설정*/
+body{
+    background-color: #fffde8ff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+img{
+    display: block;
+}
+div{
+    letter-spacing: 1px;
+}
+
+/*home*/
+.home_img {
+    margin: auto;
+    margin-top: 4%;
+}
+.home_title {
+    text-align: center;
+    font-size: 45px;
+    color: #595959;
+    font-weight: 600;
+    word-spacing: 16px;
+    margin-top: 1%;
+    margin-left: 1%;
+}
