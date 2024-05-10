@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/main.css?after" rel="stylesheet">
+    <title>Restaurant details</title>
+</head>
+<body>
+<!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
+    {{#rest}}
+        매장 사진: <img src="{{store_img}}"><br>
+        매장 이름: {{store_name}}<br>
+        영업시간: {{store_time}}<br>
+        주소: {{store_address}}<br>
+        대표번호: {{store_phone}}<br>
+        별점: {{store_star}}<br>
+        메뉴: {{store_menu}}
+        리뷰: {{review_content}}
+    {{/rest}}
+</body>
+</html>
