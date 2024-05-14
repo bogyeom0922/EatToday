@@ -1,5 +1,6 @@
 package com.eattoday.Eattoday.controller;
 
+import com.eattoday.Eattoday.dto.StoreDto;
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.service.StoreService;
@@ -32,9 +33,11 @@ public class RestController {
 
         log.info("StoreList uid = " + uid);
 
-        List<Store> storeList = storeService.index();
+        List<StoreDto> storeList = storeService.getBoardList();
         model.addAttribute("list", storeList);
 
         return "rest/storelist";
     }
+
+
 }
