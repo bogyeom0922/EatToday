@@ -29,15 +29,14 @@
     const Display = document.getElementById("Display"); // 문장을 표시할 div 가져옴
 
     arrs.forEach((arr, index) => {
-
+        let text = arr.trim(); // 요소 앞 뒤 불필요한 공백 제거
         if (index === arrs.length - 1) {
-            arr = arr.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+            text = text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
         }
-        Display.append(arr); //div에 글자 추가
+        Display.append(text); //div에 글자 추가
         Display.appendChild(document.createElement("br")); // br 추가
     });
-
-
+    
 </script>
 </body>
 
