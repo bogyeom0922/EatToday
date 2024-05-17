@@ -22,10 +22,11 @@
     {{/rest}}
 </body>
 <script type="text/javascript">
-    const str = document.getElementById("menu").textContent;
+
+    const str = document.getElementById("menu").textContent; //div 내용 가져옴
     const arr = str.split(", ");
 
-    document.writeln(arr)
-    document.writeln(arr.length);
+    document.writeln(arr[0]);
+    document.writeln(arr[1]);
 </script>
 </html>
