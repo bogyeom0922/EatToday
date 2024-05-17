@@ -15,30 +15,53 @@
         주소: {{store_address}}<br>
         대표번호: {{store_phone}}<br>
         별점: {{store_star}}<br>
-        <div id="menu">
+        <div id="MenuSentence">
         {{store_menu}}
         </div>
-        <div id="Display"></div>
-        리뷰: {{review_content}}
+        <div id="MenuDisplay"></div>
+
+        <div id="ReviewSentence">
+            {{review_content}}
+        </div>
+        <div id="ReviewDisplay"></div>
     {{/rest}}
+
 <script type="text/javascript">
 
-    const str = document.getElementById("menu").textContent; //div 내용 가져옴
+    const str = document.getElementById("MenuSentence").textContent; //div 내용 가져옴
     const arrs = str.split(", ");
 
-    const Display = document.getElementById("Display"); // 문장 표시할 div 가져옴
-    document.getElementById("menu").style.display = "none";
+    const MenuDisplay = document.getElementById("MenuDisplay"); // 문장 표시할 div 가져옴
+    document.getElementById("MenuSentence").style.display = "none"; //원래 있던 문장 숨기기
 
     arrs.forEach((arr, index) => {
         let text = arr.trim(); // 요소 앞 뒤 불필요한 공백 제거
         if (index === arrs.length - 1) {
             text = text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
         }
-        Display.append(text); //div에 글자 추가
-        Display.appendChild(document.createElement("br")); // br 추가
+        MenuDisplay.append(text); //div에 글자 추가
+        MenuDisplay.appendChild(document.createElement("br")); // br 추가
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    const str = document.getElementById("ReviewSentence").textContent; //div 내용 가져옴
+    const arrs = str.split("+ ");
+
+    const ReviewDisplay = document.getElementById("ReviewDisplay"); // 문장 표시할 div 가져옴
+    document.getElementById("ReviewSentence").style.display = "none"; //원래 있던 문장 숨기기
+
+    arrs.forEach((arr, index) => {
+        let text = arr.trim(); // 요소 앞 뒤 불필요한 공백 제거
+        if (index === arrs.length - 1) {
+            text = text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+        }
+        ReviewDisplay.append(text); //div에 글자 추가
+        ReviewDisplay.appendChild(document.createElement("br")); // br 추가
     });
 
 </script>
 </body>
-
 </html>
