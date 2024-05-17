@@ -28,15 +28,15 @@
 
     const Display = document.getElementById("Display"); // 문장을 표시할 div 가져옴
 
-    // 각 문장을 반복하면서 화면에 추가합니다.
-    arrs.forEach(arr => {
-        // 마지막 글자를 제거합니다.
-        const trimmedText = arr.trim().slice(0, -1);
-        // 텍스트를 추가합니다.
-        Display.append(trimmedText);
-        // 줄바꿈을 추가합니다.
-        Display.appendChild(document.createElement("br"));
+    arrs.forEach((arr, index) => {
+
+        if (index === arrs.length - 1) {
+            arr = arr.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+        }
+        Display.append(arr); //div에 글자 추가
+        Display.appendChild(document.createElement("br")); // br 추가
     });
+
 
 </script>
 </body>
