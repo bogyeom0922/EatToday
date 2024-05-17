@@ -28,10 +28,15 @@
 
     const Display = document.getElementById("Display"); // 문장을 표시할 div 가져옴
 
-    arrs.forEach(arr => { // 배열 요소 반복하면서 화면에 출력
-        const br = document.createElement("br"); // br 생성
-        Display.append(arr.trim(), br); // 문장, br 추가
+    arrs.forEach((arr, index) => {
+
+        if (index === arrs.length - 1) {
+            arr = arr.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+        }
+        Display.append(arr); //div에 글자 추가
+        Display.appendChild(document.createElement("br")); // br 추가
     });
+
 
 </script>
 </body>
