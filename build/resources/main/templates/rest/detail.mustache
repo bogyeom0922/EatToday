@@ -15,8 +15,17 @@
         주소: {{store_address}}<br>
         대표번호: {{store_phone}}<br>
         별점: {{store_star}}<br>
+        <div class="menus">
         메뉴: {{store_menu}}
+        </div>
         리뷰: {{review_content}}
     {{/rest}}
 </body>
+<script type="text/javascript">
+    const str = document.getElementById("menu").textContent;
+    const arr = str.split(", ");
+
+    document.writeln(arr)
+    document.writeln(arr.length);
+</script>
 </html>
