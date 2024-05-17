@@ -24,4 +24,5 @@ public class RestController {
 
         return "rest/detail"; // 뷰 페이지 반환
     }
+
 }
