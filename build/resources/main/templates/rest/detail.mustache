@@ -15,18 +15,30 @@
         주소: {{store_address}}<br>
         대표번호: {{store_phone}}<br>
         별점: {{store_star}}<br>
-        <div class="menus">
-        메뉴: {{store_menu}}
+        <div id="menu">
+        {{store_menu}}
         </div>
+        <div id="Display"></div>
         리뷰: {{review_content}}
     {{/rest}}
-</body>
 <script type="text/javascript">
 
     const str = document.getElementById("menu").textContent; //div 내용 가져옴
-    const arr = str.split(", ");
+    const arrs = str.split(", ");
 
-    document.writeln(arr[0]);
-    document.writeln(arr[1]);
+    const Display = document.getElementById("Display"); // 문장을 표시할 div 가져옴
+
+    // 각 문장을 반복하면서 화면에 추가합니다.
+    arrs.forEach(arr => {
+        // 마지막 글자를 제거합니다.
+        const trimmedText = arr.trim().slice(0, -1);
+        // 텍스트를 추가합니다.
+        Display.append(trimmedText);
+        // 줄바꿈을 추가합니다.
+        Display.appendChild(document.createElement("br"));
+    });
+
 </script>
+</body>
+
 </html>

@@ -15,18 +15,25 @@
         주소: {{store_address}}<br>
         대표번호: {{store_phone}}<br>
         별점: {{store_star}}<br>
-        <div class="menus">
-        메뉴: {{store_menu}}
+        <div id="menu">
+        {{store_menu}}
         </div>
+        <div id="Display"></div>
         리뷰: {{review_content}}
     {{/rest}}
-</body>
 <script type="text/javascript">
 
     const str = document.getElementById("menu").textContent; //div 내용 가져옴
-    const arr = str.split(", ");
+    const arrs = str.split(", ");
 
-    document.writeln(arr[0]);
-    document.writeln(arr[1]);
+    const Display = document.getElementById("Display"); // 문장을 표시할 div 가져옴
+
+    arrs.forEach(arr => { // 배열 요소 반복하면서 화면에 출력
+        const br = document.createElement("br"); // br 생성
+        Display.append(arr.trim(), br); // 문장, br 추가
+    });
+
 </script>
+</body>
+
 </html>
