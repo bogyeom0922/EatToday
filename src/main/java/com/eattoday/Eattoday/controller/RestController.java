@@ -28,7 +28,8 @@ public class RestController {
     @GetMapping("/category")
     public String category(Model model)
     {
-        int random = (int)((Math.random()*329));  // 랜덤 함수로 정수 추출
+        long count = storeRepository.count(); // store 개수 추출
+        int random = (int)((Math.random()*count));  // count까지의 숫자 중 랜덤 함수로 정수 추출
         Long id=Long.valueOf(random); // id와 같은 Long타입으로 변경
         Store store = storeRepository.findById(id).orElse(null);
         model.addAttribute("randomStore", store); //model에 엔티티 값 저장
