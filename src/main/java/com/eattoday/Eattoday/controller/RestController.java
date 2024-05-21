@@ -28,6 +28,9 @@ public class RestController {
     @GetMapping("/category")
     public String category()
     {
+        int random1 = (int)((Math.random()*329));  // 랜덤 함수로 정수 추출
+        Long id1=Long.valueOf(random1); // id와 같은 Long타입으로 변경
+
         return "rest/category";
     }
 
