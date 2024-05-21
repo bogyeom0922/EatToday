@@ -25,4 +25,10 @@ public class RestController {
         return "rest/detail"; // 뷰 페이지 반환
     }
 
+    @GetMapping("/category")
+    public String category()
+    {
+        return "rest/category";
+    }
+
 }
