@@ -43,6 +43,20 @@ public class RestController {
         return "rest/storelist";
     }
 
+    @GetMapping(value = "/storelist/search/{uid}")
+    public String search(@PathVariable String uid, Model model, @RequestParam(value = "search")String keyword){
+        log.info("search uid = " + uid);
+        List<Store> storeList = null;
+
+        storeList = storeService.allSearch(keyword);
+
+        if(storeList == null)
+            return "rest/storelist";
+
+        model.addAttribute("searchList", storeList);
+        model.addAttribute("keyword", keyword);
+        return "rest/storelist-search";
+    }
 
 
 }
