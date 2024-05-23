@@ -50,5 +50,11 @@ public class StoreService {
         return storePage;
     }
 
+    @Transactional
+    public List<Store> allSearch(String keyword){
+        List<Store> allSearch = storeRepository.findByAllContent(keyword);
+
+        return allSearch;
+    }
 
 }
