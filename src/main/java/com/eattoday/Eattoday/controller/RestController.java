@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,16 +29,20 @@ public class RestController {
     private StoreService storeService;
 
     @GetMapping(value ="/storelist") //전체 식당 조회
-    public String home(@PathVariable String uid, Model model) throws IOException {
+    public String home(@PathVariable String uid, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC)Pageable pageable) throws IOException {
 
 
         log.info("StoreList uid = " + uid);
 
-        List<StoreDto> storeList = storeService.getBoardList();
+        Page<Store> storeList = storeService.storePage(pageable);
         model.addAttribute("list", storeList);
-
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        model.addAttribute("hasNext", storeList.hasNext());
+        model.addAttribute("hasPrev", storeList.hasPrevious());
         return "rest/storelist";
     }
+
 
 
 }
