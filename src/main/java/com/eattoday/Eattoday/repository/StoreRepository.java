@@ -15,7 +15,7 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     @Override
     ArrayList<Store> findAll();
 
-    @Query(value = "select p from Store p where p.store_img Like %?1% OR p.store_name Like %?1% OR p.store_time Like %?1% OR p.store_phone Like %?1% OR p.store_star Like %?1%")
+    @Query(value = "select * from Store where store_img Like %?1% OR store_name Like %?1% OR store_time Like %?1% OR store_phone Like %?1% OR store_star Like %?1%", nativeQuery = true)
     List<Store> findByAllContent(String keyword);
 
 }
