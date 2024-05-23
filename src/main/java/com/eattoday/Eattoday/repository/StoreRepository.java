@@ -15,4 +15,5 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     @Override
     ArrayList<Store> findAll();
 
+
 }
