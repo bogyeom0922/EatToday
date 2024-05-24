@@ -1,12 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/main.css?after" rel="stylesheet">
-    <title>Restaurant details</title>
-</head>
-<body>
+{{>layout/header}}
+
 <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
         매장 사진: <img src="{{store_img}}"><br>
@@ -17,7 +10,7 @@
         별점: {{store_star}}<br>
         메뉴:
         <div id="MenuSentence">
-        {{store_menu}}
+            {{store_menu}}
         </div>
         <div id="MenuDisplay"></div>
         리뷰:
@@ -25,6 +18,15 @@
             {{review_content}}
         </div>
         <div id="ReviewDisplay"></div>
+
+<!--        리뷰 작성 form-->
+        <form>
+            <label>리뷰 작성</label>
+            <textarea type="text"></textarea>
+            <button type="button">등록</button>
+        </form>
+
+
     {{/rest}}
 
 <script type="text/javascript">
@@ -64,5 +66,5 @@
     });
 
 </script>
-</body>
-</html>
+
+{{>layout/footer}}
