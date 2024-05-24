@@ -36,5 +36,6 @@ div {
     background: white;
     width: 60%;
     height: auto;
-
+    padding-top: 50px;
+    padding-bottom: 100px;
 }
