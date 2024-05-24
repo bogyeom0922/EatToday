@@ -1,5 +1,6 @@
 {{>layout/header}}
 
+<div class="detail_background">
 <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
         매장 사진: <img src="{{store_img}}"><br>
@@ -25,9 +26,8 @@
             <textarea type="text"></textarea>
             <button type="button">등록</button>
         </form>
-
-
     {{/rest}}
+</div>
 
 <script type="text/javascript">
 

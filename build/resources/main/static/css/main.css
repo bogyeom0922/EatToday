@@ -1,21 +1,23 @@
 /*전체 페이지 기본 설정*/
-body{
+body {
     background-color: #fffde8ff;
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
-img{
+
+img {
     display: block;
 }
-div{
+
+div {
     letter-spacing: 1px;
 }
 
 /*home*/
 .home_img {
-    margin: auto;
-    margin-top: 4%;
+    margin: 4% auto auto;
 }
+
 .home_title {
     text-align: center;
     font-size: 45px;
@@ -24,4 +26,24 @@ div{
     word-spacing: 16px;
     margin-top: 1%;
     margin-left: 1%;
+}
+
+/*footer*/
+.footer{
+    position: relative;
+    top: 10px;
+    left: 49%;
+}
+
+
+/*detail*/
+.detail_background {
+    position: relative;
+    top: 70px;
+    left: 20%;
+    background: white;
+    width: 60%;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
 }

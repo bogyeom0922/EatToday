@@ -28,6 +28,14 @@ div {
     margin-left: 1%;
 }
 
+/*footer*/
+.footer{
+    position: relative;
+    top: 10px;
+    left: 49%;
+}
+
+
 /*detail*/
 .detail_background {
     position: relative;
