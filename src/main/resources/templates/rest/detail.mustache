@@ -1,12 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/main.css?after" rel="stylesheet">
-    <title>Restaurant details</title>
-</head>
-<body>
+{{>layouts/detail_header}}
+
 <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
         매장 사진: <img src="{{store_img}}"><br>
@@ -73,5 +66,5 @@
     });
 
 </script>
-</body>
-</html>
+
+{{>layouts/footer}}
