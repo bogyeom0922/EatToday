@@ -32,4 +32,5 @@ div {
 .detail_background{
     background: white;
     width: 60%;
+    height: auto;
 }
