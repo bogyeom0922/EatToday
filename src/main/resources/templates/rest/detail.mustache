@@ -17,7 +17,7 @@
         별점: {{store_star}}<br>
         메뉴:
         <div id="MenuSentence">
-        {{store_menu}}
+            {{store_menu}}
         </div>
         <div id="MenuDisplay"></div>
         리뷰:
@@ -25,6 +25,15 @@
             {{review_content}}
         </div>
         <div id="ReviewDisplay"></div>
+
+<!--        리뷰 작성 form-->
+        <form>
+            <label>리뷰 작성</label>
+            <textarea type="text"></textarea>
+            <button type="button">등록</button>
+        </form>
+
+
     {{/rest}}
 
 <script type="text/javascript">
