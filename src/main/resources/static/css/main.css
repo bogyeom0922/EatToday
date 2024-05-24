@@ -29,8 +29,12 @@ div {
 }
 
 /*detail*/
-.detail_background{
+.detail_background {
+    position: relative;
+    top: 70px;
+    left: 20%;
     background: white;
     width: 60%;
     height: auto;
+
 }
