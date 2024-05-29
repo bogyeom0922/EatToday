@@ -1,21 +1,23 @@
 /*전체 페이지 기본 설정*/
-body{
+body {
     background-color: #fffde8ff;
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
-img{
+
+img {
     display: block;
 }
-div{
+
+div {
     letter-spacing: 1px;
 }
 
 /*home*/
 .home_img {
-    margin: auto;
-    margin-top: 4%;
+    margin: 4% auto auto;
 }
+
 .home_title {
     text-align: center;
     font-size: 45px;
@@ -24,4 +26,131 @@ div{
     word-spacing: 16px;
     margin-top: 1%;
     margin-left: 1%;
+}
+
+/*footer*/
+.footer {
+    position: relative;
+    top: 10px;
+    left: 49%;
+}
+
+
+/*detail*/
+.go_back {
+    position: relative;
+    top: 10px;
+    left: 4%;
+    width: 50px;
+    opacity: 0.6;
+}
+
+.detail_background {
+    z-index: 1;
+    position: relative;
+    top: 70px;
+    left: 20%;
+    margin-bottom: 100px;
+    background: white;
+    width: 60%;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    border: 1px solid rgba(166, 163, 144, 0.25);
+}
+
+.rest_img {
+    z-index: 2;
+    position: relative;
+    top: 30px;
+    left: 21%;
+    width: 60%;
+    height: 350px;
+    opacity: 0.8;
+}
+
+.title_background {
+    z-index: 3;
+    position: relative;
+    top: -40px;
+    left: 34%;
+    background: white;
+    border-radius: 2px;
+    width: 32%;
+    height: 70px;
+    text-align: center;
+}
+
+.store_name {
+    z-index: 4;
+    position: relative;
+    top: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(35, 28, 21, 0.87);
+}
+
+.bookmark {
+    z-index: 4;
+    position: relative;
+    top: -25px;
+    left: 88%;
+    width: 25px;
+}
+
+.bookmark_img {
+    width: 100%;
+}
+
+.rest_detail {
+    z-index: 5;
+    position: relative;
+    top: 15px;
+    left: 23%;
+    width: 80%;
+    text-align: left;
+    line-height: 2;
+    font-size: 17px;
+}
+
+.rest_menu {
+    position: relative;
+    width: 100%;
+}
+
+.rest_menu_list {
+    position: relative;
+    top: -20px;
+    left: 15%;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 2;
+}
+
+.rest_menu_p {
+    position: relative;
+    top: 20px;
+    left: 2px;
+    font-weight: 700;
+    line-height: 0.8;
+}
+
+.rest_review_form {
+    position: relative;
+    top: -20px;
+    left: 15%;
+    margin-bottom: 15px;
+}
+
+.review_form_textarea {
+    width: 50%;
+    height: 30px;
+}
+
+.review_form_button {
+    position: relative;
+    top: -15px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 15px;
 }
