@@ -53,4 +53,11 @@ div {
     position: relative;
     left: 21%;
     width: 60%;
+    height: 350px;
+    opacity: 0.8;
+}
+
+.background2 {
+    width: 32%;
+    height: 120px;
 }
