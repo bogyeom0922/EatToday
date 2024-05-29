@@ -61,6 +61,7 @@ div {
 .rest_img {
     z-index: 2;
     position: relative;
+    top: 30px;
     left: 21%;
     width: 60%;
     height: 350px;
@@ -75,7 +76,7 @@ div {
     background: white;
     border-radius: 2px;
     width: 32%;
-    height: 120px;
+    height: 70px;
     text-align: center;
 }
 
@@ -107,4 +108,5 @@ div {
     left: 23%;
     text-align: left;
     line-height: 2;
+    font-size: 17px;
 }
