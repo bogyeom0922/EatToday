@@ -101,7 +101,10 @@ div {
 }
 
 .rest_detail {
+    z-index: 5;
     position: relative;
     top: 15px;
     left: 23%;
+    text-align: left;
+    line-height: 2;
 }
