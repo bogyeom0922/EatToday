@@ -29,7 +29,7 @@ div {
 }
 
 /*footer*/
-.footer{
+.footer {
     position: relative;
     top: 10px;
     left: 49%;
@@ -46,4 +46,11 @@ div {
     height: auto;
     padding-top: 50px;
     padding-bottom: 100px;
+    border: 1px solid rgba(166, 163, 144, 0.25);
+}
+
+.rest_img {
+    position: relative;
+    left: 21%;
+    width: 60%;
 }
