@@ -58,7 +58,10 @@ div {
 }
 
 .background2 {
+    position: relative;
+    top: -7%;
+    left: 34%;
+    background: white;
     width: 32%;
     height: 120px;
-    background: white;
 }
