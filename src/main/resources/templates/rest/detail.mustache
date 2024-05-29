@@ -17,10 +17,25 @@
         </div>
 
         <div class="rest_detail">
-            영업시간: {{store_time}}<br>
-            주소: {{store_address}}<br>
-            대표번호: {{store_phone}}<br>
-            별점: {{store_star}}<br>
+            <table>
+                <tr>
+                    <td>영업시간</td>
+                    <td>{{store_time}}</td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td>{{store_address}}</td>
+                </tr>
+                <tr>
+                    <td>대표번호</td>
+                    <td>{{store_phone}}</td>
+                </tr>
+                <tr>
+                    <td>별점</td>
+                    <td>{{store_star}}</td>
+                </tr>
+            </table>
+
             메뉴:
             <div id="MenuSentence">
                 {{store_menu}}
