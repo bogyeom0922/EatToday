@@ -138,5 +138,10 @@ div {
     position: relative;
     top: -20px;
     left: 15%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.button{
+    background-color: rgba(255, 255, 255, 0); border: none;
+    font-size: 15px;
 }
