@@ -51,8 +51,8 @@ public class StoreService {
     }
 
     @Transactional
-    public List<Store> allSearch(String keyword){
-        List<Store> allSearch = storeRepository.findByAllContent(keyword);
+    public Page<Store> allSearch(String keyword, Pageable pageable){
+        Page<Store> allSearch = storeRepository.findByAllContent(keyword, pageable);
 
         return allSearch;
     }
