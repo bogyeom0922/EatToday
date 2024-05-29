@@ -44,16 +44,20 @@ public class RestController {
     }
 
     @GetMapping(value = "/storelist/search/{uid}")
-    public String search(@PathVariable String uid, Model model, @RequestParam(value = "search")String keyword){
+    public String search(@PathVariable String uid, Model model, @RequestParam(value = "search")String keyword, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
         log.info("search uid = " + uid);
-        List<Store> storeList = null;
+        Page<Store> storeList = null;
 
-        storeList = storeService.allSearch(keyword);
+        storeList = storeService.allSearch(keyword, pageable);
 
         if(storeList == null)
             return "rest/storelist";
 
         model.addAttribute("searchList", storeList);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        model.addAttribute("hasNext", storeList.hasNext());
+        model.addAttribute("hasPrev", storeList.hasPrevious());
         model.addAttribute("keyword", keyword);
         return "rest/storelist-search";
     }
