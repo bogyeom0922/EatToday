@@ -38,6 +38,7 @@ div {
 
 /*detail*/
 .detail_background {
+    z-index: 1;
     position: relative;
     top: 70px;
     left: 20%;
@@ -50,6 +51,7 @@ div {
 }
 
 .rest_img {
+    z-index: 2;
     position: relative;
     left: 21%;
     width: 60%;
@@ -58,6 +60,7 @@ div {
 }
 
 .background2 {
+    z-index: 3;
     position: relative;
     top: -7%;
     left: 34%;
