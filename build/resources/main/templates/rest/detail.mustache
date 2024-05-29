@@ -1,12 +1,12 @@
 {{>layout/header}}
 
 <div class="detail_background">
-<!--    뒤로가기-->
+    <!--    뒤로가기-->
     <a href=""><img src="/img/go_back.png" class="go_back"></a>
-<!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
+    <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
         <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
-<!--    매장 이름, 좋아요 버튼 배경-->
+        <!--    매장 이름, 좋아요 버튼 배경-->
         <div class="title_background">
             <div class="store_name">
                 {{store_name}}
@@ -19,20 +19,20 @@
         <div class="rest_detail">
             <table>
                 <tr>
-                    <td>영업시간</td>
-                    <td>{{store_time}}</td>
+                    <td style="width:40%; font-weight: 700">영업시간</td>
+                    <td style="width:60%; font-weight: 400">{{store_time}}</td>
                 </tr>
                 <tr>
-                    <td>주소</td>
-                    <td>{{store_address}}</td>
+                    <td style="width:40%; font-weight: 700">주소</td>
+                    <td style="width:60%; font-weight: 400">{{store_address}}</td>
                 </tr>
                 <tr>
-                    <td>대표번호</td>
-                    <td>{{store_phone}}</td>
+                    <td style="width:40%; font-weight: 700">대표번호</td>
+                    <td style="width:60%; font-weight: 400">{{store_phone}}</td>
                 </tr>
                 <tr>
-                    <td>별점</td>
-                    <td>{{store_star}}</td>
+                    <td style="width:40%; font-weight: 700">별점</td>
+                    <td style="width:60%; font-weight: 400">{{store_star}}</td>
                 </tr>
             </table>
 
@@ -47,7 +47,7 @@
             </div>
             <div id="ReviewDisplay"></div>
 
-    <!--        리뷰 작성 form-->
+            <!--        리뷰 작성 form-->
             <form>
                 <label>리뷰 작성</label>
                 <textarea type="text"></textarea>
