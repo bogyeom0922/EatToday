@@ -38,7 +38,11 @@ div {
 
 /*detail*/
 .go_back {
+    position: relative;
+    top: 10px;
+    left: 4%;
     width: 50px;
+    opacity: 0.6;
 }
 
 .detail_background {
