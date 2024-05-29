@@ -1,9 +1,11 @@
 {{>layout/header}}
 
 <div class="detail_background">
+<!--    뒤로가기-->
+    <a href=""><img src="/img/go_back.png" class="go_back"></a>
 <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
-        <img src="{{store_img}}" class="rest_img">
+        <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
 <!--    매장 이름, 좋아요 버튼 배경-->
         <div class="title_background">
             <div class="store_name">

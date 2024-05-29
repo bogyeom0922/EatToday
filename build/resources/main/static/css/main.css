@@ -37,6 +37,10 @@ div {
 
 
 /*detail*/
+.go_back {
+    width: 50px;
+}
+
 .detail_background {
     z-index: 1;
     position: relative;
