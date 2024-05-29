@@ -113,10 +113,11 @@ div {
 }
 
 .rest_menu {
-
 }
 
 .rest_menu_p {
+    position: relative;
+    top: 20px;
     font-weight: 700;
     line-height: 0.8;
 }
