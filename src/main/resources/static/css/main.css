@@ -76,5 +76,6 @@ div {
     position: relative;
     top: 30px;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 700;
+    color: rgba(35, 28, 21, 0.87);
 }

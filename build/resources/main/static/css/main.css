@@ -62,12 +62,13 @@ div {
 .title_background {
     z-index: 3;
     position: relative;
-    top: -50px;
+    top: -70px;
     left: 34%;
     background: white;
+    border-radius:2px;
     width: 32%;
     height: 120px;
-    border: 1px solid rgba(166, 163, 144, 0.25);
+    text-align: center;
 }
 
 .store_name {
@@ -75,5 +76,6 @@ div {
     position: relative;
     top: 30px;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 700;
+    color: rgba(35, 28, 21, 0.87);
 }
