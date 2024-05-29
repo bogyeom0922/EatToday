@@ -50,5 +50,8 @@ div {
 }
 
 .rest_img {
+    position: relative;
+    left: 21%;
     width: 60%;
+    height: 350px;
 }
