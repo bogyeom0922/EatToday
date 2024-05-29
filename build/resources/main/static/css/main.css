@@ -38,6 +38,7 @@ div {
 
 /*detail*/
 .detail_background {
+    z-index: 1;
     position: relative;
     top: 70px;
     left: 20%;
@@ -50,6 +51,7 @@ div {
 }
 
 .rest_img {
+    z-index: 2;
     position: relative;
     left: 21%;
     width: 60%;
@@ -57,11 +59,13 @@ div {
     opacity: 0.8;
 }
 
-.background2 {
+.title_background {
+    z-index: 3;
     position: relative;
-    top: -7%;
+    top: -50px;
     left: 34%;
     background: white;
     width: 32%;
     height: 120px;
+    border: 1px solid rgba(166, 163, 144, 0.25);
 }
