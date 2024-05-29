@@ -113,12 +113,20 @@ div {
 }
 
 .rest_menu {
+    position: relative;
+    width: 100%;
+}
 
+.rest_menu_list {
+    position: relative;
+    top: -20px;
+    left: 15%;
 }
 
 .rest_menu_p {
     position: relative;
     top: 20px;
+    left: 2px;
     font-weight: 700;
     line-height: 0.8;
 }
