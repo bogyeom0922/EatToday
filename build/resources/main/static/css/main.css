@@ -79,3 +79,14 @@ div {
     font-weight: 700;
     color: rgba(35, 28, 21, 0.87);
 }
+
+.bookmark {
+    position: relative;
+    top: -25px;
+    left: 88%;
+    width: 25px;
+}
+
+.bookmark_img {
+    width: 100%;
+}
