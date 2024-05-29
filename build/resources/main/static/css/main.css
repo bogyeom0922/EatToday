@@ -69,3 +69,11 @@ div {
     height: 120px;
     border: 1px solid rgba(166, 163, 144, 0.25);
 }
+
+.store_name {
+    z-index: 4;
+    position: relative;
+    top: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
