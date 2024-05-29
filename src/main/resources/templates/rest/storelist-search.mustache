@@ -30,7 +30,18 @@
         {{/searchList}}
         </tbody>
     </table>
-
+    <div class="next">
+    {{#hasPrev}}
+        <a href="/storelist/search/{{uid}}?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill">이전</a>{{/hasPrev}}
+    {{^hasPrev}}
+        <a href="/storelist/search/{{uid}}?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>{{/hasPrev}}
+    {{#hasNext}}
+        <a href="/storelist/search/{{uid}}?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill">다음</a>
+    {{/hasNext}}
+    {{^hasNext}}
+        <a href="/storelist/search/{{uid}}?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
+    {{/hasNext}}
+</div>
 </div>
 <hr style="margin-top: 100px;">
 
