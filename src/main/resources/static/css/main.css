@@ -30,6 +30,7 @@ div {
 
 /*header*/
 .header{
+    background: rgba(255, 255, 255, 0.94);
     height: 110px;
 }
 
