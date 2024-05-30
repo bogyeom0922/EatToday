@@ -98,7 +98,8 @@ a:hover {
     position: relative;
     top:  -75%;
     left: 50%;
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 /*footer*/
