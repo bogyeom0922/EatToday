@@ -49,10 +49,14 @@ div {
     top: -55px;
     left: 25%;
     width: 45%;
+    height: 80px;
 }
 
 .search_input {
-
+    width:70%;
+    height: 100%;
+    border:0;
+    outline:none;
 }
 
 /*footer*/
