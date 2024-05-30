@@ -47,7 +47,7 @@ div {
 .search {
     position: relative;
     top: -55px;
-    left: 30%;
+    left: 25%;
     width: 45%;
     height: 40px;
 }
@@ -66,9 +66,10 @@ div {
 }
 
 .search_button {
-    border:0;
     height:100%;
     width:15%;
+    border:0;
+    background:rgba(0,100,0,0.76);
 }
 
 /*footer*/
