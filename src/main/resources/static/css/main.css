@@ -66,9 +66,10 @@ div {
 }
 
 .search_button {
-    border:0;
     height:100%;
     width:15%;
+    border:0;
+    background:rgba(0,100,0,0.76);
 }
 
 /*footer*/
