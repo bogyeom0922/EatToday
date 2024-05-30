@@ -63,4 +63,11 @@ public class StoreService {
         return search;
     }
 
+    @Transactional
+    public Page<Store> filterByStore_address(String address, Pageable pageable){
+        Page<Store> search2 = storeRepository.findByStore_addressContaining(address, pageable);
+
+        return search2;
+    }
+
 }
