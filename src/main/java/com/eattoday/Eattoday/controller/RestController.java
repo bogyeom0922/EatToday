@@ -71,11 +71,20 @@ public class RestController {
         if(filter.contains("category")){
             FilteredList = storeService.filterByCategory(filter_name, pageable);
         }
+        else if(filter.contains("region")){
+            FilteredList = storeService.filterByStore_address(filter_name, pageable);
+        }
         log.info("filter uid = " + uid);
         log.info(filter_name);
         log.info(filter);
+        log.info(FilteredList.toString());
 
         model.addAttribute("filterList", FilteredList);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        model.addAttribute("hasNext", FilteredList.hasNext());
+        model.addAttribute("hasPrev", FilteredList.hasPrevious());
+        model.addAttribute("keyword", filter);
 
         return "rest/storelist-filter";
     }
