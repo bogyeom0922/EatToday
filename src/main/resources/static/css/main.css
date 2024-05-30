@@ -49,13 +49,13 @@ div {
     top: -55px;
     left: 25%;
     width: 45%;
-    height: 80px;
+    height: 300px;
 }
 
 .search_input {
     width:70%;
     height: 100%;
-    border:0;
+    border: 0;
     outline:none;
     font-size:16px;
     float:left;
@@ -63,6 +63,8 @@ div {
 
 .search_button {
     border:0;
+    height:100%;
+    width:15%;
 }
 
 /*footer*/
