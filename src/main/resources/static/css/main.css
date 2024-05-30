@@ -13,6 +13,23 @@ div {
     letter-spacing: 1px;
 }
 
+a {
+    text-decoration-line: none;
+    display: inline;
+}
+
+a:link {
+    color : black;
+}
+
+a:visited {
+    color : black;
+}
+
+a:hover {
+    color : #115b11;
+}
+
 /*home*/
 .home_img {
     margin: 4% auto auto;
@@ -81,6 +98,7 @@ div {
     position: relative;
     top:  -75%;
     left: 50%;
+    font-size: 15px;
 }
 
 /*footer*/
