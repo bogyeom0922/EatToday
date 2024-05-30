@@ -28,6 +28,11 @@ div {
     margin-left: 1%;
 }
 
+/*header*/
+.header{
+    height: 110px;
+}
+
 /*footer*/
 .footer {
     position: relative;
