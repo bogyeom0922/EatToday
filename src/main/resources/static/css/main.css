@@ -13,6 +13,23 @@ div {
     letter-spacing: 1px;
 }
 
+a {
+    text-decoration-line: none;
+    display: inline;
+}
+
+a:link {
+    color : black;
+}
+
+a:visited {
+    color : black;
+}
+
+a:hover {
+    color : #115b11;
+}
+
 /*home*/
 .home_img {
     margin: 4% auto auto;
@@ -28,11 +45,79 @@ div {
     margin-left: 1%;
 }
 
+/*header*/
+.header {
+    position: relative;
+    height: 110px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0px 3px 5px 0px rgba(166, 163, 144, 0.44);
+}
+
+.header_img {
+    position: relative;
+    top: 5px;
+    left: 3%;
+    width: 7%;
+}
+
+.search {
+    position: relative;
+    top: -58px;
+    left: 32%;
+    width: 40%;
+    height: 40px;
+}
+
+.search_form {
+    height: 100%;
+    width: 100%;
+}
+
+.search_input {
+    width:75%;
+    height: 100%;
+    border: 0;
+    outline:none;
+    font-size:16px;
+    float:left;
+}
+
+.search_button {
+    height:100%;
+    width:15%;
+    border:0;
+    background:rgba(0,100,0,0.76);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    float:right;
+}
+
+.shortcut_mypage {
+    position: relative;
+    top:  -88px;
+    left: 53%;
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.logout {
+    position: relative;
+    top: -126px;
+    left: 91%;
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
 /*footer*/
 .footer {
     position: relative;
     top: 10px;
     left: 49%;
+    width: 10%;
 }
 
 
