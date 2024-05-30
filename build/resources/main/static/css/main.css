@@ -37,6 +37,9 @@ div {
 }
 
 .header_img{
+    position: relative;
+    top: 0;
+    left: 3%;
     width: 130px;
 }
 
