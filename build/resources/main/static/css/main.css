@@ -61,6 +61,10 @@ div {
     float:left;
 }
 
+.search_button {
+    border:0;
+}
+
 /*footer*/
 .footer {
     position: relative;
