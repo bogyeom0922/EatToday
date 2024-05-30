@@ -57,4 +57,10 @@ public class StoreService {
         return allSearch;
     }
 
+    @Transactional
+    public Page<Store> filterByCategory(String category, Pageable pageable){
+        Page<Store> search = storeRepository.findByCategory(category, pageable);
+        return search;
+    }
+
 }
