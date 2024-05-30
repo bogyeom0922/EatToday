@@ -63,7 +63,7 @@ public class RestController {
     }
 
     @GetMapping(value = "/storelist/filter/{uid}/{filter}")
-    public String filter(@PathVariable String filter, @PathVariable String uid, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException{
+    public String filter(@PathVariable("filter") String filter, @PathVariable String uid, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException{
         String[] keyword = filter.split("-");
         String filter_name = keyword[1];
 
@@ -71,6 +71,10 @@ public class RestController {
         if(filter.contains("category")){
             FilteredList = storeService.filterByCategory(filter_name, pageable);
         }
+        log.info("filter uid = " + uid);
+        log.info(filter_name);
+        log.info(filter);
+
         model.addAttribute("filterList", FilteredList);
 
         return "rest/storelist-filter";
