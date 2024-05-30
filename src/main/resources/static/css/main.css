@@ -48,16 +48,17 @@ div {
     position: relative;
     top: -55px;
     left: 25%;
-    width: 45%;
+    width: 40%;
     height: 40px;
 }
 
 .search_form {
     height: 100%;
+    width: 100%;
 }
 
 .search_input {
-    width:70%;
+    width:75%;
     height: 100%;
     border: 0;
     outline:none;
