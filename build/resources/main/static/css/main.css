@@ -77,6 +77,12 @@ div {
     float:right;
 }
 
+.shortcut_mypage {
+    position: relative;
+    top:  -75%;
+    left: 50%;
+}
+
 /*footer*/
 .footer {
     position: relative;
