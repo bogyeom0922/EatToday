@@ -103,6 +103,14 @@ a:hover {
     opacity: 0.7;
 }
 
+.logout {
+    position: relative;
+    top: -2%;
+    left: 91%;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 /*footer*/
 .footer {
     position: relative;
