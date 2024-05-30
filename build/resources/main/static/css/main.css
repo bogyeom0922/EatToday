@@ -63,7 +63,7 @@ a:hover {
 
 .search {
     position: relative;
-    top: -55px;
+    top: -60px;
     left: 25%;
     width: 40%;
     height: 40px;
@@ -96,7 +96,7 @@ a:hover {
 
 .shortcut_mypage {
     position: relative;
-    top:  -75%;
+    top:  -90px;
     left: 50%;
     font-size: 17px;
     font-weight: 500;
