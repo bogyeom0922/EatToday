@@ -56,14 +56,14 @@ a:hover {
 
 .header_img {
     position: relative;
-    top: 0;
+    top: 5px;
     left: 3%;
-    width: 130px;
+    width: 7%;
 }
 
 .search {
     position: relative;
-    top: -60px;
+    top: -58px;
     left: 32%;
     width: 40%;
     height: 40px;
@@ -96,7 +96,7 @@ a:hover {
 
 .shortcut_mypage {
     position: relative;
-    top:  -90px;
+    top:  -88px;
     left: 53%;
     font-size: 17px;
     font-weight: 500;
@@ -105,7 +105,7 @@ a:hover {
 
 .logout {
     position: relative;
-    top: -128px;
+    top: -126px;
     left: 91%;
     font-size: 17px;
     font-weight: 500;
