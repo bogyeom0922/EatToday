@@ -18,4 +18,6 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     @Query(value = "select * from Store where store_img Like %?1% OR store_name Like %?1% OR store_time Like %?1% OR store_phone Like %?1% OR store_star Like %?1%", nativeQuery = true)
     Page<Store> findByAllContent(String keyword, Pageable pageable);
 
+    @Query(value = "select s from Store s where s.category = ?1")
+    Page<Store> findByCategory(String category, Pageable pageable);
 }
