@@ -64,7 +64,7 @@ a:hover {
 .search {
     position: relative;
     top: -60px;
-    left: 25%;
+    left: 32%;
     width: 40%;
     height: 40px;
 }
@@ -97,7 +97,7 @@ a:hover {
 .shortcut_mypage {
     position: relative;
     top:  -90px;
-    left: 50%;
+    left: 53%;
     font-size: 17px;
     font-weight: 500;
     opacity: 0.7;
@@ -105,8 +105,11 @@ a:hover {
 
 .logout {
     position: relative;
-    top: -2%;
+    top: -128px;
     left: 91%;
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0.7;
 }
 
 /*footer*/
