@@ -20,4 +20,7 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
 
     @Query(value = "select s from Store s where s.category = ?1")
     Page<Store> findByCategory(String category, Pageable pageable);
+
+    @Query(value = "select m from Store m where m.store_address = ?1")
+    Page<Store> findByStore_addressContaining(String address, Pageable pageable);
 }
