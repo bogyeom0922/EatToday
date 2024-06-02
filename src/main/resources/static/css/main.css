@@ -267,8 +267,10 @@ a:hover {
 
 .category_background {
     position: relative;
+    top: 200px;
+    left: 16%;
     width: 70%;
     height: auto;
-    border: 1px solid rgba(166, 163, 144, 0.25);
     background-color: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(166, 163, 144, 0.25);
 }
