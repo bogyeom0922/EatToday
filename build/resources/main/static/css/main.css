@@ -264,3 +264,9 @@ a:hover {
     width: 100%;
     height: 280px;
 }
+
+.category_background {
+    width: 70%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.76);
+}
