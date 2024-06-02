@@ -243,7 +243,12 @@ a:hover {
 
 /*category*/
 .random_store_title {
+    position: relative;
+    top: 80px;
+    text-align: center;
 }
 
 .random_store {
+    position: relative;
+    top: 110px;
 }
