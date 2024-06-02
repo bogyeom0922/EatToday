@@ -31,6 +31,12 @@ public class LoginController {
         return "home";
     }
 
+    @GetMapping("/user/login") //처음 localhost8080 페이지 설정
+    public String login()
+    {
+        return "user/login";
+    }
+
     @PostMapping("/user/Signup") //POST 요청을 받았을 때, 해당 요청 값들로 구성된 객체를 검증하는 어노테이션, 각 필드의 입력값이 정해진 Validation 규칙을 따르는지 판단
     public String Createuser(@Valid userForm form, BindingResult bindingResult) //파라미터의 위치는 @Valid 객체 바로 뒤에 선언해야 함 (중요)
     {
