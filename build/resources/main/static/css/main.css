@@ -256,4 +256,9 @@ a:hover {
 .random_store {
     position: relative;
     top: 110px;
+    width: 60%;
+}
+
+.random_store_img {
+    width: 30%;
 }
