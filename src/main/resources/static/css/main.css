@@ -245,8 +245,10 @@ a:hover {
 .random_store_title {
     position: relative;
     top: 80px;
-    text-align: center;
+    left: 5%;
+    text-align: left;
     font-size: 35px;
+    width: 100%;
     font-weight: 600;
     color: rgba(107, 26, 26, 0.79);
 }
