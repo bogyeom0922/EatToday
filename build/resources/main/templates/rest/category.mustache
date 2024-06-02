@@ -5,9 +5,18 @@
 </div>
 
 <div class="random_store">
-    {{#randomStore1}}<img src="{{store_img}}" class="random_store_img">{{/randomStore1}} <!--randomStore라는 모델에 값 담아 출력할 예정-->
-    {{#randomStore2}}<img src="{{store_img}}" class="random_store_img">{{/randomStore2}}
-    {{#randomStore3}}<img src="{{store_img}}" class="random_store_img">{{/randomStore3}}
+    <table>
+        <tr>
+            <td>{{#randomStore1}}<img src="{{store_img}}" class="random_store_img">{{/randomStore1}}</td>
+            <td>{{#randomStore2}}<img src="{{store_img}}" class="random_store_img">{{/randomStore2}}</td>
+            <td>{{#randomStore3}}<img src="{{store_img}}" class="random_store_img">{{/randomStore3}}</td>
+        </tr>
+        <tr>
+            <td>{{#randomStore1}}{{store_name}}{{/randomStore1}}</td>
+            <td>{{#randomStore2}}{{store_name}}{{/randomStore2}}</td>
+            <td>{{#randomStore3}}{{store_name}}{{/randomStore3}}</td>
+        </tr>
+    </table>
 </div>
 
 {{>layout/footer}}
