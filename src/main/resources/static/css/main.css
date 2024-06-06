@@ -262,6 +262,8 @@ a:hover {
 .random_store_img {
     width: 100%;
     height: 280px;
+    position: relative;
+    left: -10%;
 }
 
 .category_background {
@@ -269,29 +271,40 @@ a:hover {
     top: 200px;
     left: 16%;
     width: 70%;
-    height: auto;
+    height: 620px;
     background-color: rgba(255, 255, 255, 0.76);
     border: 1px solid rgba(166, 163, 144, 0.25);
     padding-top: 30px;
     padding-bottom: 30px;
+    border-radius: 1%;
+    margin-bottom: 280px;
 }
 
-.category_table {
+.category_img_back {
     position: relative;
-    left: 12.5%;
-    text-align: center;
-    width: 80%;
+    margin-top: 20px;
+    left: 1%;
+    margin-left: 5%;
+    width: 18%;
+    height: auto;
+    background-color: rgba(89, 89, 89, 0.05);
+    padding-top: 2%;
     align-content: center;
+    text-align: center;
+    float: left;
+    opacity: 0.8;
+    border-radius: 50px;
+    border: solid 2px rgba(89, 89, 89, 0.13);
+
 }
 
 .category_img {
     width: 80%;
+    margin-left: 10%;
 }
 
 .category_menu {
-    font-size: 25px;
-    font-weight: 900;
-    position: relative;
-    left: -10%;
+    font-size: 23px;
+    font-weight: 700;
     color: #595959;
 }
