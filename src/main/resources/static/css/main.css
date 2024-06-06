@@ -276,6 +276,22 @@ a:hover {
     padding-bottom: 30px;
 }
 
+.category_table {
+    position: relative;
+    left: 12.5%;
+    text-align: center;
+    width: 80%;
+    align-content: center;
+}
+
 .category_img {
-    width: 60%;
+    width: 80%;
+}
+
+.category_menu {
+    font-size: 25px;
+    font-weight: 900;
+    position: relative;
+    left: -10%;
+    color: #595959;
 }
