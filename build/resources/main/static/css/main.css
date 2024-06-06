@@ -19,15 +19,15 @@ a {
 }
 
 a:link {
-    color : black;
+    color: black;
 }
 
 a:visited {
-    color : black;
+    color: black;
 }
 
 a:hover {
-    color : #115b11;
+    color: #115b11;
 }
 
 /*home*/
@@ -75,28 +75,28 @@ a:hover {
 }
 
 .search_input {
-    width:75%;
+    width: 75%;
     height: 100%;
     border: 0;
-    outline:none;
-    font-size:16px;
-    float:left;
+    outline: none;
+    font-size: 16px;
+    float: left;
 }
 
 .search_button {
-    height:100%;
-    width:15%;
-    border:0;
-    background:rgba(0,100,0,0.76);
-    color:#fff;
-    font-size:16px;
-    font-weight:bold;
-    float:right;
+    height: 100%;
+    width: 15%;
+    border: 0;
+    background: rgba(0, 100, 0, 0.76);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    float: right;
 }
 
 .shortcut_mypage {
     position: relative;
-    top:  -88px;
+    top: -88px;
     left: 53%;
     font-size: 17px;
     font-weight: 500;
@@ -246,7 +246,6 @@ a:hover {
     position: relative;
     top: 80px;
     left: 5%;
-    text-align: left;
     font-size: 35px;
     width: 80%;
     font-weight: 600;
@@ -273,4 +272,10 @@ a:hover {
     height: auto;
     background-color: rgba(255, 255, 255, 0.76);
     border: 1px solid rgba(166, 163, 144, 0.25);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.category_img {
+    width: 60%;
 }
