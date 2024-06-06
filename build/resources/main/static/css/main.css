@@ -255,7 +255,7 @@ a:hover {
 .random_store {
     position: relative;
     top: 110px;
-    left: 18%;
+    left: 19.5%;
     width: 66%;
 }
 
@@ -269,25 +269,24 @@ a:hover {
 .category_background {
     position: relative;
     top: 200px;
-    left: 16%;
+    left: 15%;
     width: 70%;
-    height: 620px;
+    height: 590px;
     background-color: rgba(255, 255, 255, 0.76);
     border: 1px solid rgba(166, 163, 144, 0.25);
     padding-top: 30px;
-    padding-bottom: 30px;
     border-radius: 1%;
     margin-bottom: 280px;
 }
 
 .category_img_back {
     position: relative;
-    margin-top: 20px;
+    margin-top: 30px;
     left: 1%;
     margin-left: 5%;
     width: 18%;
     height: auto;
-    background-color: rgba(89, 89, 89, 0.05);
+    background-color: rgba(255, 253, 232, 0.75);
     padding-top: 2%;
     align-content: center;
     text-align: center;
@@ -299,12 +298,12 @@ a:hover {
 }
 
 .category_img {
-    width: 80%;
-    margin-left: 10%;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .category_menu {
     font-size: 23px;
     font-weight: 700;
-    color: #595959;
+    color: #454545;
 }
