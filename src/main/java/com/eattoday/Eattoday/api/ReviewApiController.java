@@ -2,7 +2,6 @@ package com.eattoday.Eattoday.api;
 
 import com.eattoday.Eattoday.Service.ReviewService;
 import com.eattoday.Eattoday.dto.ReviewDto;
-import com.eattoday.Eattoday.repository.StoreRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +16,6 @@ public class ReviewApiController {
 
     @Autowired
     private ReviewService reviewService;
-
     //1. 조회
     @GetMapping("api/stores/{storeId}/reviews")
     public ResponseEntity<List<ReviewDto>> reviews(@PathVariable Long storeId) {
@@ -34,5 +32,23 @@ public class ReviewApiController {
         ReviewDto createdDto = reviewService.create(storeId, dto);
         //결과 응답
         return ResponseEntity.status(HttpStatus.OK).body(createdDto);
+    }
+
+    //3. 수정
+    @PatchMapping("/api/reviews/{id}")
+    public ResponseEntity<ReviewDto> update(@PathVariable Long id, @RequestBody ReviewDto dto) {
+        //서비스에 위임
+        ReviewDto updatedDto = reviewService.update(id, dto);
+        //결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
+    }
+
+    //4. 삭제
+    @DeleteMapping("api/reviews/{id}")
+    public ResponseEntity<ReviewDto> delete(@PathVariable Long id) {
+        //서비스에 위임
+        ReviewDto deletedDto = reviewService.delete(id);
+        //결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(deletedDto);
     }
 }

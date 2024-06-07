@@ -22,6 +22,7 @@ public class LoginController {
     //@Autowired //repository에 객체 주입 = DI
     @Autowired
     private final UserRepository userRepository; //repository 객체 선언
+
     @Autowired
     private final UserService userService;
 
@@ -78,6 +79,7 @@ public class LoginController {
         log.info(saved.toString());
 
         return "user/login";
+
     }
 
 

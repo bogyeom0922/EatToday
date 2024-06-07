@@ -1,15 +1,19 @@
-<form class="rest_review_form">
-    <!--    유저아이디-->
-    {{#user}}
-        <input name="uid" type="hidden" value="{{uid}}" id="new-review-userid">
-    {{/user}}
-    <textarea type="text" class="review_form_textarea" id="new-review-body"></textarea>
-    <!--    매장아이디-->
-    {{#rest}}
-        <input name="storeid" type="hidden" value="{{id}}" id="new-review-store-id">
-    {{/rest}}
-    <button type="button" class="review_form_button" id="review-create-btn">등록</button>
-</form>
+<div id="reviews-new">
+    <form>
+        <div style="display: flex; align-items: center; margin-bottom: -20px">
+            {{#user}}
+                <input name = "uid"  type="hidden" value="{{uid}}" id="new-review-userid">
+            {{/user}}
+            <label style="font-size: 16px;">리뷰 작성</label>
+            <textarea type="text" id="new-review-body" style="width: 60%; height: 30px;margin-left: 20px; margin-right: 10px"></textarea>
+
+            {{#rest}}
+                <input type="hidden" id="new-review-store-id" value="{{id}}">
+            {{/rest}}
+            <button type="button" id="review-create-btn" class="button">등록</button>
+        </div>
+    </form>
+</div>
 
 <script>
     {
@@ -42,3 +46,4 @@
             });
         });
     }
+</script>

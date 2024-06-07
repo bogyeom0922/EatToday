@@ -10,6 +10,7 @@ import lombok.*;
 @AllArgsConstructor //lombok 추가, 이 메서드가 생성자 대체
 @ToString // toString()메서드 대체
 public class UserForm {
+
     private Long id;
 
     @NotBlank(message = "아이디를 입력해주세요.")

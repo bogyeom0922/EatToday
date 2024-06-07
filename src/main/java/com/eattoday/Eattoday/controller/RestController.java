@@ -1,5 +1,7 @@
 package com.eattoday.Eattoday.controller;
 
+import com.eattoday.Eattoday.Service.ReviewService;
+import com.eattoday.Eattoday.dto.ReviewDto;
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.StoreRepository;
@@ -11,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Slf4j
 @Controller
 public class RestController {
@@ -21,9 +25,8 @@ public class RestController {
     @Autowired
     private UserRepository userRepository;
 
-    public RestController(StoreRepository storeRepository) {
-        this.storeRepository = storeRepository;
-    }
+    @Autowired
+    private ReviewService reviewService;
 
     @GetMapping("/category")
     public String category(Model model) {
@@ -49,21 +52,42 @@ public class RestController {
 
     }
 
+//    @GetMapping("/rest/{id}/{uid}") //매장 상세페이지
+//    public String show(@PathVariable("id") Long id,@PathVariable String uid, Model model) {
+//        log.info("id = " + id);
+//        // 1. id를 조회해 데이터 가져오기
+//        log.info("detail uid = "+uid);
+//        Store storeentity = storeRepository.findById(id).orElse(null);
+//        List<ReviewDto> reviewDtos = reviewService.reviews(id);
+//        // 2. 모델에 데이터 등록하기
+//        model.addAttribute("rest", storeentity);
+//        model.addAttribute("reviewDtos", reviewDtos);
+//
+//        //user정보
+//        User userEntity = userRepository.findByuid(uid).orElse(null);
+//        model.addAttribute("user", userEntity);
+//
+//        // 3. 뷰 페이지 반환하기
+//        return "rest/detail";
+//    }
+
     @GetMapping("/rest/{id}/{uid}") //매장 상세페이지
-    public String show(@PathVariable("id") Long id, @PathVariable String uid, Model model) {
+    public String show(@PathVariable("id") Long id,@PathVariable String uid, Model model) {
+        log.info("id = " + id);
+        // 1. id를 조회해 데이터 가져오기
+        log.info("detail uid = "+uid);
+        Store storeentity = storeRepository.findById(id).orElse(null);
+        List<ReviewDto> reviewDtos = reviewService.reviews(id);
+        // 2. 모델에 데이터 등록하기
+        model.addAttribute("rest", storeentity);
+        model.addAttribute("reviewDtos", reviewDtos);
 
-        log.info("id = " + id); //매장 id 제대로 가져왔는지 log 확인
-        log.info("uid = "+uid);
-
-        Store store = storeRepository.findById(id).orElse(null); // id 조회해 데이터 가져오기
-        model.addAttribute("rest", store); // 모델에 데이터 등록
-
-        //user
+        //user정보
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
 
-        return "rest/detail"; // 뷰 페이지 반환
-
+        // 3. 뷰 페이지 반환하기
+        return "rest/detail";
     }
 
 }
