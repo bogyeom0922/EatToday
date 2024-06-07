@@ -1,0 +1,12 @@
+<form class="rest_review_form">
+    <!--    유저아이디-->
+    {{#user}}
+        <input name="uid" type="hidden" value="{{uid}}">
+    {{/user}}
+    <textarea type="text" class="review_form_textarea"></textarea>
+    <!--    매장아이디-->
+    {{#rest}}
+        <input name="storeid" type="hidden" value="{{id}}">
+    {{/rest}}
+    <button type="button" class="review_form_button">등록</button>
+</form>
