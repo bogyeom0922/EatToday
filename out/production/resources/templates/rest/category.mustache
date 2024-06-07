@@ -1,0 +1,60 @@
+{{>layout/header}}
+
+<div class="random_store_title">
+    Today's recommended restaurant
+</div>
+
+<div class="random_store">
+    <table>
+        <tr>
+            <td style="width:33%">{{#randomStore1}}<img src="{{store_img}}" class="random_store_img">{{/randomStore1}}
+            </td>
+            <td style="width:33%">{{#randomStore2}}<img src="{{store_img}}" class="random_store_img">{{/randomStore2}}
+            </td>
+            <td style="width:33%">{{#randomStore3}}<img src="{{store_img}}" class="random_store_img">{{/randomStore3}}
+            </td>
+        </tr>
+        <tr>
+            <td>{{#randomStore1}}{{store_name}}{{/randomStore1}}</td>
+            <td>{{#randomStore2}}{{store_name}}{{/randomStore2}}</td>
+            <td>{{#randomStore3}}{{store_name}}{{/randomStore3}}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="category_background">
+    <div class="category_img_back">
+        <img src="/img/한식.png" class="category_img">
+        <p class="category_menu">한식</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/중식.png" class="category_img">
+        <p class="category_menu">중식</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/일식.png" class="category_img">
+        <p class="category_menu">일식</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/양식.png" class="category_img">
+        <p class="category_menu">양식</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/아시안.png" class="category_img">
+        <p class="category_menu">아시안</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/패스트푸드.png" class="category_img">
+        <p class="category_menu">패스트푸드</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/술.png" class="category_img">
+        <p class="category_menu">술</p>
+    </div>
+    <div class="category_img_back">
+        <img src="/img/중식.png" class="category_img">
+        <p class="category_menu">디저트</p>
+    </div>
+</div>
+
+{{>layout/footer}}
