@@ -1,12 +1,18 @@
 <form class="rest_review_form">
     <!--    유저아이디-->
     {{#user}}
-        <input name="uid" type="hidden" value="{{uid}}">
+        <input name="uid" type="hidden" value="{{uid}}" id="new-review-userid">
     {{/user}}
-    <textarea type="text" class="review_form_textarea"></textarea>
+    <textarea type="text" class="review_form_textarea" id="new-review-body"></textarea>
     <!--    매장아이디-->
     {{#rest}}
-        <input name="storeid" type="hidden" value="{{id}}">
+        <input name="storeid" type="hidden" value="{{id}}" id="new-review-store-id">
     {{/rest}}
-    <button type="button" class="review_form_button">등록</button>
+    <button type="button" class="review_form_button" id="review-create-btn">등록</button>
 </form>
+
+<script>
+    {
+        //리뷰 생성 버튼 변수화
+        const reviewCreateBtn = document.querySelector("#review-create-btn");
+    }
