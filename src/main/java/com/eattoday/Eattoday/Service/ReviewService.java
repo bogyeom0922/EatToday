@@ -1,8 +1,11 @@
 package com.eattoday.Eattoday.Service;
 
 import com.eattoday.Eattoday.dto.ReviewDto;
+import com.eattoday.Eattoday.entity.Review;
+import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.repository.ReviewRepository;
 import com.eattoday.Eattoday.repository.StoreRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +26,17 @@ public class ReviewService {
                 .collect(Collectors.toList());
     }
 
-
+    @Transactional
+    public ReviewDto create(Long storeId, ReviewDto dto) {
+        //1. 게시글 조회 및 예외 발생
+        Store store = storeRepository.findById(storeId)
+                .orElseThrow(()->new IllegalArgumentException("리뷰 생성 실패! " +
+                        "대상 매장이 없습니다."));
+        //2. 리뷰 엔티티 생성
+        Review review = Review.createReview(dto, store);
+        //3. 리뷰 엔티티를 DB에 저장
+        Review created = reviewRepository.save(review);
+        //4. DTO로 변환해 반환
+        return ReviewDto.createReviewDto(created);
+    }
 }
