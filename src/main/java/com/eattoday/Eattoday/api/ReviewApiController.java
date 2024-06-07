@@ -7,9 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,12 @@ public class ReviewApiController {
         return ResponseEntity.status(HttpStatus.OK).body(dtos);
     }
 
-
+    //2. 댓글 생성
+    @PostMapping("/api/stores/{storeId}/reviews")
+    public ResponseEntity<ReviewDto> create(@PathVariable Long storeId, @RequestBody ReviewDto dto) {
+        //서비스에 위임
+        ReviewDto createdDto = reviewService.create(storeId, dto);
+        //결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(createdDto);
+    }
 }
