@@ -4,6 +4,8 @@ import com.eattoday.Eattoday.dto.ReviewDto;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity(name = "Review")
 @Getter
 @Setter
