@@ -53,4 +53,15 @@ public class ReviewService {
         //4. 리뷰 엔티티를 DTO로 변환 및 반환
         return ReviewDto.createReviewDto(updated);
     }
+
+    public ReviewDto delete(Long id) {
+        //1. 리뷰 조회 및 예외 발생
+        Review target = reviewRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("댓글 삭제 실패! " +
+                        "대상이 없습니다."));
+        //2. 리뷰 삭제
+        reviewRepository.delete(target);
+        //3. 삭제 리뷰를 DTO로 변환 및 반환
+        return ReviewDto.createReviewDto(target);
+    }
 }
