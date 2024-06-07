@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor //lombok 추가, 이 메서드가 생성자 대체
 @ToString // toString()메서드 대체
-public class userForm {
+public class UserForm {
     private Long id;
 
     @NotBlank(message = "아이디를 입력해주세요.")
@@ -30,9 +30,9 @@ public class userForm {
         return new User(id, uid,uname,upassword,email);
     }
 
-    public static userForm toUserFrom(User user)
+    public static UserForm toUserFrom(User user)
     {
-        userForm form = new userForm();
+        UserForm form = new UserForm();
         form.setId(user.getId());
         form.setUid(user.getUid());
         form.setUpassword(user.getUpassword());

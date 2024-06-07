@@ -1,7 +1,7 @@
 package com.eattoday.Eattoday.controller;
 
 import com.eattoday.Eattoday.Service.UserService;
-import com.eattoday.Eattoday.dto.userForm;
+import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -38,7 +38,7 @@ public class LoginController {
     }
 
     @PostMapping("/user/Signup") //POST 요청을 받았을 때, 해당 요청 값들로 구성된 객체를 검증하는 어노테이션, 각 필드의 입력값이 정해진 Validation 규칙을 따르는지 판단
-    public String Createuser(@Valid userForm form, BindingResult bindingResult) //파라미터의 위치는 @Valid 객체 바로 뒤에 선언해야 함 (중요)
+    public String Createuser(@Valid UserForm form, BindingResult bindingResult) //파라미터의 위치는 @Valid 객체 바로 뒤에 선언해야 함 (중요)
     {
 
         //중복 방지 기능
