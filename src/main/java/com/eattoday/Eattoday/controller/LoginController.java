@@ -31,14 +31,17 @@ public class LoginController {
     //main
     @GetMapping("/")
     public String Home() {
+
         return "home";
+
     }
 
     //login
     @GetMapping("/user/login")
-    public String Login()
-    {
+    public String Login() {
+
         return "user/login";
+
     }
 
     @PostMapping("/user/Signup") //POST 요청을 받았을 때, 해당 요청 값들로 구성된 객체를 검증하는 어노테이션, 각 필드의 입력값이 정해진 Validation 규칙을 따르는지 판단
@@ -46,26 +49,24 @@ public class LoginController {
     {
 
         //중복 방지 기능
-        if(userService.checkuidDuplicate(form.getUid())) //id 중복
+        if (userService.checkuidDuplicate(form.getUid())) //id 중복
         {
-            log.info("uid: "+ form.getUid()+" 중복");
-            bindingResult.addError(new FieldError("Signup","uid","ID 중복"));
+            log.info("uid: " + form.getUid() + " 중복");
+            bindingResult.addError(new FieldError("Signup", "uid", "ID 중복"));
         }
 
-        if(userService.checkunameDuplicate(form.getUname())) //nickname 중복
+        if (userService.checkunameDuplicate(form.getUname())) //nickname 중복
         {
-            log.info("uname: "+form.getUname()+" 중복");
-            bindingResult.addError(new FieldError("Signup","uname","Nickname 중복"));
+            log.info("uname: " + form.getUname() + " 중복");
+            bindingResult.addError(new FieldError("Signup", "uname", "Nickname 중복"));
         }
 
-        if(userService.checkemailDuplicate(form.getEmail()))
-        {
-            log.info("email: "+form.getEmail()+" 중복");
-            bindingResult.addError(new FieldError("Signup","email","Email 중복"));
+        if (userService.checkemailDuplicate(form.getEmail())) {
+            log.info("email: " + form.getEmail() + " 중복");
+            bindingResult.addError(new FieldError("Signup", "email", "Email 중복"));
         }
 
-        if(bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             return "user/login";
         }
 
@@ -85,10 +86,14 @@ public class LoginController {
 
     }
 
-    @GetMapping("/userinfo") //마이페이지
-    public String UserInfo()
-    {
-        return "user/userinfo";
+    @GetMapping("/{uid}/review") //마이페이지_리뷰
+    public String info_review(@PathVariable String uid, Model model) {
+
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+        model.addAttribute("user", userEntity);
+
+        return "user/info_review";
+
     }
 
 
