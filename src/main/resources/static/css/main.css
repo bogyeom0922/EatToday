@@ -407,3 +407,9 @@ a:hover {
     border: 1px solid rgba(166, 163, 144, 0.54);
     padding-left: 1%;
 }
+
+.update_profile_button {
+    position: relative;
+    top: 20px;
+    left: 10px
+}
