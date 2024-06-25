@@ -383,5 +383,7 @@ a:hover {
     top: -130px;
     left: 6%;
     width: 200px;
+    color: #404040;
     font-size: 24px;
+    font-weight: 700;
 }
