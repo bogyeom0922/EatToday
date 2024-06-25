@@ -344,14 +344,11 @@ a:hover {
 }
 
 .userinfo_shortcuts{
-    width: 90%;
-    height: 50px;
-    border-radius: 2%;
     position: relative;
     text-align: left;
     display: flex;
     align-items: center;
-    padding-left: 10%;
-    font-size: 15px;
-    font-weight: 400;
+    width: 90%;
+    height: 50px;
+    border-radius: 2%;
 }
