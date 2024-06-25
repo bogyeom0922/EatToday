@@ -338,13 +338,14 @@ a:hover {
 .userinfo_category {
     position: relative;
     float: left;
-    top: 120px;
-    margin-left: 2%;
+    top: 100px;
+    left: -26%;
     width: 15%;
 }
 
 .userinfo_shortcuts {
     position: relative;
+    margin-bottom: 10px;
     text-align: left;
     display: flex;
     align-items: center;
@@ -356,6 +357,9 @@ a:hover {
 }
 
 .userinfo_background {
+    position: relative;
+    left: 20%;
+    top: 110px;
     background-color: rgba(255, 255, 255, 0.76);
     width: 68%;
     height: 500px;
