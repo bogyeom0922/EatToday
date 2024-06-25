@@ -3,6 +3,8 @@ package com.eattoday.Eattoday.repository;
 import com.eattoday.Eattoday.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<User, Long> {
 
     //uid 중복 검사
@@ -11,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByuname(String uname);
     //email 중복 검사
     boolean existsByEmail(String email);
+
+    Optional<User> findByuid(String uid);
 }
