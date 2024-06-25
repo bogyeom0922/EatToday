@@ -334,7 +334,24 @@ a:hover {
     font-weight: 700;
 }
 
-/*mypage*/
-.mypage_category {
+/*userinfo*/
+.userinfo_category {
+    position: relative;
+    float: left;
+    top: 120px;
+    margin-left: 2%;
+    width: 15%;
+}
 
+.userinfo_shortcuts{
+    width: 90%;
+    height: 50px;
+    border-radius: 2%;
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    font-size: 15px;
+    font-weight: 400;
 }
