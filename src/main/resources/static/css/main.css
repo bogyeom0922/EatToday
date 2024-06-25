@@ -336,5 +336,8 @@ a:hover {
 
 /*mypage*/
 .mypage_category {
-
+    position: relative;
+    float: left;
+    top: 120px;
+    margin-left: 2%;
 }
