@@ -15,6 +15,11 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+h1 {
+    font-weight: bold;
+    margin: 0;
+}
+
 .container {
     background-color: #fff;
     border-radius: 10px;
