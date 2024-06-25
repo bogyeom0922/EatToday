@@ -342,3 +342,10 @@ a:hover {
     margin-left: 2%;
     width: 15%;
 }
+
+.userinfo_shortcuts{
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
