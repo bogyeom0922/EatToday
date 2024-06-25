@@ -32,6 +32,10 @@ p {
     margin: 20px 0 30px;
 }
 
+span {
+    font-size: 12px;
+}
+
 .container {
     background-color: #fff;
     border-radius: 10px;
