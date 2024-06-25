@@ -410,6 +410,8 @@ a:hover {
 
 .update_profile_button {
     position: relative;
-    top: 20px;
-    left: 10px
+    top: 25px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
 }
