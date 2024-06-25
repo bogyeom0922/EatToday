@@ -387,3 +387,11 @@ a:hover {
     font-size: 24px;
     font-weight: 700;
 }
+
+.update_profile {
+    position: relative;
+    top: -50px;
+    left: 6%;
+    font-size: 18px;
+    font-weight: 400;
+}
