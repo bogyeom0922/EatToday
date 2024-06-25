@@ -377,3 +377,10 @@ a:hover {
     width: 68%;
     height: 500px;
 }
+
+.userinfo_title {
+    position: relative;
+    top: -130px;
+    left: 6%;
+    width: 200px;
+}
