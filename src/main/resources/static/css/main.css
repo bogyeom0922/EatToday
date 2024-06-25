@@ -403,4 +403,6 @@ a:hover {
     height: 30px;
     width:30%;
     font-size:15px;
+    outline:none;
+    border: 1px solid rgba(166, 163, 144, 0.54);
 }
