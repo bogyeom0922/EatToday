@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,8 +9,18 @@
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
+        <!--비밀번호찾기-->
         <form>
-<!--            아이디 찾기-->
+            <h1>비밀번호 찾기</h1>
+            <br><br><br>
+            <input placeholder="아이디를 입력하세요."><br>
+            <button>찾기</button><br><br>
+            <a href="/user/login">Sign In</a>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <!--아이디찾기-->
+        <form>
             <h1>아이디 찾기</h1>
             <br><br><br>
             <input placeholder="이메일을 입력하세요."><br>
@@ -18,25 +28,17 @@
             <a href="/user/login">Sign In</a>
         </form>
     </div>
-    <div class="form-container sign-in-container">
-        <form>
-<!--            비밀번호 찾음-->
-            <h2>비밀번호를 찾았습니다</h2>
-            <h4><!--결과값--></h4><br>
-            <a href="/user/login">Sign In</a>
-        </form>
-    </div>
     <div class="overlay-container">
         <div class="overlay">
+            <!--비밀번호찾기-->
             <div class="overlay-panel overlay-left">
-                <!--로그인 페이지(비밀번호는 이미 찾았으니까 비밀번호 찾기x)-->
-                <h3>Login</h3>
-                <a href="/user/login"><button class="ghost" id="signIn">Login</button></a>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <!--아이디 찾기-->
                 <h3>아이디를 잊으셨나요 ?</h3>
-                <button type="submit" class="ghost" id="signUp">아이디 찾기</button>
+                <button class="ghost" id="signIn">아이디 찾기</button>
+            </div>
+            <!--아이디찾기-->
+            <div class="overlay-panel overlay-right">
+                <h3>비밀번호를 잊으셨나요 ?</h3>
+                <button type="submit" class="ghost" id="signUp">비밀번호 찾기</button>
             </div>
         </div>
     </div>
@@ -56,5 +58,6 @@
         container.classList.remove("right-panel-active");
     });
 </script>
+
 </body>
 </html>
