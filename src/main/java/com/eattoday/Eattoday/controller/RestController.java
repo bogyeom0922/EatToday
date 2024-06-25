@@ -52,25 +52,6 @@ public class RestController {
 
     }
 
-//    @GetMapping("/rest/{id}/{uid}") //매장 상세페이지
-//    public String show(@PathVariable("id") Long id,@PathVariable String uid, Model model) {
-//        log.info("id = " + id);
-//        // 1. id를 조회해 데이터 가져오기
-//        log.info("detail uid = "+uid);
-//        Store storeentity = storeRepository.findById(id).orElse(null);
-//        List<ReviewDto> reviewDtos = reviewService.reviews(id);
-//        // 2. 모델에 데이터 등록하기
-//        model.addAttribute("rest", storeentity);
-//        model.addAttribute("reviewDtos", reviewDtos);
-//
-//        //user정보
-//        User userEntity = userRepository.findByuid(uid).orElse(null);
-//        model.addAttribute("user", userEntity);
-//
-//        // 3. 뷰 페이지 반환하기
-//        return "rest/detail";
-//    }
-
     @GetMapping("/rest/{id}/{uid}") //매장 상세페이지
     public String show(@PathVariable("id") Long id,@PathVariable String uid, Model model) {
         log.info("id = " + id);

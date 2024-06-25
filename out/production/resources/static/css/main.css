@@ -333,3 +333,93 @@ a:hover {
     font-size: 23px;
     font-weight: 700;
 }
+
+/*userinfo*/
+.userinfo_category {
+    position: relative;
+    float: left;
+    top: 100px;
+    left: -26%;
+    width: 12%;
+}
+
+.userinfo_shortcuts {
+    position: relative;
+    margin-bottom: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.userinfo_current {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: rgba(11,84,11,0.89);
+    color: white;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.userinfo_background {
+    position: relative;
+    left: 20%;
+    top: 110px;
+    background-color: rgba(255, 255, 255, 0.76);
+    width: 68%;
+    height: 500px;
+}
+
+.userinfo_title {
+    position: relative;
+    top: -130px;
+    left: 6%;
+    width: 200px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.update_profile {
+    position: relative;
+    top: -50px;
+    left: 6%;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.update_profile_input {
+    position: relative;
+    top: 20px;
+    float:left;
+    height: 30px;
+    width:29%;
+    font-size:15px;
+    outline:none;
+    border: 1px solid rgba(166, 163, 144, 0.54);
+    padding-left: 1%;
+}
+
+.update_profile_button {
+    position: relative;
+    top: 25px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.update_profile_delete {
+    position: relative;
+    top: 80px;
+    left: -24%;
+    font-size: 18px;
+}
