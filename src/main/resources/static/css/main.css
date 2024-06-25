@@ -343,7 +343,7 @@ a:hover {
     width: 15%;
 }
 
-.userinfo_shortcuts{
+.userinfo_shortcuts {
     position: relative;
     text-align: left;
     display: flex;
@@ -353,4 +353,8 @@ a:hover {
     height: 50px;
     font-size: 15px;
     font-weight: 400;
+}
+
+.userinfo_background {
+
 }
