@@ -1,0 +1,44 @@
+<form class="rest_review_form">
+    <!--    유저아이디-->
+    {{#user}}
+        <input name="uid" type="hidden" value="{{uid}}" id="new-review-userid">
+    {{/user}}
+    <textarea type="text" class="review_form_textarea" id="new-review-body"></textarea>
+    <!--    매장아이디-->
+    {{#rest}}
+        <input name="storeid" type="hidden" value="{{id}}" id="new-review-store-id">
+    {{/rest}}
+    <button type="button" class="review_form_button" id="review-create-btn">등록</button>
+</form>
+
+<script>
+    {
+        //리뷰 생성 버튼 변수화
+        const reviewCreateBtn = document.querySelector("#review-create-btn");
+        //리뷰 클릭 이벤트 감지
+        reviewCreateBtn.addEventListener("click", function () {
+            //새 리뷰 객체 생성
+            const review = {
+                //새 리뷰 유저아이디
+                userid: document.querySelector("#new-review-userid").value,
+                //새 리뷰 본문
+                body: document.querySelector("#new-review-body").value,
+                //부모 게시글 id
+                storeid: document.querySelector("#new-review-store-id").value,
+            };
+            //리뷰 객체 출력
+            console.log(review);
+            //fetch() - 비동기 통신을 위한 API
+            //fetch() - 비동기 통신을 위한 API
+            const url = "/api/stores/" + review.storeid + "/reviews";
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(review)
+            }).then(response=>{
+                window.location.reload();
+            });
+        });
+    }

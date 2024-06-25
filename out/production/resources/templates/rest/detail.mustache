@@ -1,22 +1,111 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/main.css?after" rel="stylesheet">
-    <title>Restaurant details</title>
-</head>
-<body>
-<!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
+{{>layout/header}}
+
+<div class="detail_background">
+    <!--    뒤로가기-->
+    <a href=""><img src="/img/go_back.png" class="go_back"></a>
+    <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
-        매장 사진: <img src="{{store_img}}"><br>
-        매장 이름: {{store_name}}<br>
-        영업시간: {{store_time}}<br>
-        주소: {{store_address}}<br>
-        대표번호: {{store_phone}}<br>
-        별점: {{store_star}}<br>
-        메뉴: {{store_menu}}
-        리뷰: {{review_content}}
+<!--        매장 이미지-->
+        <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
+        <!--    매장 이름, 좋아요 버튼 배경-->
+        <div class="title_background">
+<!--            매장 이름-->
+            <div class="store_name">
+                {{store_name}}
+            </div>
+<!--            즐겨찾기-->
+            <div class="bookmark">
+                <img src="/img/bookmark_x.png" alt="매장 즐겨찾기" class="bookmark_img">
+            </div>
+        </div>
+
+        <div class="rest_detail">
+            <table>
+<!--                영업시간-->
+                <tr>
+                    <td style="width:40%; font-weight: 700">영업시간</td>
+                    <td style="width:60%; font-weight: 400">{{store_time}}</td>
+                </tr>
+<!--                매장 주소-->
+                <tr>
+                    <td style="width:40%; font-weight: 700">주소</td>
+                    <td style="width:60%; font-weight: 400">{{store_address}}</td>
+                </tr>
+<!--                매장 전화번호-->
+                <tr>
+                    <td style="width:40%; font-weight: 700">대표번호</td>
+                    <td style="width:60%; font-weight: 400">{{store_phone}}</td>
+                </tr>
+<!--                매장 별점-->
+                <tr>
+                    <td style="width:40%; font-weight: 700">별점</td>
+                    <td style="width:60%; font-weight: 400">{{store_star}}</td>
+                </tr>
+            </table>
+
+            <div id="MenuSentence">
+                {{store_menu}}
+            </div>
+
+            <div class="rest_menu">
+                <p class="rest_menu_p">메뉴</p>
+                <div class="rest_menu_list">
+                    <div id="MenuDisplay"></div>
+                </div>
+            </div>
+
+            <div id="ReviewSentence">
+                {{review_content}}
+            </div>
+
+            <div class="rest_menu">
+                <p class="rest_menu_p">리뷰</p>
+                {{>review/_reviews}}
+                <div class="rest_menu_list">
+                    <div id="ReviewDisplay"></div>
+                </div>
+            </div>
+
+        </div>
     {{/rest}}
-</body>
-</html>
+</div>
+
+<script type="text/javascript">
+
+    const menu_str = document.getElementById("MenuSentence").textContent; //div 내용 가져옴
+    const menu_arr = menu_str.split(", ");
+
+    const MenuDisplay = document.getElementById("MenuDisplay"); // 문장 표시할 div 가져옴
+    document.getElementById("MenuSentence").style.display = "none"; //원래 있던 문장 숨기기
+
+    menu_arr.forEach((menu, menu_index) => {
+        let menu_text = menu.trim(); // 요소 앞 뒤 불필요한 공백 제거
+        if (menu_index === menu_arr.length - 1) {
+            menu_text = menu_text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+        }
+        MenuDisplay.append(menu_text); //div에 글자 추가
+        MenuDisplay.appendChild(document.createElement("br")); // br 추가
+    });
+
+</script>
+
+<script type="text/javascript">
+
+    const review_str = document.getElementById("ReviewSentence").textContent; //div 내용 가져옴
+    const review_arr = review_str.split("+ ");
+
+    const ReviewDisplay = document.getElementById("ReviewDisplay"); // 문장 표시할 div 가져옴
+    document.getElementById("ReviewSentence").style.display = "none"; //원래 있던 문장 숨기기
+
+    review_arr.forEach((review, review_index) => {
+        let review_text = review.trim(); // 요소 앞 뒤 불필요한 공백 제거
+        if (review_index === review_arr.length - 1) {
+            review_text = review_text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+        }
+        ReviewDisplay.append(review_text); //div에 글자 추가
+        ReviewDisplay.appendChild(document.createElement("br")); // br 추가
+    });
+
+</script>
+
+{{>layout/footer}}
