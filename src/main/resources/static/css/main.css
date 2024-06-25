@@ -418,3 +418,9 @@ a:hover {
     font-weight: 400;
     color: #404040;
 }
+
+.update_profile_delete {
+    position: relative;
+    top: 50px;
+    left: -24%;
+}
