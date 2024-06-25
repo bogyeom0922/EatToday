@@ -1,13 +1,13 @@
 <div id="reviews-new">
-    <form>
+    <form class="rest_review_form">
             {{#user}}
                 <input name = "uid"  type="hidden" value="{{uid}}" id="new-review-userid">
             {{/user}}
-            <textarea type="text" id="new-review-body"></textarea>
+            <textarea type="text" id="new-review-body" class="review_form_textarea"></textarea>
             {{#rest}}
                 <input type="hidden" id="new-review-store-id" value="{{id}}">
             {{/rest}}
-            <button type="button" id="review-create-btn">등록</button>
+            <button type="button" id="review-create-btn" class="review_form_button">등록</button>
     </form>
 </div>
 
