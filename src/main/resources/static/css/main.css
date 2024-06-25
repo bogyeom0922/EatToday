@@ -340,7 +340,7 @@ a:hover {
     float: left;
     top: 100px;
     left: -26%;
-    width: 15%;
+    width: 12%;
 }
 
 .userinfo_shortcuts {
@@ -350,7 +350,20 @@ a:hover {
     display: flex;
     align-items: center;
     padding-left: 10%;
-    width: 90%;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.userinfo_current {
+    position: relative;
+    margin-bottom: 10px;
+    background-color: rgba(11,84,11,0.89);
+    color: white;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
     height: 50px;
     font-size: 15px;
     font-weight: 400;
