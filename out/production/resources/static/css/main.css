@@ -383,7 +383,6 @@ a:hover {
     top: -130px;
     left: 6%;
     width: 200px;
-    color: #404040;
     font-size: 24px;
     font-weight: 700;
 }
@@ -416,7 +415,6 @@ a:hover {
     border: none;
     font-size: 16px;
     font-weight: 400;
-    color: #404040;
 }
 
 .update_profile_delete {
