@@ -85,11 +85,8 @@ public class LoginController {
 
     }
 
-    @GetMapping("/userinfo") //마이페이지
-    public String UserInfo()
-    {
-        return "user/userinfo";
-    }
+    @GetMapping("/{uid}/review") //마이페이지_리뷰
+    public String loginfo_review
 
 
 }
