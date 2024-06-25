@@ -334,10 +334,11 @@ a:hover {
     font-weight: 700;
 }
 
-/*mypage*/
-.mypage_category {
+/*userinfo*/
+.userinfo_category {
     position: relative;
     float: left;
     top: 120px;
     margin-left: 2%;
+    width: 15%;
 }
