@@ -348,6 +348,7 @@ a:hover {
     text-align: left;
     display: flex;
     align-items: center;
+    padding-left: 10%;
     width: 90%;
     height: 50px;
     font-size: 15px;
