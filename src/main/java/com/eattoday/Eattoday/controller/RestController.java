@@ -63,7 +63,7 @@ public class RestController {
         model.addAttribute("rest", storeentity);
         model.addAttribute("reviewDtos", reviewDtos);
 
-        //user정보
+        //user 정보
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
 
