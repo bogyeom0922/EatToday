@@ -28,8 +28,8 @@ public class RestController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping("/category")
-    public String category(Model model) {
+    @GetMapping("/category/{uid}")
+    public String category(@PathVariable String uid, Model model) {
 
         long count = storeRepository.count(); // store 개수 추출
 
