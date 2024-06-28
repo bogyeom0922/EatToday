@@ -106,6 +106,14 @@ public class LoginController {
 
     }
 
+    @GetMapping("/{uid}/like") //마이페이지_즐겨찾기
+    public String info_like(@PathVariable String uid, Model model) {
 
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+        model.addAttribute("user", userEntity);
+
+        return "userinfo/info_like";
+
+    }
 
 }
