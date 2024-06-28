@@ -15,6 +15,14 @@
 <div class="userinfo_background">
     <div class="userinfo_title">작성한 리뷰</div>
 
+    <table>
+        <td>
+            {{#reviews}}{{body}}{{/reviews}}
+        </td>
+        <td>
+            {{#reviewStores}}{{store_name}}{{/reviewStores}}
+        </td>
+    </table>
 </div>
 
 {{>layout/footer}}
