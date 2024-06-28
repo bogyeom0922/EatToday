@@ -86,14 +86,26 @@ public class LoginController {
 
     }
 
+    @GetMapping("/{uid}") //마이페이지
+    public String info(@PathVariable String uid, Model model) {
+
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+        model.addAttribute("user", userEntity);
+
+        return "userinfo/info";
+
+    }
+
     @GetMapping("/{uid}/review") //마이페이지_리뷰
     public String info_review(@PathVariable String uid, Model model) {
 
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
 
-        return "user/info_review";
+        return "userinfo/info_review";
 
     }
+
+
 
 }
