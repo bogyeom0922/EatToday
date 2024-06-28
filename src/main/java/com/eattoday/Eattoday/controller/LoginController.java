@@ -128,6 +128,8 @@ public class LoginController {
             }
         }
 
+        model.addAttribute("reviews", reviews);
+        model.addAttribute("reviewStores", reviewStores);
 
         return "userinfo/info_review";
 
