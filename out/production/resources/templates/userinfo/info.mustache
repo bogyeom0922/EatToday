@@ -1,13 +1,14 @@
 {{>layout/header}}
 
+{{#user}}
 <div class="userinfo_category">
-    <a href="">
+    <a href="/{{uid}}">
         <div class="userinfo_current">회원정보 수정</div>
     </a>
-    <a href="">
+    <a href="/{{uid}}/review">
         <div class="userinfo_shortcuts">리뷰 관리</div>
     </a>
-    <a href="">
+    <a href="/{{uid}}/like">
         <div class="userinfo_shortcuts">즐겨찾기 관리</div>
     </a>
 </div>
@@ -23,5 +24,5 @@
     </div>
     <div class="update_profile_delete"><a href="">계정 삭제</a></div>
 </div>
-
+{{/user}}
 {{>layout/footer}}

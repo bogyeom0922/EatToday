@@ -15,7 +15,6 @@ public class ReviewDto {
     private Long id;
     @JsonProperty("storeId")
     private Long storeId;
-    private String storeName;
     private String userid;
     private String body;
 
@@ -23,7 +22,6 @@ public class ReviewDto {
         return new ReviewDto(
                 review.getId(),
                 review.getStore().getId(),
-                review.getStore().getStore_name(),
                 review.getUserid(),
                 review.getBody()
         );

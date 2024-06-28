@@ -15,7 +15,7 @@
 <body>
 
 <div class="header">
-    <a href="/category"><img src="/img/logo.png" class="header_img" alt="로고 이미지"></a>
+    <a href="/category/{{uid}}"><img src="/img/logo.png" class="header_img" alt="로고 이미지"></a>
     <div class="search">
         <form class="search_form">
             <label>
@@ -24,6 +24,6 @@
             <button class="search_button">검색</button>
         </form>
     </div>
-    <a href="#" class="shortcut_mypage">MYPAGE</a>
+    <a href="/{{uid}}" class="shortcut_mypage">MYPAGE</a>
     <p onClick="location.replace('/user/login')" class="logout">LOGOUT</p>
 </div>
