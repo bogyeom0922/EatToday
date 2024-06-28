@@ -119,11 +119,13 @@ public class LoginController {
         model.addAttribute("user", userEntity);
 
         List<Review> reviews = reviewRepository.findByUserid(uid); //uid로 리뷰 목록 조회
-        List<Store> review_store = new ArrayList<>(); // 각 리뷰에 해당되는 매장 정보를 저장할 리스트 생성
+        List<Store> reviewStores = new ArrayList<>(); // 각 리뷰에 해당되는 매장 정보를 저장할 리스트 생성
 
         for (Review review : reviews) { // 각 리뷰에 대해 매장 정보 조회 후 저장
             Store store = review.getStore();
-
+            if (store != null) {
+                reviewStores.add(store); // 매장 정보가 null이 아닌 경우 리스트에 저장
+            }
         }
 
 
