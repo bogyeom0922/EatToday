@@ -3,6 +3,7 @@ package com.eattoday.Eattoday.controller;
 import com.eattoday.Eattoday.Service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.Review;
+import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.ReviewRepository;
 import com.eattoday.Eattoday.repository.UserRepository;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -112,6 +114,7 @@ public class LoginController {
         model.addAttribute("user", userEntity);
 
         List<Review> reviews = reviewRepository.findByUserid(uid); //uid로 리뷰 목록 조회
+        List<Store> review_store = new ArrayList<>(); // 각 리뷰에 해당되는 매장 정보를 저장할 리스트 생성
 
         return "userinfo/info_review";
 
