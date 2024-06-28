@@ -1,13 +1,13 @@
 {{>layout/header}}
 
 <div class="userinfo_category">
-    <a href="">
+    <a href="/{{uid}}">
         <div class="userinfo_shortcuts">회원정보 수정</div>
     </a>
-    <a href="">
+    <a href="/{{uid}}/review">
         <div class="userinfo_current">리뷰 관리</div>
     </a>
-    <a href="">
+    <a href="api/{{uid}}/{{id}}like">
         <div class="userinfo_shortcuts">즐겨찾기 관리</div>
     </a>
 </div>
