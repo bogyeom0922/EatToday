@@ -28,8 +28,8 @@ public class RestController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping("/category")
-    public String category(Model model) {
+    @GetMapping("/category/{uid}")
+    public String category(@PathVariable String uid, Model model) {
 
         long count = storeRepository.count(); // store 개수 추출
 
@@ -63,7 +63,7 @@ public class RestController {
         model.addAttribute("rest", storeentity);
         model.addAttribute("reviewDtos", reviewDtos);
 
-        //user정보
+        //user 정보
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
 

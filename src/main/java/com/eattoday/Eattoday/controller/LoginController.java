@@ -2,7 +2,11 @@ package com.eattoday.Eattoday.controller;
 
 import com.eattoday.Eattoday.Service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
+import com.eattoday.Eattoday.entity.Review;
+import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.entity.User;
+import com.eattoday.Eattoday.repository.ReviewRepository;
+import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.repository.UserRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -16,17 +20,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @Slf4j // 로깅확인 어노테이션
 @RequiredArgsConstructor //userRepository 생성자 만들어주는 어노테이션
 public class LoginController {
 
-    //@Autowired //repository에 객체 주입 = DI
+    //repository 객체 선언
     @Autowired
-    private final UserRepository userRepository; //repository 객체 선언
+    private final UserRepository userRepository;
 
     @Autowired
+    private final ReviewRepository reviewRepository;
+
+    @Autowired
+    private final StoreRepository storeRepository;
+
+    //service 객체 선언
+    @Autowired
     private final UserService userService;
+
 
     //main
     @GetMapping("/")
@@ -86,13 +102,46 @@ public class LoginController {
 
     }
 
+    @GetMapping("/{uid}") //마이페이지
+    public String info(@PathVariable String uid, Model model) {
+
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+        model.addAttribute("user", userEntity);
+
+        return "userinfo/info";
+
+    }
+
     @GetMapping("/{uid}/review") //마이페이지_리뷰
     public String info_review(@PathVariable String uid, Model model) {
 
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
 
-        return "user/info_review";
+        List<Review> reviews = reviewRepository.findByUserid(uid); //uid로 리뷰 목록 조회
+        List<Store> reviewStores = new ArrayList<>(); // 각 리뷰에 해당되는 매장 정보를 저장할 리스트 생성
+
+        for (Review review : reviews) { // 각 리뷰에 대해 매장 정보 조회 후 저장
+            Store store = review.getStore();
+            if (store != null) {
+                reviewStores.add(store); // 매장 정보가 null이 아닌 경우 리스트에 저장
+            }
+        }
+
+        model.addAttribute("reviews", reviews);
+        model.addAttribute("reviewStores", reviewStores);
+
+        return "userinfo/info_review";
+
+    }
+
+    @GetMapping("/{uid}/like") //마이페이지_즐겨찾기
+    public String info_like(@PathVariable String uid, Model model) {
+
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+        model.addAttribute("user", userEntity);
+
+        return "userinfo/info_like";
 
     }
 

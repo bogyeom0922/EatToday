@@ -20,8 +20,6 @@ public class Review {
     @JoinColumn(name="store_id")
     private Store store;
     @Column
-    private String storeName;
-    @Column
     private String userid;
     @Column
     private String body;
@@ -35,7 +33,6 @@ public class Review {
         return new Review(
                 dto.getId(),
                 store,
-                dto.getStoreName(),
                 dto.getUserid(),
                 dto.getBody()
         );
