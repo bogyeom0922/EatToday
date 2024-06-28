@@ -16,12 +16,14 @@
     <div class="userinfo_title">작성한 리뷰</div>
 
     <table>
-        <td>
-            {{#reviews}}{{body}}{{/reviews}}
-        </td>
-        <td>
-            {{#reviewStores}}{{store_name}}{{/reviewStores}}
-        </td>
+        <tbody>
+        {{#reviews}}
+            <tr>
+                <td>{{body}}</td>
+                <td>{{#store}}{{store_name}}{{/store}}</td>
+            </tr>
+        {{/reviews}}
+        </tbody>
     </table>
 </div>
 
