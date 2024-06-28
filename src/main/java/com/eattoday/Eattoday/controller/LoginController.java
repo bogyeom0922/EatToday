@@ -6,6 +6,7 @@ import com.eattoday.Eattoday.entity.Review;
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.ReviewRepository;
+import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.repository.UserRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j // 로깅확인 어노테이션
@@ -33,6 +35,9 @@ public class LoginController {
 
     @Autowired
     private final ReviewRepository reviewRepository;
+
+    @Autowired
+    private final StoreRepository storeRepository;
 
     //service 객체 선언
     @Autowired
@@ -117,7 +122,8 @@ public class LoginController {
         List<Store> review_store = new ArrayList<>(); // 각 리뷰에 해당되는 매장 정보를 저장할 리스트 생성
 
         for (Review review : reviews) { // 각 리뷰에 대해 매장 정보 조회 후 저장
-            review_store.add(review.getStore());
+            Store store = review.getStore();
+
         }
 
 
