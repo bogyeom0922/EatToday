@@ -29,6 +29,6 @@ public class LikeService {
                 .orElseThrow(() -> new IllegalArgumentException("유저 정보 없음"));
         Like like = Like.createLike(likeDto, user, store, 1);
         Like liked = likeReposiroty.save(like);
-
+        return LikeDto.createLikeDto(liked);
     }
 }
