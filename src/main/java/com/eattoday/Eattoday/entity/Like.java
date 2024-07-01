@@ -21,5 +21,6 @@ public class Like {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    private long state;
 
 }
