@@ -1,5 +1,6 @@
 package com.eattoday.Eattoday.entity;
 
+import com.eattoday.Eattoday.dto.LikeDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,4 +24,7 @@ public class Like {
     private User user;
     private long state;
 
+    public static Like createLike(LikeDto likeDto, User user, Store store, long state){
+        return new Like(likeDto.getId(), user, store, state);
+    }
 }
