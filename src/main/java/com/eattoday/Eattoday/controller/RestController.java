@@ -92,6 +92,8 @@ public class RestController {
     @GetMapping("/rest/{id}/{uid}") // 매장 상세 페이지
     public String show(@PathVariable("id") Long id, @PathVariable String uid, Model model){
         log.info("id = " + id);
+        log.info("detail uid = " + uid);
+
         return "rest/detail";
     }
 
