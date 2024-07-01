@@ -19,5 +19,8 @@ public class LikeDto {
     private Long store_id;
     @JsonProperty("userId")
     private Long user_id;
+    private Long state;
+
+
 
 }
