@@ -89,6 +89,10 @@ public class RestController {
         return "rest/storelist-filter";
     }
 
+    @GetMapping("/rest/{id}/{uid}") // 매장 상세 페이지
+    public String show(@PathVariable("id") Long id, @PathVariable String uid, Model model){
+
+    }
 
 
 }
