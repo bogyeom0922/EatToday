@@ -1,6 +1,7 @@
 package com.eattoday.Eattoday.service;
 
 import com.eattoday.Eattoday.dto.LikeDto;
+import com.eattoday.Eattoday.entity.Like;
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.LikeReposiroty;
@@ -26,6 +27,7 @@ public class LikeService {
                 .orElseThrow(() -> new IllegalArgumentException("좋아요 실패! " + "대상 매장이 없습니다."));
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("유저 정보 없음"));
+        Like like = Like.createLike(likeDto, user, store, 1);
 
     }
 }
