@@ -89,9 +89,8 @@ public class RestController {
         return "rest/storelist-filter";
     }
 
-    @GetMapping("/rest/{id}/{uid}") // 매장 상세 페이지
-    public String show(@PathVariable("id") Long id, @PathVariable String uid, Model model){
-        log.info("id = " + id);
+    @GetMapping("api/{uid}/like") // 매장 좋아요 기능
+    public String myLike(@PathVariable String uid, Model model){
         log.info("detail uid = " + uid);
 
         return "rest/detail";
