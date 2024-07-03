@@ -111,6 +111,7 @@
             }).then(response => {
                 const msg = (response.ok) ? "댓글이 수정됐습니다." : "댓글 수정에 실패하였습니다.";
                 alert(msg);
+                window.location.reload();
             });
         });
     }
