@@ -36,42 +36,54 @@
         {{/reviews}}
         </tbody>
     </table>
+
+    <div id="modalBackground" class="modal-background"></div>
+
+
 </div>
 
 <!--모달 열기,닫기-->
 <script>
-    // 모달 열기 함수
-    function openModal() {
-        document.getElementById("review-edit-Modal").style.display = "block";
-    }
+    {
+        // 모달 열기 함수
+        function openModal() {
+            document.getElementById("review-edit-Modal").style.display = "block";
+        }
 
-    // 모달 닫기 함수
-    document.getElementById("closeModal").onclick = function () {
-        document.getElementById("review-edit-Modal").style.display = "none";
+        // 모달 닫기 함수
+        document.getElementById("closeModal").onclick = function () {
+            document.getElementById("review-edit-Modal").style.display = "none";
+        }
     }
 </script>
 
 <!--댓글 수정-->
 <script>
-    const reviewEditButton = document.querySelectorAll(".button[data-bs-toggle='modal']");
-    reviewEditButton.forEach(btn => {
-        btn.addEventListener("click", (event) => {
-            const review = event.target;
+    {
+        const reviewEditButton = document.querySelectorAll(".button[data-bs-toggle='modal']");
+        reviewEditButton.forEach(btn => {
+            btn.addEventListener("click", (event) => {
+                const review = event.target;
 
-            const id = review.getAttribute("data-bs-id");
-            const store = review.getAttribute("data-bs-store");
-            const userid = review.getAttribute("data-bs-userid");
-            const body = review.getAttribute("data-bs-body");
+                const id = review.getAttribute("data-bs-id");
+                const store = review.getAttribute("data-bs-store");
+                const userid = review.getAttribute("data-bs-userid");
+                const body = review.getAttribute("data-bs-body");
+            })
         })
-    })
+    }
 </script>
-
 <!--댓글 삭제-->
 <script>
-    const reviewDeleteButton = document.querySelectorAll(".review-delete-btn");
-    reviewDeleteButton.forEach(btn => {
-        btn.addEventListener("click", (event) => {
-            const DeleteBtn = event.target;
-            const reviewId = DeleteBtn.getAttribute("data-review-id");
-
+    {
+        const reviewDeleteButton = document.querySelectorAll(".review-delete-btn");
+        reviewDeleteButton.forEach(btn => {
+            btn.addEventListener("click", (event) => {
+                const DeleteBtn = event.target;
+                const reviewId = DeleteBtn.getAttribute("data-review-id");
+                console.log(`삭제 버튼 클릭: ${reviewId}번 댓글`);
+            });
+        });
+    }
+</script>
 {{>layout/footer}}

@@ -22,7 +22,7 @@ public class ReviewService {
     public List<ReviewDto> reviews(Long storeId) {
         return reviewRepository.findByStoreId(storeId)
                 .stream() //리스트에 저장된 요소들 하나씩 차조하며 반복 처리할 때 사용
-                .map(review -> ReviewDto.createReviewDto(review))
+                .map(ReviewDto::createReviewDto)
                 .collect(Collectors.toList());
     }
 
