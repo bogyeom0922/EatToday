@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LikeService {
@@ -43,6 +44,7 @@ public class LikeService {
 
     @Transactional
     public List<LikeDto> myLike(String user_id){
+        User user = userRepository.findByuid(user_id).orElse(null);
 
     }
 }
