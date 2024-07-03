@@ -101,8 +101,9 @@ public class RestController {
         List<Store> store = new ArrayList<>();
         for(int i = 0; i < myLikes.size(); i++){
             Store store1 = storeRepository.findById(myLikes.get(i).getStore_id()).orElse(null);
-
+            store.add(store1);
         }
+        model.addAttribute("store", store);
         return "rest/detail";
     }
 
