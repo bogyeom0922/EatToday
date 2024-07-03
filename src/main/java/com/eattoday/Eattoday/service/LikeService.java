@@ -40,4 +40,9 @@ public class LikeService {
         if(like == null) return null;
         return LikeDto.createLikeDto(like);
     }
+
+    @Transactional
+    public List<LikeDto> myLike(String user_id){
+
+    }
 }
