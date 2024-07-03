@@ -99,7 +99,10 @@
                 body: document.querySelector("#edit-review-body").value
             };
             console.log(review);
-        }
+
+            // 수정 REST API 호출
+            const url = "/api/reviews/" + review.id;
+        });
     }
 </script>
 
