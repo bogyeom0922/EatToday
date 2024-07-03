@@ -37,6 +37,7 @@ public class LikeService {
     @Transactional
     public LikeDto storeLike(Long user_id, Long store_id) {
         Like like = likeReposiroty.findByUser_idAndStore_id(user_id, store_id);
+        if(like == null) return null;
         return LikeDto.createLikeDto(like);
     }
 }
