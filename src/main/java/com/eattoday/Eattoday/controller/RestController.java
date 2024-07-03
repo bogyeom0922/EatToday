@@ -104,7 +104,7 @@ public class RestController {
             store.add(store1);
         }
         model.addAttribute("store", store);
-        return "rest/detail";
+        return "user/loginfo_like";
     }
 
 
