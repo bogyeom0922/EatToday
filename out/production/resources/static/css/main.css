@@ -424,3 +424,11 @@ a:hover {
     left: -24%;
     font-size: 18px;
 }
+
+.modal-background {
+    display: none;
+}
+
+.modal {
+    display: none;
+}
