@@ -56,12 +56,12 @@
     const reviewEditButton = document.querySelectorAll(".button[data-bs-toggle='modal']");
     reviewEditButton.forEach(btn => {
         btn.addEventListener("click", (event) => {
-            const comment = event.target;
+            const review = event.target;
 
-            const id = comment.getAttribute("data-bs-id");
-            const store = comment.getAttribute("data-bs-store");
-            const userid = comment.getAttribute("data-bs-userid");
-            const body = comment.getAttribute("data-bs-body");
+            const id = review.getAttribute("data-bs-id");
+            const store = review.getAttribute("data-bs-store");
+            const userid = review.getAttribute("data-bs-userid");
+            const body = review.getAttribute("data-bs-body");
         })
     })
 </script>
