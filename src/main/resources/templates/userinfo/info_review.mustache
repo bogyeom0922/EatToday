@@ -72,5 +72,6 @@
     reviewDeleteButton.forEach(btn => {
         btn.addEventListener("click", (event) => {
             const DeleteBtn = event.target;
+            const reviewId = DeleteBtn.getAttribute("data-review-id");
 
 {{>layout/footer}}
