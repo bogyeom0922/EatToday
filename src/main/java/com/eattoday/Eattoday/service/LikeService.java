@@ -46,5 +46,9 @@ public class LikeService {
     public List<LikeDto> myLike(String user_id){
         User user = userRepository.findByuid(user_id).orElse(null);
         Long id = user.getId();
+        return likeReposiroty.findLikes(id)
+                .stream()
+                .map(Like -> LikeDto.createLikeDto(Like))
+                .collect(Collectors.toList());
     }
 }
