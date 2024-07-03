@@ -132,7 +132,10 @@
                 fetch(url, {
                     method: "DELETE"
                 }).then(response => {
-
+                    if(!response.ok) {
+                        alert("댓글 삭제 실패");
+                        return;
+                    }
                 });
             });
         });
