@@ -45,6 +45,6 @@ public class LikeService {
     @Transactional
     public List<LikeDto> myLike(String user_id){
         User user = userRepository.findByuid(user_id).orElse(null);
-
+        Long id = user.getId();
     }
 }
