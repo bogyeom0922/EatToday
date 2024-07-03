@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -97,7 +98,7 @@ public class RestController {
     public String myLike(@PathVariable String uid, Model model){
         log.info("detail uid = " + uid);
         List<LikeDto> myLikes = likeService.myLike(uid);
-
+        List<Store> store = new ArrayList<>();
         return "rest/detail";
     }
 
