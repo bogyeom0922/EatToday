@@ -127,7 +127,13 @@
                 const reviewId = DeleteBtn.getAttribute("data-review-id");
                 console.log(`삭제 버튼 클릭: ${reviewId}번 댓글`);
 
+                // 삭제 REST API 호출
                 const url = `/api/reviews/${reviewId}`;
+                fetch(url, {
+
+                }).then(response => {
+
+                });
             });
         });
     }
