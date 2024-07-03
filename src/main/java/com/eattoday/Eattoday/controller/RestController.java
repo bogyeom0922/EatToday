@@ -99,6 +99,10 @@ public class RestController {
         log.info("detail uid = " + uid);
         List<LikeDto> myLikes = likeService.myLike(uid);
         List<Store> store = new ArrayList<>();
+        for(int i = 0; i < myLikes.size(); i++){
+            Store store1 = storeRepository.findById(myLikes.get(i).getStore_id()).orElse(null);
+
+        }
         return "rest/detail";
     }
 
