@@ -79,10 +79,13 @@
                 const store = review.getAttribute("data-bs-store");
                 const userid = review.getAttribute("data-bs-userid");
                 const body = review.getAttribute("data-bs-body");
+
+                document.querySelector("#edit-review-id").value = id;
             })
         })
     }
 </script>
+
 <!--댓글 삭제-->
 <script>
     {
@@ -96,4 +99,5 @@
         });
     }
 </script>
+
 {{>layout/footer}}
