@@ -38,6 +38,7 @@
     </table>
 </div>
 
+<!--모달 열기,닫기-->
 <script>
     // 모달 열기 함수
     function openModal() {
@@ -48,6 +49,12 @@
     document.getElementById("closeModal").onclick = function () {
         document.getElementById("review-edit-Modal").style.display = "none";
     }
+</script>
+
+<!--댓글 수정-->
+<script>
+    const reviewEditButton = document.querySelectorAll(".button[data-bs-toggle='modal']");
+
 </script>
 
 {{>layout/footer}}
