@@ -136,7 +136,10 @@
                         alert("댓글 삭제 실패");
                         return;
                     }
-                    const target = document.querySelector(`#review-${reviewId}`);
+                    const review = document.querySelector(`#review-${reviewId}`);
+                    if (review) {
+                        review.remove();
+                    }
                 });
             });
         });
