@@ -91,7 +91,7 @@
     }
     {
         const reviewUpdateButton = document.querySelector("#review-update-btn");
-        reviewUpdateButton.addEventListener("click", function (){
+        reviewUpdateButton.addEventListener("click", function () {
             const review = {
                 id: document.querySelector("#edit-review-id").value,
                 store: document.querySelector("#edit-review-store").value,
@@ -126,6 +126,8 @@
                 const DeleteBtn = event.target;
                 const reviewId = DeleteBtn.getAttribute("data-review-id");
                 console.log(`삭제 버튼 클릭: ${reviewId}번 댓글`);
+
+                const url = `/api/reviews/${reviewId}`;
             });
         });
     }
