@@ -104,6 +104,9 @@
             const url = "/api/reviews/" + review.id;
             fetch(url, {
                 method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
             }).then(response => {
 
             });
