@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
+import java.util.List;
+
 @Service
 public class LikeService {
     @Autowired
@@ -30,5 +32,11 @@ public class LikeService {
         Like like = Like.createLike(likeDto, user, store, 1);
         Like liked = likeReposiroty.save(like);
         return LikeDto.createLikeDto(liked);
+    }
+
+    @Transactional
+    public LikeDto storeLike(Long user_id, Long store_id) {
+        Like like = likeReposiroty.findByUser_idAndStore_id(user_id, store_id);
+        return LikeDto.createLikeDto(like);
     }
 }
