@@ -1,8 +1,10 @@
 package com.eattoday.Eattoday.controller;
 
+import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.dto.StoreDto;
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.service.LikeService;
 import com.eattoday.Eattoday.service.StoreService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class RestController {
     private StoreRepository storeRepository;
     @Autowired
     private StoreService storeService;
+    @Autowired
+    private LikeService likeService;
 
     @GetMapping(value ="/storelist") //전체 식당 조회
     public String home(@PathVariable String uid, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC)Pageable pageable) throws IOException {
@@ -92,6 +96,7 @@ public class RestController {
     @GetMapping("api/{uid}/like") // 매장 좋아요 기능
     public String myLike(@PathVariable String uid, Model model){
         log.info("detail uid = " + uid);
+        List<LikeDto> myLikes = likeService.myLike(uid);
 
         return "rest/detail";
     }
