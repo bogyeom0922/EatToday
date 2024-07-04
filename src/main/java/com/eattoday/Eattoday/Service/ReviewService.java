@@ -30,7 +30,7 @@ public class ReviewService {
     public ReviewDto create(Long storeId, ReviewDto dto) {
         //1. 게시글 조회 및 예외 발생
         Store store = storeRepository.findById(storeId)
-                .orElseThrow(()->new IllegalArgumentException("리뷰 생성 실패! " +
+                .orElseThrow(() -> new IllegalArgumentException("리뷰 생성 실패! " +
                         "대상 매장이 없습니다."));
         //2. 리뷰 엔티티 생성
         Review review = Review.createReview(dto, store);
@@ -44,7 +44,7 @@ public class ReviewService {
     public ReviewDto update(Long id, ReviewDto dto) {
         //1. 리뷰 조회
         Review target = reviewRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("댓글 수정 실패!" +
+                .orElseThrow(() -> new IllegalArgumentException("댓글 수정 실패!" +
                         "대상 댓글이 없습니다."));
         //2. 리뷰 수정
         target.patch(dto);
@@ -57,10 +57,11 @@ public class ReviewService {
     public ReviewDto delete(Long id) {
         //1. 리뷰 조회 및 예외 발생
         Review target = reviewRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("댓글 삭제 실패! " +
-                        "대상이 없습니다."));
+                .orElseThrow(() -> new IllegalArgumentException("댓글 삭제 실패! " + "대상이 없습니다."));
+
         //2. 리뷰 삭제
         reviewRepository.delete(target);
+
         //3. 삭제 리뷰를 DTO로 변환 및 반환
         return ReviewDto.createReviewDto(target);
     }

@@ -30,7 +30,7 @@
                             data-bs-userid="{{userid}}"
                             data-bs-body="{{body}}">수정
                     </button>
-                    <button class="button review-delete-btn" data-review-id={{id}}>삭제</button>
+                    <button class="button review-delete-btn" data-review-id="{{id}}">삭제</button>
                 </td>
             </tr>
         {{/reviews}}
@@ -41,6 +41,14 @@
 
     <div id="review-edit-Modal" class="modal">
         <span id="closeModal">&times;</span>
+        <h2>수정하기</h2>
+        <form id="ReviewEditForm">
+            <input type="hidden" id="edit-review-id">
+            <input type="hidden" id="edit-review-store">
+            <input type="hidden" id="edit-review-userid">
+            <textarea type="text" id="edit-review-body"></textarea>
+            <button type="button" id="review-update-btn">수정 완료</button>
+        </form>
     </div>
 </div>
 
@@ -71,21 +79,83 @@
                 const store = review.getAttribute("data-bs-store");
                 const userid = review.getAttribute("data-bs-userid");
                 const body = review.getAttribute("data-bs-body");
-            })
-        })
-    }
-</script>
-<!--댓글 삭제-->
-<script>
-    {
-        const reviewDeleteButton = document.querySelectorAll(".review-delete-btn");
-        reviewDeleteButton.forEach(btn => {
-            btn.addEventListener("click", (event) => {
-                const DeleteBtn = event.target;
-                const reviewId = DeleteBtn.getAttribute("data-review-id");
-                console.log(`삭제 버튼 클릭: ${reviewId}번 댓글`);
+
+                document.querySelector("#edit-review-id").value = id;
+                document.querySelector("#edit-review-store").value = store;
+                document.querySelector("#edit-review-userid").value = userid;
+                document.querySelector("#edit-review-body").value = body;
+
+                openModal();
             });
         });
     }
 </script>
+<script>
+    {
+        const reviewUpdateButton = document.querySelector("#review-update-btn");
+        reviewUpdateButton.addEventListener("click", function () {
+            const review = {
+                id: document.querySelector("#edit-review-id").value,
+                store: document.querySelector("#edit-review-store").value,
+                userid: document.querySelector("#edit-review-userid").value,
+                body: document.querySelector("#edit-review-body").value
+            };
+            console.log(review);
+
+            // 수정 REST API 호출
+            const url = "/api/reviews/" + review.id;
+            fetch(url, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(review)
+            }).then(response => {
+                const msg = (response.ok) ? "댓글이 수정됐습니다." : "댓글 수정에 실패하였습니다.";
+                alert(msg);
+                window.location.reload();
+            });
+        });
+    }
+</script>
+
+<!--댓글 삭제-->
+<script>
+    {
+        const reviewDeleteButtons = document.querySelectorAll(".review-delete-btn");
+        reviewDeleteButtons.forEach(btn => {
+            btn.addEventListener("click", (event) => {
+                const deleteBtn = event.target;
+                const reviewId = deleteBtn.getAttribute("data-review-id");
+                console.log(`삭제 버튼 클릭: ${reviewId}번 댓글`);
+
+                // 삭제 REST API 호출
+                const url = `/api/reviews/${reviewId}`;
+                fetch(url, {
+                    method: "DELETE"
+                }).then(response => {
+                    if (!response.ok) {
+                        alert("댓글 삭제 실패");
+                        return;
+                    }
+
+                    // 삭제 후 해당 리뷰 요소를 DOM에서 제거
+                    const review = document.querySelector(`#review-${reviewId}`);
+                    if (review) {
+                        review.remove();
+                        const msg = `${reviewId}번 댓글을 삭제했습니다`;
+                        alert(msg);
+                    } else {
+                        console.error(`ID가 review-${reviewId}인 요소를 찾을 수 없습니다.`);
+                    }
+                }).catch(error => {
+                    console.error("댓글 삭제 중 오류 발생:", error);
+                    alert("댓글 삭제 중 오류가 발생했습니다.");
+                });
+            });
+        });
+    }
+</script>
+
+
 {{>layout/footer}}
