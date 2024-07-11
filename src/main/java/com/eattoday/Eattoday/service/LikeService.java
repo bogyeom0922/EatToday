@@ -50,5 +50,6 @@ public class LikeService {
                 .stream()
                 .map(Like -> LikeDto.createLikeDto(Like))
                 .collect(Collectors.toList());
+
     }
 }
