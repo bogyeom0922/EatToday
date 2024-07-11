@@ -448,7 +448,8 @@ a:hover {
 }
 
 .modal-content {
-    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #888;
 }
