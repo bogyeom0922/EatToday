@@ -425,6 +425,7 @@ a:hover {
     font-size: 18px;
 }
 
+/*modal*/
 .modal-background {
     display: none; /* 泥섏쓬�먮뒗 �� 蹂댁씠寃� �⑸땲��. */
     position: fixed; /* �섏씠吏� �댁뿉 怨좎젙�⑸땲��. */
@@ -454,4 +455,11 @@ a:hover {
     height: 300px;
     background-color: #fefefe;
     border: 1px solid #888;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
