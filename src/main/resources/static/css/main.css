@@ -463,6 +463,11 @@ a:hover {
     font-size: 15px;
 }
 
+.modal_textarea {
+    width: 90%;
+    height: 200px;
+ }
+
 .close {
     color: #aaaaaa;
     float: right;
