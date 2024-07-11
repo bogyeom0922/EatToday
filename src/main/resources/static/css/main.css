@@ -428,6 +428,8 @@ a:hover {
 .userinfo_review_table {
     width: 75%;
     line-height: 2;
+    font-size: 18px;
+    font-weight: 200;
 }
 
 /*modal*/
