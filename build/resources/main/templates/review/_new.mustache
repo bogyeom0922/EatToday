@@ -1,15 +1,15 @@
-<form class="rest_review_form">
-    <!--    유저아이디-->
-    {{#user}}
-        <input name="uid" type="hidden" value="{{uid}}" id="new-review-userid">
-    {{/user}}
-    <textarea type="text" class="review_form_textarea" id="new-review-body"></textarea>
-    <!--    매장아이디-->
-    {{#rest}}
-        <input name="storeid" type="hidden" value="{{id}}" id="new-review-store-id">
-    {{/rest}}
-    <button type="button" class="review_form_button" id="review-create-btn">등록</button>
-</form>
+<div id="reviews-new">
+    <form class="rest_review_form">
+        {{#user}}
+            <input name="uid" type="hidden" value="{{uid}}" id="new-review-userid">
+        {{/user}}
+        <textarea type="text" id="new-review-body" class="review_form_textarea"></textarea>
+        {{#rest}}
+            <input type="hidden" id="new-review-store-id" value="{{id}}">
+        {{/rest}}
+        <button type="button" id="review-create-btn" class="review_form_button">등록</button>
+    </form>
+</div>
 
 <script>
     {
@@ -37,8 +37,9 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(review)
-            }).then(response=>{
+            }).then(response => {
                 window.location.reload();
             });
         });
     }
+</script>
