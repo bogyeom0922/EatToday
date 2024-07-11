@@ -426,7 +426,7 @@ a:hover {
 }
 
 /*modal*/
-.modal-background {
+.modal_background {
     display: none; /* 泥섏쓬�먮뒗 �� 蹂댁씠寃� �⑸땲��. */
     position: fixed; /* �섏씠吏� �댁뿉 怨좎젙�⑸땲��. */
     top: 0;
@@ -448,13 +448,18 @@ a:hover {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.modal_content {
     margin: 15% auto;
     padding: 3%;
     width: 30%;
     height: 300px;
     background-color: #fefefe;
     border: 1px solid #888;
+}
+
+.modal_button {
+    background-color: rgba(255, 255, 255, 0); border: none;
+    font-size: 15px;
 }
 
 .close {
