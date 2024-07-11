@@ -358,7 +358,7 @@ a:hover {
 .userinfo_current {
     position: relative;
     margin-bottom: 10px;
-    background-color: rgba(11,84,11,0.89);
+    background-color: rgba(11, 84, 11, 0.89);
     color: white;
     text-align: left;
     display: flex;
@@ -399,11 +399,11 @@ a:hover {
 .update_profile_input {
     position: relative;
     top: 20px;
-    float:left;
+    float: left;
     height: 30px;
-    width:29%;
-    font-size:15px;
-    outline:none;
+    width: 29%;
+    font-size: 15px;
+    outline: none;
     border: 1px solid rgba(166, 163, 144, 0.54);
     padding-left: 1%;
 }
@@ -425,8 +425,13 @@ a:hover {
     font-size: 18px;
 }
 
+/*modal*/
 .modal-background {
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
 }
 
 .modal {
