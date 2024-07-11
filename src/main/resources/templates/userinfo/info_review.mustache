@@ -15,14 +15,14 @@
 <div class="userinfo_background">
     <div class="userinfo_title">작성한 리뷰</div>
 
-    <table>
+    <table class="userinfo_review_table">
         <tbody>
         {{#reviews}}
             <tr>
-                <td>{{body}}</td>
-                <td>{{#store}}{{store_name}}{{/store}}</td>
-                <td>
-                    <button class="button" onclick="openModal()"
+                <td style="width:23%;">{{#store}}{{store_name}}{{/store}}</td>
+                <td style="width:65%;">{{body}}</td>
+                <td style="width:22%;">
+                    <button class="button userinfo_button" onclick="openModal()"
                             data-bs-toggle="modal"
                             data-bs-target="#review-edit-Modal"
                             data-bs-id="{{id}}"
@@ -30,25 +30,27 @@
                             data-bs-userid="{{userid}}"
                             data-bs-body="{{body}}">수정
                     </button>
-                    <button class="button review-delete-btn" data-review-id="{{id}}">삭제</button>
+                    <button class="button review-delete-btn userinfo_button" data-review-id="{{id}}">삭제</button>
                 </td>
             </tr>
         {{/reviews}}
         </tbody>
     </table>
 
-    <div id="modalBackground" class="modal-background"></div>
+    <div id="modalBackground" class="modal_background"></div>
 
     <div id="review-edit-Modal" class="modal">
-        <span id="closeModal">&times;</span>
-        <h2>수정하기</h2>
-        <form id="ReviewEditForm">
-            <input type="hidden" id="edit-review-id">
-            <input type="hidden" id="edit-review-store">
-            <input type="hidden" id="edit-review-userid">
-            <textarea type="text" id="edit-review-body"></textarea>
-            <button type="button" id="review-update-btn">수정 완료</button>
-        </form>
+        <div class="modal_content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>수정하기</h2>
+            <form id="editForm">
+                <input type="hidden" id="edit-review-id">
+                <input type="hidden" id="edit-review-store">
+                <input type="hidden" id="edit-review-userid">
+                <textarea type="text" id="edit-review-body" class="modal_textarea"></textarea><br>
+                <button type="button" class="userinfo_button" id="review-update-btn">저장</button>
+            </form>
+        </div>
     </div>
 </div>
 
