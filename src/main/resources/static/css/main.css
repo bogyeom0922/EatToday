@@ -455,6 +455,7 @@ a:hover {
     height: 300px;
     background-color: #fefefe;
     border: 1px solid #888;
+    text-align: center;
 }
 
 .modal_button {
