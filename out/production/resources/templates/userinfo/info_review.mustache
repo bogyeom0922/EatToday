@@ -19,9 +19,9 @@
         <tbody>
         {{#reviews}}
             <tr>
-                <td>{{body}}</td>
-                <td>{{#store}}{{store_name}}{{/store}}</td>
-                <td>
+                <td style="width:23%;">{{#store}}{{store_name}}{{/store}}</td>
+                <td style="width:65%;">{{body}}</td>
+                <td style="width:22%;">
                     <button class="button" onclick="openModal()"
                             data-bs-toggle="modal"
                             data-bs-target="#review-edit-Modal"
