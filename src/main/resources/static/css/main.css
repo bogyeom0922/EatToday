@@ -427,6 +427,7 @@ a:hover {
 
 .userinfo_review_table {
     width: 75%;
+    line-height: 2;
 }
 
 /*modal*/
