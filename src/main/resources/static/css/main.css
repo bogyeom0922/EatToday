@@ -425,6 +425,10 @@ a:hover {
     font-size: 18px;
 }
 
+.userinfo_review_table {
+    width: 75%;
+}
+
 /*modal*/
 .modal_background {
     display: none; /* 泥섏쓬�먮뒗 �� 蹂댁씠寃� �⑸땲��. */
