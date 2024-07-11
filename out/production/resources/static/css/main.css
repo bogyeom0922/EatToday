@@ -435,15 +435,21 @@ a:hover {
     font-weight: 200;
 }
 
+.userinfo_button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 15px;
+}
+
 /*modal*/
 .modal_background {
-    display: none; /* 泥섏쓬�먮뒗 �� 蹂댁씠寃� �⑸땲��. */
-    position: fixed; /* �섏씠吏� �댁뿉 怨좎젙�⑸땲��. */
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 諛섑닾紐낇븳 寃����� 諛곌꼍 */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal {
@@ -468,17 +474,11 @@ a:hover {
     text-align: center;
 }
 
-.modal_button {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    font-size: 15px;
-}
-
 .modal_textarea {
     width: 90%;
     height: 200px;
     margin-bottom: 20px;
- }
+}
 
 .close {
     color: #aaaaaa;
