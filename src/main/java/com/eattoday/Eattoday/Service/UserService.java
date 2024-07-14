@@ -1,4 +1,4 @@
-package com.eattoday.Eattoday.Service;
+package com.eattoday.Eattoday.service;
 
 import com.eattoday.Eattoday.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
