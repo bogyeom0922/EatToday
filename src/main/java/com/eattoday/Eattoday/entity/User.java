@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor //기본 생성자 대체 lombok
 @Entity(name = "User") // Entity는 자바 객체가 DB를 이해할 수 있도록 만든 것
 public class User {
+
     @Id // 엔티티 대표값 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
