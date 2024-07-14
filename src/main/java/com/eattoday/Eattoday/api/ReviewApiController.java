@@ -1,6 +1,6 @@
 package com.eattoday.Eattoday.api;
 
-import com.eattoday.Eattoday.Service.ReviewService;
+import com.eattoday.Eattoday.service.ReviewService;
 import com.eattoday.Eattoday.dto.ReviewDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
