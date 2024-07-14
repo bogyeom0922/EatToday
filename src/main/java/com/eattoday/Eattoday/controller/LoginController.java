@@ -1,6 +1,6 @@
 package com.eattoday.Eattoday.controller;
 
-import com.eattoday.Eattoday.Service.UserService;
+import com.eattoday.Eattoday.service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.Review;
 import com.eattoday.Eattoday.entity.Store;
