@@ -375,6 +375,7 @@ a:hover {
     margin-bottom: 100px;
     padding-left: 2%;
     background: white;
+    border: 1px solid rgba(166, 163, 144, 0.25);
 }
 
 .store_list table {
