@@ -342,6 +342,7 @@ a:hover {
     float: left;
     text-align: left;
     width: 21%;
+    background: white;
 }
 
 .filter_box p {
