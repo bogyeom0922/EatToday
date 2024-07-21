@@ -334,6 +334,64 @@ a:hover {
     font-weight: 700;
 }
 
+/*store list*/
+.filter_box {
+    position: fixed;
+    top: 190px;
+    left: 4%;
+    float: left;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 2%;
+    height: 570px;
+    width: 20%;
+    background: white;
+    border: 1px solid rgba(166, 163, 144, 0.25);
+}
+
+.filter_box p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.filter_box table {
+    width: 95%;
+}
+
+.filter {
+    margin-top: 0;
+    margin-bottom: 50px;
+    word-spacing: 14px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2;
+}
+
+.store_list {
+    position: relative;
+    top: 80px;
+    width: 62%;
+    left: 30%;
+    height: 780px;
+    margin-bottom: 100px;
+    padding-left: 2%;
+    background: white;
+    border: 1px solid rgba(166, 163, 144, 0.25);
+    text-align: center;
+}
+
+.store_list table {
+    border-spacing: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.next {
+    position: relative;
+    top: 30px;
+    width: 100%;
+}
+
 /*userinfo*/
 .userinfo_category {
     position: relative;
