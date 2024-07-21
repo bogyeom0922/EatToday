@@ -2,14 +2,14 @@
 
 <div class="category_box">
     <!--        메뉴별 필터-->
-    <p style="font-size: 20px; font-weight: 400;">MENU</p>
+    <P>MENU</P>
     <div class="menu">
-        <table style="width:95%">
+        <table>
             <tr>
-                <td colspan = "3" ><a href="">전체보기</a></td>
+                <td colspan = "3" ><a href="/storelist/{{uid}}">전체보기</a></td>
             </tr>
             <tr>
-                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category/-백반">백반</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-백반">백반</a></td>
                 <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-국밥">국밥</a></td>
                 <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-찌개">찌개</a></td>
                 <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-전골">전골</a></td>
@@ -38,11 +38,11 @@
     </div>
 
     <!--        지역별 필터-->
-    <p style="font-size: 20px; font-weight: 400;">REGION</p>
+    <p>REGION</p>
     <div class="menu">
-        <table style="width:100%">
+        <table>
             <tr>
-                <td colspan = "3" ><a href="">전체보기</a></td>
+                <td colspan = "3" ><a href="/storelist/{{uid}}">전체보기</a></td>
             </tr>
             <tr>
                 <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-마포구">마포구</a></td>
@@ -82,6 +82,7 @@
         </table>
     </div>
 </div>
+
 <div class="store_list_box">
     <table style="border-spacing: 20px; width: 95%">
         <thead class="Store">

@@ -1,5 +1,88 @@
 {{>layout/header}}
 
+<div class="category_box">
+    <!--        메뉴별 필터-->
+    <P>MENU</P>
+    <div class="menu">
+    <table>
+        <tr>
+            <td colspan = "3" ><a href="/storelist/{{uid}}">전체보기</a></td>
+        </tr>
+        <tr>
+            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-백반">백반</a></td>
+            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-국밥">국밥</a></td>
+            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-찌개">찌개</a></td>
+            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-전골">전골</a></td>
+            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-쌈밥">쌈밥</a></td>
+        </tr>
+        <tr>
+            <td><a href="/storelist/filter/{{uid}}/category-조림">조림</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-찜">찜</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-도시락">도시락</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-죽">죽</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-전">전</a></td>
+        </tr>
+        <tr>
+            <td><a href="/storelist/filter/{{uid}}/category-분식">분식</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-곱창">곱창</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-족발">족발</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-보쌈">보쌈</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-치킨">치킨</a></td>
+        </tr>
+        <tr>
+            <td><a href="/storelist/filter/{{uid}}/category-갈비">갈비</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-소고기">소고기</a></td>
+            <td><a href="/storelist/filter/{{uid}}/category-삼겹살">삼겹살</a></td>
+        </tr>
+    </table>
+    </div>
+
+    <!--        지역별 필터-->
+    <p>REGION</p>
+    <div class="menu">
+        <table>
+            <tr>
+                <td colspan = "3" ><a href="/storelist/{{uid}}">전체보기</a></td>
+            </tr>
+            <tr>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-마포구">마포구</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-서대문구">서대문구</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-은평구">은평구</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-종로구">종로구</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-중구">중구</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/region-용산구">용산구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-성동구">성동구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-광진구">광진구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-동대문구">동대문구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-성북구">성북구</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/region-강북구">강북구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-도봉구">도봉구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-노원구">노원구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-중랑구">중랑구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-강동구">강동구</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/region-송파구">송파구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-강남구">강남구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-서초구">서초구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-관악구">관악구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-동작구">동작구</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/region-영등포구">영등포구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-금천구">금천구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-구로구">구로구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-양천구">양천구</a></td>
+                <td><a href="/storelist/filter/{{uid}}/region-강서구">강서구</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 <div class="store_list_box">
     <table style="border-spacing: 20px; width: 95%">
         <thead class="Store" >

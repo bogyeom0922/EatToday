@@ -17,9 +17,9 @@
 <div class="header">
     <a href="/category/{{uid}}"><img src="/img/logo.png" class="header_img" alt="로고 이미지"></a>
     <div class="search">
-        <form class="search_form">
+        <form action="/storelist/search/{{uid}}" method="GET" role="search" class="search_form">
             <label>
-                <input class="search_input" type="text" placeholder="매장명을 입력하세요">
+                <input class="search_input" type="text" placeholder="매장명을 입력하세요" name="search" id="search">
             </label>
             <button class="search_button">검색</button>
         </form>
