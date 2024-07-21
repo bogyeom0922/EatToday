@@ -5,36 +5,36 @@
     <P>MENU</P>
     <div class="filter">
         <table>
-        <tr>
-            <td colspan = "3" ><a href="/storelist/{{uid}}">전체보기</a></td>
-        </tr>
-        <tr>
-            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-백반">백반</a></td>
-            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-국밥">국밥</a></td>
-            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-찌개">찌개</a></td>
-            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-전골">전골</a></td>
-            <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-쌈밥">쌈밥</a></td>
-        </tr>
-        <tr>
-            <td><a href="/storelist/filter/{{uid}}/category-조림">조림</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-찜">찜</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-도시락">도시락</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-죽">죽</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-전">전</a></td>
-        </tr>
-        <tr>
-            <td><a href="/storelist/filter/{{uid}}/category-분식">분식</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-곱창">곱창</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-족발">족발</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-보쌈">보쌈</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-치킨">치킨</a></td>
-        </tr>
-        <tr>
-            <td><a href="/storelist/filter/{{uid}}/category-갈비">갈비</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-소고기">소고기</a></td>
-            <td><a href="/storelist/filter/{{uid}}/category-삼겹살">삼겹살</a></td>
-        </tr>
-    </table>
+            <tr>
+                <td colspan="3"><a href="/storelist/{{uid}}">전체보기</a></td>
+            </tr>
+            <tr>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-백반">백반</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-국밥">국밥</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-찌개">찌개</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-전골">전골</a></td>
+                <td style="width:20%"><a href="/storelist/filter/{{uid}}/category-쌈밥">쌈밥</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/category-조림">조림</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-찜">찜</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-도시락">도시락</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-죽">죽</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-전">전</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/category-분식">분식</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-곱창">곱창</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-족발">족발</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-보쌈">보쌈</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-치킨">치킨</a></td>
+            </tr>
+            <tr>
+                <td><a href="/storelist/filter/{{uid}}/category-갈비">갈비</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-소고기">소고기</a></td>
+                <td><a href="/storelist/filter/{{uid}}/category-삼겹살">삼겹살</a></td>
+            </tr>
+        </table>
     </div>
 
     <!--        지역별 필터-->
@@ -42,7 +42,7 @@
     <div class="filter">
         <table>
             <tr>
-                <td colspan = "3" ><a href="/storelist/{{uid}}">전체보기</a></td>
+                <td colspan="3"><a href="/storelist/{{uid}}">전체보기</a></td>
             </tr>
             <tr>
                 <td style="width:20%"><a href="/storelist/filter/{{uid}}/region-마포구">마포구</a></td>
@@ -108,9 +108,11 @@
     </table>
     <div class="next">
         {{#hasPrev}}
-            <a href="?page={{previous}}&" role="button" class="btn btn-lg bi bi-caret-left-square-fill">이전</a>{{/hasPrev}}
+            <a href="?page={{previous}}&" role="button" class="btn btn-lg bi
+            bi-caret-left-square-fill">이전</a>{{/hasPrev}}
         {{^hasPrev}}
-            <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>{{/hasPrev}}
+            <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill
+            disabled"></a>{{/hasPrev}}
         {{#hasNext}}
             <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill">다음</a>
         {{/hasNext}}
