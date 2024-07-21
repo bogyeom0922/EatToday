@@ -337,8 +337,8 @@ a:hover {
 /*storelist*/
 .filter_box {
     position: fixed;
-    top: 160px;
-    left: 3%;
+    top: 180px;
+    left: 5%;
     float: left;
     text-align: left;
     width: 21%;
@@ -359,6 +359,23 @@ a:hover {
     font-size: 15px;
     font-weight: 400;
     line-height: 2;
+}
+
+.store_list {
+    position: relative;
+    top: 50px;
+    width: 70%;
+    left: 30%;
+}
+
+.store_list table {
+    border-spacing: 20px;
+    width: 95%;
+    text-align: left;
+}
+
+.store_list table thead {
+    left: 0;
 }
 
 /*userinfo*/
