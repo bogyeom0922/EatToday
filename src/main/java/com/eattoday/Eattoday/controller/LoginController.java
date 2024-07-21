@@ -1,5 +1,6 @@
 package com.eattoday.Eattoday.controller;
 
+import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.Review;
@@ -22,7 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @Slf4j // 로깅확인 어노테이션
@@ -43,6 +43,8 @@ public class LoginController {
     @Autowired
     private final UserService userService;
 
+    @Autowired
+    private com.eattoday.Eattoday.service.LikeService likeService;
 
     //main
     @GetMapping("/")
@@ -102,6 +104,7 @@ public class LoginController {
 
     }
 
+    //mypage
     @GetMapping("/{uid}") //마이페이지
     public String info(@PathVariable String uid, Model model) {
 
@@ -135,14 +138,18 @@ public class LoginController {
 
     }
 
-    @GetMapping("/{uid}/like") //마이페이지_즐겨찾기
-    public String info_like(@PathVariable String uid, Model model) {
+    @GetMapping("api/{uid}/like") //마이페이지_즐겨찾기
+    public String myLike(@PathVariable String uid, Model model) {
 
-        User userEntity = userRepository.findByuid(uid).orElse(null);
-        model.addAttribute("user", userEntity);
-
+        log.info("detail uid = " + uid);
+        List<LikeDto> myLikes = likeService.myLike(uid);
+        List<Store> store = new ArrayList<>();
+        for (int i = 0; i < myLikes.size(); i++) {
+            Store store1 = storeRepository.findById(myLikes.get(i).getStore_id()).orElse(null);
+            store.add(store1);
+        }
+        model.addAttribute("store", store);
         return "userinfo/info_like";
-
     }
 
 }

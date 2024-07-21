@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
-<<<<<<< HEAD
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main">
       <sourceFolder url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
     </content>
   </component>
-=======
->>>>>>> 3b3fc1cf829908c496fc5ed97fcd36e86cc8fa53
   <component name="FacetManager">
     <facet type="jpa" name="JPA">
       <configuration>
@@ -18,11 +15,8 @@
       </configuration>
     </facet>
   </component>
-<<<<<<< HEAD
-=======
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
->>>>>>> 3b3fc1cf829908c496fc5ed97fcd36e86cc8fa53
 </module>
