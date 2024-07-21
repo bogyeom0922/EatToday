@@ -334,6 +334,15 @@ a:hover {
     font-weight: 700;
 }
 
+/*storelist*/
+.filter_box{
+    position: fixed;
+    top:160px;
+    left: 3%;
+    float: left;
+    text-align: left;
+}
+
 /*userinfo*/
 .userinfo_category {
     position: relative;
