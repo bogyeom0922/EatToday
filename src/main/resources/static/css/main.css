@@ -343,6 +343,10 @@ a:hover {
     text-align: left;
 }
 
+.filter_box p{
+    font-size: 20px; font-weight: 400;
+}
+
 /*userinfo*/
 .userinfo_category {
     position: relative;
