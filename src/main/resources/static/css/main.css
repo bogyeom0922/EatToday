@@ -335,16 +335,30 @@ a:hover {
 }
 
 /*storelist*/
-.filter_box{
+.filter_box {
     position: fixed;
-    top:160px;
+    top: 160px;
     left: 3%;
     float: left;
     text-align: left;
+    width: 21%;
 }
 
-.filter_box p{
-    font-size: 20px; font-weight: 400;
+.filter_box p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.filter_box table {
+    width: 95%;
+}
+
+.filter_menu {
+    margin-top: 0;
+    word-spacing: 14px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2;
 }
 
 /*userinfo*/
