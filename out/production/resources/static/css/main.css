@@ -372,10 +372,12 @@ a:hover {
     top: 80px;
     width: 62%;
     left: 30%;
+    height: 780px;
     margin-bottom: 100px;
     padding-left: 2%;
     background: white;
     border: 1px solid rgba(166, 163, 144, 0.25);
+    text-align: center;
 }
 
 .store_list table {
@@ -384,8 +386,10 @@ a:hover {
     text-align: left;
 }
 
-.store_list table thead {
-    left: 0;
+.next {
+    position: relative;
+    top: 30px;
+    width: 100%;
 }
 
 /*userinfo*/
