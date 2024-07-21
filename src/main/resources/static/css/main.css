@@ -337,11 +337,14 @@ a:hover {
 /*storelist*/
 .filter_box {
     position: fixed;
-    top: 180px;
-    left: 5%;
+    top: 190px;
+    left: 4%;
     float: left;
     text-align: left;
-    width: 21%;
+    padding-top: 20px;
+    padding-left: 2%;
+    height: 570px;
+    width: 20%;
     background: white;
 }
 
@@ -356,6 +359,7 @@ a:hover {
 
 .filter {
     margin-top: 0;
+    margin-bottom: 50px;
     word-spacing: 14px;
     font-size: 15px;
     font-weight: 400;
