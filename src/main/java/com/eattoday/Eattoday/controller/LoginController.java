@@ -46,6 +46,14 @@ public class LoginController {
     @Autowired
     private com.eattoday.Eattoday.service.LikeService likeService;
 
+
+    @GetMapping("/test")
+    public String test() {
+
+        return "test";
+
+    }
+
     //main
     @GetMapping("/")
     public String Home() {
