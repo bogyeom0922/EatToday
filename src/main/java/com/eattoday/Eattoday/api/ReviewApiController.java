@@ -17,7 +17,7 @@ public class ReviewApiController {
     @Autowired
     private ReviewService reviewService;
     //1. 조회
-    @GetMapping("api/stores/{storeId}/reviews")
+    @GetMapping("/api/stores/{storeId}/reviews")
     public ResponseEntity<List<ReviewDto>> reviews(@PathVariable Long storeId) {
         //서비스에 위임
         List<ReviewDto> dtos = reviewService.reviews(storeId);
@@ -44,7 +44,7 @@ public class ReviewApiController {
     }
 
     //4. 삭제
-    @DeleteMapping("api/reviews/{id}")
+    @DeleteMapping("/api/reviews/{id}")
     public ResponseEntity<ReviewDto> delete(@PathVariable Long id) {
         //서비스에 위임
         ReviewDto deletedDto = reviewService.delete(id);
