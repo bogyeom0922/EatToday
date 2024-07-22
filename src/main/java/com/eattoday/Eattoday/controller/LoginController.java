@@ -139,17 +139,20 @@ public class LoginController {
     }
 
     @GetMapping("api/{uid}/like") //마이페이지_즐겨찾기
-    public String myLike(@PathVariable String uid, Model model) {
+    public String info_like(@PathVariable String uid, Model model) {
 
         log.info("detail uid = " + uid);
         List<LikeDto> myLikes = likeService.myLike(uid);
         List<Store> store = new ArrayList<>();
+
         for (int i = 0; i < myLikes.size(); i++) {
             Store store1 = storeRepository.findById(myLikes.get(i).getStore_id()).orElse(null);
             store.add(store1);
         }
+
         model.addAttribute("store", store);
         return "userinfo/info_like";
+
     }
 
 }
