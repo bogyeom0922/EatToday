@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,10 +14,10 @@
         <!--회원가입-->
         <form action="/user/Signup" method="post">
             <h1>Create Account</h1>
-            <input type="uid" name="uid" placeholder="Id"/>
-            <input type="upassword" name="upassword" placeholder="Password"/>
-            <input type="nickname" name="uname" placeholder="Nickname"/>
-            <input type="email" name="email" placeholder="email"/>
+            <input type="text" name="uid" placeholder="Id" autocomplete="username"/>
+            <input type="password" name="upassword" placeholder="Password" autocomplete="new-password"/>
+            <input type="text" name="uname" placeholder="Nickname"/>
+            <input type="email" name="email" placeholder="Email" autocomplete="email"/>
             <button type="submit">Sign Up</button>
         </form>
     </div>
@@ -25,8 +26,8 @@
         <form action="/login" method="post">
             <h1>Sign in</h1>
             <br>
-            <input type="uid" class="form-control" name="uid" placeholder="Id"/>
-            <input type="upassword" class="form-control" name="upassword" placeholder="Password"/>
+            <input type="text" class="form-control" name="uid" placeholder="Id" autocomplete="username"/>
+            <input type="password" class="form-control" name="upassword" placeholder="Password" autocomplete="current-password"/>
             <a href="/user/findid">Forgot your id/password?</a>
             <button type="submit">Sign In</button>
         </form>
