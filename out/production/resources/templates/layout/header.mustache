@@ -15,7 +15,7 @@
 <body>
 
 <div class="header">
-    <a href="/category/{{uid}}"><img src="/img/logo.png" class="header_img" alt="로고 이미지"></a>
+    <img src="/img/logo.png" class="header_img" alt="로고 이미지" onclick="window.location.href='/category/{{uid}}';">
     <div class="search">
         <form action="/storelist/search/{{uid}}" method="GET" role="search" class="search_form">
             <label>
