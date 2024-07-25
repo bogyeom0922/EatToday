@@ -33,6 +33,7 @@ public class LikeApiController {
 
     @DeleteMapping("api/likes/{id}/{storeId}")
     public ResponseEntity<LikeDto> deleteLike(@PathVariable Long id, @PathVariable Long storeId){
+        LikeDto likeDto = likeService.deleteLike(id, storeId);
 
     }
 
