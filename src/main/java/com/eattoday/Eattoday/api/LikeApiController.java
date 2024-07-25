@@ -21,6 +21,7 @@ public class LikeApiController {
 
     @GetMapping("api/{id}/{storeId}/likes")
     public ResponseEntity<LikeDto> Likes(@PathVariable Long id, @PathVariable Long storeId){
+        LikeDto likes = likeService.storeLike(id, storeId);
 
     }
 
