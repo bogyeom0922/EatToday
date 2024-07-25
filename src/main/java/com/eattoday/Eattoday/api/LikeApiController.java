@@ -7,9 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j //로그를 찍기 위한 어노테이션
 @RestController
@@ -24,6 +22,12 @@ public class LikeApiController {
     public ResponseEntity<LikeDto> Likes(@PathVariable Long id, @PathVariable Long storeId){
         LikeDto likes = likeService.storeLike(id, storeId);
         return ResponseEntity.status(HttpStatus.OK).body(likes);
+    }
+
+    @PostMapping("apoi/{id}/{storeId}/likes")
+    public ResponseEntity<LikeDto> createLike(@PathVariable Long id, @PathVariable Long storeId
+    ,@RequestBody LikeDto likeDto){
+
     }
 
 }
