@@ -62,7 +62,7 @@ public class LikeService {
                 .orElseThrow(() ->new IllegalArgumentException("유저 정보 없음"));
         Like like = likeReposiroty.findByUser_idAndStore_id(user.getId(), store.getId());
         likeReposiroty.delete(like);
-
+        return LikeDto.createLikeDto(like);
     }
 
 }
