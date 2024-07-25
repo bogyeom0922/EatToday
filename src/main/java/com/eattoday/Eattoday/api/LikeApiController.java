@@ -31,4 +31,9 @@ public class LikeApiController {
         return ResponseEntity.status(HttpStatus.OK).body(likeDto1);
     }
 
+    @DeleteMapping("api/likes/{id}/{storeId}")
+    public ResponseEntity<LikeDto> deleteLike(@PathVariable Long id, @PathVariable Long storeId){
+
+    }
+
 }
