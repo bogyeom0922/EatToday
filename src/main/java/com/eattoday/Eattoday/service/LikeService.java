@@ -61,7 +61,8 @@ public class LikeService {
         User user = userRepository.findById(user_id)
                 .orElseThrow(() ->new IllegalArgumentException("유저 정보 없음"));
         Like like = likeReposiroty.findByUser_idAndStore_id(user.getId(), store.getId());
-        likeReposiroty.delete(like);
+        if(like != null)
+            likeReposiroty.delete(like);
         return LikeDto.createLikeDto(like);
     }
 
