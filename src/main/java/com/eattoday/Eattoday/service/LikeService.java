@@ -55,7 +55,9 @@ public class LikeService {
 
     @Transactional
     public LikeDto deleteLike(Long user_id, Long store_id){
-        Store store = storeRepository.findById(store_id);
+        Store store = storeRepository.findById(store_id)
+                .orElseThrow(()-> new IllegalArgumentException("좋아요 실패 " +
+                        "대상 매장이 없습니다."));
 
     }
 
