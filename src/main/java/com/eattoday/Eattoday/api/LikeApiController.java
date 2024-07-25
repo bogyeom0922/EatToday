@@ -27,6 +27,7 @@ public class LikeApiController {
     @PostMapping("apoi/{id}/{storeId}/likes")
     public ResponseEntity<LikeDto> createLike(@PathVariable Long id, @PathVariable Long storeId
     ,@RequestBody LikeDto likeDto){
+        LikeDto likeDto1 = likeService.create(storeId, id, likeDto);
 
     }
 
