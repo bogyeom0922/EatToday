@@ -35,7 +35,7 @@ public class LikeApiController {
     public ResponseEntity<LikeDto> deleteLike(@PathVariable Long id, @PathVariable Long storeId){
         LikeDto likeDto = likeService.deleteLike(id, storeId);
         log.info("id" + id);
-
+        return ResponseEntity.status(HttpStatus.OK).body(likeDto);
     }
 
 }
