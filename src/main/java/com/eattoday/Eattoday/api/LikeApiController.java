@@ -5,6 +5,7 @@ import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.service.LikeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class LikeApiController {
     @GetMapping("api/{id}/{storeId}/likes")
     public ResponseEntity<LikeDto> Likes(@PathVariable Long id, @PathVariable Long storeId){
         LikeDto likes = likeService.storeLike(id, storeId);
-
+        return ResponseEntity.status(HttpStatus.OK).body(likes);
     }
 
 }
