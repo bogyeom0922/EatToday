@@ -28,7 +28,7 @@ public class LikeApiController {
     public ResponseEntity<LikeDto> createLike(@PathVariable Long id, @PathVariable Long storeId
     ,@RequestBody LikeDto likeDto){
         LikeDto likeDto1 = likeService.create(storeId, id, likeDto);
-
+        return ResponseEntity.status(HttpStatus.OK).body(likeDto1);
     }
 
 }
