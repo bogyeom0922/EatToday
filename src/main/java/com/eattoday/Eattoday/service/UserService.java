@@ -1,5 +1,6 @@
 package com.eattoday.Eattoday.service;
 
+import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class UserService {
 
     public boolean checkemailDuplicate(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    //로그인 서비스
+    public UserForm login(UserForm form) {
+
     }
 
 }
