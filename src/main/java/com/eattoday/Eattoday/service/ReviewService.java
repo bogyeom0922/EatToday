@@ -21,6 +21,7 @@ public class ReviewService {
     @Autowired
     private StoreRepository storeRepository;
 
+    //리뷰 값 가져오기
     public List<ReviewDto> reviews(Long storeId) {
         return reviewRepository.findByStoreId(storeId)
                 .stream() //리스트에 저장된 요소들 하나씩 참조하며 반복 처리할 때 사용
@@ -28,6 +29,7 @@ public class ReviewService {
                 .collect(Collectors.toList());
     }
 
+    //리뷰 생성
     @Transactional
     public ReviewDto create(Long storeId, ReviewDto dto) {
         //1. 게시글 조회 및 예외 발생
@@ -42,6 +44,7 @@ public class ReviewService {
         return ReviewDto.createReviewDto(created);
     }
 
+    //리뷰 수정
     @Transactional
     public ReviewDto update(Long id, ReviewDto dto) {
         //1. 리뷰 조회
@@ -56,6 +59,7 @@ public class ReviewService {
         return ReviewDto.createReviewDto(updated);
     }
 
+    //리뷰 삭제
     public ReviewDto delete(Long id) {
         //1. 리뷰 조회 및 예외 발생
         Review target = reviewRepository.findById(id)

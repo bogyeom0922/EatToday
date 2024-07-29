@@ -20,7 +20,8 @@ public class StoreDto {
     private String store_time;
     private String review_content;
     private String store_menu;
-    public Store toEntity(){
+
+    public Store toEntity() {
         Store build = Store.builder()
                 .id(id)
                 .category(category)
@@ -37,8 +38,8 @@ public class StoreDto {
     }
 
     @Builder
-    public StoreDto(long id,String category, String store_name, String store_address,String store_phone,
-                    String store_img,String store_star, String store_time,String review_content, String store_menu){
+    public StoreDto(long id, String category, String store_name, String store_address, String store_phone,
+                    String store_img, String store_star, String store_time, String review_content, String store_menu) {
         this.id = id;
         this.category = category;
         this.store_name = store_name;
