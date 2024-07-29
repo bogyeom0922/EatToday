@@ -1,9 +1,5 @@
 <div align="center">
-
-
-https://github.com/user-attachments/assets/5e4fe047-d459-46af-91dc-2e36a8166cff
-
-
+<img src="https://github.com/user-attachments/assets/f8100884-d3b8-4e66-a2ff-93438189f25d"/>
   <br>
   식사 메뉴를 고민하는 사용자를 위한 메뉴&음식점 추천 서비스<br>
   매일 다른 메뉴를 추천하고, 음식점을 메뉴별로 분류하여 음식점의 정보를 제공합니다.
@@ -14,7 +10,6 @@ https://github.com/user-attachments/assets/5e4fe047-d459-46af-91dc-2e36a8166cff
   - [개요](#개요)
   - [개발환경](#개발환경)
   - [주요 기능](#주요기능)
-  - [팀원 및 역할분담](#팀원)
 
 ## 개요
 - 프로젝트 이름 : EatToday
