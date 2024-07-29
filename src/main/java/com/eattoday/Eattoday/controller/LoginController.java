@@ -70,7 +70,20 @@ public class LoginController {
 
         UserForm loginResult = userService.login(form);
 
-        return "redirect:/category/" + loginResult.getId();
+        //로그인 성공
+        if (loginResult != null) {
+
+            User userEntity = form.toEntity();
+
+            log.info("Login successful for user: {}", loginResult.getUname());
+
+            return "redirect:/category/" + loginResult.getId();
+        } //로그인 실패
+        else {
+            log.info("Login failed");
+
+            return "redirect:/user/login";
+        }
 
     }
 
