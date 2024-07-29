@@ -76,6 +76,7 @@
     {{/rest}}
 </div>
 
+<!--menu-->
 <script type="text/javascript">
 
     const menu_str = document.getElementById("MenuSentence").textContent; //div 내용 가져옴
@@ -95,6 +96,7 @@
 
 </script>
 
+<!--review-->
 <script type="text/javascript">
 
     const review_str = document.getElementById("ReviewSentence").textContent; //div 내용 가져옴
@@ -109,6 +111,7 @@
             review_text = review_text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
         }
         ReviewDisplay.append(review_text); //div에 글자 추가
+        ReviewDisplay.appendChild(document.createElement("br")); // br 추가
         ReviewDisplay.appendChild(document.createElement("br")); // br 추가
     });
 
