@@ -67,6 +67,7 @@ public class LoginController {
 
     @PostMapping("/logout")
     public RedirectView logout(HttpServletRequest request) {
+
         // 세션을 무효화하여 로그아웃 처리
         HttpSession session = request.getSession(false);
         if (session != null) {
@@ -75,6 +76,7 @@ public class LoginController {
 
         // 로그아웃 후 로그인 페이지로 리디렉션
         return new RedirectView("/user/login");
+
     }
 
     @PostMapping("/user/Signup") //POST 요청을 받았을 때, 해당 요청 값들로 구성된 객체를 검증하는 어노테이션, 각 필드의 입력값이 정해진 Validation 규칙을 따르는지 판단

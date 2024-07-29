@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Entity
 @NoArgsConstructor
-public class Store{
+public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,9 +20,10 @@ public class Store{
     private String store_time;
     private String review_content;
     private String store_menu;
+
     @Builder
-    public Store(long id,String category, String store_name, String store_address,String store_phone,
-                 String store_img,String store_star, String store_time,String review_content, String store_menu){
+    public Store(long id, String category, String store_name, String store_address, String store_phone,
+                 String store_img, String store_star, String store_time, String review_content, String store_menu) {
         this.id = id;
         this.category = category;
         this.store_name = store_name;

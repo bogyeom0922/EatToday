@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public interface StoreRepository extends JpaRepository<Store,Long> {
+public interface StoreRepository extends JpaRepository<Store, Long> {
 
     ArrayList<Store> findAll();
 

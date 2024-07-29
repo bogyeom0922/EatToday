@@ -26,13 +26,11 @@ public class UserForm {
     private String email;
 
     // dto(userForm)에서 entity(User)로 값 넘겨줌
-    public User toEntity()
-    {
-        return new User(id, uid,uname,upassword,email);
+    public User toEntity() {
+        return new User(id, uid, uname, upassword, email);
     }
 
-    public static UserForm toUserFrom(User user)
-    {
+    public static UserForm toUserFrom(User user) {
         UserForm form = new UserForm();
         form.setId(user.getId());
         form.setUid(user.getUid());
