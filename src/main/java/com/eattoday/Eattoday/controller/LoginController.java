@@ -65,6 +65,15 @@ public class LoginController {
 
     }
 
+    @PostMapping("/login")
+    public String login(UserForm form) {
+
+        UserForm loginResult = userService.login(form);
+
+        return "redirect:/category/" + loginResult.getId();
+
+    }
+
     @PostMapping("/logout")
     public RedirectView logout(HttpServletRequest request) {
 
