@@ -124,6 +124,10 @@ public class RestController {
         Store store3 = storeRepository.findById(id3).orElse(null);
         model.addAttribute("randomStore3", store3); //model에 엔티티 값 저장
 
+        //user 정보
+        User userEntity = userRepository.findByuid(uid).orElse(null);
+        model.addAttribute("user", userEntity);
+
         return "rest/category";
 
     }
