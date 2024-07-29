@@ -238,6 +238,7 @@ a:hover {
     font-size: 17px;
     font-weight: 400;
     line-height: 2;
+    width: 50%;
 }
 
 .rest_review_form {
