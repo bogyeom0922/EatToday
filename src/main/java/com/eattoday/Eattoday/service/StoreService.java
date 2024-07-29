@@ -17,7 +17,7 @@ public class StoreService {
     @Autowired
     StoreRepository storeRepository;
 
-    public List<Store> index(){
+    public List<Store> index() {
         return storeRepository.findAll();
     }
 
@@ -45,26 +45,26 @@ public class StoreService {
     }
 
     @Transactional
-    public Page<Store> storePage(Pageable pageable){
+    public Page<Store> storePage(Pageable pageable) {
         Page<Store> storePage = storeRepository.findAll(pageable);
         return storePage;
     }
 
     @Transactional
-    public Page<Store> allSearch(String keyword, Pageable pageable){
+    public Page<Store> allSearch(String keyword, Pageable pageable) {
         Page<Store> allSearch = storeRepository.findByAllContent(keyword, pageable);
 
         return allSearch;
     }
 
     @Transactional
-    public Page<Store> filterByCategory(String category, Pageable pageable){
+    public Page<Store> filterByCategory(String category, Pageable pageable) {
         Page<Store> search = storeRepository.findByCategory(category, pageable);
         return search;
     }
 
     @Transactional
-    public Page<Store> filterByStore_address(String address, Pageable pageable){
+    public Page<Store> filterByStore_address(String address, Pageable pageable) {
         Page<Store> search2 = storeRepository.findByStore_addressContaining(address, pageable);
 
         return search2;
