@@ -65,6 +65,28 @@ public class LoginController {
 
     }
 
+    @PostMapping("/login")
+    public String login(UserForm form) {
+
+        UserForm loginResult = userService.login(form);
+
+        //로그인 성공
+        if (loginResult != null) {
+
+            User userEntity = form.toEntity();
+
+            log.info("Login successful for user: {}", loginResult.getUname());
+
+            return "redirect:/category/" + loginResult.getUid();
+        } //로그인 실패
+        else {
+            log.info("Login failed");
+
+            return "redirect:/user/login";
+        }
+
+    }
+
     @PostMapping("/logout")
     public RedirectView logout(HttpServletRequest request) {
 
@@ -105,7 +127,7 @@ public class LoginController {
             return "user/login";
         }
 
-        //위에 로깅 어노테이션 추가함으로써 아래 코드 필요없어짐, 아래 코드는 컨트롤러가 제대로 동작하는지 확인하기 위함
+        //컨트롤러가 제대로 동작하는지 확인하기 위함
         log.info(toString());
         // System.out.println(form.toString());
 
@@ -132,7 +154,7 @@ public class LoginController {
 
     }
 
-    @GetMapping("/{uid}/review") //마이페이지_리뷰
+    @GetMapping("/{uid}/review") //마페이지_리뷰
     public String info_review(@PathVariable String uid, Model model) {
 
         User userEntity = userRepository.findByuid(uid).orElse(null);
