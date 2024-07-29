@@ -44,10 +44,12 @@
                 </tr>
             </table>
 
+            <!--            메뉴 값 전달-->
             <div id="MenuSentence">
                 {{store_menu}}
             </div>
 
+            <!--            메뉴 값 화면 출력-->
             <div class="rest_menu">
                 <p class="rest_menu_p">메뉴</p>
                 <div class="rest_menu_list">
@@ -55,12 +57,15 @@
                 </div>
             </div>
 
+            <!--            리뷰 값 전달-->
             <div id="ReviewSentence">
                 {{review_content}}
             </div>
 
+            <!--            리뷰 값 화면 출력-->
             <div class="rest_menu">
                 <p class="rest_menu_p">리뷰</p>
+                <!--                사이트 자체 리뷰-->
                 {{>review/_reviews}}
                 <div class="rest_review_list">
                     <div id="ReviewDisplay"></div>
@@ -108,5 +113,3 @@
     });
 
 </script>
-
-{{>layout/footer}}

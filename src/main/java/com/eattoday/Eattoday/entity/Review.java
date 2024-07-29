@@ -47,11 +47,11 @@ public class Review {
 
     public void patch(ReviewDto dto) {
         //예외 발생
-        if(this.id!=dto.getId()) {
+        if (this.id != dto.getId()) {
             throw new IllegalArgumentException("댓글 수정 실패! 잘못된 id가 입력됐습니다.");
         }
         //객체 갱신
-        if(dto.getBody()!=null) {
+        if (dto.getBody() != null) {
             this.body = dto.getBody();
         }
     }

@@ -14,7 +14,6 @@ public class User {
     @Id // 엔티티 대표값 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column //uid 필드 선언
     private String uid;
     @Column //uname 필드 선언
