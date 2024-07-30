@@ -194,4 +194,10 @@ public class LoginController {
 
     }
 
+    @GetMapping("/user/findid") //아이디 찾기 뷰
+    public String findidview()
+    {
+        return "user/findid";
+    }
+
 }
