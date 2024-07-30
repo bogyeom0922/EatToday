@@ -1,6 +1,7 @@
 package com.eattoday.Eattoday.controller;
 
 import com.eattoday.Eattoday.dto.LikeDto;
+import com.eattoday.Eattoday.service.EmailSendService;
 import com.eattoday.Eattoday.service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.Review;
@@ -41,6 +42,8 @@ public class LoginController {
 
     @Autowired
     private final StoreRepository storeRepository;
+    @Autowired
+    private EmailSendService emailSendService;
 
     //service 객체 선언
     @Autowired
@@ -191,6 +194,51 @@ public class LoginController {
 
         model.addAttribute("store", store);
         return "userinfo/info_like";
+
+    }
+
+    @GetMapping("/user/findid") //아이디 찾기 뷰
+    public String findidview()
+    {
+        return "user/findid";
+    }
+
+    @PostMapping("/user/findid") //아이디 찾기
+    public String findid(UserForm form, Model model)
+    {
+        UserForm findidResult = userService.findid(form);
+
+        if(findidResult != null)
+        {
+            log.info("id = "+findidResult.getUid());
+            model.addAttribute("message", findidResult.getUname()+"님의 id : "+findidResult.getUid());
+            return "user/findidComplete";
+        }
+        else
+        {
+            log.info("find id fail");
+            return "user/findid";
+        }
+
+    }
+
+    @PostMapping("/user/findpassword") //비밀번호 찾기
+    public String findpassword(UserForm form, Model model)
+    {
+        UserForm findpasswordResult = userService.findpassword(form);
+
+        if(findpasswordResult != null)
+        {
+            emailSendService.sendPassword(form);
+            log.info("password = "+findpasswordResult.getUpassword());
+            model.addAttribute("message", findpasswordResult.getUname()+"님의 password : "+findpasswordResult.getUpassword());
+            return "user/findpasswordComplete";
+        }
+        else
+        {
+            log.info("find password fail");
+            return "user/findid";
+        }
 
     }
 
