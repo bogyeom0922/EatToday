@@ -200,4 +200,23 @@ public class LoginController {
         return "user/findid";
     }
 
+    @PostMapping("/user/findid") //아이디 찾기
+    public String findid(UserForm form, Model model)
+    {
+        UserForm findidResult = userService.findid(form);
+
+        if(findidResult != null)
+        {
+            log.info("id = "+findidResult.getUid());
+            model.addAttribute("message", findidResult.getUname()+"님의 id : "+findidResult.getUid());
+            return "user/findidComplete";
+        }
+        else
+        {
+            log.info("find id fail");
+            return "user/findid";
+        }
+
+    }
+
 }
