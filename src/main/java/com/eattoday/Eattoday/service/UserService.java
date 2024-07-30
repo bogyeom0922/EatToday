@@ -42,9 +42,8 @@ public class UserService {
             if (user.getUpassword().equals(form.getUpassword())) {
                 //entity, dto 일치할 경우
                 //entity -> dto 변환 후 리턴
-                UserForm dto = UserForm.toUserFrom(user);
 
-                return dto;
+                return UserForm.toUserFrom(user);
             } else { //비밀번호 불일치
                 return null;
             }
@@ -66,6 +65,22 @@ public class UserService {
             return UserForm.toUserFrom(user); //dto반환
 
         } else {
+            return null;
+        }
+    }
+
+    //아이디로 비밀번호 찾기 서비스
+    public UserForm findpassword(UserForm form)
+    {
+        Optional<User> uid = userRepository.findByuid(form.getUid()); //uid 관한 정보 가져옴
+        if(uid.isPresent()) //있는 아이디면
+        {
+            User user = uid.get(); //uid 관한 정보 엔티티 가져와서
+
+            return UserForm.toUserFrom(user);
+        }
+        else
+        {
             return null;
         }
     }
