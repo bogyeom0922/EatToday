@@ -55,4 +55,18 @@ public class UserService {
 
     }
 
+    //이메일로 아이디 찾기 서비스
+    public UserForm findid(UserForm form) {
+        Optional<User> Email = userRepository.findByemail(form.getEmail());
+
+        if (Email.isPresent())//닉네임 조회 결과 있으면
+        {
+            User user = Email.get(); //엔티티로 가져와서
+
+            return UserForm.toUserFrom(user); //dto반환
+
+        } else {
+            return null;
+        }
+    }
 }
