@@ -22,11 +22,11 @@
     </div>
     <div class="form-container sign-in-container">
         <!--아이디찾기-->
-        <form>
+        <form action = "/user/findid" method="post">
             <h1>아이디 찾기</h1>
             <br><br><br>
-            <input placeholder="이메일을 입력하세요."><br>
-            <button>찾기</button>
+            <input  type="email" name="email" placeholder="이메일을 입력하세요."><br>
+            <button type="submit">찾기</button>
             <br><br>
             <a href="/user/login">Sign In</a>
         </form>
