@@ -264,4 +264,20 @@ public class LoginController {
 
     }
 
+    @GetMapping("/{uid}/delete") //계정 삭제
+    public String deleteAccount(@PathVariable String uid)
+    {
+        log.info("계정 삭제 요청");
+
+        //1. 삭제할 대상 가져오기
+        User target = userRepository.findByuid(uid).orElse(null);
+        assert target != null;
+        log.info(target.toString());
+
+        //2. 대상 엔티티 삭제
+        userRepository.delete(target);
+
+        return "redirect:/user/login";
+    }
+
 }
