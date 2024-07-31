@@ -19,9 +19,12 @@
         <div class="userinfo_title">닉네임 변경</div>
         <div class="update_profile">
             현재 닉네임:
-            <form>
-                <input placeholder="새로운 닉네임을 입력하세요." class="update_profile_input">
-                <button class="update_profile_button">변경</button>
+            <form action = "/uname/update" method="post">
+                <input name = "id"  type="hidden" value="{{id}}">
+                <input name = "uid"  type="hidden" value="{{uid}}">
+                <input name = "upassword"  type="hidden" value="{{upassword}}">
+                <input type="text" class="update_profile_input" name="uname" placeholder="새로운 닉네임을 입력하세요.">
+                <button type="submit" class="update_profile_button">변경</button>
             </form>
         </div>
         <div class="update_profile_delete"><a href="">계정 삭제</a></div>
