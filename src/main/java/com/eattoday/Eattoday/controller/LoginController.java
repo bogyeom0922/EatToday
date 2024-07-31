@@ -242,4 +242,26 @@ public class LoginController {
 
     }
 
+    @PostMapping("/uname/update") //닉네임 변경
+    public String nicknameUpdate(@Valid UserForm userForm)
+    {
+        if(userService.checkunameDuplicate(userForm.getUname())) //nickname 중복
+        {
+            log.info("uname: "+userForm.getUname()+" 중복");
+            return "redirect:/"+userForm.getUid();
+        }
+
+
+        log.info(userForm.toString());
+
+        User userEntity = userForm.toEntity();
+        log.info(userEntity.toString());
+        //기존 값 가져오기
+        userRepository.findByuid(userEntity.getUid()).ifPresent(target -> userRepository.save(userEntity));
+
+        log.info("닉네임 변경 성공");
+        return "redirect:/"+userEntity.getUid();
+
+    }
+
 }
