@@ -14,7 +14,7 @@
 ## 개요
 - 프로젝트 이름 : EatToday
 - 프로젝트 기간: 2023.07-2024.8
-- notion: <a href=""/>
+- <a href="https://resolute-cloak-c53.notion.site/EatToday-b0df429aa1584c4b8dfc6742be384227?pvs=4"/>notion</a>
 
 ## 개발환경
 - <img src="https://img.shields.io/badge/Framework-%23121011?style=for-the-badge"><img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"><img src="https://img.shields.io/badge/3.2.0-515151?style=for-the-badge">
