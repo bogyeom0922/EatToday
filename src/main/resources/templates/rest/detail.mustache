@@ -60,4 +60,7 @@
             }
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             state = 1;
-    })
+        }).catch(error =>{
+            console.error('There was a problem with the fetch operation:', error);
+        });
+</script>
