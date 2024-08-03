@@ -54,4 +54,8 @@
         })
         .then(data => {
             console.log(data);
+            if(data == null){
+                ddocument.getElementById('bookmark_img').src = "/img/bookmark_x.png";
+
+            }
     }
