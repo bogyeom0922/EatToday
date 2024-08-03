@@ -65,8 +65,8 @@
         });
 
     const likeCreate = document.getElementById('bookmark_img');
-    likeCreate.addEventListener("click", function(){
-        if(state ===0){
+    likeCreate.addEventListener("click", function() {
+        if (state === 0) {
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             const like = {
@@ -81,7 +81,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(like)
-        }).then(response => response.json())
+            }).then(response => response.json())
                     .then(data => {
                         let like_id = data.id;
                         console.log("생성된 좋아요 id: " + like_id);
@@ -92,8 +92,7 @@
                         console.error('Error:', error);
                         alert("좋아요 생성 실패");
                     });
-    }
-        else{
+        } else {
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"
@@ -110,6 +109,14 @@
                     const msg = "매장 아이디:" + document.querySelector("#new-like-store-id").value + `번 즐겨찾기를 해제했습니다`;
                     alert(msg);
                     window.location.reload(true);
+                } else {
+                    console.error(`ID가 like-'+ document.querySelector("#new-like-store-id").value + '인 요소를 찾을 수 없습니다.`);
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert("좋아요 삭제 실패");
+
+            });
         }
     });
 </script>
