@@ -52,4 +52,18 @@ public class LikeService {
                 .collect(Collectors.toList());
 
     }
+
+    @Transactional
+    public LikeDto deleteLike(Long user_id, Long store_id){
+        Store store = storeRepository.findById(store_id)
+                .orElseThrow(()-> new IllegalArgumentException("좋아요 실패 " +
+                        "대상 매장이 없습니다."));
+        User user = userRepository.findById(user_id)
+                .orElseThrow(() ->new IllegalArgumentException("유저 정보 없음"));
+        Like like = likeReposiroty.findByUser_idAndStore_id(user.getId(), store.getId());
+        if(like != null)
+            likeReposiroty.delete(like);
+        return LikeDto.createLikeDto(like);
+    }
+
 }
