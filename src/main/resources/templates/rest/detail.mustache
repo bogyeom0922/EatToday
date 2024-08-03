@@ -97,7 +97,14 @@
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"
-            ))
+            }).then(response => {
+                if (!response.ok) {
+                    alert("좋아요 삭제 실패");
+                    console.log(document.querySelector("#new-like-userid").value);
+                    console.log(document.querySelector("#new-like-store-id").value);
+                    return;
+                }
+
         }
     });
 </script>
