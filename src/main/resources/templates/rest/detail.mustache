@@ -18,55 +18,75 @@
                 <!--        "https://icons8.com/icon/60003/%EB%B3%84"-->
             </div>
         </div>
-            <div class="rest_detail">
-                <table>
-                    <tr>
-                        <td style="width:20%; font-weight: 500">영업시간</td>
-                        <td style="width:80%; font-weight: 300">{{store_time}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width:20%; font-weight: 500">주소</td>
-                        <td style="width:80%; font-weight: 300">{{store_address}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width:20%; font-weight: 500">대표번호</td>
-                        <td style="width:80%; font-weight: 300">{{store_phone}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width:20%; font-weight: 500">별점</td>
-                        <td style="width:80%; font-weight: 300">{{store_star}}</td>
-                    </tr>
-                </table>
 
+
+        <div class="rest_detail">
+            <table>
+                <tr>
+                    <td style="width:20%; font-weight: 500">영업시간</td>
+                    <td style="width:80%; font-weight: 300">{{store_time}}</td>
+                </tr>
+                <tr>
+                    <td style="width:20%; font-weight: 500">주소</td>
+                    <td style="width:80%; font-weight: 300">{{store_address}}</td>
+                </tr>
+                <tr>
+                    <td style="width:20%; font-weight: 500">대표번호</td>
+                    <td style="width:80%; font-weight: 300">{{store_phone}}</td>
+                </tr>
+                <tr>
+                    <td style="width:20%; font-weight: 500">별점</td>
+                    <td style="width:80%; font-weight: 300">{{store_star}}</td>
+                </tr>
+            </table>
+            <br><br>
+            <!--                <div class="rest_menu">-->
+            <!--                    <P style="font-weight: 500; line-height: 0.8">메뉴</P>-->
+            <!--                    {store_menu}<br>-->
+            <!--                </div>-->
+            <br>
+
+            <div class="rest_menu">
+                <P style="font-weight: 500; line-height: 0.8">리뷰</P>
+                {{>reviews/_reviews}}
+                {{review_content}}
             </div>
+        </div>
     {{/rest}}
+
+
+</div>
 </div>
 
 <script type="text/javascript">
     let state = 0;
     const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
     fetch(url)
-        .then(response => {
-            if(!response.ok){
-                throw new Error('Server response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            if(data == null){
-                document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
-                state = 0;
-            }
-            document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
-            state = 1;
-        }).catch(error =>{
-            console.error('There was a problem with the fetch operation:', error);
-        });
-
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Server response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // 받아온 데이터를 사용하여 원하는 작업을 수행합니다.
+                console.log(data); // 예시: 받아온 데이터를 콘솔에 출력
+                if(data == null){
+                    document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
+                    state = 0;
+                }
+                document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
+                state = 1;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                // 예를 들어, 404 Not Found일 때는 사용자에게 메시지를 표시할 수 있습니다.
+            });
     const likeCreate = document.getElementById('bookmark_img');
-    likeCreate.addEventListener("click", function(){
-        if(state ===0){
+
+    likeCreate.addEventListener("click", function (){
+
+        if(state === 0) {
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             const like = {
@@ -81,7 +101,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(like)
-        }).then(response => response.json())
+            }).then(response => response.json())
                     .then(data => {
                         let like_id = data.id;
                         console.log("생성된 좋아요 id: " + like_id);
@@ -92,8 +112,8 @@
                         console.error('Error:', error);
                         alert("좋아요 생성 실패");
                     });
-    }
-        else{
+        }
+        else{ //여긴 모르겠음
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"
@@ -104,7 +124,25 @@
                     console.log(document.querySelector("#new-like-store-id").value);
                     return;
                 }
-
+                const target = document.querySelector(`#like-` + document.querySelector("#new-like-store-id").value); // 수정된 부분
+                if (target) {
+                    target.remove(); // 요소가 존재할 때만 삭제
+                    const msg = "매장 아이디:" + document.querySelector("#new-like-store-id").value + `번 즐겨찾기를 해제했습니다`;
+                    alert(msg);
+                    window.location.reload(true);
+                } else {
+                    console.error(`ID가 like-'+ document.querySelector("#new-like-store-id").value + '인 요소를 찾을 수 없습니다.`);
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert("좋아요 삭제 실패");
+            });
         }
     });
+
 </script>
+
+
+<hr style="margin-top: 150px;">
+
+{{>layouts/footer}}
