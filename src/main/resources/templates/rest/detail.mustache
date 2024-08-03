@@ -105,7 +105,11 @@
                     return;
                 }
                 const target = document.querySelector(`#like-` + document.querySelector("#new-like-store-id").value);
-
+                if (target) {
+                    target.remove(); // 요소가 존재할 때만 삭제
+                    const msg = "매장 아이디:" + document.querySelector("#new-like-store-id").value + `번 즐겨찾기를 해제했습니다`;
+                    alert(msg);
+                    window.location.reload(true);
         }
     });
 </script>
