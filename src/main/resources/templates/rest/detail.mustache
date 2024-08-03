@@ -81,6 +81,16 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(like)
-        })
+        }).then(response => response.json())
+                    .then(data => {
+                        let like_id = data.id;
+                        console.log("생성된 좋아요 id: " + like_id);
+                        let like_state = data.state;
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("좋아요 생성 실패");
+                    });
     }
 </script>
