@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public interface StoreRepository extends JpaRepository<Store,Long> {
-    @Override
+public interface StoreRepository extends JpaRepository<Store, Long> {
+
     ArrayList<Store> findAll();
 
     @Query(value = "select * from Store where store_img Like %?1% OR store_name Like %?1% OR store_time Like %?1% OR store_phone Like %?1% OR store_star Like %?1%", nativeQuery = true)
@@ -23,4 +23,5 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
 
     @Query(value = "select m from Store m where m.store_address LIKE %?1%")
     Page<Store> findByStore_addressContaining(String address, Pageable pageable);
+
 }
