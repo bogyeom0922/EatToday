@@ -1,22 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/main.css?after" rel="stylesheet">
-    <title>Restaurant details</title>
-</head>
-<body>
-<!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
+{{>layouts/detail_header}}
+
+<!--body-->
+<div class="background">
+    <a href="/storelist"><img src="/img/back_icon.png" width="50" class="back"></a>
+    {{#user}}
+        <input type = "hidden" id = "new-like-userid" value ="{{id}}">
+    {{/user}}
     {{#rest}}
-        매장 사진: <img src="{{store_img}}"><br>
-        매장 이름: {{store_name}}<br>
-        영업시간: {{store_time}}<br>
-        주소: {{store_address}}<br>
-        대표번호: {{store_phone}}<br>
-        별점: {{store_star}}<br>
-        메뉴: {{store_menu}}
-        리뷰: {{review_content}}
-    {{/rest}}
-</body>
-</html>
+        <input type="hidden" id="new-like-store-id" value="{{id}}">
+        <img src="{{store_img}}" class="rest_img">
+        <div class="background2">
+            <div class="store_name">
+                {{store_name}}
+            </div>
+            <div class="bookmark" id="like-{{id}}">
+                <img id="bookmark_img" src="/img/bookmark_x.png" alt = "" width="25">
+                <!--        "https://icons8.com/icon/60003/%EB%B3%84"-->
+            </div>
+        </div>
