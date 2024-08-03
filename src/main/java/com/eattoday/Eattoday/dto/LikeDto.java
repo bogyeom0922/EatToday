@@ -12,7 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class LikeDto {
     private long id;
     @JsonProperty("storeId")
@@ -21,7 +20,7 @@ public class LikeDto {
     private Long user_id;
     private Long state;
 
-    public static LikeDto createLikeDto(Like like){
+    public static LikeDto createLikeDto(Like like) {
         return new LikeDto(
                 like.getId(),
                 like.getStore().getId(),

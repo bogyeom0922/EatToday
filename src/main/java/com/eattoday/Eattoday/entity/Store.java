@@ -5,13 +5,12 @@ import lombok.*;
 
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
-@Entity(name = "Store") //table 'Store'에 연결
-public class Store{
+public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String category;
     private String store_name;
     private String store_address;
@@ -23,8 +22,8 @@ public class Store{
     private String store_menu;
 
     @Builder
-    public Store(long id,String category, String store_name, String store_address,String store_phone,
-                 String store_img,String store_star, String store_time,String review_content, String store_menu){
+    public Store(long id, String category, String store_name, String store_address, String store_phone,
+                 String store_img, String store_star, String store_time, String review_content, String store_menu) {
         this.id = id;
         this.category = category;
         this.store_name = store_name;
@@ -36,4 +35,9 @@ public class Store{
         this.review_content = review_content;
         this.store_menu = store_menu;
     }
+
+    public String getContent() {
+        return this.review_content;
+    }
+
 }
