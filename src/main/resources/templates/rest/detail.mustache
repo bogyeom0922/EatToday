@@ -95,6 +95,9 @@
     }
         else{
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
+            fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
+                method: "DELETE"
+            ))
         }
     });
 </script>
