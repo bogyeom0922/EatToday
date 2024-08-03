@@ -104,7 +104,23 @@
                     console.log(document.querySelector("#new-like-store-id").value);
                     return;
                 }
-
+                const target = document.querySelector(`#like-` + document.querySelector("#new-like-store-id").value); // 수정된 부분
+                if (target) {
+                    target.remove(); // 요소가 존재할 때만 삭제
+                    const msg = "매장 아이디:" + document.querySelector("#new-like-store-id").value + `번 즐겨찾기를 해제했습니다`;
+                    alert(msg);
+                    window.location.reload(true);
+                } else {
+                    console.error(`ID가 like-'+ document.querySelector("#new-like-store-id").value + '인 요소를 찾을 수 없습니다.`);
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert("좋아요 삭제 실패");
+            });
         }
     });
 </script>
+
+<hr style="margin-top: 150px;">
+
+{{>layouts/footer}}
