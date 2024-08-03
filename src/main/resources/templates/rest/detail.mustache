@@ -66,6 +66,9 @@
 
     const likeCreate = document.getElementById('bookmark_img');
     likeCreate.addEventListener("click", function(){
-
+        if(state ===0){
+            state = 1;
+            document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
+        }
     }
 </script>
