@@ -45,3 +45,10 @@
 <script type="text/javascript">
     let state = 0;
     const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
+    fetch(url)
+        .then(response => {
+            if(!response.ok){
+                throw new Error('Server response was not ok');
+            }
+            return response.json();
+        })
