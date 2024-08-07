@@ -7,6 +7,8 @@ import com.eattoday.Eattoday.repository.ReviewRepository;
 import com.eattoday.Eattoday.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -71,4 +73,5 @@ public class ReviewService {
         //3. 삭제 리뷰를 DTO로 변환 및 반환
         return ReviewDto.createReviewDto(target);
     }
+
 }

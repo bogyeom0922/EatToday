@@ -1,19 +1,19 @@
 {{>layout/header}}
 
-<!--    마이페이지 카테고리 이동-->
+<!-- 마이페이지 카테고리 이동 -->
 <div class="userinfo_category">
-    <a href="/{{uid}}">
+    <a href="/{{user.uid}}">
         <div class="userinfo_shortcuts">회원정보 수정</div>
     </a>
-    <a href="/{{uid}}/review">
+    <a href="/{{user.uid}}/review">
         <div class="userinfo_current">리뷰 관리</div>
     </a>
-    <a href="/api/{{uid}}/like">
+    <a href="/api/{{user.uid}}/like">
         <div class="userinfo_shortcuts">즐겨찾기 관리</div>
     </a>
 </div>
 
-<!--리뷰 조회, 수정, 삭제-->
+<!-- 리뷰 조회, 수정, 삭제 -->
 <div class="userinfo_background">
     <div class="userinfo_title">작성한 리뷰</div>
 
@@ -21,9 +21,12 @@
         <tbody>
         {{#reviews}}
             <tr>
-                <td style="width:23%;">{{#store}}{{store_name}}{{/store}}</td>
-                <td style="width:65%;">{{body}}</td>
-                <td style="width:22%;">
+                {{#store}}
+                    <td style="width:20%;"><a href="/rest/{{id}}/{{uid}}">{{store_name}}</a></td>
+                    <td style="width:25%;">{{store_phone}}</td>
+                {{/store}}
+                <td style="width:40%;">{{body}}</td>
+                <td style="width:15%;">
                     <button class="button userinfo_button" onclick="openModal()"
                             data-bs-toggle="modal"
                             data-bs-target="#review-edit-Modal"
@@ -54,107 +57,93 @@
             </form>
         </div>
     </div>
+
+    <!-- 페이지네이션 버튼 -->
+    <div class="pagination userinfo_review_next">
+        <button class="next_button" onclick="changePage({{previousPage}})" {{#isFirstPage}}disabled{{/isFirstPage}}>이전</button>
+        <button class="next_button" onclick="changePage({{nextPage}})" {{#isLastPage}}disabled{{/isLastPage}}>다음</button>
+    </div>
+
 </div>
 
-<!--모달 열기,닫기-->
+<!-- 모달 열기, 닫기 -->
 <script>
-    {
-        // 모달 열기 함수
-        function openModal() {
-            document.getElementById("review-edit-Modal").style.display = "block";
-        }
+    function openModal() {
+        document.getElementById("review-edit-Modal").style.display = "block";
+    }
 
-        // 모달 닫기 함수
-        document.getElementById("closeModal").onclick = function () {
-            document.getElementById("review-edit-Modal").style.display = "none";
-        }
+    document.getElementById("closeModal").onclick = function () {
+        document.getElementById("review-edit-Modal").style.display = "none";
     }
 </script>
 
-<!--댓글 수정-->
+<!-- 리뷰 수정 -->
 <script>
-    {
-        const reviewEditButton = document.querySelectorAll(".button[data-bs-toggle='modal']");
-        reviewEditButton.forEach(btn => {
-            btn.addEventListener("click", (event) => {
-                const review = event.target;
+    document.querySelectorAll(".button[data-bs-toggle='modal']").forEach(btn => {
+        btn.addEventListener("click", event => {
+            const review = event.target;
 
-                const id = review.getAttribute("data-bs-id");
-                const store = review.getAttribute("data-bs-store");
-                const userid = review.getAttribute("data-bs-userid");
-                const body = review.getAttribute("data-bs-body");
+            document.querySelector("#edit-review-id").value = review.getAttribute("data-bs-id");
+            document.querySelector("#edit-review-store").value = review.getAttribute("data-bs-store");
+            document.querySelector("#edit-review-userid").value = review.getAttribute("data-bs-userid");
+            document.querySelector("#edit-review-body").value = review.getAttribute("data-bs-body");
 
-                document.querySelector("#edit-review-id").value = id;
-                document.querySelector("#edit-review-store").value = store;
-                document.querySelector("#edit-review-userid").value = userid;
-                document.querySelector("#edit-review-body").value = body;
-
-                openModal();
-            });
+            openModal();
         });
-    }
-</script>
-<script>
-    {
-        const reviewUpdateButton = document.querySelector("#review-update-btn");
-        reviewUpdateButton.addEventListener("click", function () {
-            const review = {
-                id: document.querySelector("#edit-review-id").value,
-                store: document.querySelector("#edit-review-store").value,
-                userid: document.querySelector("#edit-review-userid").value,
-                body: document.querySelector("#edit-review-body").value
-            };
-            console.log(review);
+    });
 
-            // 수정 REST API 호출
-            const url = "/api/reviews/" + review.id;
-            fetch(url, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(review)
+    document.querySelector("#review-update-btn").addEventListener("click", () => {
+        const review = {
+            id: document.querySelector("#edit-review-id").value,
+            store: document.querySelector("#edit-review-store").value,
+            userid: document.querySelector("#edit-review-userid").value,
+            body: document.querySelector("#edit-review-body").value
+        };
+
+        fetch(`/api/reviews/${review.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(review)
+        }).then(response => {
+            alert(response.ok ? "댓글이 수정됐습니다." : "댓글 수정에 실패하였습니다.");
+            window.location.reload();
+        });
+    });
+</script>
+
+<!-- 리뷰 삭제 -->
+<script>
+    document.querySelectorAll(".review-delete-btn").forEach(btn => {
+        btn.addEventListener("click", event => {
+            const reviewId = event.target.getAttribute("data-review-id");
+
+            fetch(`/api/reviews/${reviewId}`, {
+                method: "DELETE"
             }).then(response => {
-                const msg = (response.ok) ? "댓글이 수정됐습니다." : "댓글 수정에 실패하였습니다.";
-                alert(msg);
+                if (!response.ok) {
+                    alert("댓글 삭제 실패");
+                    return;
+                }
+
+                alert(`${reviewId}번 댓글을 삭제했습니다`);
                 window.location.reload();
+            }).catch(error => {
+                console.error("댓글 삭제 중 오류 발생:", error);
+                alert("댓글 삭제 중 오류가 발생했습니다.");
             });
         });
-    }
+    });
 </script>
 
-<!--댓글 삭제-->
+<!-- 페이지네이션 -->
 <script>
-    {
-        const reviewDeleteButtons = document.querySelectorAll(".review-delete-btn");
-        reviewDeleteButtons.forEach(btn => {
-            btn.addEventListener("click", (event) => {
-                const deleteBtn = event.target;
-                const reviewId = deleteBtn.getAttribute("data-review-id");
-                console.log(`삭제 버튼 클릭: ${reviewId}번 댓글`);
-
-                // 삭제 REST API 호출
-                const url = `/api/reviews/${reviewId}`;
-                fetch(url, {
-                    method: "DELETE"
-                }).then(response => {
-                    if (!response.ok) {
-                        alert("댓글 삭제 실패");
-                        return;
-                    }
-
-                    // 삭제 후 페이지 새로고침
-                    alert(`${reviewId}번 댓글을 삭제했습니다`);
-                    window.location.reload();
-                }).catch(error => {
-                    console.error("댓글 삭제 중 오류 발생:", error);
-                    alert("댓글 삭제 중 오류가 발생했습니다.");
-                });
-            });
-        });
+    function changePage(page) {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('page', page);
+        window.location.search = urlParams.toString();
     }
 </script>
-
-
 
 {{>layout/footer}}

@@ -496,10 +496,21 @@ a:hover {
     position: relative;
     top: -40px;
     left: 6%;
-    width: 75%;
+    width: 90%;
     line-height: 2;
     font-size: 18px;
     font-weight: 400;
+}
+
+.userinfo_review_next {
+    position: relative;
+    left: 45%;
+}
+
+.next_button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 15px;
 }
 
 .userinfo_button {
