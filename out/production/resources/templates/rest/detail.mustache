@@ -2,7 +2,7 @@
 
 <div class="detail_background">
     <!--    뒤로가기-->
-    <a href=""><img src="/img/go_back.png" class="go_back"></a>
+    <a href="javascript:window.history.back();"><img src="/img/go_back.png" class="go_back"></a>
     <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
     {{#rest}}
         <!--        매장 이미지-->
@@ -14,9 +14,8 @@
                 {{store_name}}
             </div>
             <!--            즐겨찾기-->
-            <div class="bookmark">
-                <a href="javascript:window.history.back();"><img src="/img/bookmark_x.png" alt="매장 즐겨찾기"
-                                                                 class="bookmark_img"></a> <!--이전 페이지로 이동-->
+            <div class="bookmark" id="like-{{id}}">
+                <img id="bookmark_img" src="/img/bookmark_x.png" alt = "" width="25">
             </div>
         </div>
 
@@ -115,4 +114,83 @@
         ReviewDisplay.appendChild(document.createElement("br")); // br 추가
     });
 
+</script>
+
+<script type="text/javascript">
+    let state = 0;
+    const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
+    fetch(url)
+            .then(response => {
+                if(!response.ok){
+                    throw new Error('Server response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                if(data == null){
+                    document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
+                    state = 0;
+                }
+                document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
+                state = 1;
+            }).catch(error =>{
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
+    const likeCreate = document.getElementById('bookmark_img');
+    likeCreate.addEventListener("click", function(){
+        if(state ===0){
+            state = 1;
+            document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
+            const like = {
+                user_id: document.querySelector("#new-like-userid").value,
+                store_id: document.querySelector("#new-like-store-id").value,
+                like_state: 1,
+            };
+            const url = "/api/" + like.user_id + "/" + like.store_id + "/likes";
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(like)
+            }).then(response => response.json())
+                    .then(data => {
+                        let like_id = data.id;
+                        console.log("생성된 좋아요 id: " + like_id);
+                        let like_state = data.state;
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert("좋아요 생성 실패");
+                    });
+        }
+        else{
+            document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
+            fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
+                method: "DELETE"
+            }).then(response => {
+                if (!response.ok) {
+                    alert("좋아요 삭제 실패");
+                    console.log(document.querySelector("#new-like-userid").value);
+                    console.log(document.querySelector("#new-like-store-id").value);
+                    return;
+                }
+                const target = document.querySelector(`#like-` + document.querySelector("#new-like-store-id").value); // 수정된 부분
+                if (target) {
+                    target.remove(); // 요소가 존재할 때만 삭제
+                    const msg = "매장 아이디:" + document.querySelector("#new-like-store-id").value + `번 즐겨찾기를 해제했습니다`;
+                    alert(msg);
+                    window.location.reload(true);
+                } else {
+                    console.error(`ID가 like-'+ document.querySelector("#new-like-store-id").value + '인 요소를 찾을 수 없습니다.`);
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert("좋아요 삭제 실패");
+            });
+        }
+    });
 </script>

@@ -16,6 +16,10 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +29,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +56,9 @@ public class LoginController {
 
     @Autowired
     private com.eattoday.Eattoday.service.LikeService likeService;
+
+    @Autowired
+    private com.eattoday.Eattoday.service.ReviewService reviewService;
 
     //main
     @GetMapping("/")
@@ -198,24 +206,19 @@ public class LoginController {
     }
 
     @GetMapping("/user/findid") //아이디 찾기 뷰
-    public String findidview()
-    {
+    public String findidview() {
         return "user/findid";
     }
 
     @PostMapping("/user/findid") //아이디 찾기
-    public String findid(UserForm form, Model model)
-    {
+    public String findid(UserForm form, Model model) {
         UserForm findidResult = userService.findid(form);
 
-        if(findidResult != null)
-        {
-            log.info("id = "+findidResult.getUid());
-            model.addAttribute("message", findidResult.getUname()+"님의 id : "+findidResult.getUid());
+        if (findidResult != null) {
+            log.info("id = " + findidResult.getUid());
+            model.addAttribute("message", findidResult.getUname() + "님의 id : " + findidResult.getUid());
             return "user/findidComplete";
-        }
-        else
-        {
+        } else {
             log.info("find id fail");
             return "user/findid";
         }
@@ -223,19 +226,15 @@ public class LoginController {
     }
 
     @PostMapping("/user/findpassword") //비밀번호 찾기
-    public String findpassword(UserForm form, Model model)
-    {
+    public String findpassword(UserForm form, Model model) {
         UserForm findpasswordResult = userService.findpassword(form);
 
-        if(findpasswordResult != null)
-        {
+        if (findpasswordResult != null) {
             emailSendService.sendPassword(form);
-            log.info("password = "+findpasswordResult.getUpassword());
-            model.addAttribute("message", findpasswordResult.getUname()+"님의 password : "+findpasswordResult.getUpassword());
+            log.info("password = " + findpasswordResult.getUpassword());
+            model.addAttribute("message", findpasswordResult.getUname() + "님의 password : " + findpasswordResult.getUpassword());
             return "user/findpasswordComplete";
-        }
-        else
-        {
+        } else {
             log.info("find password fail");
             return "user/findid";
         }
@@ -243,12 +242,11 @@ public class LoginController {
     }
 
     @PostMapping("/uname/update") //닉네임 변경
-    public String nicknameUpdate(@Valid UserForm userForm)
-    {
-        if(userService.checkunameDuplicate(userForm.getUname())) //nickname 중복
+    public String nicknameUpdate(@Valid UserForm userForm) {
+        if (userService.checkunameDuplicate(userForm.getUname())) //nickname 중복
         {
-            log.info("uname: "+userForm.getUname()+" 중복");
-            return "redirect:/"+userForm.getUid();
+            log.info("uname: " + userForm.getUname() + " 중복");
+            return "redirect:/" + userForm.getUid();
         }
 
 
@@ -260,13 +258,12 @@ public class LoginController {
         userRepository.findByuid(userEntity.getUid()).ifPresent(target -> userRepository.save(userEntity));
 
         log.info("닉네임 변경 성공");
-        return "redirect:/"+userEntity.getUid();
+        return "redirect:/" + userEntity.getUid();
 
     }
 
     @GetMapping("/{uid}/delete") //계정 삭제
-    public String deleteAccount(@PathVariable String uid)
-    {
+    public String deleteAccount(@PathVariable String uid) {
         log.info("계정 삭제 요청");
 
         //1. 삭제할 대상 가져오기
