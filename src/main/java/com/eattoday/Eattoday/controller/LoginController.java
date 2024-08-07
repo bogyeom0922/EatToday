@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -27,6 +28,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
@@ -165,13 +167,17 @@ public class LoginController {
 
     }
 
-    @GetMapping("/{uid}/review") //마페이지_리뷰
-    public String info_review(@PathVariable String uid, Model model) {
+    @GetMapping("/{uid}/review")
+    public String info_review(@PathVariable String uid,
+                              @RequestParam(defaultValue = "0") int page,
+                              @RequestParam(defaultValue = "7") int size,
+                              Model model) {
 
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
 
-        List<Review> reviews = reviewRepository.findByUserid(uid); //uid로 리뷰 목록 조회
+        Page<Review> reviewsPage = reviewRepository.findByUserid(uid, PageRequest.of(page, size));
+        List<Review> reviews = reviewsPage.getContent();
         List<Store> reviewStores = new ArrayList<>(); // 각 리뷰에 해당되는 매장 정보를 저장할 리스트 생성
 
         for (Review review : reviews) { // 각 리뷰에 대해 매장 정보 조회 후 저장
@@ -183,10 +189,15 @@ public class LoginController {
 
         model.addAttribute("reviews", reviews);
         model.addAttribute("reviewStores", reviewStores);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", reviewsPage.getTotalPages());
+        model.addAttribute("previousPage", page - 1);
+        model.addAttribute("nextPage", page + 1);
 
         return "userinfo/info_review";
-
     }
+
+
 
     @GetMapping("api/{uid}/like") //마이페이지_즐겨찾기
     public String info_like(@PathVariable String uid, Model model) {
