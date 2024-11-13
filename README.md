@@ -1,5 +1,4 @@
 <div align="center">
-<img src="https://github.com/user-attachments/assets/f8100884-d3b8-4e66-a2ff-93438189f25d"/>
   <br>
   식사 메뉴를 고민하는 사용자를 위한 메뉴&음식점 추천 서비스<br>
   매일 다른 메뉴를 추천하고, 음식점을 메뉴별로 분류하여 음식점의 정보를 제공합니다.
