@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow-x: hidden;
+    height: auto;
 }
 
 img {
@@ -374,15 +375,35 @@ a:hover {
     color: #616161;
 }
 
-.category_img {
-    width: 60%;
-    margin-left: 20%;
+.category {
+    position: relative;
+    top: -390px;
+    width: 100%;
+    justify-content: center;
+    height: 100vh;
 }
 
-.category_menu {
-    color: #454545;
-    font-size: 23px;
-    font-weight: 700;
+.category p {
+    position: relative;
+    left: 42.5vw;
+    font-size: 45px;
+    font-weight: 600;
+    color: #dd2902;
+}
+
+.category_img {
+    position: relative;
+    top: 60px;
+    left: 10%;
+    width: 80%;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.category_img img {
+    width: 200px;
+    margin-right: 10px;
 }
 
 /*store list*/
