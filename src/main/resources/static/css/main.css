@@ -19,15 +19,15 @@ a {
 }
 
 a:link {
-    color: black;
+    color: #dd2902;
 }
 
 a:visited {
-    color: black;
+    color: #dd2902;
 }
 
 a:hover {
-    color: #115b11;
+    color: #fbe389;
 }
 
 /*home*/
@@ -47,26 +47,26 @@ a:hover {
 
 /*header*/
 .header {
-    position: relative;
-    height: 110px;
+    position: fixed;
+    height: 70px;
     width: 100%;
     background: rgba(255, 255, 255, 0.94);
-    box-shadow: 0px 3px 5px 0px rgba(166, 163, 144, 0.44);
+    z-index: 1000;
 }
 
 .header_img {
-    position: relative;
-    top: 5px;
-    left: 3%;
-    width: 7%;
+    position: fixed;
+    top: 25px;
+    left: 4%;
+    width: 8%;
 }
 
 .search {
-    position: relative;
-    top: -58px;
+    position: fixed;
+    top: 20px;
     left: 32%;
     width: 40%;
-    height: 40px;
+    height: 30px;
 }
 
 .search_form {
@@ -75,41 +75,42 @@ a:hover {
 }
 
 .search_input {
-    width: 75%;
-    height: 100%;
+    width: 80%;
+    height: 95%;
+    margin-left: 20px;
     border: 0;
     outline: none;
-    font-size: 16px;
+    font-size: 15px;
     float: left;
 }
 
 .search_button {
-    height: 100%;
+    height: 99%;
     width: 15%;
     border: 0;
-    background: rgba(0, 100, 0, 0.76);
+    background: #fbe389;
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     float: right;
 }
 
 .shortcut_mypage {
-    position: relative;
-    top: -88px;
-    left: 53%;
+    position: fixed;
+    top: 10px;
+    left: 84%;
     font-size: 17px;
-    font-weight: 500;
-    opacity: 0.7;
+    font-weight: 300;
+    color: #000000;
 }
 
 .logout {
-    position: relative;
-    top: -126px;
+    position: fixed;
+    top: 10px;
     left: 91%;
     font-size: 17px;
-    font-weight: 500;
-    opacity: 0.7;
+    font-weight: 300;
+    color: #dd2902;
     width: 3%;
 }
 
@@ -272,9 +273,9 @@ a:hover {
 /*category*/
 .main_headline {
     position: relative;
-    top: 170px;
+    top: 290px;
     left: 7%;
-    font-size: 100px;
+    font-size: 90px;
     font-weight: 900;
     color: #dd2902;
     width: 600px;
@@ -282,9 +283,9 @@ a:hover {
 
 .main_image {
     position: relative;
-    top: -155px;
+    top: -130px;
     left: 53%;
-    height: 600px;
+    height: 620px;
 }
 
 .random_store_title {
