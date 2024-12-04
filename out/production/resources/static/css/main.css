@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow-x: hidden;
+    height: auto;
 }
 
 img {
@@ -300,10 +301,10 @@ a:hover {
     width: auto;
 }
 
-.recommend_restaurant {
+.recommend {
     position: relative;
     top: -200px;
-    height: 92vh;
+    height: 184vh;
     width: 100%;
     margin: 0;
     background-color: #f9f2ea;
@@ -374,45 +375,35 @@ a:hover {
     color: #616161;
 }
 
-.category_background {
+.category {
     position: relative;
-    top: 200px;
-    left: 15%;
-    padding-top: 30px;
-    margin-bottom: 280px;
-    width: 70%;
-    height: 590px;
-    background-color: rgba(255, 255, 255, 0.76);
-    border: 1px solid rgba(166, 163, 144, 0.25);
-    border-radius: 1%;
+    top: -390px;
+    width: 100%;
+    justify-content: center;
+    height: 100vh;
 }
 
-.category_img_back {
+.category p {
     position: relative;
-    left: 1%;
-    margin-top: 30px;
-    margin-left: 5%;
-    padding-top: 2%;
-    width: 18%;
-    height: auto;
-    background-color: rgba(255, 253, 232, 0.75);
-    border: solid 2px rgba(89, 89, 89, 0.13);
-    border-radius: 50px;
-    align-content: center;
-    text-align: center;
-    float: left;
-    opacity: 0.8;
+    left: 42.5vw;
+    font-size: 45px;
+    font-weight: 600;
+    color: #dd2902;
 }
 
 .category_img {
-    width: 60%;
-    margin-left: 20%;
+    position: relative;
+    top: 60px;
+    left: 10%;
+    width: 80%;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
-.category_menu {
-    color: #454545;
-    font-size: 23px;
-    font-weight: 700;
+.category_img img {
+    width: 200px;
+    margin-right: 10px;
 }
 
 /*store list*/
