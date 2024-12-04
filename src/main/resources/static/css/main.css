@@ -57,7 +57,7 @@ a:hover {
 .header_img {
     position: fixed;
     top: 25px;
-    left: 4%;
+    left: 5%;
     width: 8%;
 }
 
@@ -98,7 +98,7 @@ a:hover {
 .shortcut_mypage {
     position: fixed;
     top: 10px;
-    left: 84%;
+    left: 83%;
     font-size: 17px;
     font-weight: 300;
     color: #000000;
@@ -107,7 +107,7 @@ a:hover {
 .logout {
     position: fixed;
     top: 10px;
-    left: 91%;
+    left: 90%;
     font-size: 17px;
     font-weight: 300;
     color: #dd2902;
@@ -271,11 +271,20 @@ a:hover {
 }
 
 /*category*/
-.main_headline {
+.main_headline1 {
     position: relative;
-    top: 290px;
+    top: 230px;
     left: 7%;
-    font-size: 90px;
+    font-size: 45px;
+    font-weight: 900;
+    color: #000000;
+}
+
+.main_headline2 {
+    position: relative;
+    top: 250px;
+    left: 7%;
+    font-size: 95px;
     font-weight: 900;
     color: #dd2902;
     width: 600px;
@@ -283,9 +292,9 @@ a:hover {
 
 .main_image {
     position: relative;
-    top: -130px;
+    top: -210px;
     left: 53%;
-    height: 620px;
+    height: 630px;
 }
 
 .random_store_title {
