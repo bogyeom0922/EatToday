@@ -4,71 +4,93 @@
 <div class="main_headline2">WHAT SHOULD I EAT TODAY?</div>
 <img src="/img/ex.avif" class="main_image">
 
+<div class="recommend_restaurant">
+    <div class="random_store_title">
+        Today's recommended restaurant
+    </div>
 
-<!--title-->
-<!--<div class="random_store_title">-->
-<!--    Today's recommended restaurant-->
-<!--</div>-->
+    <!--매장 랜덤 추천-->
+    {{#randomStore1}}
+        <div class="random_store" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
+            <img src="{{store_img}}" class="random_store_img">
+            <p class="random_store_name">{{store_name}}</p>
+            <p class="random_store_address">{{store_address}}</p>
+        </div>
+    {{/randomStore1}}
 
-<!--&lt;!&ndash;매장 랜덤 추천&ndash;&gt;-->
-<!--<div class="random_store">-->
-<!--    <table>-->
-<!--        <tr>-->
-<!--            <td style="width:33%">{{#randomStore1}}-->
-<!--                <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore1}}-->
-<!--            </td>-->
-<!--            <td style="width:33%">{{#randomStore2}}-->
-<!--                <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore2}}-->
-<!--            </td>-->
-<!--            <td style="width:33%">{{#randomStore3}}-->
-<!--                <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore3}}-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td class="random_store_name">{{#randomStore1}}-->
-<!--                <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore1}}</td>-->
-<!--            <td class="random_store_name">{{#randomStore2}}-->
-<!--                <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore2}}</td>-->
-<!--            <td class="random_store_name">{{#randomStore3}}-->
-<!--                <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore3}}</td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</div>-->
+    {{#randomStore2}}
+        <div class="random_store2" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
+            <img src="{{store_img}}" class="random_store_img">
+            <p class="random_store_name">{{store_name}}</p>
+            <p class="random_store_address">{{store_address}}</p>
+        </div>
+    {{/randomStore2}}
 
-<!--&lt;!&ndash;메뉴 카테고리&ndash;&gt;-->
-<!--<div class="category_background">-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/한식.png" class="category_img">-->
-<!--        <a href="/storelist/{{#user}}{{uid}}{{/user}}"><p class="category_menu">한식</p></a>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/중식.png" class="category_img">-->
-<!--        <p class="category_menu">중식</p>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/일식.png" class="category_img">-->
-<!--        <p class="category_menu">일식</p>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/양식.png" class="category_img">-->
-<!--        <p class="category_menu">양식</p>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/아시안.png" class="category_img">-->
-<!--        <p class="category_menu">아시안</p>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/패스트푸드.png" class="category_img">-->
-<!--        <p class="category_menu">패스트푸드</p>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/술.png" class="category_img">-->
-<!--        <p class="category_menu">술</p>-->
-<!--    </div>-->
-<!--    <div class="category_img_back">-->
-<!--        <img src="/img/중식.png" class="category_img">-->
-<!--        <p class="category_menu">디저트</p>-->
-<!--    </div>-->
-<!--</div>-->
+    {{#randomStore3}}
+        <div class="random_store3" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
+            <img src="{{store_img}}" class="random_store_img">
+            <p class="random_store_name">{{store_name}}</p>
+            <p class="random_store_address">{{store_address}}</p>
+        </div>
+    {{/randomStore3}}
+</div>
+    <!--<table>-->
+    <!--            <tr>-->
+    <!--                <td style="width:33%"></td>-->
+        <!--                <td style="width:33%">{{#randomStore2}}-->
+        <!--                    <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore2}}-->
+    <!--                </td>-->
+        <!--                <td style="width:33%">{{#randomStore3}}-->
+        <!--                    <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore3}}-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                   </td>-->
+        <!--                <td class="random_store_name">{{#randomStore2}}-->
+        <!--                    <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore2}}</td>-->
+        <!--                <td class="random_store_name">{{#randomStore3}}-->
+        <!--                    <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore3}}</td>-->
+    <!--            </tr>-->
+    <!--        </table>-->
+    <!--    </div>-->
+    <!--</div>-->
 
-{{>layout/footer}}
+
+    <!--&lt;!&ndash;메뉴 카테고리&ndash;&gt;-->
+    <!--<div class="category_background">-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/한식.png" class="category_img">-->
+    <!--        <a href="/storelist/{{#user}}{{uid}}{{/user}}"><p class="category_menu">한식</p></a>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/중식.png" class="category_img">-->
+    <!--        <p class="category_menu">중식</p>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/일식.png" class="category_img">-->
+    <!--        <p class="category_menu">일식</p>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/양식.png" class="category_img">-->
+    <!--        <p class="category_menu">양식</p>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/아시안.png" class="category_img">-->
+    <!--        <p class="category_menu">아시안</p>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/패스트푸드.png" class="category_img">-->
+    <!--        <p class="category_menu">패스트푸드</p>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/술.png" class="category_img">-->
+    <!--        <p class="category_menu">술</p>-->
+    <!--    </div>-->
+    <!--    <div class="category_img_back">-->
+    <!--        <img src="/img/중식.png" class="category_img">-->
+    <!--        <p class="category_menu">디저트</p>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+    </body>
+    </html>
