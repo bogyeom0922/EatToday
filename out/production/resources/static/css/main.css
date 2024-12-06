@@ -33,18 +33,25 @@ a:hover {
 }
 
 /*home*/
-.home_img {
-    margin: 4% auto auto;
+.home_title {
+    position: relative;
+    top: 30vh;
+    text-align: center;
+    font-size: 120px;
+    color: #e12800;
+    font-weight: 900;
+    word-spacing: 16px;
+    margin: 0;
 }
 
-.home_title {
+.home_sub {
+    position: relative;
+    top: 32vh;
     text-align: center;
-    font-size: 45px;
-    color: #595959;
-    font-weight: 600;
+    font-size: 55px;
+    color: #292929;
+    font-weight: 900;
     word-spacing: 16px;
-    margin-top: 1%;
-    margin-left: 1%;
 }
 
 /*header*/
