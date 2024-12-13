@@ -57,6 +57,7 @@ a:hover {
 /*header*/
 .header {
     position: fixed;
+    top: 0;
     height: 70px;
     width: 100%;
     background: rgba(255, 255, 255, 0.94);
@@ -280,7 +281,6 @@ a:hover {
 }
 
 /*category*/
-
 .main_headline1 {
     position: relative;
     top: 230px;
@@ -420,49 +420,47 @@ a:hover {
 }
 
 /*store list*/
-.filter_box {
-    position: fixed;
-    top: 190px;
-    left: 4%;
-    float: left;
-    text-align: left;
-    padding-top: 20px;
-    padding-left: 2%;
-    height: 570px;
-    width: 20%;
-    background: white;
-    border: 1px solid rgba(166, 163, 144, 0.25);
+.store_list_title {
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 210px;
 }
 
-.filter_box p {
-    font-size: 20px;
-    font-weight: 600;
+.store_list_title p {
+    position: relative;
+    top: 20px;
+    left: 15%;
+    font-size: 110px;
+    font-weight: 900;
+    color: #dd2902;
 }
 
-.filter_box table {
-    width: 95%;
-}
-
-.filter {
-    margin-top: 0;
-    margin-bottom: 50px;
-    word-spacing: 14px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 2;
+.store_list_body {
+    position: relative;
+    top: 0;
+    padding: 0 0 250px;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background: #f9f2ea;
 }
 
 .store_list {
     position: relative;
-    top: 80px;
-    width: 62%;
-    left: 30%;
+    top: 90px;
+    width: 80%;
+    left: 10%;
     height: 780px;
     margin-bottom: 100px;
     padding-left: 2%;
-    background: white;
-    border: 1px solid rgba(166, 163, 144, 0.25);
+    border: none;
     text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 2;
 }
 
 .store_list table {
@@ -471,10 +469,82 @@ a:hover {
     text-align: left;
 }
 
+.store_list a {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.store_list img {
+    width: 100%;
+    height: 70px;
+}
+
+.store_list th {
+    padding: 0;
+    width: 100%;
+}
+
+.options-wrapper {
+    position: relative;
+    top: 60px;
+    left: 12.6%;
+    margin: 10px;
+    display: inline-block;
+}
+
+.toggle-button {
+    background-color: #e12800;
+    color: #ffffff;
+    border: 1px solid #e12800;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.toggle-button:hover {
+    background-color: #fff;
+    color: #e12800;
+    border: 1px solid #e12800;
+}
+
+.options-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.option-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.option-item:hover {
+    background-color: #fce590;
+    color: #000;
+}
+
 .next {
     position: relative;
-    top: 30px;
+    top: 40px;
+    left: -2%;
     width: 100%;
+}
+
+.next a{
+    font-size: 16px;
+    font-weight: 400;
 }
 
 /*userinfo*/
