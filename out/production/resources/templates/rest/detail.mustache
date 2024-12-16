@@ -1,79 +1,67 @@
 {{>layout/header}}
 
-<div class="detail_background">
-    <!--    뒤로가기-->
-    <a href="javascript:window.history.back();"><img src="/img/go_back.png" class="go_back"></a>
-    <!--    model 'rest'에 매장 상세 정보 등록하여 출력-->
-    {{#rest}}
-        <!--        매장 이미지-->
+{{#rest}}
+    <div class="image-container">
         <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
-        <!--    매장 이름, 좋아요 버튼 배경-->
         <div class="title_background">
-            <!--            매장 이름-->
             <div class="store_name">
                 {{store_name}}
             </div>
-            <!--            즐겨찾기-->
-            <div class="bookmark" id="like-{{id}}">
-                <img id="bookmark_img" src="/img/bookmark_x.png" alt="" width="25">
+            <button class="review_link">더 알아보기</button>
+        </div>
+    </div>
+
+    <div class="rest_detail">
+        <div class="bookmark" id="like-{{id}}">
+            <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기" width="25">
+        </div>
+        <table>
+            <tr>
+                <td style="width:40%; font-weight: 700">영업시간</td>
+                <td style="width:60%; font-weight: 400">{{store_time}}</td>
+            </tr>
+            <tr>
+                <td style="width:40%; font-weight: 700">주소</td>
+                <td style="width:60%; font-weight: 400">{{store_address}}</td>
+            </tr>
+            <tr>
+                <td style="width:40%; font-weight: 700">대표번호</td>
+                <td style="width:60%; font-weight: 400">{{store_phone}}</td>
+            </tr>
+            <tr>
+                <td style="width:40%; font-weight: 700">별점</td>
+                <td style="width:60%; font-weight: 400">{{store_star}}</td>
+            </tr>
+        </table>
+
+        <div id="MenuSentence">
+            {{store_menu}}
+        </div>
+
+        <div class="rest_menu">
+            <p class="rest_menu_p">메뉴</p>
+            <div class="rest_menu_list">
+                <div id="MenuDisplay"></div>
             </div>
         </div>
 
-        <div class="rest_detail">
-            <table>
-                <!--                영업시간-->
-                <tr>
-                    <td style="width:40%; font-weight: 700">영업시간</td>
-                    <td style="width:60%; font-weight: 400">{{store_time}}</td>
-                </tr>
-                <!--                매장 주소-->
-                <tr>
-                    <td style="width:40%; font-weight: 700">주소</td>
-                    <td style="width:60%; font-weight: 400">{{store_address}}</td>
-                </tr>
-                <!--                매장 전화번호-->
-                <tr>
-                    <td style="width:40%; font-weight: 700">대표번호</td>
-                    <td style="width:60%; font-weight: 400">{{store_phone}}</td>
-                </tr>
-                <!--                매장 별점-->
-                <tr>
-                    <td style="width:40%; font-weight: 700">별점</td>
-                    <td style="width:60%; font-weight: 400">{{store_star}}</td>
-                </tr>
-            </table>
-
-            <!--            메뉴 값 전달-->
-            <div id="MenuSentence">
-                {{store_menu}}
-            </div>
-
-            <!--            메뉴 값 화면 출력-->
-            <div class="rest_menu">
-                <p class="rest_menu_p">메뉴</p>
-                <div class="rest_menu_list">
-                    <div id="MenuDisplay"></div>
-                </div>
-            </div>
-
-            <!--            리뷰 값 전달-->
-            <div id="ReviewSentence">
-                {{review_content}}
-            </div>
-
-            <!--            리뷰 값 화면 출력-->
-            <div class="rest_menu">
-                <p class="rest_menu_p">리뷰</p>
-                <!--                사이트 자체 리뷰-->
-                {{>review/_reviews}}
-                <div class="rest_review_list">
-                    <div id="ReviewDisplay"></div>
-                </div>
-            </div>
-
+        <!--            리뷰 값 전달-->
+        <div id="ReviewSentence">
+            {{review_content}}
         </div>
-    {{/rest}}
-</div>
+
+        <!--            리뷰 값 화면 출력-->
+        <div class="rest_menu">
+            <p class="rest_menu_p">리뷰</p>
+            <!--                사이트 자체 리뷰-->
+            {{>review/_reviews}}
+            <div class="rest_review_list">
+                <div id="ReviewDisplay"></div>
+            </div>
+        </div>
+
+    </div>
+{{/rest}}
 
 <!--menu-->
 <script type="text/javascript">
