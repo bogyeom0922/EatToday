@@ -11,60 +11,63 @@
         </div>
     </div>
 
+    <div class="bookmark" id="like-{{id}}">
+        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기" width="50">
+    </div>
+
     <div class="rest_detail">
-        <div class="bookmark" id="like-{{id}}">
-            <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기" width="25">
-        </div>
         <table>
             <tr>
-                <td style="width:40%; font-weight: 700">영업시간</td>
-                <td style="width:60%; font-weight: 400">{{store_time}}</td>
+                <td style="width:25%;">영업시간</td>
+                <td style="width:75%;">{{store_time}}</td>
             </tr>
             <tr>
-                <td style="width:40%; font-weight: 700">주소</td>
-                <td style="width:60%; font-weight: 400">{{store_address}}</td>
+                <td>주소</td>
+                <td>{{store_address}}</td>
             </tr>
             <tr>
-                <td style="width:40%; font-weight: 700">대표번호</td>
-                <td style="width:60%; font-weight: 400">{{store_phone}}</td>
+                <td>대표번호</td>
+                <td>{{store_phone}}</td>
             </tr>
             <tr>
-                <td style="width:40%; font-weight: 700">별점</td>
-                <td style="width:60%; font-weight: 400">{{store_star}}</td>
+                <td>별점</td>
+                <td>{{store_star}}</td>
+            </tr>
+            <tr>
+                <td>메뉴</td>
+                <td>
+                    <div id="MenuDisplay" class="rest_menu_list"></div>
+                </td>
             </tr>
         </table>
 
-        <div id="MenuSentence">
-            {{store_menu}}
-        </div>
-
-        <div class="rest_menu">
-            <p class="rest_menu_p">메뉴</p>
-            <div class="rest_menu_list">
-                <div id="MenuDisplay"></div>
-            </div>
-        </div>
-
-        <!--            리뷰 값 전달-->
-        <div id="ReviewSentence">
-            {{review_content}}
-        </div>
-
-        <!--            리뷰 값 화면 출력-->
-        <div class="rest_menu">
-            <p class="rest_menu_p">리뷰</p>
-            <!--                사이트 자체 리뷰-->
+        <div class="review">
+            <p>리뷰</p>
             {{>review/_reviews}}
             <div class="rest_review_list">
                 <div id="ReviewDisplay"></div>
             </div>
         </div>
 
+        <div id="MenuSentence">
+            {{store_menu}}
+        </div>
+
+        <div id="ReviewSentence">
+            {{review_content}}
+        </div>
     </div>
 {{/rest}}
 
+<script>
+    document.querySelector('.review_link').addEventListener('click', function () {
+        const target = document.querySelector('.rest_detail');
+        target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+</script>
+
 <!--menu-->
-<script type="text/javascript">
+<script>
 
     const menu_str = document.getElementById("MenuSentence").textContent; //div 내용 가져옴
     const menu_arr = menu_str.split(", ");
@@ -84,7 +87,7 @@
 </script>
 
 <!--review-->
-<script type="text/javascript">
+<script>
 
     const review_str = document.getElementById("ReviewSentence").textContent; //div 내용 가져옴
     const review_arr = review_str.split(", ");
@@ -183,3 +186,6 @@
         }
     });
 </script>
+
+</body>
+</html>
