@@ -1,6 +1,6 @@
 /*전체 페이지 기본 설정*/
 body {
-    background-color: #fce590;
+    background-color: white;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow-x: hidden;
@@ -60,7 +60,7 @@ a:hover {
     top: 0;
     height: 70px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgb(255, 255, 255);
     z-index: 1000;
 }
 
@@ -135,152 +135,156 @@ a:hover {
 
 
 /*detail*/
-.go_back {
+.image-container {
     position: relative;
-    top: 10px;
-    left: 4%;
-    width: 50px;
-    opacity: 0.6;
-}
-
-.detail_background {
-    z-index: 1;
-    position: relative;
-    top: 70px;
-    left: 20%;
-    margin-bottom: 100px;
-    background: white;
-    width: 60%;
-    height: auto;
-    padding-top: 50px;
-    padding-bottom: 100px;
-    border: 1px solid rgba(166, 163, 144, 0.25);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .rest_img {
-    z-index: 2;
-    position: relative;
-    top: 30px;
-    left: 21%;
-    width: 60%;
-    height: 350px;
-    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
 }
 
 .title_background {
-    z-index: 3;
-    position: relative;
-    top: -40px;
-    left: 34%;
-    background: white;
-    border-radius: 2px;
-    width: 32%;
-    height: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .store_name {
-    z-index: 4;
-    position: relative;
-    top: 30px;
-    font-size: 28px;
-    font-weight: 700;
-    color: rgba(35, 28, 21, 0.87);
+    margin-top: 50px;
+    font-size: 130px;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    letter-spacing: -10px;
+    white-space: nowrap;
+}
+
+.review_link {
+    margin-top: 30px;
+    padding: 10px;
+    width: 170px;
+    height: auto;
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .bookmark {
-    z-index: 4;
-    position: relative;
-    top: -25px;
-    left: 88%;
-    width: 25px;
-}
-
-.bookmark_img {
-    width: 100%;
+    position: fixed;
+    top: 600px;
+    left: 90%;
+    background-color: white;
 }
 
 .rest_detail {
     z-index: 5;
     position: relative;
-    top: 15px;
-    left: 23%;
-    width: 80%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 700px;
     text-align: left;
-    line-height: 2;
-    font-size: 17px;
 }
 
-.rest_menu {
+.rest_detail table {
     position: relative;
-    width: 100%;
+    top: 100px;
+    left: 60%;
+    width: 30%;
+    line-height: 3;
+    font-size: 18px;
+}
+
+.rest_detail td {
+    vertical-align: top;
+    padding: 0;
+    text-align: left;
 }
 
 .rest_menu_list {
-    position: relative;
-    top: -20px;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
+    margin-top: 10px;
     line-height: 2;
 }
 
-.rest_menu_p {
+.review {
+    position: relative;
+    top: -380px;
+    left: 10%;
+    font-size: 18px;
+}
+
+.review p {
     position: relative;
     top: 20px;
     left: 2px;
-    font-weight: 700;
     line-height: 0.8;
 }
 
 .rest_review_list_api {
     position: relative;
-    top: -70px;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1;
+    top: 30px;
+    line-height: 0.2;
+    width: 30%;
 }
 
 .rest_review_list {
     position: relative;
-    top: -70px;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 2;
-    width: 50%;
+    top: 60px;
+    line-height: 1.5;
+    width: 30%;
 }
 
 .rest_review_form {
     position: relative;
-    top: -20px;
-    left: 15%;
-    margin-bottom: 15px;
+    top: 50px;
+    border: none;
 }
 
 .review_form_textarea {
-    width: 50%;
+    width: 30%;
     height: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+}
+
+.review_form_textarea:focus {
+    outline: none;
+    border-bottom: 1px solid black;
 }
 
 .review_form_button {
     position: relative;
-    top: -14px;
+    top: -10px;
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    font-size: 15px;
-}
-
-.rest_review_list {
-    position: relative;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 2;
+    left: 10px;
+    font-size: 16px;
 }
 
 /*category*/
+.main {
+    background-color: #fce590;
+    width: 100%;
+    height: 990px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
 .main_headline1 {
     position: relative;
     top: 230px;
@@ -422,16 +426,17 @@ a:hover {
 /*store list*/
 .store_list_title {
     position: relative;
-    top: 0;
+    top: -50px;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 210px;
+    height: 280px;
+    background: #f9f2ea
 }
 
 .store_list_title p {
     position: relative;
-    top: 20px;
+    top: 80px;
     left: 15%;
     font-size: 110px;
     font-weight: 900;
@@ -440,12 +445,12 @@ a:hover {
 
 .store_list_body {
     position: relative;
-    top: 0;
+    top: -50px;
     padding: 0 0 250px;
     margin: 0;
     width: 100%;
     height: auto;
-    background: #f9f2ea;
+    ;
 }
 
 .store_list {
