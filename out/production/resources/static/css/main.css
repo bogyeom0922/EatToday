@@ -1,6 +1,6 @@
 /*전체 페이지 기본 설정*/
 body {
-    background-color: #fce590;
+    background-color: white;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow-x: hidden;
@@ -60,7 +60,7 @@ a:hover {
     top: 0;
     height: 70px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgb(255, 255, 255);
     z-index: 1000;
 }
 
@@ -281,6 +281,16 @@ a:hover {
 }
 
 /*category*/
+.main {
+    background-color: #fce590;
+    width: 100%;
+    height: 990px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
 .main_headline1 {
     position: relative;
     top: 230px;
