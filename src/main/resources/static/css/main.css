@@ -425,16 +425,17 @@ a:hover {
 /*store list*/
 .store_list_title {
     position: relative;
-    top: 0;
+    top: -50px;
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 210px;
+    height: 280px;
+    background: #f9f2ea
 }
 
 .store_list_title p {
     position: relative;
-    top: 20px;
+    top: 80px;
     left: 15%;
     font-size: 110px;
     font-weight: 900;
@@ -443,12 +444,12 @@ a:hover {
 
 .store_list_body {
     position: relative;
-    top: 0;
+    top: -50px;
     padding: 0 0 250px;
     margin: 0;
     width: 100%;
     height: auto;
-    background: #f9f2ea;
+    ;
 }
 
 .store_list {
