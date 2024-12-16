@@ -69,19 +69,19 @@
 <!--menu-->
 <script>
 
-    const menu_str = document.getElementById("MenuSentence").textContent; //div 내용 가져옴
+    const menu_str = document.getElementById("MenuSentence").textContent;
     const menu_arr = menu_str.split(", ");
 
-    const MenuDisplay = document.getElementById("MenuDisplay"); // 문장 표시할 div 가져옴
-    document.getElementById("MenuSentence").style.display = "none"; //원래 있던 문장 숨기기
+    const MenuDisplay = document.getElementById("MenuDisplay");
+    document.getElementById("MenuSentence").style.display = "none";
 
     menu_arr.forEach((menu, menu_index) => {
-        let menu_text = menu.trim(); // 요소 앞 뒤 불필요한 공백 제거
+        let menu_text = menu.trim();
         if (menu_index === menu_arr.length - 1) {
-            menu_text = menu_text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+            menu_text = menu_text.slice(0, -1);
         }
-        MenuDisplay.append(menu_text); //div에 글자 추가
-        MenuDisplay.appendChild(document.createElement("br")); // br 추가
+        MenuDisplay.append(menu_text);
+        MenuDisplay.appendChild(document.createElement("br"));
     });
 
 </script>
@@ -89,20 +89,20 @@
 <!--review-->
 <script>
 
-    const review_str = document.getElementById("ReviewSentence").textContent; //div 내용 가져옴
+    const review_str = document.getElementById("ReviewSentence").textContent;
     const review_arr = review_str.split(", ");
 
-    const ReviewDisplay = document.getElementById("ReviewDisplay"); // 문장 표시할 div 가져옴
-    document.getElementById("ReviewSentence").style.display = "none"; //원래 있던 문장 숨기기
+    const ReviewDisplay = document.getElementById("ReviewDisplay");
+    document.getElementById("ReviewSentence").style.display = "none";
 
     review_arr.forEach((review, review_index) => {
-        let review_text = review.trim(); // 요소 앞 뒤 불필요한 공백 제거
+        let review_text = review.trim();
         if (review_index === review_arr.length - 1) {
-            review_text = review_text.slice(0, -1); // 마지막 배열 요소 마지막 글자 제거
+            review_text = review_text.slice(0, -1);
         }
-        ReviewDisplay.append(review_text); //div에 글자 추가
-        ReviewDisplay.appendChild(document.createElement("br")); // br 추가
-        ReviewDisplay.appendChild(document.createElement("br")); // br 추가
+        ReviewDisplay.append(review_text);
+        ReviewDisplay.appendChild(document.createElement("br"));
+        ReviewDisplay.appendChild(document.createElement("br"));
     });
 
 </script>

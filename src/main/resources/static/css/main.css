@@ -220,63 +220,58 @@ a:hover {
 
 .review {
     position: relative;
-    top: -300px;
+    top: -380px;
     left: 10%;
+    font-size: 18px;
 }
 
 .review p {
     position: relative;
     top: 20px;
     left: 2px;
-    font-weight: 700;
     line-height: 0.8;
 }
 
 .rest_review_list_api {
     position: relative;
-    top: -70px;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1;
+    top: 30px;
+    line-height: 0.2;
+    width: 30%;
 }
 
 .rest_review_list {
     position: relative;
-    top: -70px;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 2;
-    width: 50%;
+    top: 60px;
+    line-height: 1.5;
+    width: 30%;
 }
 
 .rest_review_form {
     position: relative;
-    top: -20px;
-    left: 15%;
-    margin-bottom: 15px;
+    top: 50px;
+    border: none;
 }
 
 .review_form_textarea {
-    width: 50%;
+    width: 30%;
     height: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+}
+
+.review_form_textarea:focus {
+    outline: none;
+    border-bottom: 1px solid black;
 }
 
 .review_form_button {
     position: relative;
-    top: -14px;
+    top: -10px;
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    font-size: 15px;
-}
-
-.rest_review_list {
-    position: relative;
-    left: 15%;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 2;
+    left: 10px;
+    font-size: 16px;
 }
 
 /*category*/
@@ -454,8 +449,7 @@ a:hover {
     padding: 0 0 250px;
     margin: 0;
     width: 100%;
-    height: auto;
-    ;
+    height: auto;;
 }
 
 .store_list {
@@ -552,7 +546,7 @@ a:hover {
     width: 100%;
 }
 
-.next a{
+.next a {
     font-size: 16px;
     font-weight: 400;
 }
