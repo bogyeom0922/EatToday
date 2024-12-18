@@ -10,14 +10,14 @@
     <p onclick="window.location.href='/api/{{uid}}/like'" class="userinfo_category_link active">즐겨찾기 관리</p>
 </div>
 
-<div class="userinfo_background">
+<div class="userinfo_background_like">
     <table class="userinfo_review_table">
         <tbody>
         <!--찜한 식당 목록-->
         {{#store}}
             <tr>
-                <td style="width:20%"><a href="/rest/{{id}}/{{uid}}">{{store_name}}</a></td>
-                <td style="width:80%">{{store_phone}}</td>
+                <td style="width:20%"><p onclick="window.location.href='/rest/{{id}}/{{uid}}'">{{store_name}}</p></td>
+                <td style="width:80%">{{store_address}}</td>
             </tr>
         {{/store}}
         </tbody>
