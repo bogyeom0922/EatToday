@@ -621,6 +621,26 @@ a:hover {
     background-color: #f9f2ea;
 }
 
+.userinfo_background_review {
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    height: 80%;
+    box-sizing: content-box;
+    margin-bottom: 200px;
+    background-color: #f9f2ea;
+}
+
+.userinfo_background_like {
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    height: 70%;
+    box-sizing: content-box;
+    margin-bottom: 200px;
+    background-color: #f9f2ea;
+}
+
 .update_profile {
     position: relative;
     top: 180px;
@@ -673,17 +693,26 @@ a:hover {
 
 .userinfo_review_table {
     position: relative;
-    top: -40px;
-    left: 6%;
-    width: 90%;
-    line-height: 2;
+    top: 180px;
+    left: 8%;
+    width: 70%;
+    line-height: 0.7;
     font-size: 18px;
     font-weight: 400;
+}
+
+.userinfo_review_table td{
+    padding-left: 10px;
 }
 
 .userinfo_review_next {
     position: relative;
     left: 45%;
+    top: 220px;
+}
+
+.userinfo_review_body {
+    color: #d12200;
 }
 
 .next_button {
@@ -695,7 +724,7 @@ a:hover {
 .userinfo_button {
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 /*modal*/
@@ -705,18 +734,19 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
