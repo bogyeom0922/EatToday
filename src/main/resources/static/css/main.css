@@ -219,10 +219,11 @@ a:hover {
 }
 
 .review {
-    position: relative;
-    top: -380px;
+    position: absolute;
+    top: 85px;
     left: 10%;
     font-size: 18px;
+    width: 31%;
 }
 
 .review p {
@@ -236,14 +237,14 @@ a:hover {
     position: relative;
     top: 30px;
     line-height: 0.2;
-    width: 30%;
+    width: 90%;
 }
 
 .rest_review_list {
     position: relative;
     top: 60px;
     line-height: 1.5;
-    width: 30%;
+    width: 90%;
 }
 
 .rest_review_form {
@@ -253,7 +254,7 @@ a:hover {
 }
 
 .review_form_textarea {
-    width: 30%;
+    width: 90%;
     height: 30px;
     border: none;
     border-bottom: 1px solid black;
@@ -267,10 +268,10 @@ a:hover {
 
 .review_form_button {
     position: relative;
-    top: -10px;
+    top: -25px;
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    left: 10px;
+    left: 93%;
     font-size: 16px;
 }
 
