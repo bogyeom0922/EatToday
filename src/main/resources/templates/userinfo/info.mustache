@@ -1,7 +1,7 @@
 {{>layout/header}}
 
 {{#user}}
-    <div class="userinfo_top">
+    <div class="userinfo_title">
         <p>MY PAGE</p>
     </div>
 
@@ -13,19 +13,24 @@
 
     <!--    닉네임 변경, 계정 삭제-->
     <div class="userinfo_background">
-        <div class="userinfo_title">닉네임 변경</div>
         <div class="update_profile">
-            현재 닉네임:
-            <form action="/uname/update" method="post">
-                <input name="id" type="hidden" value="{{id}}">
-                <input name="uid" type="hidden" value="{{uid}}">
-                <input name="upassword" type="hidden" value="{{upassword}}">
-                <input name="email" type="hidden" value="{{email}}">
-                <input type="text" class="update_profile_input" name="uname" placeholder="새로운 닉네임을 입력하세요.">
-                <button type="submit" class="update_profile_button">변경</button>
-            </form>
+            <p>아이디: {{uid}}</p>
+            <p>이메일: {{email}}</p>
+            <p>닉네임: {{uname}}</p>
+            <div class="update_profile_delete">
+                <p>닉네임 변경: </p>
+                <form action="/uname/update" method="post">
+                    <input name="id" type="hidden" value="{{id}}">
+                    <input name="uid" type="hidden" value="{{uid}}">
+                    <input name="upassword" type="hidden" value="{{upassword}}">
+                    <input name="email" type="hidden" value="{{email}}">
+                    <input type="text" name="uname" placeholder="새로운 닉네임을 입력하세요.">
+                    <button type="submit">변경</button>
+                </form>
+                <a href="/{{uid}}/delete">계정 삭제</a>
+            </div>
         </div>
-        <div class="update_profile_delete"><a href="/{{uid}}/delete">계정 삭제</a></div>
+
     </div>
 {{/user}}
 
