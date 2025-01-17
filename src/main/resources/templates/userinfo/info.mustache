@@ -1,34 +1,52 @@
 {{>layout/header}}
 
 {{#user}}
-    <!--    마이페이지 카테고리 이동-->
+    <div class="userinfo_title">
+        <p>MY PAGE</p>
+    </div>
+
     <div class="userinfo_category">
-        <a href="/{{uid}}">
-            <div class="userinfo_current">회원정보 수정</div>
-        </a>
-        <a href="/{{uid}}/review">
-            <div class="userinfo_shortcuts">리뷰 관리</div>
-        </a>
-        <a href="/api/{{uid}}/like">
-            <div class="userinfo_shortcuts">즐겨찾기 관리</div>
-        </a>
+        <p onclick="window.location.href='/{{uid}}'" class="userinfo_category_link active">회원정보 수정</p>
+        <p onclick="window.location.href='/{{uid}}/review'" class="userinfo_category_link">리뷰 관리</p>
+        <p onclick="window.location.href='/api/{{uid}}/like'" class="userinfo_category_link">즐겨찾기 관리</p>
     </div>
 
     <!--    닉네임 변경, 계정 삭제-->
     <div class="userinfo_background">
-        <div class="userinfo_title">닉네임 변경</div>
         <div class="update_profile">
-            현재 닉네임:
-            <form action = "/uname/update" method="post">
-                <input name = "id"  type="hidden" value="{{id}}">
-                <input name = "uid"  type="hidden" value="{{uid}}">
-                <input name = "upassword"  type="hidden" value="{{upassword}}">
-                <input name = "email"  type="hidden" value="{{email}}">
-                <input type="text" class="update_profile_input" name="uname" placeholder="새로운 닉네임을 입력하세요.">
-                <button type="submit" class="update_profile_button">변경</button>
-            </form>
+            <p>아이디: {{uid}}</p>
+            <p>이메일: {{email}}</p>
+            <p>닉네임: {{uname}}</p>
+            <div class="update_profile_delete">
+                <p>닉네임 변경: </p>
+                <form action="/uname/update" method="post">
+                    <input name="id" type="hidden" value="{{id}}">
+                    <input name="uid" type="hidden" value="{{uid}}">
+                    <input name="upassword" type="hidden" value="{{upassword}}">
+                    <input name="email" type="hidden" value="{{email}}">
+                    <input type="text" name="uname" placeholder="새로운 닉네임을 입력하세요.">
+                    <button type="submit">변경</button>
+                </form>
+                <a href="/{{uid}}/delete">계정 삭제</a>
+            </div>
         </div>
-        <div class="update_profile_delete"><a href="/{{uid}}/delete" >계정 삭제</a></div>
+
     </div>
 {{/user}}
-{{>layout/footer}}
+
+<script>
+    const links = document.querySelectorAll('.userinfo_category_link');
+
+    // 클릭 이벤트 추가
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            // 모든 링크의 active 클래스 제거
+            links.forEach(l => l.classList.remove('active'));
+            // 클릭된 링크에 active 클래스 추가
+            link.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>

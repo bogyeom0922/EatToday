@@ -1,72 +1,138 @@
-{{>layouts/detail_header}}
+{{>layout/header}}
 
-<!--body-->
-<div class="background">
-    <a href="/storelist"><img src="/img/back_icon.png" width="50" class="back"></a>
-    {{#user}}
-        <input type = "hidden" id = "new-like-userid" value ="{{id}}">
-    {{/user}}
-    {{#rest}}
-        <input type="hidden" id="new-like-store-id" value="{{id}}">
-        <img src="{{store_img}}" class="rest_img">
-        <div class="background2">
+{{#rest}}
+    <div class="image-container">
+        <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
+        <div class="title_background">
             <div class="store_name">
                 {{store_name}}
             </div>
-            <div class="bookmark" id="like-{{id}}">
-                <img id="bookmark_img" src="/img/bookmark_x.png" alt = "" width="25">
-                <!--        "https://icons8.com/icon/60003/%EB%B3%84"-->
+            <button class="review_link">더 알아보기</button>
+        </div>
+    </div>
+
+    <div class="bookmark" id="like-{{id}}">
+        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기" width="50">
+    </div>
+
+    <div class="rest_detail">
+        <table>
+            <tr>
+                <td style="width:25%;">영업시간</td>
+                <td style="width:75%;">{{store_time}}</td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td>{{store_address}}</td>
+            </tr>
+            <tr>
+                <td>대표번호</td>
+                <td>{{store_phone}}</td>
+            </tr>
+            <tr>
+                <td>별점</td>
+                <td>{{store_star}}</td>
+            </tr>
+            <tr>
+                <td>메뉴</td>
+                <td>
+                    <div id="MenuDisplay" class="rest_menu_list"></div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="review">
+            <p>리뷰</p>
+            {{>review/_reviews}}
+            <div class="rest_review_list">
+                <div id="ReviewDisplay"></div>
             </div>
         </div>
-        <div class="rest_detail">
-            <table>
-                <tr>
-                    <td style="width:20%; font-weight: 500">영업시간</td>
-                    <td style="width:80%; font-weight: 300">{{store_time}}</td>
-                </tr>
-                <tr>
-                    <td style="width:20%; font-weight: 500">주소</td>
-                    <td style="width:80%; font-weight: 300">{{store_address}}</td>
-                </tr>
-                <tr>
-                    <td style="width:20%; font-weight: 500">대표번호</td>
-                    <td style="width:80%; font-weight: 300">{{store_phone}}</td>
-                </tr>
-                <tr>
-                    <td style="width:20%; font-weight: 500">별점</td>
-                    <td style="width:80%; font-weight: 300">{{store_star}}</td>
-                </tr>
-            </table>
 
+        <div id="MenuSentence">
+            {{store_menu}}
         </div>
-    {{/rest}}
-</div>
 
+        <div id="ReviewSentence">
+            {{review_content}}
+        </div>
+    </div>
+{{/rest}}
+
+<script>
+    document.querySelector('.review_link').addEventListener('click', function () {
+        const target = document.querySelector('.rest_detail');
+        target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+</script>
+
+<!--menu-->
+<script>
+
+    const menu_str = document.getElementById("MenuSentence").textContent;
+    const menu_arr = menu_str.split(", ");
+
+    const MenuDisplay = document.getElementById("MenuDisplay");
+    document.getElementById("MenuSentence").style.display = "none";
+
+    menu_arr.forEach((menu, menu_index) => {
+        let menu_text = menu.trim();
+        if (menu_index === menu_arr.length - 1) {
+            menu_text = menu_text.slice(0, -1);
+        }
+        MenuDisplay.append(menu_text);
+        MenuDisplay.appendChild(document.createElement("br"));
+    });
+
+</script>
+
+<!--review-->
+<script>
+
+    const review_str = document.getElementById("ReviewSentence").textContent;
+    const review_arr = review_str.split(", ");
+
+    const ReviewDisplay = document.getElementById("ReviewDisplay");
+    document.getElementById("ReviewSentence").style.display = "none";
+
+    review_arr.forEach((review, review_index) => {
+        let review_text = review.trim();
+        if (review_index === review_arr.length - 1) {
+            review_text = review_text.slice(0, -1);
+        }
+        ReviewDisplay.append(review_text);
+        ReviewDisplay.appendChild(document.createElement("br"));
+        ReviewDisplay.appendChild(document.createElement("br"));
+    });
+
+</script>
+
+<!--like-->
 <script type="text/javascript">
     let state = 0;
     const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
     fetch(url)
             .then(response => {
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error('Server response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
                 console.log(data);
-                if(data == null){
+                if (data == null) {
                     document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
                     state = 0;
                 }
                 document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
                 state = 1;
-            }).catch(error =>{
+            }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
 
     const likeCreate = document.getElementById('bookmark_img');
-    likeCreate.addEventListener("click", function(){
-        if(state ===0){
+    likeCreate.addEventListener("click", function () {
+        if (state === 0) {
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             const like = {
@@ -92,8 +158,7 @@
                         console.error('Error:', error);
                         alert("좋아요 생성 실패");
                     });
-        }
-        else{
+        } else {
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"
@@ -122,4 +187,5 @@
     });
 </script>
 
-{{>layouts/footer}}
+</body>
+</html>

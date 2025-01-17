@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #fffde8ff;
+    background: #fce590;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,8 +45,8 @@ a {
 
 button {
     border-radius: 20px;
-    border: 1px solid rgba(0, 100, 0, 0.85);
-    background-color: rgba(0, 100, 0, 0.85);
+    border: 1px solid rgba(0, 99, 0, 0.85);
+    background-color: rgba(0, 99, 0, 0.85);
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -159,9 +159,9 @@ input {
 }
 
 .overlay {
-    background: rgba(15, 138, 15, 0.85);
-    background: -webkit-linear-gradient(to right, rgba(0, 100, 0, 0.85), rgba(15, 138, 15, 0.85));
-    background: linear-gradient(to right, rgba(0, 100, 0, 0.85), rgba(15, 138, 15, 0.85));
+    background: rgba(0, 99, 0, 0.85);
+    background: -webkit-linear-gradient(to right, rgba(0, 99, 0, 0.85),  rgba(0, 99, 0, 0.85));
+    background: linear-gradient(to right, rgba(0, 99, 0, 0.85),  rgba(0, 99, 0, 0.85));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
