@@ -11,19 +11,48 @@
           rel="stylesheet">
     <link href="/css/main.css?after" rel="stylesheet">
     <title>EatToday</title>
+    <script>
+        // 페이지 로드 시 호출
+        document.addEventListener('DOMContentLoaded', function () {
+            // 현재 페이지의 상태를 설정
+            history.replaceState(null, null, location.href);
+
+            // 뒤로 가기 버튼 클릭 시 동작
+            window.onpopstate = function (event) {
+                // 페이지가 히스토리에서 이동하지 않도록 막음
+                history.go(1);
+            };
+        });
+
+        function logout() {
+            // 세션 처리 후 리디렉션
+            fetch('/logout', {method: 'POST'})
+                    .then(response => {
+                        if (response.ok) {
+                            location.replace('/user/login');
+                        } else {
+                            alert('로그아웃 중 오류가 발생했습니다.');
+                        }
+                    });
+        }
+    </script>
 </head>
 <body>
 
 <div class="header">
-    <a href="/category/{{uid}}"><img src="/img/logo.png" class="header_img" alt="로고 이미지"></a>
+    <!--    main화면(category)로 이동 위한 로고-->
+    <img src="/img/logo.png" class="header_img" alt="로고 이미지" onclick="window.location.href='/category/{{uid}}';">
+    <!--   매장 검색창-->
     <div class="search">
-        <form class="search_form">
+        <form action="/storelist/search/{{uid}}" method="GET" role="search" class="search_form">
             <label>
-                <input class="search_input" type="text" placeholder="매장명을 입력하세요">
+                <input class="search_input" type="text" placeholder="매장명을 입력하세요" name="search" id="search">
             </label>
             <button class="search_button">검색</button>
         </form>
     </div>
+    <!--    마이페이지로 이동-->
     <a href="/{{uid}}" class="shortcut_mypage">MYPAGE</a>
-    <p onClick="location.replace('/user/login')" class="logout">LOGOUT</p>
+    <!--    로그아웃-->
+    <p onclick="logout();" class="logout">LOGOUT</p>
 </div>

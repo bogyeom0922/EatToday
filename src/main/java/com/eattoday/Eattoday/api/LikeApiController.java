@@ -24,7 +24,7 @@ public class LikeApiController {
         return ResponseEntity.status(HttpStatus.OK).body(likes);
     }
 
-    @PostMapping("apoi/{id}/{storeId}/likes")
+    @PostMapping("api/{id}/{storeId}/likes")
     public ResponseEntity<LikeDto> createLike(@PathVariable Long id, @PathVariable Long storeId
     ,@RequestBody LikeDto likeDto){
         LikeDto likeDto1 = likeService.create(storeId, id, likeDto);
