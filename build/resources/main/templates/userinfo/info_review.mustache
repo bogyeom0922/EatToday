@@ -1,5 +1,6 @@
 {{>layout/header}}
 
+<!--    마이페이지 카테고리 이동-->
 <div class="userinfo_category">
     <a href="/{{uid}}">
         <div class="userinfo_shortcuts">회원정보 수정</div>
@@ -7,22 +8,23 @@
     <a href="/{{uid}}/review">
         <div class="userinfo_current">리뷰 관리</div>
     </a>
-    <a href="/{{uid}}/like">
+    <a href="/api/{{uid}}/like">
         <div class="userinfo_shortcuts">즐겨찾기 관리</div>
     </a>
 </div>
 
+<!--리뷰 조회, 수정, 삭제-->
 <div class="userinfo_background">
     <div class="userinfo_title">작성한 리뷰</div>
 
-    <table>
+    <table class="userinfo_review_table">
         <tbody>
         {{#reviews}}
             <tr>
-                <td>{{body}}</td>
-                <td>{{#store}}{{store_name}}{{/store}}</td>
-                <td>
-                    <button class="button" onclick="openModal()"
+                <td style="width:23%;">{{#store}}{{store_name}}{{/store}}</td>
+                <td style="width:65%;">{{body}}</td>
+                <td style="width:22%;">
+                    <button class="button userinfo_button" onclick="openModal()"
                             data-bs-toggle="modal"
                             data-bs-target="#review-edit-Modal"
                             data-bs-id="{{id}}"
@@ -30,25 +32,27 @@
                             data-bs-userid="{{userid}}"
                             data-bs-body="{{body}}">수정
                     </button>
-                    <button class="button review-delete-btn" data-review-id="{{id}}">삭제</button>
+                    <button class="button review-delete-btn userinfo_button" data-review-id="{{id}}">삭제</button>
                 </td>
             </tr>
         {{/reviews}}
         </tbody>
     </table>
 
-    <div id="modalBackground" class="modal-background"></div>
+    <div id="modalBackground" class="modal_background"></div>
 
     <div id="review-edit-Modal" class="modal">
-        <span id="closeModal">&times;</span>
-        <h2>수정하기</h2>
-        <form id="ReviewEditForm">
-            <input type="hidden" id="edit-review-id">
-            <input type="hidden" id="edit-review-store">
-            <input type="hidden" id="edit-review-userid">
-            <textarea type="text" id="edit-review-body"></textarea>
-            <button type="button" id="review-update-btn">수정 완료</button>
-        </form>
+        <div class="modal_content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>수정하기</h2>
+            <form id="editForm">
+                <input type="hidden" id="edit-review-id">
+                <input type="hidden" id="edit-review-store">
+                <input type="hidden" id="edit-review-userid">
+                <textarea type="text" id="edit-review-body" class="modal_textarea"></textarea><br>
+                <button type="button" class="userinfo_button" id="review-update-btn">저장</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -139,15 +143,9 @@
                         return;
                     }
 
-                    // 삭제 후 해당 리뷰 요소를 DOM에서 제거
-                    const review = document.querySelector(`#review-${reviewId}`);
-                    if (review) {
-                        review.remove();
-                        const msg = `${reviewId}번 댓글을 삭제했습니다`;
-                        alert(msg);
-                    } else {
-                        console.error(`ID가 review-${reviewId}인 요소를 찾을 수 없습니다.`);
-                    }
+                    // 삭제 후 페이지 새로고침
+                    alert(`${reviewId}번 댓글을 삭제했습니다`);
+                    window.location.reload();
                 }).catch(error => {
                     console.error("댓글 삭제 중 오류 발생:", error);
                     alert("댓글 삭제 중 오류가 발생했습니다.");
@@ -156,6 +154,7 @@
         });
     }
 </script>
+
 
 
 {{>layout/footer}}
