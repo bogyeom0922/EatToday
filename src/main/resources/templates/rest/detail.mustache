@@ -1,6 +1,10 @@
 {{>layout/header}}
 
+{{#user}}
+    <input type = "hidden" id = "new-like-userid" value ="{{id}}">
+{{/user}}
 {{#rest}}
+    <input type="hidden" id="new-like-store-id" value="{{id}}">
     <div class="image-container">
         <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
         <div class="title_background">
@@ -12,7 +16,7 @@
     </div>
 
     <div class="bookmark" id="like-{{id}}">
-        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기" width="50">
+        <img id="bookmark_img" src="/img/bookmark_x.png" alt="" width="50">
     </div>
 
     <div class="rest_detail">
@@ -113,26 +117,26 @@
     const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
     fetch(url)
             .then(response => {
-                if (!response.ok) {
+                if(!response.ok){
                     throw new Error('Server response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
                 console.log(data);
-                if (data == null) {
+                if(data == null){
                     document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
                     state = 0;
                 }
                 document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
                 state = 1;
-            }).catch(error => {
+            }).catch(error =>{
         console.error('There was a problem with the fetch operation:', error);
     });
 
     const likeCreate = document.getElementById('bookmark_img');
-    likeCreate.addEventListener("click", function () {
-        if (state === 0) {
+    likeCreate.addEventListener("click", function(){
+        if(state ===0){
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             const like = {
@@ -158,7 +162,8 @@
                         console.error('Error:', error);
                         alert("좋아요 생성 실패");
                     });
-        } else {
+        }
+        else{
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"
@@ -186,6 +191,7 @@
         }
     });
 </script>
+
 
 </body>
 </html>
