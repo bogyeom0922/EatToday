@@ -1,6 +1,10 @@
 {{>layout/header}}
 
+{{#user}}
+    <input type="hidden" id="new-like-userid" value="{{id}}">
+{{/user}}
 {{#rest}}
+    <input type="hidden" id="new-like-store-id" value="{{id}}">
     <div class="image-container">
         <img src="{{store_img}}" class="rest_img" alt="매장 이미지">
         <div class="title_background">
@@ -12,7 +16,7 @@
     </div>
 
     <div class="bookmark" id="like-{{id}}">
-        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기" width="50">
+        <img id="bookmark_img" src="/img/bookmark_x.png" alt="" width="50">
     </div>
 
     <div class="rest_detail">
@@ -131,7 +135,9 @@
     });
 
     const likeCreate = document.getElementById('bookmark_img');
+
     likeCreate.addEventListener("click", function () {
+        console.log("즐겨찾기 클릭");
         if (state === 0) {
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
