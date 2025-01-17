@@ -1,69 +1,116 @@
-{{>layout/header}}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+          rel="stylesheet">
+    <link href="/css/main.css?after" rel="stylesheet">
+    <title>EatToday</title>
+    <script>
+        // 페이지 로드 시 호출
+        document.addEventListener('DOMContentLoaded', function () {
+            // 현재 페이지의 상태를 설정
+            history.replaceState(null, null, location.href);
 
-<!--title-->
-<div class="random_store_title">
-    Today's recommended restaurant
-</div>
+            // 뒤로 가기 버튼 클릭 시 동작
+            window.onpopstate = function (event) {
+                // 페이지가 히스토리에서 이동하지 않도록 막음
+                history.go(1);
+            };
+        });
 
-<!--매장 랜덤 추천-->
-<div class="random_store">
-    <table>
-        <tr>
-            <td style="width:33%">{{#randomStore1}}
-                <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore1}}
-            </td>
-            <td style="width:33%">{{#randomStore2}}
-                <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore2}}
-            </td>
-            <td style="width:33%">{{#randomStore3}}
-                <a href="/rest/{{id}}/{{uid}}"><img src="{{store_img}}" class="random_store_img"></a>{{/randomStore3}}
-            </td>
-        </tr>
-        <tr>
-            <td class="random_store_name">{{#randomStore1}}
-                <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore1}}</td>
-            <td class="random_store_name">{{#randomStore2}}
-                <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore2}}</td>
-            <td class="random_store_name">{{#randomStore3}}
-                <a href="/rest/{{id}}/{{uid}}">{{store_name}}</a>{{/randomStore3}}</td>
-        </tr>
-    </table>
-</div>
+        function logout() {
+            // 세션 처리 후 리디렉션
+            fetch('/logout', {method: 'POST'})
+                    .then(response => {
+                        if (response.ok) {
+                            location.replace('/user/login');
+                        } else {
+                            alert('로그아웃 중 오류가 발생했습니다.');
+                        }
+                    });
+        }
+    </script>
+</head>
+<body>
 
-<!--메뉴 카테고리-->
-<div class="category_background">
-    <div class="category_img_back">
-        <img src="/img/한식.png" class="category_img">
-        <a href="/storelist/{{#user}}{{uid}}{{/user}}"><p class="category_menu">한식</p></a>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/중식.png" class="category_img">
-        <p class="category_menu">중식</p>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/일식.png" class="category_img">
-        <p class="category_menu">일식</p>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/양식.png" class="category_img">
-        <p class="category_menu">양식</p>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/아시안.png" class="category_img">
-        <p class="category_menu">아시안</p>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/패스트푸드.png" class="category_img">
-        <p class="category_menu">패스트푸드</p>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/술.png" class="category_img">
-        <p class="category_menu">술</p>
-    </div>
-    <div class="category_img_back">
-        <img src="/img/중식.png" class="category_img">
-        <p class="category_menu">디저트</p>
-    </div>
-</div>
+    <div class="header">
+        <!--    main화면(category)로 이동 위한 로고-->
+        <img src="/img/logo.png" class="header_img" alt="로고 이미지" onclick="window.location.href='/category/{{uid}}';">
 
-{{>layout/footer}}
+        <!--   매장 검색창-->
+        <div class="search">
+            <form action="/storelist/search/{{uid}}" method="GET" role="search" class="search_form">
+                <label>
+                    <input class="search_input" type="text" placeholder="매장명을 입력하세요" name="search" id="search">
+                </label>
+                <button class="search_button">검색</button>
+            </form>
+        </div>
+
+        <!--    마이페이지로 이동-->
+        <p onclick="location.href='/{{uid}}'" class="shortcut_mypage">MYPAGE</p>
+
+        <!--    로그아웃-->
+        <p onclick="logout();" class="logout">LOGOUT</p>
+    </div>
+
+    <div class="main">
+        <div class="main_headline1">YOUR ULTIMATE MEAL FINDER</div>
+        <div class="main_headline2">WHAT SHOULD I EAT TODAY?</div>
+        <img src="/img/ex.avif" class="main_image">
+    </div>
+
+    <div class="recommend">
+        <div class="random_store_title">
+            Today's recommended restaurant
+        </div>
+
+        <!--매장 랜덤 추천-->
+        {{#randomStore1}}
+            <div class="random_store" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
+                <img src="{{store_img}}" class="random_store_img">
+                <p class="random_store_name">{{store_name}}</p>
+                <p class="random_store_address">{{store_address}}</p>
+            </div>
+        {{/randomStore1}}
+
+        {{#randomStore2}}
+            <div class="random_store2" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
+                <img src="{{store_img}}" class="random_store_img">
+                <p class="random_store_name">{{store_name}}</p>
+                <p class="random_store_address">{{store_address}}</p>
+            </div>
+        {{/randomStore2}}
+
+        {{#randomStore3}}
+            <div class="random_store3" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
+                <img src="{{store_img}}" class="random_store_img">
+                <p class="random_store_name">{{store_name}}</p>
+                <p class="random_store_address">{{store_address}}</p>
+            </div>
+        {{/randomStore3}}
+    </div>
+
+    <div class="category">
+        <p>CATEGORY</p>
+
+        <div class="category_img">
+            <img src="/img/한식.png" onclick="window.location.href='/storelist/{{uid}}'">
+            <img src="/img/중식.png">
+            <img src="/img/일식.png">
+            <img src="/img/양식.png">
+            <img src="/img/아시안.png">
+            <img src="/img/패스트푸드.png">
+            <img src="/img/술.png">
+            <img src="/img/중식.png">
+        </div>
+    </div>`
+
+</body>
+</html>
