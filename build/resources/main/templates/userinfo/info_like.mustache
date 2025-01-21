@@ -1,31 +1,42 @@
 {{>layout/header}}
 
-<!--    마이페이지 카테고리 이동-->
+<div class="userinfo_title">
+    <p>MY PAGE</p>
+</div>
+
 <div class="userinfo_category">
-    <a href="/{{uid}}">
-        <div class="userinfo_shortcuts">회원정보 수정</div>
-    </a>
-    <a href="/{{uid}}/review">
-        <div class="userinfo_shortcuts">리뷰 관리</div>
-    </a>
-    <a href="/api/{{uid}}/like">
-        <div class="userinfo_current">즐겨찾기 관리</div>
-    </a>
+    <p onclick="window.location.href='/{{uid}}'" class="userinfo_category_link">회원정보 수정</p>
+    <p onclick="window.location.href='/{{uid}}/review'" class="userinfo_category_link">리뷰 관리</p>
+    <p onclick="window.location.href='/api/{{uid}}/like'" class="userinfo_category_link active">즐겨찾기 관리</p>
 </div>
 
-<div class="userinfo_background">
-    <div class="userinfo_title">찜한 식당</div>
-    <!--찜한 식당 목록-->
-    {{#store}}
-        <tr>
-            <td style="width:18%"><img src="{{store_img}}" width="70px" height="40px"></td>
-            <td style="width:23%"><a href="/rest/{{id}}/{{uid}}">{{store_name}}</a></td>
-            <td style="width:32%">{{store_time}}</td>
-            <td style="width:20%">{{store_phone}}</td>
-            <td style="width:7%">{{store_star}}</td>
-        </tr>
-    {{/store}}
+<div class="userinfo_background_like">
+    <table class="userinfo_review_table">
+        <tbody>
+        <!--찜한 식당 목록-->
+        {{#store}}
+            <tr>
+                <td style="width:20%"><p onclick="window.location.href='/rest/{{id}}/{{uid}}'">{{store_name}}</p></td>
+                <td style="width:80%">{{store_address}}</td>
+            </tr>
+        {{/store}}
+        </tbody>
+    </table>
 </div>
 
-{{>layout/footer}}
+<script>
+    const links = document.querySelectorAll('.userinfo_category_link');
 
+    // 클릭 이벤트 추가
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            // 모든 링크의 active 클래스 제거
+            links.forEach(l => l.classList.remove('active'));
+            // 클릭된 링크에 active 클래스 추가
+            link.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
