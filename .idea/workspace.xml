@@ -4,109 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25cc677b-e456-4e8e-8e7e-98621229419d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Eattoday.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Eattoday.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/Service/EmailSendService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/Service/EmailSendService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/Service/LikeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/Service/LikeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/Service/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/Service/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/api/LikeApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/api/LikeApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/api/ReviewApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/api/ReviewApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/RestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/RestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/ReviewDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/ReviewDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/StoreDto$StoreDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/StoreDto$StoreDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/StoreDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/StoreDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/UserForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/UserForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/Store$StoreBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/Store$StoreBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/ReviewRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/eattoday/Eattoday/EattodayApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.eattoday.Eattoday.EattodayApplicationTests.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.eattoday.Eattoday.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/sign.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/디저트.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/디저트.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/술.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/술.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/아시안.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/아시안.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/양식.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/양식.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/일식.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/일식.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/중식.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/중식.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/패스트푸드.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/패스트푸드.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/img/한식.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/img/한식.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/home.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/home.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layout/header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/category.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/storelist-filter.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/storelist-filter.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/storelist-search.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/storelist-search.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/storelist.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/storelist.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/review/_new.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/review/_new.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/findid.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/findid.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/findidComplete.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/findidComplete.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user/findpasswordComplete.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user/findpasswordComplete.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/userinfo/info.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/userinfo/info.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/userinfo/info_like.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/userinfo/info_like.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/userinfo/info_review.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/userinfo/info_review.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.eattoday.Eattoday.EattodayApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/EattodayApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/Service/EmailSendService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/Service/EmailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/Service/LikeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/Service/ReviewService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/Service/StoreService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/Service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/api/LikeApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/api/ReviewApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/controller/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/controller/RestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/dto/LikeDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/dto/ReviewDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/dto/StoreDto$StoreDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/dto/StoreDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/dto/userForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/entity/Like.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/entity/Review.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/entity/Store$StoreBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/entity/Store.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/repository/LikeReposiroty.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/repository/ReviewRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/repository/StoreRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/eattoday/Eattoday/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/rest/detail.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="25cc677b-e456-4e8e-8e7e-98621229419d" name="Changes" comment="Chore: DB 설정 변경 및 .gitignore 추가&#10;&#10;- 외부 MySQL DB 접속 정보로 application.properties 수정&#10;- 민감한 정보가 포함된 application.properties와 .env 파일을 .gitignore에 추가하여 Git에 업로드되지 않도록 설정&#10;- 불필요한 build.gradle 위치 변경&#10;- 프로젝트 구조 정리">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +42,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2rw4OZ1c4JxTc57VA3O848asLci" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -203,11 +105,25 @@
       <workItem from="1737457443762" duration="551000" />
       <workItem from="1737457999321" duration="259000" />
       <workItem from="1737458263897" duration="73000" />
-      <workItem from="1737458343194" duration="346000" />
+      <workItem from="1737458343194" duration="968000" />
     </task>
+    <task id="LOCAL-00001" summary="Chore: DB 설정 변경 및 .gitignore 추가&#10;&#10;- 외부 MySQL DB 접속 정보로 application.properties 수정&#10;- 민감한 정보가 포함된 application.properties와 .env 파일을 .gitignore에 추가하여 Git에 업로드되지 않도록 설정&#10;- 불필요한 build.gradle 위치 변경&#10;- 프로젝트 구조 정리">
+      <option name="closed" value="true" />
+      <created>1737458938634</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737458938634</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactor: 불필요한 main.css 삭제" />
+    <MESSAGE value="Chore: DB 설정 변경 및 .gitignore 추가&#10;&#10;- 외부 MySQL DB 접속 정보로 application.properties 수정&#10;- 민감한 정보가 포함된 application.properties와 .env 파일을 .gitignore에 추가하여 Git에 업로드되지 않도록 설정&#10;- 불필요한 build.gradle 위치 변경&#10;- 프로젝트 구조 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: DB 설정 변경 및 .gitignore 추가&#10;&#10;- 외부 MySQL DB 접속 정보로 application.properties 수정&#10;- 민감한 정보가 포함된 application.properties와 .env 파일을 .gitignore에 추가하여 Git에 업로드되지 않도록 설정&#10;- 불필요한 build.gradle 위치 변경&#10;- 프로젝트 구조 정리" />
   </component>
 </project>
