@@ -21,23 +21,26 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-validation' //notblank 사용하기 위해서
+	implementation 'org.springframework.boot:spring-boot-starter-validation' // @NotBlank 사용
 
-	//mysql 연결
+	// MySQL 연결
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
-	//lombok 추가해서 코드 간편하게 만들기 위함
+	// Lombok 사용
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
+	// 이메일 발송
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
+// 테스트 플랫폼 설정
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
+// Java 컴파일러 옵션 설정
 tasks.withType(JavaCompile) {
 	options.compilerArgs << '-parameters'
 }
