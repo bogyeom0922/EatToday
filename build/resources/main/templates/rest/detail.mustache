@@ -57,9 +57,6 @@
             {{store_menu}}
         </div>
 
-        <div id="ReviewSentence">
-            {{review_content}}
-        </div>
     </div>
 {{/rest}}
 
@@ -86,27 +83,6 @@
         }
         MenuDisplay.append(menu_text);
         MenuDisplay.appendChild(document.createElement("br"));
-    });
-
-</script>
-
-<!--review-->
-<script>
-
-    const review_str = document.getElementById("ReviewSentence").textContent;
-    const review_arr = review_str.split(", ");
-
-    const ReviewDisplay = document.getElementById("ReviewDisplay");
-    document.getElementById("ReviewSentence").style.display = "none";
-
-    review_arr.forEach((review, review_index) => {
-        let review_text = review.trim();
-        if (review_index === review_arr.length - 1) {
-            review_text = review_text.slice(0, -1);
-        }
-        ReviewDisplay.append(review_text);
-        ReviewDisplay.appendChild(document.createElement("br"));
-        ReviewDisplay.appendChild(document.createElement("br"));
     });
 
 </script>
