@@ -1,0 +1,42 @@
+{{>layout/header}}
+
+<div class="userinfo_title">
+    <p>MY PAGE</p>
+</div>
+
+<div class="userinfo_category">
+    <p onclick="window.location.href='/{{uid}}'" class="userinfo_category_link">회원정보 수정</p>
+    <p onclick="window.location.href='/{{uid}}/review'" class="userinfo_category_link">리뷰 관리</p>
+    <p onclick="window.location.href='/api/{{uid}}/like'" class="userinfo_category_link active">즐겨찾기 관리</p>
+</div>
+
+<div class="userinfo_background_like">
+    <table class="userinfo_review_table">
+        <tbody>
+        <!--찜한 식당 목록-->
+        {{#store}}
+            <tr>
+                <td style="width:20%"><p onclick="window.location.href='/rest/{{id}}/{{uid}}'">{{store_name}}</p></td>
+                <td style="width:80%">{{store_address}}</td>
+            </tr>
+        {{/store}}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    const links = document.querySelectorAll('.userinfo_category_link');
+
+    // 클릭 이벤트 추가
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            // 모든 링크의 active 클래스 제거
+            links.forEach(l => l.classList.remove('active'));
+            // 클릭된 링크에 active 클래스 추가
+            link.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
