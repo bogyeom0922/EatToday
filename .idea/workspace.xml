@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결">
+    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정">
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,6 +107,29 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="EattodayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="Eattoday.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eattoday.Eattoday.EattodayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eattoday.Eattoday.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="Eattoday" />
       <option name="ENV_FILES" value="" />
@@ -152,6 +177,11 @@
       <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.EattodayApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -169,7 +199,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1737517714425</updated>
-      <workItem from="1737517715551" duration="350000" />
+      <workItem from="1737517715551" duration="1230000" />
     </task>
     <task id="LOCAL-00001" summary="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결">
       <option name="closed" value="true" />
@@ -179,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737517809639</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정">
+      <option name="closed" value="true" />
+      <created>1737518133272</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737518133272</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +225,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결" />
+    <MESSAGE value="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정" />
   </component>
 </project>
