@@ -9,6 +9,7 @@ import com.eattoday.Eattoday.service.StoreService;
 import com.eattoday.Eattoday.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -37,6 +38,9 @@ public class RestController {
 
     @Autowired
     private ReviewService reviewService;
+
+    @Value("${kakao.api.key}")
+    private String kakaoApiKey;
 
     //storelist
     @GetMapping(value = "/storelist/{uid}") //전체 식당 조회
@@ -148,6 +152,8 @@ public class RestController {
         //user 정보
         User userEntity = userRepository.findByuid(uid).orElse(null);
         model.addAttribute("user", userEntity);
+
+        model.addAttribute("kakaoApiKey", kakaoApiKey);
 
         // 3. 뷰 페이지 반환하기
         return "rest/detail";
