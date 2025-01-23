@@ -1,6 +1,6 @@
 package com.eattoday.Eattoday.dto;
 
-import com.eattoday.Eattoday.entity.User;
+import com.eattoday.Eattoday.member.domain.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
