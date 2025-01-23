@@ -8,9 +8,7 @@ import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,6 +32,18 @@ public class RecommendationService {
         );
 
         return pickedCategory;
+    }
+
+    public HashMap<String, Integer> sortCategory(HashMap<String, Integer> category){
+        return category.entrySet()
+                .stream()
+                .sorted((category1, category2) -> category2.getValue().compareTo(category1.getValue()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (c1, c2) -> c1,
+                        LinkedHashMap::new
+                ));
     }
 
     public List<String> findCategoryOfStore(String uid){
