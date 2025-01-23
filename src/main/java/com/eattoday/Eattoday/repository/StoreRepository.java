@@ -24,4 +24,7 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
     @Query(value = "select m from Store m where m.store_address LIKE %?1%")
     Page<Store> findByStore_addressContaining(String address, Pageable pageable);
 
+    @Query(value = "select s from Store s where s.category = ?1")
+    List<Store> findStoreByCategory(String category);
+
 }
