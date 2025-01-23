@@ -1,15 +1,15 @@
-package com.eattoday.Eattoday.member.controller;
+package com.eattoday.Eattoday.user.controller;
 
 import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.service.EmailSendService;
-import com.eattoday.Eattoday.service.UserService;
+import com.eattoday.Eattoday.user.service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.Review;
 import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.member.domain.User;
+import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.repository.ReviewRepository;
 import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.repository.UserRepository;
+import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -34,7 +34,7 @@ import java.util.List;
 @Controller
 @Slf4j // 로깅확인 어노테이션
 @RequiredArgsConstructor //userRepository 생성자 만들어주는 어노테이션
-public class LoginController {
+public class UserController {
 
     //repository 객체 선언
     @Autowired
@@ -54,9 +54,6 @@ public class LoginController {
 
     @Autowired
     private com.eattoday.Eattoday.service.LikeService likeService;
-
-    @Autowired
-    private com.eattoday.Eattoday.service.ReviewService reviewService;
 
     //main
     @GetMapping("/")

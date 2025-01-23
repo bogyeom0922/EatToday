@@ -1,6 +1,6 @@
-package com.eattoday.Eattoday.repository;
+package com.eattoday.Eattoday.user.repository;
 
-import com.eattoday.Eattoday.member.domain.User;
+import com.eattoday.Eattoday.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

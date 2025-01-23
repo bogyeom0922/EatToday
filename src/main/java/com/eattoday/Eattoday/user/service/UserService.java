@@ -1,8 +1,8 @@
-package com.eattoday.Eattoday.service;
+package com.eattoday.Eattoday.user.service;
 
 import com.eattoday.Eattoday.dto.UserForm;
-import com.eattoday.Eattoday.member.domain.User;
-import com.eattoday.Eattoday.repository.UserRepository;
+import com.eattoday.Eattoday.user.domain.User;
+import com.eattoday.Eattoday.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

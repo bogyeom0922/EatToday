@@ -1,4 +1,4 @@
-package com.eattoday.Eattoday.member.domain;
+package com.eattoday.Eattoday.user.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

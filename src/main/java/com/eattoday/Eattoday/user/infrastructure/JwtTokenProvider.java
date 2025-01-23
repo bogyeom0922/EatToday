@@ -1,14 +1,16 @@
-package com.eattoday.Eattoday.member.infrastructure;
+package com.eattoday.Eattoday.user.infrastructure;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.eattoday.Eattoday.member.service.Token;
+import com.eattoday.Eattoday.user.service.Token;
 import java.util.Date;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JwtTokenProvider implements Token {
 
     private final Algorithm algorithm;

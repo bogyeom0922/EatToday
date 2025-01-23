@@ -1,4 +1,4 @@
-package com.eattoday.Eattoday.member.service;
+package com.eattoday.Eattoday.user.service;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 
