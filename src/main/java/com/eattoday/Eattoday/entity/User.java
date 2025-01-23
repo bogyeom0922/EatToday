@@ -3,6 +3,9 @@ package com.eattoday.Eattoday.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor //생성자 대체 lombok
@@ -14,12 +17,20 @@ public class User {
     @Id // 엔티티 대표값 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column //uid 필드 선언
     private String uid;
+
     @Column //uname 필드 선언
     private String uname;
+
     @Column //upassword 필드 선언
     private String upassword;
+
     @Column //email 필드 선언
     private String email;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Like> likes = new ArrayList<>();
+
 }
