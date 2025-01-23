@@ -6,12 +6,14 @@ import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class RecommendationService {
 
     private final LikeService likeService;
