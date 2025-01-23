@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class LikeService {
+
     @Autowired
     LikeReposiroty likeReposiroty;
     @Autowired
@@ -50,7 +52,13 @@ public class LikeService {
                 .stream()
                 .map(Like -> LikeDto.createLikeDto(Like))
                 .collect(Collectors.toList());
+    }
 
+    @Transactional
+    public List<Like> myLikeEntity(String user_id){
+        User user = userRepository.findByuid(user_id).orElse(null);
+        Long id = user.getId();
+        return new ArrayList<>(likeReposiroty.findLikes(id));
     }
 
     @Transactional
