@@ -30,7 +30,4 @@ public class User {
     @Column //email 필드 선언
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Like> likes = new ArrayList<>();
-
 }
