@@ -1,6 +1,8 @@
 package com.eattoday.Eattoday.user.domain;
 
+import com.eattoday.Eattoday.user.service.exception.login.NotMatchPasswordException;
 import jakarta.persistence.*;
+import java.util.Objects;
 import lombok.*;
 
 @Getter
@@ -22,4 +24,10 @@ public class User {
     private String upassword;
     @Column //email 필드 선언
     private String email;
+
+    public void checkPassword(String password) {
+        if(!Objects.equals(upassword, password)) {
+            throw new NotMatchPasswordException();
+        }
+    }
 }

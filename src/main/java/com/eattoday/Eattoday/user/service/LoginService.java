@@ -4,7 +4,7 @@ import com.eattoday.Eattoday.user.controller.dto.UserRequest;
 import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.user.infrastructure.JwtTokenProvider;
 import com.eattoday.Eattoday.user.repository.UserRepository;
-import org.apache.catalina.realm.UserDatabaseRealm;
+import com.eattoday.Eattoday.user.service.exception.login.ExistUserxception;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,5 +18,12 @@ public class LoginService {
     public LoginService(UserRepository userRepository, JwtTokenProvider tokenProvider) {
         this.userRepository = userRepository;
         this.tokenProvider = tokenProvider;
+    }
+
+    public User login(UserRequest request) {
+        User user = userRepository.findByuid(request.uid())
+                .orElseThrow(ExistUserxception::new);
+        user.checkPassword(request.upassword());
+        return user;
     }
 }
