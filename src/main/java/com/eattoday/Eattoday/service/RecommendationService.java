@@ -46,6 +46,12 @@ public class RecommendationService {
                 ));
     }
 
+    public String getBestCategory(HashMap<String, Integer> category){
+        Iterator<String> categorys = category.keySet().iterator();
+
+        return categorys.next();
+    }
+
     public List<String> findCategoryOfStore(String uid){
         List<Like> myLike = likesOfUser(uid);
 
