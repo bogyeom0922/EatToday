@@ -1,7 +1,7 @@
 package com.eattoday.Eattoday.user.controller;
 
-import com.eattoday.Eattoday.user.controller.dto.UserRequest;
-import com.eattoday.Eattoday.user.controller.dto.UserResponse;
+import com.eattoday.Eattoday.user.controller.dto.LoginRequest;
+import com.eattoday.Eattoday.user.controller.dto.LoginResponse;
 import com.eattoday.Eattoday.user.infrastructure.JwtTokenProvider;
 import com.eattoday.Eattoday.user.mapper.UserMapper;
 import com.eattoday.Eattoday.user.service.LoginService;
@@ -25,8 +25,8 @@ public class LoginController {
     private final JwtTokenProvider tokenProvider;
 
     @PostMapping("/users/login")
-    public ResponseEntity<HttpHeaders> login(@RequestBody UserRequest request) {
-        UserResponse response = UserMapper.toUserResponse(loginService.login(request));
+    public ResponseEntity<HttpHeaders> login(@RequestBody LoginRequest request) {
+        LoginResponse response = UserMapper.toLoginResponse(loginService.login(request));
         String jwtToken = tokenProvider.createToken(response.id());
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "Bearer " + jwtToken);

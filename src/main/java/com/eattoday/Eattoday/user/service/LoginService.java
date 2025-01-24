@@ -1,6 +1,6 @@
 package com.eattoday.Eattoday.user.service;
 
-import com.eattoday.Eattoday.user.controller.dto.UserRequest;
+import com.eattoday.Eattoday.user.controller.dto.LoginRequest;
 import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.user.infrastructure.JwtTokenProvider;
 import com.eattoday.Eattoday.user.repository.UserRepository;
@@ -20,7 +20,7 @@ public class LoginService {
         this.tokenProvider = tokenProvider;
     }
 
-    public User login(UserRequest request) {
+    public User login(LoginRequest request) {
         User user = userRepository.findByuid(request.uid())
                 .orElseThrow(ExistUserxception::new);
         user.checkPassword(request.upassword());

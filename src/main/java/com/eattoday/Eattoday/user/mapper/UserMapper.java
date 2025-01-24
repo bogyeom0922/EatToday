@@ -1,12 +1,12 @@
 package com.eattoday.Eattoday.user.mapper;
 
-import com.eattoday.Eattoday.user.controller.dto.UserResponse;
+import com.eattoday.Eattoday.user.controller.dto.LoginResponse;
 import com.eattoday.Eattoday.user.domain.User;
 
 public class UserMapper {
 
-    public static UserResponse toUserResponse(User user) {
-        return new UserResponse(
+    public static LoginResponse toLoginResponse(User user) {
+        return new LoginResponse(
                 user.getId(),
                 user.getUname(),
                 user.getUid(),
