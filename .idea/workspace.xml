@@ -4,22 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정">
+    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리">
+      <change afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resolvedMainClassName" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/RestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/RestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layout/header.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/controller/RestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/controller/RestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,10 +41,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ry3v6pUy5w5cS4Fs1gBIMhxUdW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,8 +60,9 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.EattodayApplication.executor": "Run",
-    "git-widget-placeholder": "feature/back#86-map-initial-setup",
+    "git-widget-placeholder": "feature/back#91-display-restaurant-markers",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/bogyeom/EatToday/build.gradle",
     "node.js.detected.package.eslint": "true",
@@ -242,6 +252,7 @@
     <MESSAGE value="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결" />
     <MESSAGE value="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정" />
     <MESSAGE value="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정" />
+    <MESSAGE value="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리" />
   </component>
 </project>

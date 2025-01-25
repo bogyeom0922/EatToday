@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>주소</td>
-                <td>{{store_address}}</td>
+                <td id="storeAddress">{{store_address}}</td>
             </tr>
             <tr>
                 <td>대표번호</td>
@@ -60,10 +60,12 @@
     </div>
 {{/rest}}
 
-
 <div id="map" style="width:500px;height:400px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakaoApiKey}}"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakaoApiKey}}&libraries=services"></script>
 <script>
+    // storeAddress <td>에서 텍스트 값을 가져오기
+    var address = document.getElementById('storeAddress').innerText.trim();
+
     var container = document.getElementById('map');
     var options = {
         center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -71,6 +73,21 @@
     };
 
     var map = new kakao.maps.Map(container, options);
+
+    var geocoder = new kakao.maps.services.Geocoder();
+    geocoder.addressSearch(address, function(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+            map.setCenter(coords);
+
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords
+            });
+        } else {
+            console.error("주소를 좌표로 변환하지 못했습니다. 입력 주소: " + address);
+        }
+    });
 </script>
 
 <script>

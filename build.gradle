@@ -22,6 +22,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-validation' // @NotBlank 사용
+	implementation 'io.projectreactor:reactor-core:3.5.0'
 
 	// MySQL 연결
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
