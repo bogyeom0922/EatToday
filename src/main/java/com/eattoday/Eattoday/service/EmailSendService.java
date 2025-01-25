@@ -1,8 +1,8 @@
 package com.eattoday.Eattoday.service;
 
 import com.eattoday.Eattoday.dto.UserForm;
-import com.eattoday.Eattoday.entity.User;
-import com.eattoday.Eattoday.repository.UserRepository;
+import com.eattoday.Eattoday.user.domain.User;
+import com.eattoday.Eattoday.user.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

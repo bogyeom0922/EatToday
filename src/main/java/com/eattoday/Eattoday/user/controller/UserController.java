@@ -1,15 +1,15 @@
-package com.eattoday.Eattoday.controller;
+package com.eattoday.Eattoday.user.controller;
 
 import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.service.EmailSendService;
-import com.eattoday.Eattoday.service.UserService;
+import com.eattoday.Eattoday.user.service.UserService;
 import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.entity.Review;
 import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.entity.User;
+import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.repository.ReviewRepository;
 import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.repository.UserRepository;
+import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -18,9 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,14 +28,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @Slf4j // 로깅확인 어노테이션
 @RequiredArgsConstructor //userRepository 생성자 만들어주는 어노테이션
-public class LoginController {
+public class UserController {
 
     //repository 객체 선언
     @Autowired
@@ -59,23 +55,16 @@ public class LoginController {
     @Autowired
     private com.eattoday.Eattoday.service.LikeService likeService;
 
-    @Autowired
-    private com.eattoday.Eattoday.service.ReviewService reviewService;
-
     //main
     @GetMapping("/")
     public String Home() {
-
         return "home";
-
     }
 
     //login
     @GetMapping("/user/login")
     public String Login() {
-
         return "user/login";
-
     }
 
     @PostMapping("/login")

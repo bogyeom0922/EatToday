@@ -34,6 +34,9 @@ dependencies {
 
 	// 이메일 발송
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	//jwt
+	implementation 'com.auth0:java-jwt:4.2.1'
 }
 
 // 테스트 플랫폼 설정
