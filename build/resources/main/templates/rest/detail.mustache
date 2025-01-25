@@ -1,7 +1,7 @@
 {{>layout/header}}
 
 {{#user}}
-    <input type = "hidden" id = "new-like-userid" value ="{{id}}">
+    <input type="hidden" id="new-like-userid" value="{{id}}">
 {{/user}}
 {{#rest}}
     <input type="hidden" id="new-like-store-id" value="{{id}}">
@@ -60,10 +60,11 @@
     </div>
 {{/rest}}
 
+<button id="directionsButton">길찾기</button>
 <div id="map" style="width:500px;height:400px;"></div>
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakaoApiKey}}&libraries=services"></script>
 <script>
-    // storeAddress <td>에서 텍스트 값을 가져오기
     var address = document.getElementById('storeAddress').innerText.trim();
 
     var container = document.getElementById('map');
@@ -75,18 +76,37 @@
     var map = new kakao.maps.Map(container, options);
 
     var geocoder = new kakao.maps.services.Geocoder();
-    geocoder.addressSearch(address, function(result, status) {
+    geocoder.addressSearch(address, function (result, status) {
         if (status === kakao.maps.services.Status.OK) {
             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
             map.setCenter(coords);
-
-            var marker = new kakao.maps.Marker({
-                map: map,
-                position: coords
-            });
         } else {
-            console.error("주소를 좌표로 변환하지 못했습니다. 입력 주소: " + address);
+            console.error("좌표로 변환 도중 오류 발생: " + address);
         }
+    });
+
+    //길찾기
+    var destinationCoords = null;
+
+    geocoder.addressSearch(address, function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            destinationCoords = new kakao.maps.LatLng(result[0].y, result[0].x);
+            map.setCenter(destinationCoords);
+        } else {
+            console.error("좌표로 변환 도중 오류 발생: " + address);
+        }
+    });
+
+    document.getElementById('directionsButton').addEventListener('click', function () {
+        if (!destinationCoords) {
+            alert("도착지를 다시 설정해주세요.");
+            return;
+        }
+
+        var kakaoMapURL = `https://map.kakao.com/link/to/도착지,${destinationCoords.getLat()},${destinationCoords.getLng()}`;
+
+        // 새 창으로 길찾기 열기
+        window.open(kakaoMapURL, '_blank');
     });
 </script>
 
@@ -123,26 +143,26 @@
     const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
     fetch(url)
             .then(response => {
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error('Server response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
                 console.log(data);
-                if(data == null){
+                if (data == null) {
                     document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
                     state = 0;
                 }
                 document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
                 state = 1;
-            }).catch(error =>{
+            }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
 
     const likeCreate = document.getElementById('bookmark_img');
-    likeCreate.addEventListener("click", function(){
-        if(state ===0){
+    likeCreate.addEventListener("click", function () {
+        if (state === 0) {
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             const like = {
@@ -168,8 +188,7 @@
                         console.error('Error:', error);
                         alert("좋아요 생성 실패");
                     });
-        }
-        else{
+        } else {
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"

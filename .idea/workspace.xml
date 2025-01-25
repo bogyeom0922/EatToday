@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리">
-      <change afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resolvedMainClassName" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737519215068</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리">
+      <option name="closed" value="true" />
+      <created>1737784561329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737784561329</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
