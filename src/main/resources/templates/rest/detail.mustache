@@ -16,7 +16,7 @@
     </div>
 
     <div class="bookmark" id="like-{{id}}">
-        <img id="bookmark_img" src="/img/bookmark_x.png" alt="" width="50">
+        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기">
     </div>
 
     <div class="rest_detail">
@@ -45,6 +45,15 @@
             </tr>
         </table>
 
+        <div id="MenuSentence">
+            {{store_menu}}
+        </div>
+
+        <div class="map_section">
+            <button id="directionsButton" class="direction">길찾기</button>
+            <div id="map" class="map"></div>
+        </div>
+
         <div class="review">
             <p>리뷰</p>
             {{>review/_reviews}}
@@ -52,16 +61,8 @@
                 <div id="ReviewDisplay"></div>
             </div>
         </div>
-
-        <div id="MenuSentence">
-            {{store_menu}}
-        </div>
-
     </div>
 {{/rest}}
-
-<button id="directionsButton">길찾기</button>
-<div id="map" style="width:500px;height:400px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakaoApiKey}}&libraries=services"></script>
 <script>
@@ -80,6 +81,13 @@
         if (status === kakao.maps.services.Status.OK) {
             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
             map.setCenter(coords);
+
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+                title: "매장 위치"
+            });
+
         } else {
             console.error("좌표로 변환 도중 오류 발생: " + address);
         }
