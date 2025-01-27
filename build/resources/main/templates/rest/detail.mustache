@@ -80,6 +80,13 @@
         if (status === kakao.maps.services.Status.OK) {
             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
             map.setCenter(coords);
+
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+                title: "매장 위치"
+            });
+
         } else {
             console.error("좌표로 변환 도중 오류 발생: " + address);
         }
