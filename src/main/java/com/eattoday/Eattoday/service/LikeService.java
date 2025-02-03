@@ -3,11 +3,15 @@ package com.eattoday.Eattoday.service;
 import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.entity.Like;
 import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.recommend.service.exception.ExistRecommendException;
 import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.repository.LikeReposiroty;
 import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.user.exception.exceptions.UserException;
 import com.eattoday.Eattoday.user.repository.UserRepository;
+import com.eattoday.Eattoday.user.service.exception.login.ExistUserxception;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
