@@ -1,8 +1,9 @@
-package com.eattoday.Eattoday.api;
+package com.eattoday.Eattoday.recommend.controller;
 
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.service.RecommendationService;
+import com.eattoday.Eattoday.recommend.service.RecommendationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
+@Slf4j
 public class recommendApiController {
 
     private final RecommendationService recommendationService;
@@ -24,7 +25,7 @@ public class recommendApiController {
         this.storeRepository = storeRepository;
     }
 
-    @GetMapping("recommend/{uid}")
+    @GetMapping("/recommend/{uid}")
     public ResponseEntity<List<Store>> findLikes(@PathVariable String uid){
         List<String> myLikeCategory = recommendationService.findCategoryOfStore(uid);
         HashMap<String, Integer> bestCategory = recommendationService.pickBestCategory(myLikeCategory);
