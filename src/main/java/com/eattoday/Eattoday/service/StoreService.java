@@ -10,10 +10,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
 public class StoreService {
+
     @Autowired
     StoreRepository storeRepository;
 
@@ -68,6 +70,18 @@ public class StoreService {
         Page<Store> search2 = storeRepository.findByStore_addressContaining(address, pageable);
 
         return search2;
+    }
+
+    @Transactional
+    public List<Store> getRandomStores(String category){
+        List<Store> storeOfCategory = storeRepository.findStoreByCategory(category);
+
+        if(storeOfCategory.size() <= 3){
+            return storeOfCategory;
+        }
+
+        Collections.shuffle(storeOfCategory);
+        return storeOfCategory.subList(0, 3);
     }
 
 }
