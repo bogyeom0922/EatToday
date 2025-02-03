@@ -1,9 +1,11 @@
-package com.eattoday.Eattoday.service;
+package com.eattoday.Eattoday.recommend.service;
 
 import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.entity.Like;
 import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.recommend.service.exception.ExistRecommendException;
 import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.service.LikeService;
 import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -50,7 +52,9 @@ public class RecommendationService {
 
     public String getBestCategory(HashMap<String, Integer> category){
         Iterator<String> categorys = category.keySet().iterator();
-
+        if(!categorys.hasNext()){
+            throw new ExistRecommendException();
+        }
         return categorys.next();
     }
 
