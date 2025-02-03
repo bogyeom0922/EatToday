@@ -22,6 +22,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-validation' // @NotBlank 사용
+	implementation 'io.projectreactor:reactor-core:3.5.0'
 
 	// MySQL 연결
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -33,6 +34,12 @@ dependencies {
 
 	// 이메일 발송
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	//jwt
+	implementation 'com.auth0:java-jwt:4.2.1'
+
+	//swagger
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
 }
 
 // 테스트 플랫폼 설정
