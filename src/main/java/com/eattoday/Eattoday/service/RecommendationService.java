@@ -3,9 +3,9 @@ package com.eattoday.Eattoday.service;
 import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.entity.Like;
 import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.entity.User;
 import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.repository.UserRepository;
+import com.eattoday.Eattoday.user.domain.User;
+import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
