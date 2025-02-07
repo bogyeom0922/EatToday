@@ -66,8 +66,18 @@ public class RecommendationService {
         if (category == null) {
             return getRandomStore();
         }
-        return storeRepository.findStoreByCategory(category);
+        List<Store> stores = storeRepository.findStoreByCategory(category);
+        recommendException(stores);
+
+        return stores;
     }
+
+    private void recommendException(List<Store> stores){
+        if(stores.isEmpty()){
+            throw new ExistRecommendException();
+        }
+    }
+
 
     private List<Store> getRandomStore(){
         return storeRepository.findRandomStores();

@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 public enum RecommendErrorCode {
 
-    NOT_EXIST_LIKE("notExistLike", "즐겨찾기 목록이 비어있습니다.", HttpStatus.BAD_REQUEST);
+    NOT_EXIST_RECOMMEND("notExistRecommend", "추천 목록이 비어있습니다.", HttpStatus.BAD_REQUEST);
 
     private final String errorCode;
     private final String errorMessage;

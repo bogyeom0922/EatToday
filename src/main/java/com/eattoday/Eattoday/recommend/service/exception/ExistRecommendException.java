@@ -6,7 +6,7 @@ import com.eattoday.Eattoday.recommend.exception.exceptions.RecommendException;
 public class ExistRecommendException extends RecommendException {
 
     public ExistRecommendException(){
-        super(RecommendErrorCode.NOT_EXIST_LIKE);
+        super(RecommendErrorCode.NOT_EXIST_RECOMMEND);
     }
 
 }
