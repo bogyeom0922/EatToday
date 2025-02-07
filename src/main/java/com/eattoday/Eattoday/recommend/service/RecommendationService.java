@@ -1,11 +1,10 @@
-package com.eattoday.Eattoday.service;
+package com.eattoday.Eattoday.recommend.service;
 
-import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.entity.Like;
 import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.entity.User;
+import com.eattoday.Eattoday.recommend.service.exception.ExistRecommendException;
 import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.repository.UserRepository;
+import com.eattoday.Eattoday.service.LikeService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -59,7 +58,29 @@ public class RecommendationService {
 
         return myLike.stream()
                 .map(this::getCategory)
+                .distinct()
                 .collect(Collectors.toList());
+    }
+
+    public List<Store> getRecommendedStores(String category) {
+        if (category == null) {
+            return getRandomStore();
+        }
+        List<Store> stores = storeRepository.findStoreByCategory(category);
+        recommendException(stores);
+
+        return stores;
+    }
+
+    private void recommendException(List<Store> stores){
+        if(stores.isEmpty()){
+            throw new ExistRecommendException();
+        }
+    }
+
+
+    private List<Store> getRandomStore(){
+        return storeRepository.findRandomStores();
     }
 
     private List<Like> likesOfUser(String uid){
