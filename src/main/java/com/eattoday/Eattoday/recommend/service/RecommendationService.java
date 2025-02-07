@@ -63,7 +63,14 @@ public class RecommendationService {
                 .collect(Collectors.toList());
     }
 
-    public List<Store> getRandomStore(){
+    public List<Store> getRecommendedStores(String category) {
+        if (category == null) {
+            return getRandomStore();
+        }
+        return storeRepository.findStoreByCategory(category);
+    }
+
+    private List<Store> getRandomStore(){
         return storeRepository.findRandomStores();
     }
 

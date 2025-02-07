@@ -18,11 +18,9 @@ import java.util.List;
 public class recommendApiController {
 
     private final RecommendationService recommendationService;
-    private final StoreRepository storeRepository;
 
-    public recommendApiController(RecommendationService recommendationService, StoreRepository storeRepository){
+    public recommendApiController(RecommendationService recommendationService){
         this.recommendationService = recommendationService;
-        this.storeRepository = storeRepository;
     }
 
     @GetMapping("/recommend/{uid}")
@@ -31,7 +29,7 @@ public class recommendApiController {
         HashMap<String, Integer> bestCategory = recommendationService.pickBestCategory(myLikeCategory);
         HashMap<String, Integer> sortCategory = recommendationService.sortCategory(bestCategory);
         String pickedCategory = recommendationService.getBestCategory(sortCategory);
-        List<Store> randomStore = storeRepository.findStoreByCategory(pickedCategory);
+        List<Store> randomStore = recommendationService.getRecommendedStores(pickedCategory);
 
         return ResponseEntity.status(HttpStatus.OK).body(randomStore);
     }
