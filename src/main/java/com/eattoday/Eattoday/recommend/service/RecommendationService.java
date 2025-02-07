@@ -49,9 +49,7 @@ public class RecommendationService {
 
     public String getBestCategory(HashMap<String, Integer> category){
         Iterator<String> categorys = category.keySet().iterator();
-        if(!categorys.hasNext()){
-            throw new ExistRecommendException();
-        }
+
         return categorys.next();
     }
 
@@ -60,6 +58,7 @@ public class RecommendationService {
 
         return myLike.stream()
                 .map(this::getCategory)
+                .distinct()
                 .collect(Collectors.toList());
     }
 
