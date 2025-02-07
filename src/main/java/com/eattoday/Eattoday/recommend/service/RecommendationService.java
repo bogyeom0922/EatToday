@@ -1,13 +1,10 @@
 package com.eattoday.Eattoday.recommend.service;
 
-import com.eattoday.Eattoday.dto.LikeDto;
 import com.eattoday.Eattoday.entity.Like;
 import com.eattoday.Eattoday.entity.Store;
 import com.eattoday.Eattoday.recommend.service.exception.ExistRecommendException;
 import com.eattoday.Eattoday.repository.StoreRepository;
 import com.eattoday.Eattoday.service.LikeService;
-import com.eattoday.Eattoday.user.domain.User;
-import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +16,11 @@ import java.util.stream.Collectors;
 public class RecommendationService {
 
     private final LikeService likeService;
+    private final StoreRepository storeRepository;
 
-    public RecommendationService(final LikeService likeService){
+    public RecommendationService(final LikeService likeService, final StoreRepository storeRepository){
         this.likeService = likeService;
+        this.storeRepository = storeRepository;
     }
 
     public HashMap<String, Integer> pickBestCategory(List<String> category){
@@ -62,6 +61,10 @@ public class RecommendationService {
         return myLike.stream()
                 .map(this::getCategory)
                 .collect(Collectors.toList());
+    }
+
+    public List<Store> getRandomStore(){
+        return storeRepository.findRandomStores();
     }
 
     private List<Like> likesOfUser(String uid){

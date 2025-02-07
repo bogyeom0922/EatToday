@@ -27,4 +27,7 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
     @Query(value = "select s from Store s where s.category = ?1")
     List<Store> findStoreByCategory(String category);
 
+    @Query(value = "select * from store order by rand() limit 3", nativeQuery = true)
+    List<Store> findRandomStores();
+
 }
