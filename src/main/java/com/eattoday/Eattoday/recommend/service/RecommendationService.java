@@ -19,11 +19,9 @@ import java.util.stream.Collectors;
 public class RecommendationService {
 
     private final LikeService likeService;
-    private final StoreRepository storeRepository;
 
-    public RecommendationService(final LikeService likeService, final StoreRepository storeRepository){
+    public RecommendationService(final LikeService likeService){
         this.likeService = likeService;
-        this.storeRepository = storeRepository;
     }
 
     public HashMap<String, Integer> pickBestCategory(List<String> category){
