@@ -28,7 +28,7 @@ public class RecommendationService {
         category.forEach(
                 categoryData -> {
                     int count = pickedCategory.getOrDefault(categoryData, 0);
-                    pickedCategory.put(categoryData, count);
+                    pickedCategory.put(categoryData, count+1);
                 }
         );
 
