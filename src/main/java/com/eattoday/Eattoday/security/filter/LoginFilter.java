@@ -1,5 +1,8 @@
 package com.eattoday.Eattoday.security.filter;
 
+import com.eattoday.Eattoday.dto.UserForm;
+import com.eattoday.Eattoday.security.jwt.JWTUtil;
+import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,9 +13,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
+    private final JWTUtil jwtUtil;
 
-    public LoginFilter(final AuthenticationManager authenticationManager){
+    public LoginFilter(final AuthenticationManager authenticationManager, final JWTUtil jwtUtil){
         this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
     }
 
     @Override
@@ -34,6 +39,16 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userName, password);
 
         return authenticationManager.authenticate(authenticationToken);
+    }
+
+    @Override
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Authentication authentication){
+        UserForm userForm = (UserForm) authentication.getPrincipal();
+        String userId = userForm.getUid();
+
+        String token = jwtUtil.createJwt(userId, 60*60*10L);
+
+        response.addHeader("Authorization", "Bearer" + token);
     }
 
 }
