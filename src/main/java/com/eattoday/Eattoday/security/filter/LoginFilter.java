@@ -1,7 +1,10 @@
 package com.eattoday.Eattoday.security.filter;
 
 import com.eattoday.Eattoday.dto.UserForm;
+import com.eattoday.Eattoday.security.dto.CustomUserDetails;
 import com.eattoday.Eattoday.security.jwt.JWTUtil;
+import com.eattoday.Eattoday.user.controller.dto.LoginRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,6 +13,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import java.io.IOException;
 
 public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -33,23 +38,31 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response){
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        String userName = obtainUsername(request);
-        String password = obtainPassword(request);
+        LoginRequest loginRequest = null;
+        try {
+            loginRequest = objectMapper.readValue(request.getReader(), LoginRequest.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String userName = loginRequest.uid();
+        String password = loginRequest.upassword();
 
+        System.out.println("Attempting authentication for user: " + userName);
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userName, password);
 
         return authenticationManager.authenticate(authenticationToken);
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Authentication authentication){
-        UserForm userForm = (UserForm) authentication.getPrincipal();
-        String userId = userForm.getUid();
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Authentication authentication) throws IOException {
+        CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+        String userId = customUserDetails.getUsername();
 
         String token = jwtUtil.createJwt(userId, 60*60*10L);
 
-        response.addHeader("Authorization", "Bearer" + token);
+        response.addHeader("Authorization", "Bearer " + token);
     }
 
     @Override
