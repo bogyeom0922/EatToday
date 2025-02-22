@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -51,15 +52,15 @@ public class SecurityConfig {
 
         //csrf 공격은 스프링 시큐리티에서 당할 일이 없으므로 disable
         http
-                .csrf((auth) -> auth.disable());
+                .csrf(AbstractHttpConfigurer::disable);
 
         //From 로그인 방식 disable
         http
-                .formLogin((auth) -> auth.disable());
+                .formLogin(AbstractHttpConfigurer::disable);
 
         //http basic 인증 방식 disable
         http
-                .httpBasic((auth) -> auth.disable());
+                .httpBasic(AbstractHttpConfigurer::disable);
         http
                 .userDetailsService(customUserDetailsService);
         http
@@ -78,7 +79,8 @@ public class SecurityConfig {
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/favicon.ico", "/img/**").permitAll()
                         .requestMatchers("/user/login", "/", "/user/Signup", "/login", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers("/rest/**", "/category").hasAnyAuthority("ROLE_USER")
+                        .requestMatchers("/category").authenticated()
+                        .requestMatchers("/rest/category").hasAnyAuthority("ROLE_USER")
                         .anyRequest().authenticated());
 
         http
