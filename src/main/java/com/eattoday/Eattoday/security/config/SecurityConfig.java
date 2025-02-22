@@ -3,6 +3,8 @@ package com.eattoday.Eattoday.security.config;
 import com.eattoday.Eattoday.security.filter.LoginFilter;
 import com.eattoday.Eattoday.security.jwt.JWTUtil;
 import com.eattoday.Eattoday.security.jwt.filter.JWTFilter;
+import com.eattoday.Eattoday.security.service.CustomUserDetailsService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +15,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import java.util.Collections;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -20,10 +27,12 @@ public class SecurityConfig {
 
     private final AuthenticationConfiguration authenticationConfiguration;
     private final JWTUtil jwtUtil;
+    private final CustomUserDetailsService customUserDetailsService;
 
-    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil) {
+    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil, CustomUserDetailsService customUserDetailsService) {
         this.authenticationConfiguration = authenticationConfiguration;
         this.jwtUtil = jwtUtil;
+        this.customUserDetailsService = customUserDetailsService;
     }
 
     @Bean
@@ -51,13 +60,27 @@ public class SecurityConfig {
         //http basic 인증 방식 disable
         http
                 .httpBasic((auth) -> auth.disable());
+        http
+                .userDetailsService(customUserDetailsService);
+        http
+                .cors(cors -> cors.configurationSource(request -> {
+                    CorsConfiguration config = new CorsConfiguration();
+                    config.setAllowedOrigins(List.of("http://localhost:3000")); // 프론트엔드 주소
+                    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+                    config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+                    config.setAllowCredentials(true);
+                    return config;
+                }));
 
         //경로별 인가 작업
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/user/login", "/", "/user/Signup", "/login").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**", "/favicon.ico", "/img/**").permitAll()
+                        .requestMatchers("/user/login", "/", "/user/Signup", "/login", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/rest/**", "/category").hasAnyAuthority("ROLE_USER")
                         .anyRequest().authenticated());
+
         http
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
 
