@@ -23,11 +23,11 @@
     </div>
     <div class="form-container sign-in-container">
         <!--로그인-->
-        <form action="/login" method="post">
+        <form id = "login-form">
             <h1>Sign in</h1>
             <br>
-            <input type="text" class="form-control" name="uid" placeholder="Id" autocomplete="username"/>
-            <input type="password" class="form-control" name="upassword" placeholder="Password" autocomplete="current-password"/>
+            <input type="text" class="form-control" id="uid" placeholder="Id" autocomplete="username"/>
+            <input type="password" class="form-control" id="upassword" placeholder="Password" autocomplete="current-password"/>
             <a href="/user/findid">Forgot your id/password?</a>
             <button type="submit">Sign In</button>
         </form>
@@ -51,6 +51,70 @@
 </div>
 
 <script type="text/javascript">
+    document.getElementById("login-form").addEventListener("submit", async function(event) {
+        event.preventDefault(); // 기본 제출 동작 방지
+
+        const uid = document.getElementById("uid").value;
+        const password = document.getElementById("upassword").value;
+
+        const response = await fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({uid, upassword: password}),
+            credentials: 'include'
+        });
+
+        /*if (response.ok) {
+            const token = response.headers.get("Authorization");
+            console.log(token)
+            if (token) {
+                localStorage.setItem("token", token);
+                alert("로그인 성공!");
+                const categoryResponse = await fetch("/category", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `${token}`
+                    }
+                });
+
+                if (categoryResponse.ok) {
+                    alert("로그인 및 /category 페이지 로딩 성공!");
+                    window.location.href = "/rest/category"
+                } else {
+                    const errorMessage = await categoryResponse.text();  // 실패시 서버의 응답 메시지 확인
+                    alert(`카테고리 접근 실패: ${errorMessage}`);
+                }
+            }
+            else {
+                alert("로그인 실패. 아이디/비밀번호를 확인하세요.");
+            }
+
+        }*/
+
+        if (response.ok) {
+            alert("로그인 성공!");
+            const categoryResponse = await fetch("/category", {
+                method: "GET",
+                headers: {}
+            });
+
+            if (categoryResponse.ok) {
+                alert("로그인 및 /category 페이지 로딩 성공!");
+                window.location.href = "/rest/category"
+            } else {
+                const errorMessage = await categoryResponse.text();  // 실패시 서버의 응답 메시지 확인
+                alert(`카테고리 접근 실패: ${errorMessage}`);
+            }
+        }
+    });
+
+    function getAuthHeaders() {
+        const token = localStorage.getItem("token");
+        return token ? { "Authorization": token } : {};
+    }
+
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
