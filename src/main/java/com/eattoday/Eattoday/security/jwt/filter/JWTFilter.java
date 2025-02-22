@@ -1,10 +1,12 @@
 package com.eattoday.Eattoday.security.jwt.filter;
 
 import com.eattoday.Eattoday.dto.UserForm;
+import com.eattoday.Eattoday.security.dto.CustomUserDetails;
 import com.eattoday.Eattoday.security.jwt.JWTUtil;
 import com.eattoday.Eattoday.user.domain.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,9 +26,26 @@ public class JWTFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException{
-        String authorization = request.getHeader("Authorization");
+        /*String authorization = request.getHeader("Authorization");
 
-        if(authorization == null || !authorization.startsWith("Bearer")){
+        if(authorization == null || !authorization.startsWith("Bearer ")){
+            System.out.println("token null");
+            filterChain.doFilter(request, response);
+
+            return;
+        }*/
+        Cookie[] cookies = request.getCookies();
+        String authorization = null;
+        if(cookies != null){
+            for (Cookie cookie : cookies) {
+                if ("Authorization".equals(cookie.getName())) {
+                    authorization = cookie.getValue();
+                    break;
+                }
+            }
+        }
+
+        if(authorization == null /*|| !authorization.startsWith("Bearer")*/){
             System.out.println("token null");
             filterChain.doFilter(request, response);
 
@@ -34,7 +53,10 @@ public class JWTFilter extends OncePerRequestFilter {
         }
 
         System.out.println("authorization now");
-        String token = authorization.split(" ")[1];
+        System.out.println("before substring" + authorization);
+        //String token = authorization.substring(7).trim();
+        String token = authorization;
+        System.out.println(token);
 
         if(jwtUtil.isExpired(token)){
             System.out.println("token expired");
@@ -47,11 +69,12 @@ public class JWTFilter extends OncePerRequestFilter {
         user.setUid(userName);
         user.setUpassword("tempPassword");
 
-        UserForm userForm = UserForm.toUserFrom(user);
+        CustomUserDetails customUserDetails = new CustomUserDetails(user);
 
-        Authentication authToken = new UsernamePasswordAuthenticationToken(userForm, null);
+        Authentication authToken = new UsernamePasswordAuthenticationToken(customUserDetails, null, customUserDetails.getAuthorities());
 
         SecurityContextHolder.getContext().setAuthentication(authToken);
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
         filterChain.doFilter(request, response);
 
     }
