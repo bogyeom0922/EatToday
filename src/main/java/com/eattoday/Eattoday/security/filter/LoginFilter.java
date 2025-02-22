@@ -6,6 +6,7 @@ import com.eattoday.Eattoday.security.jwt.JWTUtil;
 import com.eattoday.Eattoday.user.controller.dto.LoginRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -62,7 +63,15 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         String token = jwtUtil.createJwt(userId, 60*60*10L);
 
-        response.addHeader("Authorization", "Bearer " + token);
+        Cookie cookie = new Cookie("Authorization", token);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(false);
+        cookie.setPath("/");
+        cookie.setMaxAge(60 * 60 * 10);
+
+        response.addCookie(cookie);
+
+        //response.addHeader("Authorization", "Bearer " + token);
     }
 
     @Override
