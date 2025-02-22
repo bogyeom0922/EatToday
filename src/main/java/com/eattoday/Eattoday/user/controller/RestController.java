@@ -1,5 +1,6 @@
 package com.eattoday.Eattoday.user.controller;
 
+import com.eattoday.Eattoday.security.service.CustomUserDetailsService;
 import com.eattoday.Eattoday.service.ReviewService;
 import com.eattoday.Eattoday.dto.ReviewDto;
 import com.eattoday.Eattoday.entity.Store;
@@ -39,10 +40,22 @@ public class RestController {
     @Autowired
     private ReviewService reviewService;
 
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
     @Value("${kakao.api.key}")
     private String kakaoApiKey;
 
     //storelist
+
+    @GetMapping("/category")
+    public String categoryPage(Model model){
+        User currentUser = customUserDetailsService.getCurrentUserFromSecurityContext();
+        String uid = currentUser.getUid();
+        model.addAttribute("uid", uid);
+
+        return "rest/category";
+    }
     @GetMapping(value = "/storelist/{uid}") //전체 식당 조회
     public String storelist(@PathVariable String uid, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
 
