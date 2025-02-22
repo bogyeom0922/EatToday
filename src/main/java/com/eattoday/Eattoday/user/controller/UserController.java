@@ -18,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +37,8 @@ import java.util.List;
 @RequiredArgsConstructor //userRepository 생성자 만들어주는 어노테이션
 public class UserController {
 
+    @Autowired
+    private final BCryptPasswordEncoder passwordEncoder;
     //repository 객체 선언
     @Autowired
     private final UserRepository userRepository;
@@ -71,7 +74,6 @@ public class UserController {
     public String login(UserForm form) {
 
         UserForm loginResult = userService.login(form);
-
         //로그인 성공
         if (loginResult != null) {
 
@@ -134,6 +136,7 @@ public class UserController {
         // System.out.println(form.toString());
 
         //1. DTO를 엔티티로 변환
+        form.setUpassword(passwordEncoder.encode(form.getUpassword()));
         User user = form.toEntity();
         log.info(user.toString());
 
