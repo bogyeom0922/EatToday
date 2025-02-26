@@ -34,6 +34,7 @@ public class JWTFilter extends OncePerRequestFilter {
 
             return;
         }*/
+
         Cookie[] cookies = request.getCookies();
         String authorization = null;
         if(cookies != null){
@@ -58,12 +59,27 @@ public class JWTFilter extends OncePerRequestFilter {
         String token = authorization;
         System.out.println(token);
 
+        String userName = jwtUtil.getUserName(token);
+
         if(jwtUtil.isExpired(token)){
             System.out.println("token expired");
-            filterChain.doFilter(request, response);
-        }
+            Cookie expiredCookie = new Cookie("Authorization", "");
+            expiredCookie.setHttpOnly(true);
+            expiredCookie.setPath("/");
+            expiredCookie.setMaxAge(0);
+            response.addCookie(expiredCookie);
 
-        String userName = jwtUtil.getUserName(token);
+            String newToken = jwtUtil.createJwt(userName, 10 * 10 * 100L);
+            System.out.println("New Token: " + newToken);
+
+            // 새로운 Authorization 쿠키 설정
+            Cookie newJwtCookie = new Cookie("Authorization", newToken);
+            newJwtCookie.setHttpOnly(true);
+            newJwtCookie.setPath("/");
+            newJwtCookie.setMaxAge(60 * 6);
+            response.addCookie(newJwtCookie);
+            return;
+        }
 
         User user = new User();
         user.setUid(userName);

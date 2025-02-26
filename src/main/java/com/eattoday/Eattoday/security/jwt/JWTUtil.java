@@ -1,6 +1,7 @@
 package com.eattoday.Eattoday.security.jwt;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -22,12 +23,22 @@ public class JWTUtil {
     }
 
     public String getUserName(String token){
-        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().get("username", String.class);
+        try {
+            return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().get("username", String.class);
+        }
+        catch(ExpiredJwtException e){
+            System.out.println("JWT token is expired: " + e.getMessage());
+            return null;
+        }
     }
 
     public Boolean isExpired(String token) {
-
-        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().getExpiration().before(new Date());
+        try {
+            return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody().getExpiration().before(new Date());
+        } catch (Exception e) {
+            System.out.println("Token parsing error: " + e.getMessage());
+            return true;
+        }
     }
 
     public String createJwt(String username, Long expiredMs) {

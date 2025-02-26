@@ -51,6 +51,7 @@
 </div>
 
 <script type="text/javascript">
+
     document.getElementById("login-form").addEventListener("submit", async function(event) {
         event.preventDefault(); // 기본 제출 동작 방지
 
@@ -97,14 +98,15 @@
             alert("로그인 성공!");
             const categoryResponse = await fetch("/category", {
                 method: "GET",
-                headers: {}
+                headers: {},
+                credentials: `include`
             });
 
             if (categoryResponse.ok) {
                 alert("로그인 및 /category 페이지 로딩 성공!");
                 window.location.href = "/category"
             } else {
-                const errorMessage = await categoryResponse.text();  // 실패시 서버의 응답 메시지 확인
+                const errorMessage = await categoryResponse.text();
                 alert(`카테고리 접근 실패: ${errorMessage}`);
             }
         }

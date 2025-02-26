@@ -61,13 +61,13 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
         String userId = customUserDetails.getUsername();
 
-        String token = jwtUtil.createJwt(userId, 60*60*10L);
+        String token = jwtUtil.createJwt(userId, 60*60*100L);
 
         Cookie cookie = new Cookie("Authorization", token);
         cookie.setHttpOnly(true);
         cookie.setSecure(false);
         cookie.setPath("/");
-        cookie.setMaxAge(60 * 60 * 10);
+        cookie.setMaxAge(60 * 6);
 
         response.addCookie(cookie);
 
