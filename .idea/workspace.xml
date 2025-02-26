@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Refactor: 크롤링 코드 개선 및 불필요한 데이터 제거 #99&#10;&#10;- 웹 드라이버 재시작 함수 추가&#10;- `WebDriverWait`을 사용한 안정성 강화&#10;- 메뉴 추출 코드 함수화&#10;- 리뷰 수집 및 관련 데이터 제거&#10;- 크롤링된 데이터 필수 항목 누락 시 건너뛰기&#10;- 최대 크롤링 횟수 제한 (각 구별 최대 5개 식당)&#10;- CSV 파일 저장 구조 개선 (불필요한 리뷰 관련 칼럼 제거)&#10;&#10;close: #99">
+    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/chat/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/chat/controller/ChatController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -32,6 +35,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "bogyeom0922"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/bogyeom0922/EatToday.git",
+    "accountId": "fccdca62-3214-4601-9090-fc9cc4e45fa2"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -43,28 +58,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build EatToday.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.EattodayApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;featureback#109-chat-websocket&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bogyeom/EatToday/build.gradle&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build EatToday.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.EattodayApplication.executor": "Run",
+    "git-widget-placeholder": "featureback#109-chat-websocket",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/bogyeom/EatToday/build.gradle",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -187,14 +202,6 @@
       </method>
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -261,7 +268,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739502811059</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1740557333048</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740557333048</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1740557796709</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740557796709</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +299,8 @@
     <MESSAGE value="Build: Dockerfile 생성" />
     <MESSAGE value="merge" />
     <MESSAGE value="Refactor: 크롤링 코드 오류 수정 및 지역 통합 #99&#10;&#10;- 메뉴 끝 공백 삭제&#10;- 메뉴 및 대표사진 주소 크롤링 문제 개선&#10;- 지역 데이터를 하나의 파일에 저장하고, 지역 칼럼 추가로 분리 가능하게 개선&#10;&#10;close: #99" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor: 크롤링 코드 오류 수정 및 지역 통합 #99&#10;&#10;- 메뉴 끝 공백 삭제&#10;- 메뉴 및 대표사진 주소 크롤링 문제 개선&#10;- 지역 데이터를 하나의 파일에 저장하고, 지역 칼럼 추가로 분리 가능하게 개선&#10;&#10;close: #99" />
+    <MESSAGE value="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
