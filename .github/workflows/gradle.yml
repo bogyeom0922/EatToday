@@ -42,11 +42,11 @@ jobs:
     # 6. Docker 이미지 빌드 및 푸시
     - name: Docker Build and Push
       run: |
-        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker build -t app .
         docker tag app ${{ secrets.DOCKER_USERNAME }}/sejongmate:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/sejongmate:latest
-
+    
     # 7. 배포 작업
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
