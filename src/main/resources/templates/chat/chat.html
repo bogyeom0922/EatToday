@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.0/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+</head>
+<body>
+<h1>매장에 문의하기</h1>
+<div id="messages"></div>
+<input type="text" id="messageInput" placeholder="메시지를 입력하세요">
+<button onclick="sendMessage()">전송</button>
+
+<script>
+    var socket = new SockJS('/ws');  // WebSocket 연결
+    var stompClient = Stomp.over(socket);
+
+    // WebSocket 연결
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/inquiries/room1', function (messageOutput) {
+            var message = JSON.parse(messageOutput.body);
+            document.getElementById("messages").innerHTML += "<p>매니저: " + message + "</p>";
+        });
+    });
+
+    // 메시지 전송
+    function sendMessage() {
+        var message = document.getElementById("messageInput").value;
+        stompClient.send("/app/inquiry", {}, message);  // "/app/inquiry"
+        document.getElementById("messageInput").value = "";
+    }
+</script>
+</body>
+</html>
