@@ -1,6 +1,6 @@
-package com.eattoday.Eattoday.repository;
+package com.eattoday.Eattoday.store.repository;
 
-import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.store.entity.Store;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

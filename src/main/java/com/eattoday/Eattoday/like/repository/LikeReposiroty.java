@@ -1,6 +1,6 @@
-package com.eattoday.Eattoday.repository;
+package com.eattoday.Eattoday.like.repository;
 
-import com.eattoday.Eattoday.entity.Like;
+import com.eattoday.Eattoday.like.entity.Like;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

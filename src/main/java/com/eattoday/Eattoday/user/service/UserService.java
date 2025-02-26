@@ -1,6 +1,6 @@
 package com.eattoday.Eattoday.user.service;
 
-import com.eattoday.Eattoday.dto.UserForm;
+import com.eattoday.Eattoday.user.mapper.UserForm;
 import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

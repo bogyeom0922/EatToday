@@ -1,6 +1,6 @@
-package com.eattoday.Eattoday.dto;
+package com.eattoday.Eattoday.review.dto;
 
-import com.eattoday.Eattoday.entity.Review;
+import com.eattoday.Eattoday.review.entity.Review;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

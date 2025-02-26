@@ -1,10 +1,10 @@
 package com.eattoday.Eattoday.recommend.service;
 
-import com.eattoday.Eattoday.entity.Like;
-import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.like.entity.Like;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.recommend.service.exception.ExistRecommendException;
-import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.service.LikeService;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
+import com.eattoday.Eattoday.like.service.LikeService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

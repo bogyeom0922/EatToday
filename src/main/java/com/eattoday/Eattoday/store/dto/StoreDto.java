@@ -1,6 +1,6 @@
-package com.eattoday.Eattoday.dto;
+package com.eattoday.Eattoday.store.dto;
 
-import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.store.entity.Store;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;

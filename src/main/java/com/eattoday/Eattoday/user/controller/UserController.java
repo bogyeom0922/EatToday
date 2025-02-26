@@ -1,14 +1,15 @@
 package com.eattoday.Eattoday.user.controller;
 
-import com.eattoday.Eattoday.dto.LikeDto;
-import com.eattoday.Eattoday.service.EmailSendService;
+import com.eattoday.Eattoday.like.dto.LikeDto;
+import com.eattoday.Eattoday.like.service.LikeService;
+import com.eattoday.Eattoday.email.service.EmailSendService;
 import com.eattoday.Eattoday.user.service.UserService;
-import com.eattoday.Eattoday.dto.UserForm;
-import com.eattoday.Eattoday.entity.Review;
-import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.user.mapper.UserForm;
+import com.eattoday.Eattoday.review.entity.Review;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.user.domain.User;
-import com.eattoday.Eattoday.repository.ReviewRepository;
-import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.review.repository.ReviewRepository;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
 import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -56,7 +57,7 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
-    private com.eattoday.Eattoday.service.LikeService likeService;
+    private LikeService likeService;
 
     //main
     @GetMapping("/")

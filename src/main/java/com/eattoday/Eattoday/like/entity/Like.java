@@ -1,6 +1,7 @@
-package com.eattoday.Eattoday.entity;
+package com.eattoday.Eattoday.like.entity;
 
-import com.eattoday.Eattoday.dto.LikeDto;
+import com.eattoday.Eattoday.like.dto.LikeDto;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,5 @@
 package com.eattoday.Eattoday.security.filter;
 
-import com.eattoday.Eattoday.dto.UserForm;
 import com.eattoday.Eattoday.security.dto.CustomUserDetails;
 import com.eattoday.Eattoday.security.jwt.JWTUtil;
 import com.eattoday.Eattoday.user.controller.dto.LoginRequest;

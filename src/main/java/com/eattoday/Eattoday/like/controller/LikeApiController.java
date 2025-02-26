@@ -1,8 +1,8 @@
-package com.eattoday.Eattoday.api;
+package com.eattoday.Eattoday.like.controller;
 
-import com.eattoday.Eattoday.dto.LikeDto;
-import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.service.LikeService;
+import com.eattoday.Eattoday.like.dto.LikeDto;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
+import com.eattoday.Eattoday.like.service.LikeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

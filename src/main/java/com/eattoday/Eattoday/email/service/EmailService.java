@@ -1,4 +1,4 @@
-package com.eattoday.Eattoday.service;
+package com.eattoday.Eattoday.email.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

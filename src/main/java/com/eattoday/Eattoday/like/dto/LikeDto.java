@@ -1,8 +1,7 @@
-package com.eattoday.Eattoday.dto;
+package com.eattoday.Eattoday.like.dto;
 
-import com.eattoday.Eattoday.entity.Like;
+import com.eattoday.Eattoday.like.entity.Like;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.GeneratedValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

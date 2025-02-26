@@ -1,8 +1,8 @@
-package com.eattoday.Eattoday.service;
+package com.eattoday.Eattoday.store.service;
 
-import com.eattoday.Eattoday.dto.StoreDto;
-import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.store.dto.StoreDto;
+import com.eattoday.Eattoday.store.entity.Store;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

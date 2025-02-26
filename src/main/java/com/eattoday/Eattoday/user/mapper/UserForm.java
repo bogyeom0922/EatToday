@@ -1,4 +1,4 @@
-package com.eattoday.Eattoday.dto;
+package com.eattoday.Eattoday.user.mapper;
 
 import com.eattoday.Eattoday.user.domain.User;
 import jakarta.validation.constraints.NotBlank;

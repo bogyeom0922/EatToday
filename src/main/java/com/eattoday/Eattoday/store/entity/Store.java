@@ -1,4 +1,4 @@
-package com.eattoday.Eattoday.entity;
+package com.eattoday.Eattoday.store.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

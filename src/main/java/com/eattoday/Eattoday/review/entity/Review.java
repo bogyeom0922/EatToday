@@ -1,10 +1,9 @@
-package com.eattoday.Eattoday.entity;
+package com.eattoday.Eattoday.review.entity;
 
-import com.eattoday.Eattoday.dto.ReviewDto;
+import com.eattoday.Eattoday.review.dto.ReviewDto;
+import com.eattoday.Eattoday.store.entity.Store;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Objects;
 
 @Entity
 @Getter

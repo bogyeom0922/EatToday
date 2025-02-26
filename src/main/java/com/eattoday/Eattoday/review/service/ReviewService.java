@@ -1,14 +1,12 @@
-package com.eattoday.Eattoday.service;
+package com.eattoday.Eattoday.review.service;
 
-import com.eattoday.Eattoday.dto.ReviewDto;
-import com.eattoday.Eattoday.entity.Review;
-import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.repository.ReviewRepository;
-import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.review.dto.ReviewDto;
+import com.eattoday.Eattoday.review.entity.Review;
+import com.eattoday.Eattoday.store.entity.Store;
+import com.eattoday.Eattoday.review.repository.ReviewRepository;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
