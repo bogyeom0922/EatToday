@@ -1,11 +1,12 @@
 package com.eattoday.Eattoday.user.controller;
 
-import com.eattoday.Eattoday.service.ReviewService;
-import com.eattoday.Eattoday.dto.ReviewDto;
-import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.security.service.CustomUserDetailsService;
+import com.eattoday.Eattoday.review.service.ReviewService;
+import com.eattoday.Eattoday.review.dto.ReviewDto;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.user.domain.User;
-import com.eattoday.Eattoday.repository.StoreRepository;
-import com.eattoday.Eattoday.service.StoreService;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
+import com.eattoday.Eattoday.store.service.StoreService;
 import com.eattoday.Eattoday.user.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,22 @@ public class RestController {
     @Autowired
     private ReviewService reviewService;
 
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
     @Value("${kakao.api.key}")
     private String kakaoApiKey;
 
     //storelist
+
+    @GetMapping("/category")
+    public String categoryPage(Model model){
+        User currentUser = customUserDetailsService.getCurrentUserFromSecurityContext();
+        String uid = currentUser.getUid();
+        model.addAttribute("uid", uid);
+
+        return "rest/category";
+    }
     @GetMapping(value = "/storelist/{uid}") //전체 식당 조회
     public String storelist(@PathVariable String uid, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) throws IOException {
 

@@ -1,14 +1,15 @@
 package com.eattoday.Eattoday.user.controller;
 
-import com.eattoday.Eattoday.dto.LikeDto;
-import com.eattoday.Eattoday.service.EmailSendService;
+import com.eattoday.Eattoday.like.dto.LikeDto;
+import com.eattoday.Eattoday.like.service.LikeService;
+import com.eattoday.Eattoday.email.service.EmailSendService;
 import com.eattoday.Eattoday.user.service.UserService;
-import com.eattoday.Eattoday.dto.UserForm;
-import com.eattoday.Eattoday.entity.Review;
-import com.eattoday.Eattoday.entity.Store;
+import com.eattoday.Eattoday.user.mapper.UserForm;
+import com.eattoday.Eattoday.review.entity.Review;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.user.domain.User;
-import com.eattoday.Eattoday.repository.ReviewRepository;
-import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.review.repository.ReviewRepository;
+import com.eattoday.Eattoday.store.repository.StoreRepository;
 import com.eattoday.Eattoday.user.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,8 @@ import java.util.List;
 @RequiredArgsConstructor //userRepository 생성자 만들어주는 어노테이션
 public class UserController {
 
+    @Autowired
+    private final BCryptPasswordEncoder passwordEncoder;
     //repository 객체 선언
     @Autowired
     private final UserRepository userRepository;
@@ -53,7 +57,7 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
-    private com.eattoday.Eattoday.service.LikeService likeService;
+    private LikeService likeService;
 
     //main
     @GetMapping("/")
@@ -71,7 +75,6 @@ public class UserController {
     public String login(UserForm form) {
 
         UserForm loginResult = userService.login(form);
-
         //로그인 성공
         if (loginResult != null) {
 
@@ -134,6 +137,7 @@ public class UserController {
         // System.out.println(form.toString());
 
         //1. DTO를 엔티티로 변환
+        form.setUpassword(passwordEncoder.encode(form.getUpassword()));
         User user = form.toEntity();
         log.info(user.toString());
 

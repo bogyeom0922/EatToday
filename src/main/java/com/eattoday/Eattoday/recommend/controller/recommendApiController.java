@@ -1,7 +1,6 @@
 package com.eattoday.Eattoday.recommend.controller;
 
-import com.eattoday.Eattoday.entity.Store;
-import com.eattoday.Eattoday.repository.StoreRepository;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.recommend.service.RecommendationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
