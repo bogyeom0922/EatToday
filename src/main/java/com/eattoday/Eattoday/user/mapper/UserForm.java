@@ -25,9 +25,11 @@ public class UserForm {
     @NotBlank(message = "이메일을 입력해주세요.")
     private String email;
 
+    private String role;
+
     // dto(userForm)에서 entity(User)로 값 넘겨줌
     public User toEntity() {
-        return new User(id, uid, uname, upassword, email);
+        return new User(id, uid, uname, upassword, email, role);
     }
 
     public static UserForm toUserFrom(User user) {

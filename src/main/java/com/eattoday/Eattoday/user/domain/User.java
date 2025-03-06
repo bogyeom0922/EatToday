@@ -24,6 +24,8 @@ public class User {
     private String upassword;
     @Column //email 필드 선언
     private String email;
+    @Column
+    private String role;
 
     public void checkPassword(String password) {
         if(!Objects.equals(upassword, password)) {

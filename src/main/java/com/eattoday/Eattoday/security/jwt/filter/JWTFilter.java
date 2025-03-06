@@ -2,6 +2,7 @@ package com.eattoday.Eattoday.security.jwt.filter;
 
 import com.eattoday.Eattoday.security.dto.CustomUserDetails;
 import com.eattoday.Eattoday.security.jwt.JWTUtil;
+import com.eattoday.Eattoday.security.service.CustomUserDetailsService;
 import com.eattoday.Eattoday.user.domain.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -10,10 +11,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Collection;
 
 public class JWTFilter extends OncePerRequestFilter {
 
@@ -59,6 +63,7 @@ public class JWTFilter extends OncePerRequestFilter {
         System.out.println(token);
 
         String userName = jwtUtil.getUserName(token);
+        String role = jwtUtil.getRole(token);
 
         if(jwtUtil.isExpired(token)){
             System.out.println("token expired");
@@ -68,7 +73,8 @@ public class JWTFilter extends OncePerRequestFilter {
             expiredCookie.setMaxAge(0);
             response.addCookie(expiredCookie);
 
-            String newToken = jwtUtil.createJwt(userName, 10 * 10 * 100L);
+
+            String newToken = jwtUtil.createJwt(userName, role, 10 * 10 * 100L);
             System.out.println("New Token: " + newToken);
 
             // 새로운 Authorization 쿠키 설정
