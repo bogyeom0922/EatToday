@@ -18,6 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.io.IOException;
 import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -120,6 +121,16 @@ public class SecurityTest {
         mockMvc.perform(get("/category")
                 .cookie(authorizationCookie))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("인증되지 않은 api 이동 시 인증 실패 테스트")
+    public void checkSecurityFailure() throws Exception {
+        Cookie authorizationCookie = getLoginCookie();
+
+        mockMvc.perform(get("/admin")
+                .cookie(authorizationCookie))
+                .andExpect(status().isForbidden());
     }
 
     public static String createInvalidSignatureJwt() {
