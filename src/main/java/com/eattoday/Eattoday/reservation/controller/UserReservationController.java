@@ -2,13 +2,13 @@ package com.eattoday.Eattoday.reservation.controller;
 
 import com.eattoday.Eattoday.reservation.domain.Reservation;
 import com.eattoday.Eattoday.reservation.domain.UserReservation;
+import com.eattoday.Eattoday.reservation.dto.ReservationRequest;
 import com.eattoday.Eattoday.reservation.service.UserReservationService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @RestController
@@ -21,8 +21,8 @@ public class UserReservationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserReservation> reserve(@RequestParam Long userId, @RequestParam Date reservationDate){
-        UserReservation userReservation = userReservationService.registerReservation(userId, reservationDate);
+    public ResponseEntity<UserReservation> reserve(@RequestBody ReservationRequest request){
+        UserReservation userReservation = userReservationService.registerReservation(request.getUserId(), request.getReservationTime());
         return ResponseEntity.ok().body(userReservation);
     }
 

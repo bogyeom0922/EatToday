@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -18,17 +20,18 @@ public class UserReservation {
     private Long id;
 
     @Column
-    private Date reservationDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime reservationDate;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "User_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "Reservation_id")
+    @JoinColumn(name = "reservation_id")
     private Reservation reservation;
 
-    public UserReservation(User user, Reservation reservation, Date reservationDate) {
+    public UserReservation(User user, Reservation reservation, LocalDateTime reservationDate) {
         this.user = user;
         this.reservation = reservation;
         this.reservationDate = reservationDate;

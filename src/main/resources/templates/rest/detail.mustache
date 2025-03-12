@@ -61,6 +61,16 @@
                 <div id="ReviewDisplay"></div>
             </div>
         </div>
+        <div class="container">
+            <h2>예약 날짜 선택</h2>
+                <label for="reservationDate">날짜 선택:</label>
+                <input type="text" id="reservationDate" name="reservationDate" readonly required>
+                <button type="button" onclick="toggleCalendar()">📅 날짜 선택</button>
+
+                <table id="calendar" class="calendar"></table>
+
+                <button id = "reserve-button" type="submit">예약하기</button>
+        </div>
     </div>
 {{/rest}}
 
@@ -116,6 +126,76 @@
         // 새 창으로 길찾기 열기
         window.open(kakaoMapURL, '_blank');
     });
+</script>
+
+<script>
+    function toggleCalendar() {
+        let calendar = document.getElementById("calendar");
+        calendar.style.display = (calendar.style.display === "none" || calendar.style.display === "") ? "table" : "none";
+        if (calendar.innerHTML === "") {
+            generateCalendar();
+        }
+    }
+
+    function generateCalendar() {
+        let calendar = document.getElementById("calendar");
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth();
+
+        let firstDay = new Date(year, month, 1).getDay();  // 해당 월의 첫째 날 요일 (0: 일요일 ~ 6: 토요일)
+        let lastDate = new Date(year, month + 1, 0).getDate();  // 해당 월의 마지막 날짜
+
+        let days = ["일", "월", "화", "수", "목", "금", "토"];
+        let html = "<tr>" + days.map(day => `<th>${day}</th>`).join("") + "</tr>";
+
+        let date = 1;
+        for (let i = 0; i < 6; i++) {  // 최대 6주
+            let row = "<tr>";
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDay) {
+                    row += "<td></td>"; // 첫 주 빈 칸 채우기
+                } else if (date > lastDate) {
+                    row += "<td></td>"; // 마지막 날짜 넘어서면 빈 칸
+                } else {
+                    row += `<td onclick="selectDate(${year}, ${month + 1}, ${date})">${date}</td>`;
+                    date++;
+                }
+            }
+            row += "</tr>";
+            html += row;
+            if (date > lastDate) break;
+        }
+        calendar.innerHTML = html;
+    }
+
+    function selectDate(year, month, day) {
+        document.getElementById("reservationDate").value = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        document.getElementById("calendar").style.display = "none";
+    }
+
+    document.getElementById('reserve-button').addEventListener('click', function(){
+        const id = document.querySelector("#new-like-user-id").value;
+        const reservationDateInput = document.getElementById('reservationDate').value;
+        const reservationDate = reservationDateInput.replace("T", " ");
+        fetch("/reservation", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId : id,
+                reservationTime : reservationDate
+            })
+        }).then(response => {
+            if (response.ok) {
+                alert("예약이 완료되었습니다!");
+            } else {
+                alert("예약 실패. 다시 시도해주세요.");
+            }
+        });
+    });
+
 </script>
 
 <script>

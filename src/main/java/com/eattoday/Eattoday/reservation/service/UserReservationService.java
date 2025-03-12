@@ -10,6 +10,7 @@ import com.eattoday.Eattoday.user.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Service
@@ -25,7 +26,7 @@ public class UserReservationService {
         this.reservationRepository = reservationRepository;
     }
 
-    public UserReservation registerReservation(Long userId, Date reservationDate){
+    public UserReservation registerReservation(Long userId, LocalDateTime reservationDate){
         User user = getUser(userId);
         Reservation reservation = getReservation();
         UserReservation userReservation = new UserReservation(user, reservation, reservationDate);
