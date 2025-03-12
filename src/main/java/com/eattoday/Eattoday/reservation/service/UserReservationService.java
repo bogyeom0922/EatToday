@@ -2,9 +2,12 @@ package com.eattoday.Eattoday.reservation.service;
 
 import com.eattoday.Eattoday.reservation.domain.Reservation;
 import com.eattoday.Eattoday.reservation.domain.UserReservation;
+import com.eattoday.Eattoday.reservation.repository.ReservationRepository;
 import com.eattoday.Eattoday.reservation.repository.UserReservationRepository;
+import com.eattoday.Eattoday.reservation.service.exception.ExistReservationException;
 import com.eattoday.Eattoday.user.domain.User;
 import com.eattoday.Eattoday.user.repository.UserRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -14,10 +17,12 @@ public class UserReservationService {
 
     private final UserReservationRepository userReservationRepository;
     private final UserRepository userRepository;
+    private final ReservationRepository reservationRepository;
 
-    public UserReservationService(UserReservationRepository userReservationRepository, UserRepository userRepository){
+    public UserReservationService(UserReservationRepository userReservationRepository, UserRepository userRepository, ReservationRepository reservationRepository){
         this.userReservationRepository = userReservationRepository;
         this.userRepository = userRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     public UserReservation registerReservation(Long userId, Date reservationDate){
@@ -27,6 +32,14 @@ public class UserReservationService {
         userReservationRepository.save(userReservation);
 
         return userReservation;
+    }
+
+    public Reservation deleteReservation(Long reservationId){
+        Reservation reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(ExistReservationException::new);
+        userReservationRepository.deleteByReservationId(reservationId);
+
+        return reservation;
     }
 
     private Reservation getReservation() {
