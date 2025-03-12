@@ -176,6 +176,7 @@
 
     document.getElementById('reserve-button').addEventListener('click', function(){
         const id = document.querySelector("#new-like-user-id").value;
+        const storeId = document.querySelector("#new-like-store-id").value;
         const reservationDateInput = document.getElementById('reservationDate').value;
         const reservationDate = reservationDateInput.replace("T", " ");
         fetch("/reservation", {
@@ -185,6 +186,7 @@
             },
             body: JSON.stringify({
                 userId : id,
+                storeId : storeId,
                 reservationTime : reservationDate
             })
         }).then(response => {

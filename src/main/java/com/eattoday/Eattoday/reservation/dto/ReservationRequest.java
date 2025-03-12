@@ -12,6 +12,8 @@ public class ReservationRequest {
 
     private Long userId;
 
+    private Long StoreId;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime reservationTime;
 

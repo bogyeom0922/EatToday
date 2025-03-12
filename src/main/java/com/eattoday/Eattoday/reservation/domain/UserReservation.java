@@ -1,6 +1,7 @@
 package com.eattoday.Eattoday.reservation.domain;
 
 import com.eattoday.Eattoday.reservation.domain.Reservation;
+import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.user.domain.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -28,12 +29,12 @@ public class UserReservation {
     private User user;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
+    @JoinColumn(name = "store_id")
+    private Store store;
 
-    public UserReservation(User user, Reservation reservation, LocalDateTime reservationDate) {
+    public UserReservation(User user, Store store, LocalDateTime reservationDate) {
         this.user = user;
-        this.reservation = reservation;
+        this.store = store;
         this.reservationDate = reservationDate;
     }
 

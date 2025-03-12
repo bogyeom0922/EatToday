@@ -22,13 +22,13 @@ public class UserReservationController {
 
     @PostMapping("/register")
     public ResponseEntity<UserReservation> reserve(@RequestBody ReservationRequest request){
-        UserReservation userReservation = userReservationService.registerReservation(request.getUserId(), request.getReservationTime());
+        UserReservation userReservation = userReservationService.registerReservation(request.getUserId(), request.getStoreId(), request.getReservationTime());
         return ResponseEntity.ok().body(userReservation);
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<Reservation> delete(@RequestParam Long reservationId){
-        Reservation reservation = userReservationService.deleteReservation(reservationId);
+    public ResponseEntity<UserReservation> delete(@RequestParam Long reservationId){
+        UserReservation reservation = userReservationService.deleteReservation(reservationId);
         return ResponseEntity.ok().body(reservation);
     }
 
