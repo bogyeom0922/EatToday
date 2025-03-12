@@ -2,6 +2,8 @@ package com.eattoday.Eattoday.reservation.service;
 
 import com.eattoday.Eattoday.reservation.domain.Reservation;
 import com.eattoday.Eattoday.reservation.domain.UserReservation;
+import com.eattoday.Eattoday.reservation.exception.exceptions.ReservationErrorCode;
+import com.eattoday.Eattoday.reservation.exception.exceptions.ReservationException;
 import com.eattoday.Eattoday.reservation.repository.ReservationRepository;
 import com.eattoday.Eattoday.reservation.repository.UserReservationRepository;
 import com.eattoday.Eattoday.reservation.service.exception.ExistReservationException;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class UserReservationService {
@@ -31,6 +34,7 @@ public class UserReservationService {
     public UserReservation registerReservation(Long userId, Long storeId, LocalDateTime reservationDate){
         User user = getUser(userId);
         Store store = getStore(storeId);
+        checkDuplicate(userId, storeId, reservationDate);
         UserReservation userReservation = new UserReservation(user, store, reservationDate);
         userReservationRepository.save(userReservation);
 
@@ -55,6 +59,12 @@ public class UserReservationService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("id에 해당하는 user가 없습니다."));
         return user;
+    }
+
+    private void checkDuplicate(Long userId, Long storeId, LocalDateTime reservationDate){
+        UserReservation existingReservation = userReservationRepository.findByUserAndStoreAndReservationDate(userId, storeId, reservationDate);
+        if(existingReservation != null)
+            throw new ReservationException(ReservationErrorCode.EXIST_RESERVATION);
     }
 
 }
