@@ -45,6 +45,9 @@ dependencies {
 
 	//thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	//test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 // 테스트 플랫폼 설정
