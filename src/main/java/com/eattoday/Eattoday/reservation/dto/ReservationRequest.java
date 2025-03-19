@@ -1,5 +1,7 @@
 package com.eattoday.Eattoday.reservation.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,7 +16,7 @@ public class ReservationRequest {
 
     private Long StoreId;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime reservationTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime reservationDate;
 
 }

@@ -15,7 +15,4 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy = "reservation")
-    private List<UserReservation> userReservations = new ArrayList<>();
-
 }
