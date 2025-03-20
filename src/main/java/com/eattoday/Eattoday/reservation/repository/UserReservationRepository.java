@@ -16,4 +16,8 @@ public interface UserReservationRepository extends JpaRepository<UserReservation
 
     @Query("select r from UserReservation r where r.user.id = ?1 and r.store.id = ?2 and r.reservationDate = ?3")
     UserReservation findByUserAndStoreAndReservationDate(Long userId, Long storeId, LocalDateTime reservationDate);
+
+    @Query("select r from UserReservation r where r.store.id = ?1 and r.reservationDate = ?2")
+    UserReservation findByStoreIdAndReservationDate(Long storeId, LocalDateTime reservationDate);
+
 }

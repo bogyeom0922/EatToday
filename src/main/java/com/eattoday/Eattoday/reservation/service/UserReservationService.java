@@ -7,6 +7,7 @@ import com.eattoday.Eattoday.reservation.exception.exceptions.ReservationExcepti
 import com.eattoday.Eattoday.reservation.repository.ReservationRepository;
 import com.eattoday.Eattoday.reservation.repository.UserReservationRepository;
 import com.eattoday.Eattoday.reservation.service.exception.ExistReservationException;
+import com.eattoday.Eattoday.reservation.service.exception.NotExistReservationException;
 import com.eattoday.Eattoday.store.entity.Store;
 import com.eattoday.Eattoday.store.repository.StoreRepository;
 import com.eattoday.Eattoday.user.domain.User;
@@ -32,6 +33,7 @@ public class UserReservationService {
     }
 
     public UserReservation registerReservation(Long userId, Long storeId, LocalDateTime reservationDate){
+        isExistReservation(storeId, reservationDate);
         User user = getUser(userId);
         Store store = getStore(storeId);
         checkDuplicate(userId, storeId, reservationDate);
@@ -43,10 +45,17 @@ public class UserReservationService {
 
     public UserReservation deleteReservation(Long reservationId){
         UserReservation reservation = userReservationRepository.findById(reservationId)
-                .orElseThrow(ExistReservationException::new);
+                .orElseThrow(NotExistReservationException::new);
         userReservationRepository.deleteByReservationId(reservationId);
 
         return reservation;
+    }
+
+    private void isExistReservation(Long storeId, LocalDateTime reservationDate){
+        UserReservation reservation = userReservationRepository.findByStoreIdAndReservationDate(storeId, reservationDate);
+        if(reservation != null){
+            throw new ExistReservationException();
+        }
     }
 
     private Store getStore(Long storeId) {
