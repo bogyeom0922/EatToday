@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.0/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+</head>
+<body>
+<h1>매장에 문의하기</h1>
+<div id="messages"></div>
+<input type="text" id="messageInput" placeholder="메시지를 입력하세요">
+<button onclick="sendMessage()">전송</button>
+
+<script>
+    var socket = new WebSocket('ws://localhost:8080/ws/websocket');
+    var stompClient = Stomp.over(socket);
+
+    // WebSocket 연결
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        // 구독을 설정
+        stompClient.subscribe('/inquiries/room1', function (messageOutput) {
+            console.log('Received message: ' + messageOutput.body);
+        });
+
+        // 연결 후에 첫 번째 메시지 전송
+        var message = "test message";  // 메시지 내용
+        stompClient.send("/app/inquiry", {}, message + '\0');  // null octet 추가
+    });
+
+    // 메시지 전송 함수
+    function sendMessage() {
+        var message = document.getElementById("messageInput").value;
+        // null octet을 추가해 보내도록 처리
+        stompClient.send("/app/inquiry", {}, message + '\0');  // "/app/inquiry"
+        document.getElementById("messageInput").value = "";
+    }
+
+    // 웹소켓 연결 종료
+    stompClient.onclose = function(event) {
+        console.log("웹소켓 연결 종료:", event);
+    };
+
+    // 웹소켓 에러 발생
+    stompClient.onerror = function(error) {
+        console.error("웹소켓 에러 발생:", error);
+    };
+</script>
+</body>
+</html>
