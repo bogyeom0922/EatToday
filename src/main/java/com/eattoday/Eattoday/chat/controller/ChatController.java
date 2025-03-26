@@ -17,15 +17,23 @@ public class ChatController {
 
     private final ChatService chatService;
 
+    @GetMapping("/chat")
+    public String getChatPage() {
+        return "chat/chat";
+    }
+
     @MessageMapping("/inquiry")
     @SendTo("/inquiries/room1")
-    public String handleInquiry(String message) throws Exception {
-
-        if (message == null || message.trim().isEmpty()) {
+    public ChatDto handleInquiry(ChatDto chatDto) throws Exception {
+        if (chatDto == null || chatDto.getMessage() == null || chatDto.getMessage().trim().isEmpty()) {
             throw new IllegalArgumentException("Message cannot be empty");
         }
-        System.out.println("Received message: " + message);
-        return new String(message.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        // roomId가 null이면 기본값 1L로 설정
+        if (chatDto.getRoomId() == null) {
+            chatDto.setRoomId(1L);
+        }
+        System.out.println("Received ChatDto: " + chatDto);
+        return chatService.saveChatMessage(chatDto);
     }
 
     @MessageMapping("/chat/{roomId}")
@@ -35,9 +43,5 @@ public class ChatController {
         return chatService.saveChatMessage(chatDto);
     }
 
-    @GetMapping("/chat")
-    public String getChatPage() {
-        return "chat/chat";
-    }
 
 }
