@@ -17,7 +17,7 @@ public class Chat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // 채팅 메시지 고유 ID (PK)
+    private Long id;
 
     @Column(name = "room_id", nullable = false)
     private Long roomId;
