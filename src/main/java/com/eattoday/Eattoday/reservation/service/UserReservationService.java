@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -49,6 +50,10 @@ public class UserReservationService {
         userReservationRepository.deleteByReservationId(reservationId);
 
         return reservation;
+    }
+
+    public List<UserReservation> showReservation(Long userId){
+        return userReservationRepository.findUserReservationByUserId(userId);
     }
 
     private void isExistReservation(Long storeId, LocalDateTime reservationDate){
