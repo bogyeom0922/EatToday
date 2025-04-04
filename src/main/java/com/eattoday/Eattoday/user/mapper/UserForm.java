@@ -1,8 +1,11 @@
 package com.eattoday.Eattoday.user.mapper;
 
+import com.eattoday.Eattoday.reservation.domain.UserReservation;
 import com.eattoday.Eattoday.user.domain.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -27,9 +30,11 @@ public class UserForm {
 
     private String role;
 
+    private List<UserReservation> userReservation;
+
     // dto(userForm)에서 entity(User)로 값 넘겨줌
     public User toEntity() {
-        return new User(id, uid, uname, upassword, email, role);
+        return new User(id, uid, uname, upassword, email, role, userReservation);
     }
 
     public static UserForm toUserFrom(User user) {
