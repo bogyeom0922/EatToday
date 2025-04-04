@@ -77,9 +77,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/favicon.ico", "/img/**").permitAll()
-                        .requestMatchers("/user/login", "/", "/user/Signup", "/login", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+                        .requestMatchers("/user/login", "/user/Signup", "/login", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers("/category", "/category/**", "/storelist/**", "/rest/**", "/user/**", "/api/**", "/recommend/**", "/users/**")
+                        .requestMatchers("/reservation/**", "/category", "/category/**", "/storelist/**", "/rest/**", "/user/**", "/api/**", "/recommend/**", "/users/**")
                         .authenticated()
                         .requestMatchers("/rest/category").hasAnyAuthority("ROLE_USER")
                         .anyRequest().authenticated());

@@ -4,11 +4,12 @@
     <div class="userinfo_title">
         <p>MY PAGE</p>
     </div>
-
+    <input type="hidden" id="new-userid" value="{{id}}">
     <div class="userinfo_category">
         <p onclick="window.location.href='/{{uid}}'" class="userinfo_category_link active">회원정보 수정</p>
         <p onclick="window.location.href='/{{uid}}/review'" class="userinfo_category_link">리뷰 관리</p>
         <p onclick="window.location.href='/api/{{uid}}/like'" class="userinfo_category_link">즐겨찾기 관리</p>
+        <p id = "reserve" class="userinfo_reservation">예약 관리</p>
     </div>
 
     <!--    닉네임 변경, 계정 삭제-->
@@ -46,6 +47,24 @@
             link.classList.add('active');
         });
     });
+</script>
+
+<script>
+    const id = document.querySelector('#new-userid').value();
+    document.querySelector('.reserve').addEventListener('click', function(){
+        fetch('reservation/show', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(id)
+        })
+                .then(response => {
+                    if(!response.ok)
+                        throw new Error();
+                })
+    })
+
 </script>
 
 </body>

@@ -1,7 +1,11 @@
 package com.eattoday.Eattoday.user.domain;
 
+import com.eattoday.Eattoday.reservation.domain.UserReservation;
 import com.eattoday.Eattoday.user.service.exception.login.NotMatchPasswordException;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import lombok.*;
 
@@ -24,6 +28,10 @@ public class User {
     private String upassword;
     @Column //email 필드 선언
     private String email;
+    @Column
+    private String role;
+    @OneToMany(mappedBy = "user")
+    private List<UserReservation> userReservations = new ArrayList<>();
 
     public void checkPassword(String password) {
         if(!Objects.equals(upassword, password)) {
