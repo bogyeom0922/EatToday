@@ -808,3 +808,19 @@ a:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+#messages {
+    border: 1px solid #ccc;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+.chat-message {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px dashed #aaa;
+}
+.chat-meta {
+    font-size: 0.8em;
+    color: #888;
+}

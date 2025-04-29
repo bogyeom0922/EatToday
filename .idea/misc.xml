@@ -3,6 +3,12 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.9" />
   </component>
+  <component name="EntryPointsManager">
+    <writeAnnotations>
+      <writeAnnotation name="org.springframework.beans.factory.annotation.Value" />
+      <writeAnnotation name="org.springframework.boot.test.web.server.LocalServerPort" />
+    </writeAnnotations>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />

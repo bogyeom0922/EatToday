@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/chat/chat.html" afterDir="false" />
+    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Fix: ChatController.handleInquiry에서 roomId 기본값 설정 #109&#10; &#10;- handleInquiry() 메서드에서 roomId가 null인 경우 기본값(1L)을 할당하도록 수정&#10;- Chat 테이블에 room_id가 null로 삽입되어 발생하는 SQLIntegrityConstraintViolationException 해결">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/Eattoday.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/Eattoday.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/LikeDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/LikeDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/Like.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/Like.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/LikeReposiroty.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/LikeReposiroty.class" afterDir="false" />
@@ -20,10 +29,12 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/service/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/service/StoreService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/category.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/chat/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/chat/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +46,31 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Eattoday" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -51,18 +83,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "bogyeom0922"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bogyeom0922&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/bogyeom0922/EatToday.git",
-    "accountId": "fccdca62-3214-4601-9090-fc9cc4e45fa2"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bogyeom0922/EatToday.git&quot;,
+    &quot;accountId&quot;: &quot;fccdca62-3214-4601-9090-fc9cc4e45fa2&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -74,39 +106,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build EatToday.executor": "Run",
-    "Gradle.EatToday [:com.eattoday.Eattoday.EattodayApplication.main()].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.EattodayApplication.executor": "Run",
-    "git-widget-placeholder": "featureback#109-chat-websocket",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/bogyeom/EatToday/build.gradle",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build EatToday.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ChatControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.EatToday [:com.eattoday.Eattoday.EattodayApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WebSocketTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.WebSocketTest.testWebSocketMessaging.executor&quot;: &quot;Debug&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.EattodayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/back#109-chat-websocket&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bogyeom/EatToday/build.gradle&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/img" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.EattodayApplication">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Eattoday" />
       <option name="ENV_FILES" value="" />
@@ -204,6 +240,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ChatControllerIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.eattoday.Eattoday.chat.ChatControllerIntegrationTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebSocketTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.eattoday.Eattoday.chat.WebSocketTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="Eattoday" />
       <option name="filePath" />
@@ -213,6 +297,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ChatControllerIntegrationTest" />
+        <item itemvalue="Gradle.WebSocketTest" />
         <item itemvalue="Application.EattodayApplication" />
       </list>
     </recent_temporary>
@@ -307,7 +393,87 @@
       <option name="project" value="LOCAL" />
       <updated>1740558994755</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Build: 타임리프 의존성 추가 #109">
+      <option name="closed" value="true" />
+      <created>1740586188604</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1740586188604</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Feat: 채팅 페이지 추가 및 렌더링 확인 #109&#10;&#10;- chat.html 작성하여 기본 채팅 UI 구성&#10;- ChatController에서 &quot;/chat&quot; 경로로 접근할 수 있도록 설정&#10;- 브라우저에서 정상적으로 렌더링되는지 확인">
+      <option name="closed" value="true" />
+      <created>1740586296209</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1740586296209</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix: CORS 설정 수정 #109&#10;&#10;- WebSocketConfig에서 setAllowedOrigins(&quot;*&quot;)를 &quot;http://localhost:8080&quot;으로 변경">
+      <option name="closed" value="true" />
+      <created>1740750154284</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1740750154284</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix: WebSocket CORS 정책 수정 #109&#10;&#10;- WebSocket CORS 정책을 setAllowedOriginPatterns(&quot;*&quot;)로 수정하여 유연성 강화">
+      <option name="closed" value="true" />
+      <created>1742291569041</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742291569041</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Test: WebSocket 메시지 송수신 테스트 추가 #109&#10;&#10;- SockJS 기반 WebSocket 테스트 코드 추가&#10;- WebSocket 연결, 메시지 구독 및 전송 검증&#10;- 메시지 송수신 검증을 위한 BlockingQueue 적용&#10;- 예외 발생 시 테스트 실패하도록 예외 핸들러 구현&#10;- CORS 설정 변경에 맞춰 테스트 환경 검증">
+      <option name="closed" value="true" />
+      <created>1742292023811</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742292023811</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Feat: Chat 테이블 및 관련 Entity/DTO 생성 #109&#10;&#10;- Chat 테이블 생성&#10;- Chat 엔티티에 User 연관관계 설정&#10;- 메시지 전송용 ChatDto 생성">
+      <option name="closed" value="true" />
+      <created>1742654859133</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1742654859133</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Feat: 채팅 기능 구현 - ChatService, ChatRepository, ChatController 수정 #109&#10;&#10;- ChatDto를 통해 채팅 메시지를 저장 및 브로드캐스트하는 로직 추가&#10;- 사용자(sender, receiver) 조회 후 Chat 엔티티로 변환 및 DB 저장 처리 구현&#10;- WebSocket 컨트롤러에서 roomId 경로 변수 설정 및 메시지 전송 처리">
+      <option name="closed" value="true" />
+      <created>1742995312903</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742995312903</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Test: WebSocket Controller 통합 테스트 코드 추가 #109&#10;&#10;- SockJS 기반 WebSocket 클라이언트를 이용해 채팅 메시지 전송 및 수신 검증&#10;- senderId, receiverId, roomId, 메시지 내용 등 주요 필드값을 정확하게 검증하는 테스트 추가">
+      <option name="closed" value="true" />
+      <created>1742995352282</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1742995352282</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Feat: chat.html에 보낸 사람 및 받는 사람 입력란 추가 및 메시지 전송 데이터 개선&#10; &#10;- 보낸 사람과 받는 사람 입력 필드를 추가하여 사용자가 해당 정보를 입력하도록 함&#10;- sendMessage() 함수를 수정하여 JSON 형태의 메시지 데이터를 전송하도록 개선&#10;- UI에 채팅 메시지의 메타정보(보낸 사람, 받는 사람, 채팅방, 시간)를 표시하는 기능 추가">
+      <option name="closed" value="true" />
+      <created>1742998382147</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1742998382147</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fix: ChatController.handleInquiry에서 roomId 기본값 설정 #109&#10; &#10;- handleInquiry() 메서드에서 roomId가 null인 경우 기본값(1L)을 할당하도록 수정&#10;- Chat 테이블에 room_id가 null로 삽입되어 발생하는 SQLIntegrityConstraintViolationException 해결">
+      <option name="closed" value="true" />
+      <created>1742998453691</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1742998453691</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +490,17 @@
     <MESSAGE value="Refactor: 크롤링 코드 오류 수정 및 지역 통합 #99&#10;&#10;- 메뉴 끝 공백 삭제&#10;- 메뉴 및 대표사진 주소 크롤링 문제 개선&#10;- 지역 데이터를 하나의 파일에 저장하고, 지역 칼럼 추가로 분리 가능하게 개선&#10;&#10;close: #99" />
     <MESSAGE value="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가" />
     <MESSAGE value="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송" />
+    <MESSAGE value="Build: 타임리프 의존성 추가 #109" />
+    <MESSAGE value="Feat: 채팅 페이지 추가 및 렌더링 확인 #109&#10;&#10;- chat.html 작성하여 기본 채팅 UI 구성&#10;- ChatController에서 &quot;/chat&quot; 경로로 접근할 수 있도록 설정&#10;- 브라우저에서 정상적으로 렌더링되는지 확인" />
+    <MESSAGE value="Fix: CORS 설정 수정 #109&#10;&#10;- WebSocketConfig에서 setAllowedOrigins(&quot;*&quot;)를 &quot;http://localhost:8080&quot;으로 변경" />
+    <MESSAGE value="Fix: WebSocket CORS 정책 수정 #109&#10;&#10;- WebSocket CORS 정책을 setAllowedOriginPatterns(&quot;*&quot;)로 수정하여 유연성 강화" />
+    <MESSAGE value="Test: WebSocket 메시지 송수신 테스트 추가 #109&#10;&#10;- SockJS 기반 WebSocket 테스트 코드 추가&#10;- WebSocket 연결, 메시지 구독 및 전송 검증&#10;- 메시지 송수신 검증을 위한 BlockingQueue 적용&#10;- 예외 발생 시 테스트 실패하도록 예외 핸들러 구현&#10;- CORS 설정 변경에 맞춰 테스트 환경 검증" />
+    <MESSAGE value="Feat: Chat 테이블 및 관련 Entity/DTO 생성 #109&#10;&#10;- Chat 테이블 생성&#10;- Chat 엔티티에 User 연관관계 설정&#10;- 메시지 전송용 ChatDto 생성" />
+    <MESSAGE value="Feat: 채팅 기능 구현 - ChatService, ChatRepository, ChatController 수정 #109&#10;&#10;- ChatDto를 통해 채팅 메시지를 저장 및 브로드캐스트하는 로직 추가&#10;- 사용자(sender, receiver) 조회 후 Chat 엔티티로 변환 및 DB 저장 처리 구현&#10;- WebSocket 컨트롤러에서 roomId 경로 변수 설정 및 메시지 전송 처리" />
+    <MESSAGE value="Test: WebSocket Controller 통합 테스트 코드 추가 #109&#10;&#10;- SockJS 기반 WebSocket 클라이언트를 이용해 채팅 메시지 전송 및 수신 검증&#10;- senderId, receiverId, roomId, 메시지 내용 등 주요 필드값을 정확하게 검증하는 테스트 추가" />
+    <MESSAGE value="Feat: chat.html에 보낸 사람 및 받는 사람 입력란 추가 및 메시지 전송 데이터 개선&#10; &#10;- 보낸 사람과 받는 사람 입력 필드를 추가하여 사용자가 해당 정보를 입력하도록 함&#10;- sendMessage() 함수를 수정하여 JSON 형태의 메시지 데이터를 전송하도록 개선&#10;- UI에 채팅 메시지의 메타정보(보낸 사람, 받는 사람, 채팅방, 시간)를 표시하는 기능 추가" />
+    <MESSAGE value="Fix: ChatController.handleInquiry에서 roomId 기본값 설정 #109&#10; &#10;- handleInquiry() 메서드에서 roomId가 null인 경우 기본값(1L)을 할당하도록 수정&#10;- Chat 테이블에 room_id가 null로 삽입되어 발생하는 SQLIntegrityConstraintViolationException 해결" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: ChatController.handleInquiry에서 roomId 기본값 설정 #109&#10; &#10;- handleInquiry() 메서드에서 roomId가 null인 경우 기본값(1L)을 할당하도록 수정&#10;- Chat 테이블에 room_id가 null로 삽입되어 발생하는 SQLIntegrityConstraintViolationException 해결" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
