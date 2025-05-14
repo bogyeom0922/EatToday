@@ -49,8 +49,12 @@ public class RecommendationService {
 
     public String getBestCategory(HashMap<String, Integer> category){
         Iterator<String> categorys = category.keySet().iterator();
-
-        return categorys.next();
+        try {
+            return categorys.next();
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
     }
 
     public List<String> findCategoryOfStore(String uid){
