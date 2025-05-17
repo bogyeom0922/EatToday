@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/RestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/controller/RestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/layout/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/layout/header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/detail.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/controller/RestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/controller/RestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/header.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/rest/detail.mustache" afterDir="false" />
+    <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +20,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ry3v6pUy5w5cS4Fs1gBIMhxUdW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -52,7 +40,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.EattodayApplication.executor": "Run",
-    "git-widget-placeholder": "feature/back#86-map-initial-setup",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/bogyeom/EatToday/build.gradle",
     "node.js.detected.package.eslint": "true",
@@ -64,19 +52,6 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Eattoday" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Eattoday" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Eattoday" />
       <option name="ENV_FILES" value="" />
@@ -113,29 +88,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
-    </configuration>
-    <configuration name="EattodayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="Eattoday.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eattoday.Eattoday.EattodayApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.eattoday.Eattoday.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="Eattoday" />
@@ -183,6 +135,42 @@
       <option name="docutils_task" value="" />
       <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Eattoday" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Eattoday" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EattodayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="com.eattoday.Eattoday.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eattoday.Eattoday.EattodayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eattoday.Eattoday.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -242,6 +230,7 @@
     <MESSAGE value="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결" />
     <MESSAGE value="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정" />
     <MESSAGE value="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정" />
+    <MESSAGE value="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송" />
   </component>
 </project>
