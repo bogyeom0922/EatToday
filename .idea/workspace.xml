@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcdc5501-e57b-4a41-926f-325244cd2daa" name="Changes" comment="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/chat/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/LikeDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/dto/LikeDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/Like.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/entity/Like.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/LikeReposiroty.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/LikeReposiroty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/StoreRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/repository/StoreRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/service/LikeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/service/LikeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/service/StoreService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/eattoday/Eattoday/service/StoreService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Eattoday-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/rest/category.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/rest/category.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/chat/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eattoday/Eattoday/chat/controller/ChatController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +35,34 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "bogyeom0922"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/bogyeom0922/EatToday.git",
+    "accountId": "fccdca62-3214-4601-9090-fc9cc4e45fa2"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -34,13 +77,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build EatToday.executor": "Run",
+    "Gradle.EatToday [:com.eattoday.Eattoday.EattodayApplication.main()].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.EattodayApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "featureback#109-chat-websocket",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/bogyeom/EatToday/build.gradle",
     "node.js.detected.package.eslint": "true",
@@ -48,9 +93,19 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/img" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Eattoday" />
@@ -136,8 +191,15 @@
       <option name="docutils_open_in_browser" value="false" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Eattoday" />
+    <configuration name="EattodayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.eattoday.Eattoday.EattodayApplication" />
+      <module name="Eattoday.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eattoday.Eattoday.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,42 +211,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EattodayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="com.eattoday.Eattoday.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eattoday.Eattoday.EattodayApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.eattoday.Eattoday.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.EattodayApplication" />
+        <item itemvalue="Application.EattodayApplication" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -220,7 +251,63 @@
       <option name="project" value="LOCAL" />
       <updated>1737519215068</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리">
+      <option name="closed" value="true" />
+      <created>1737784561329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737784561329</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Design: 지도에 마커 표시&#10;&#10;- 매장에 기본 디자인 마커 표시">
+      <option name="closed" value="true" />
+      <created>1737950956897</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737950956897</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Build: Dockerfile 생성">
+      <option name="closed" value="true" />
+      <created>1738317051439</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738317051439</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Refactor: 크롤링 코드 오류 수정 및 지역 통합 #99&#10;&#10;- 메뉴 끝 공백 삭제&#10;- 메뉴 및 대표사진 주소 크롤링 문제 개선&#10;- 지역 데이터를 하나의 파일에 저장하고, 지역 칼럼 추가로 분리 가능하게 개선&#10;&#10;close: #99">
+      <option name="closed" value="true" />
+      <created>1739502811059</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739502811059</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1740557333048</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740557333048</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1740557796709</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740557796709</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송">
+      <option name="closed" value="true" />
+      <created>1740558994755</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1740558994755</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +317,17 @@
     <MESSAGE value="Chore: 프로젝트 초기화 및 설정 정리&#10;&#10;- 불필요한 .idea, .iml 파일 삭제&#10;- IntelliJ 설정 초기화 후 프로젝트 재구성&#10;- Gradle 동기화 오류 해결" />
     <MESSAGE value="Fix: store 테이블의 review 값 제거로 인한 오류 수정&#10;&#10;- store 테이블에서 review 값 삭제&#10;- review 값 삭제로 발생한 detail 페이지 오류 수정" />
     <MESSAGE value="Feat: 매장 상세페이지에 카카오맵 연동 #86&#10;&#10;- 카카오맵 API 연동 및 지도 표시 기능 구현&#10;- 매장 상세페이지 하단에 기본 지도를 표시하도록 구성&#10;- 지도 중심 좌표 (33.450701, 126.570667)와 기본 줌 레벨 설정" />
+    <MESSAGE value="Feat: 지도에 store_address를 기반으로 주소 표시 기능 추가 #91&#10;      &#10;- &lt;td&gt; 태그에 id=&quot;storeAddress&quot;를 추가하여 store_address 값 추출&#10;- JavaScript에서 document.getElementById로 해당 값 가져옴&#10;- Kakao 지도 API를 활용해 주소를 좌표로 변환 및 지도에 마커 표시&#10;- 변환 실패 시 오류 메시지를 콘솔에 출력하도록 처리" />
+    <MESSAGE value="Design: 지도에 마커 표시&#10;&#10;- 매장에 기본 디자인 마커 표시" />
+    <MESSAGE value="Build: Dockerfile 생성" />
+    <MESSAGE value="merge" />
+    <MESSAGE value="Refactor: 크롤링 코드 오류 수정 및 지역 통합 #99&#10;&#10;- 메뉴 끝 공백 삭제&#10;- 메뉴 및 대표사진 주소 크롤링 문제 개선&#10;- 지역 데이터를 하나의 파일에 저장하고, 지역 칼럼 추가로 분리 가능하게 개선&#10;&#10;close: #99" />
+    <MESSAGE value="Feat: 웹소켓 기능을 위한 의존성 추가 #109&#10;&#10;- spring-boot-starter-websocket 의존성 추가" />
     <MESSAGE value="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송" />
     <option name="LAST_COMMIT_MESSAGE" value="Feat: WebSocket 설정 및 채팅 기능 구현 #109&#10;&#10;- WebSocketConfig 클래스에 WebSocket 설정 추가&#10;  - &quot;/ws&quot; 엔드포인트로 WebSocket 연결&#10;  - &quot;/app&quot; 경로로 메시지 전송 설정&#10;  - &quot;/inquiries&quot; 경로로 메시지 구독 설정&#10;- ChatController 클래스에서 메시지 송수신 로직 구현&#10;  - 손님의 질문을 &quot;/app/inquiry&quot;로 받음&#10;  - 매니저의 답변을 &quot;/inquiries/{room}&quot;으로 전송" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

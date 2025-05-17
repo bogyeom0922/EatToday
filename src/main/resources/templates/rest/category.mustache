@@ -35,6 +35,39 @@
                         }
                     });
         }
+
+        window.onload = function() {
+            const uid = "{{uid}}";
+            fetch(`/recommend/${uid}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if(Array.isArray(data)) {
+                            const storesContainer = document.getElementById("stores");
+
+                            data.forEach((store, index) => {
+                                let storeClass = `random_store${index + 1}`;
+                                let storeDiv = document.createElement("div");
+                                storeDiv.classList.add(storeClass);
+                                storeDiv.onclick = function () {
+                                    window.location.href = `/rest/${store.id}/${uid}`;
+                                };
+
+                                storeDiv.innerHTML = `
+                        <img src="${store.img}" class="random_store_img">
+                        <p class="random_store_name">${store.name}</p>
+                        <p class="random_store_address">${store.address}</p>
+                    `;
+
+                                storesContainer.appendChild(storeDiv);
+                            });
+                        }
+                        else{
+                            console.error("Data is not an array:", data);
+                        }
+                    })
+                    .catch(error => console.error("Error fetching data: ", error));
+        }
+
     </script>
 </head>
 <body>
@@ -66,36 +99,7 @@
         <img src="/img/ex.avif" class="main_image">
     </div>
 
-    <div class="recommend">
-        <div class="random_store_title">
-            Today's recommended restaurant
-        </div>
-
-        <!--매장 랜덤 추천-->
-        {{#randomStore1}}
-            <div class="random_store" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
-                <img src="{{store_img}}" class="random_store_img">
-                <p class="random_store_name">{{store_name}}</p>
-                <p class="random_store_address">{{store_address}}</p>
-            </div>
-        {{/randomStore1}}
-
-        {{#randomStore2}}
-            <div class="random_store2" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
-                <img src="{{store_img}}" class="random_store_img">
-                <p class="random_store_name">{{store_name}}</p>
-                <p class="random_store_address">{{store_address}}</p>
-            </div>
-        {{/randomStore2}}
-
-        {{#randomStore3}}
-            <div class="random_store3" onclick="window.location.href='/rest/{{id}}/{{uid}}'">
-                <img src="{{store_img}}" class="random_store_img">
-                <p class="random_store_name">{{store_name}}</p>
-                <p class="random_store_address">{{store_address}}</p>
-            </div>
-        {{/randomStore3}}
-    </div>
+    <div id="stores"></div>
 
     <div class="category">
         <p>CATEGORY</p>

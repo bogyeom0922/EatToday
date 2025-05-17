@@ -1,7 +1,7 @@
 {{>layout/header}}
 
 {{#user}}
-    <input type = "hidden" id = "new-like-userid" value ="{{id}}">
+    <input type="hidden" id="new-like-userid" value="{{id}}">
 {{/user}}
 {{#rest}}
     <input type="hidden" id="new-like-store-id" value="{{id}}">
@@ -16,7 +16,7 @@
     </div>
 
     <div class="bookmark" id="like-{{id}}">
-        <img id="bookmark_img" src="/img/bookmark_x.png" alt="" width="50">
+        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기">
     </div>
 
     <div class="rest_detail">
@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>주소</td>
-                <td>{{store_address}}</td>
+                <td id="storeAddress">{{store_address}}</td>
             </tr>
             <tr>
                 <td>대표번호</td>
@@ -45,6 +45,15 @@
             </tr>
         </table>
 
+        <div id="MenuSentence">
+            {{store_menu}}
+        </div>
+
+        <div class="map_section">
+            <button id="directionsButton" class="direction">길찾기</button>
+            <div id="map" class="map"></div>
+        </div>
+
         <div class="review">
             <p>리뷰</p>
             {{>review/_reviews}}
@@ -52,18 +61,29 @@
                 <div id="ReviewDisplay"></div>
             </div>
         </div>
+        <br>
+    </div>
+    <div class="container">
+        <h2>예약 날짜 선택</h2>
+        <label for="reservationDate">날짜 선택:</label>
+        <input type="text" id="reservationDate" name="reservationDate" readonly required>
+        <button type="button" onclick="toggleCalendar()">📅 날짜 선택</button>
 
-        <div id="MenuSentence">
-            {{store_menu}}
+        <table id="calendar" class="calendar"></table>
+
+        <div id="timePickerContainer" style="display: none;">
+            <label for="timePicker">시간 선택:</label>
+            <select id="timePicker" onchange="updateReservationDate()"></select>
         </div>
 
+        <button id="reserve-button" type="submit">예약하기</button>
     </div>
 {{/rest}}
 
-
-<div id="map" style="width:500px;height:400px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakaoApiKey}}"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={{kakaoApiKey}}&libraries=services"></script>
 <script>
+    var address = document.getElementById('storeAddress').innerText.trim();
+
     var container = document.getElementById('map');
     var options = {
         center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -71,6 +91,170 @@
     };
 
     var map = new kakao.maps.Map(container, options);
+
+    var geocoder = new kakao.maps.services.Geocoder();
+    geocoder.addressSearch(address, function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+            map.setCenter(coords);
+
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+                title: "매장 위치"
+            });
+
+        } else {
+            console.error("좌표로 변환 도중 오류 발생: " + address);
+        }
+    });
+
+    //길찾기
+    var destinationCoords = null;
+
+    geocoder.addressSearch(address, function (result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            destinationCoords = new kakao.maps.LatLng(result[0].y, result[0].x);
+            map.setCenter(destinationCoords);
+        } else {
+            console.error("좌표로 변환 도중 오류 발생: " + address);
+        }
+    });
+
+    document.getElementById('directionsButton').addEventListener('click', function () {
+        if (!destinationCoords) {
+            alert("도착지를 다시 설정해주세요.");
+            return;
+        }
+
+        var kakaoMapURL = `https://map.kakao.com/link/to/도착지,${destinationCoords.getLat()},${destinationCoords.getLng()}`;
+
+        // 새 창으로 길찾기 열기
+        window.open(kakaoMapURL, '_blank');
+    });
+</script>
+
+<script>
+    function toggleCalendar() {
+        let calendar = document.getElementById("calendar");
+        calendar.style.display = (calendar.style.display === "none" || calendar.style.display === "") ? "table" : "none";
+        if (calendar.innerHTML === "") {
+            generateCalendar();
+        }
+    }
+
+    let selectedDate = "";  // 사용자가 선택한 날짜를 저장할 변수
+
+    function generateCalendar() {
+        let calendar = document.getElementById("calendar");
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth();
+
+        let firstDay = new Date(year, month, 1).getDay();
+        let lastDate = new Date(year, month + 1, 0).getDate();
+
+        let days = ["일", "월", "화", "수", "목", "금", "토"];
+        let html = "<tr>" + days.map(day => `<th>${day}</th>`).join("") + "</tr>";
+
+        let date = 1;
+        for (let i = 0; i < 6; i++) {
+            let row = "<tr>";
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDay) {
+                    row += "<td></td>";
+                } else if (date > lastDate) {
+                    row += "<td></td>";
+                } else {
+                    row += `<td onclick="selectDate(${year}, ${month + 1}, ${date})">${date}</td>`;
+                    date++;
+                }
+            }
+            row += "</tr>";
+            html += row;
+            if (date > lastDate) break;
+        }
+        calendar.innerHTML = html;
+    }
+
+    function selectDate(year, month, day) {
+        let reservationDate = document.getElementById("reservationDate");
+        let timePickerContainer = document.getElementById("timePickerContainer");
+        let timePicker = document.getElementById("timePicker");
+
+        // 선택한 날짜 저장 (YYYY-MM-DD 형식)
+        selectedDate = `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+
+        // 기존 옵션 초기화
+        timePicker.innerHTML = "";
+
+        // 1시간 단위로 시간 옵션 추가
+        for (let hour = 0; hour < 24; hour++) {
+            let time = `${hour.toString().padStart(2, "0")}:00`;
+            let option = document.createElement("option");
+            option.value = time;
+            option.textContent = time;
+            timePicker.appendChild(option);
+        }
+
+        // 시간 선택 드롭다운 표시
+        timePickerContainer.style.display = "block";
+
+        // 기본 시간 설정 후 input에 반영
+        updateReservationDate();
+    }
+
+    function updateReservationDate() {
+        let reservationDate = document.getElementById("reservationDate");
+        let timePicker = document.getElementById("timePicker");
+
+        if (selectedDate && timePicker.value) {
+            reservationDate.value = `${selectedDate} ${timePicker.value}`;
+        }
+    }
+
+    generateCalendar();
+
+        document.getElementById('reserve-button').addEventListener('click', function () {
+        const id = document.querySelector("#new-like-userid").value;
+        if(id){
+            console.log(id);
+        }
+        else{
+            console.log("null id")
+        }
+
+        const storeId = document.querySelector("#new-like-store-id").value;
+        if(storeId)
+            console.log(storeId);
+        else{
+            console.log("null storeid")
+        }
+        const reservationDate = document.getElementById('reservationDate').value;
+        if(reservationDate)
+            console.log(reservationDate);
+        else{
+            console.log("null date")
+        }
+        fetch("/reservation/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId : id,
+                storeId : storeId,
+                reservationDate : reservationDate
+            })
+        }).then(response => {
+            if (response.ok) {
+                alert("예약이 완료되었습니다!");
+            } else {
+                alert("예약 실패. 다시 시도해주세요.");
+            }
+        });
+    });
+
 </script>
 
 <script>
@@ -106,26 +290,26 @@
     const url = "/api/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value + "/likes";
     fetch(url)
             .then(response => {
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error('Server response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
                 console.log(data);
-                if(data == null){
+                if (data == null) {
                     document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
                     state = 0;
                 }
                 document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
                 state = 1;
-            }).catch(error =>{
+            }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
 
     const likeCreate = document.getElementById('bookmark_img');
-    likeCreate.addEventListener("click", function(){
-        if(state ===0){
+    likeCreate.addEventListener("click", function () {
+        if (state === 0) {
             state = 1;
             document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
             const like = {
@@ -151,8 +335,7 @@
                         console.error('Error:', error);
                         alert("좋아요 생성 실패");
                     });
-        }
-        else{
+        } else {
             document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
             fetch("/api/likes/" + document.querySelector("#new-like-userid").value + "/" + document.querySelector("#new-like-store-id").value, {
                 method: "DELETE"

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.0/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <link href="/css/main.css?after" rel="stylesheet">
+</head>
+<body>
+<h1>매장에 문의하기</h1>
+
+<div>
+    <input type="text" id="senderInput" placeholder="보낸 사람 ID">
+    <input type="text" id="receiverInput" placeholder="받는 사람 ID">
+</div>
+
+<div id="messages"></div>
+<input type="text" id="messageInput" placeholder="메시지를 입력하세요">
+<button onclick="sendMessage()">전송</button>
+
+<script>
+    var socket = new SockJS('http://localhost:8080/ws');
+    var stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/inquiries/room1', function (messageOutput) {
+            console.log('Received message: ' + messageOutput.body);
+            var chatMessage = JSON.parse(messageOutput.body);
+            displayMessage(chatMessage);
+        });
+    });
+
+    function sendMessage() {
+        var sender = document.getElementById("senderInput").value;
+        var receiver = document.getElementById("receiverInput").value;
+        var message = document.getElementById("messageInput").value;
+        var chatObj = {
+            senderId: sender,
+            receiverId: receiver,
+            message: message
+        };
+        stompClient.send("/app/inquiry", {}, JSON.stringify(chatObj) + '\0');
+        document.getElementById("messageInput").value = "";
+    }
+
+    function displayMessage(chatMessage) {
+        var messagesDiv = document.getElementById("messages");
+        var messageDiv = document.createElement("div");
+        messageDiv.className = "chat-message";
+
+        var metaInfo = "보낸 사람: " + (chatMessage.senderId || "알 수 없음") +
+                       ", 받는 사람: " + (chatMessage.receiverId || "알 수 없음") +
+                       ", 채팅방: " + (chatMessage.roomId || "알 수 없음") +
+                       ", 시간: " + (chatMessage.sentAt || new Date().toLocaleString());
+        var content = "<div class='chat-meta'>" + metaInfo + "</div>" +
+                      "<div class='chat-content'>" + chatMessage.message + "</div>";
+
+        messageDiv.innerHTML = content;
+        messagesDiv.appendChild(messageDiv);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+</script>
+</body>
+</html>
