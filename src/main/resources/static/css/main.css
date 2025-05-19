@@ -181,18 +181,6 @@ a:hover {
     font-weight: 400;
 }
 
-.bookmark {
-    position: absolute;
-    z-index: 999;
-    top: 495px;
-    left: 58%;
-}
-
-.bookmark img {
-    width: 50px;
-    height: 45px;
-}
-
 .rest_detail {
     z-index: 5;
     position: relative;
@@ -221,6 +209,23 @@ a:hover {
 .rest_menu_list {
     margin-top: 10px;
     line-height: 2;
+}
+
+.rest_button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.like {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.reservation {
+    margin: 0;
+    margin-left: 30px;
+    white-space: nowrap;
 }
 
 .map_section {
