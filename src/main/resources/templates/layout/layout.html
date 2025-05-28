@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+          rel="stylesheet">
+    <link href="/css/main.css?after" rel="stylesheet">
+    <script src="/js/category.js" defer></script>
+    <title layout:title-pattern="$CONTENT_TITLE - EatToday">EatToday</title>
+</head>
+<body>
+<div th:fragment="header" class="header">
+    <img src="/img/logo.png" class="header_img" alt="로고 이미지" onclick="window.location.href='/category/${uid}';">
+    <div class="search">
+        <form action="/storelist/search/${uid}" method="GET" role="search" class="search_form">
+            <label>
+                <input class="search_input" type="text" placeholder="매장명을 입력하세요" name="search" id="search">
+            </label>
+            <button class="search_button">검색</button>
+        </form>
+    </div>
+    <p onclick="location.href='/${uid}'" class="shortcut_mypage">MYPAGE</p>
+    <p onclick="logout();" class="logout">LOGOUT</p>
+</div>
+<section layout:fragment="content"></section>
+</body>
+</html>

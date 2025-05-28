@@ -59,12 +59,6 @@ public class UserController {
     @Autowired
     private LikeService likeService;
 
-    //main
-    @GetMapping("/")
-    public String Home() {
-        return "home";
-    }
-
     //login
     @GetMapping("/user/login")
     public String Login() {
