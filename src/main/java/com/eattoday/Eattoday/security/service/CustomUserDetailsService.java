@@ -33,7 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new CustomUserDetails(userData);
     }
 
-    public User getCurrentUserFromSecurityContext() {
+    public static User getCurrentUserFromSecurityContext() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication != null) {
