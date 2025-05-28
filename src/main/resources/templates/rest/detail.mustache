@@ -15,10 +15,6 @@
         </div>
     </div>
 
-    <div class="bookmark" id="like-{{id}}">
-        <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기">
-    </div>
-
     <div class="rest_detail">
         <table>
             <tr>
@@ -54,6 +50,10 @@
             <div id="map" class="map"></div>
         </div>
 
+        <div class="bookmark" id="like-{{id}}">
+            <img id="bookmark_img" src="/img/bookmark_x.png" alt="즐겨찾기">
+        </div>
+
         <div class="review">
             <p>리뷰</p>
             {{>review/_reviews}}
@@ -63,6 +63,7 @@
         </div>
         <br>
     </div>
+
     <div class="container">
         <h2>예약 날짜 선택</h2>
         <label for="reservationDate">날짜 선택:</label>
@@ -301,8 +302,10 @@
                     document.getElementById('bookmark_img').src = "/img/bookmark_x.png";
                     state = 0;
                 }
-                document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
-                state = 1;
+                else {
+                    document.getElementById('bookmark_img').src = "/img/bookmark_o.png";
+                    state = 1;
+                }
             }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
@@ -346,7 +349,7 @@
                     console.log(document.querySelector("#new-like-store-id").value);
                     return;
                 }
-                const target = document.querySelector(`#like-` + document.querySelector("#new-like-store-id").value); // 수정된 부분
+                const target = document.querySelector("#like-"+ document.querySelector("#new-like-store-id").value); // 수정된 부분
                 if (target) {
                     target.remove(); // 요소가 존재할 때만 삭제
                     const msg = "매장 아이디:" + document.querySelector("#new-like-store-id").value + `번 즐겨찾기를 해제했습니다`;
