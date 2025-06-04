@@ -1,4 +1,10 @@
-{{>layout/header}}
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<section layout:fragment="content">
+
 
 <div class="store_list_title">
     <p>STORE</p>
@@ -66,7 +72,7 @@
     <div class="store_list">
         <table>
             <tbody id="tbody">
-            {{#searchList}}
+            {{#filterList}}
                 <tr>
                     <td style="width:7%"><img src="{{store_img}}"></td>
                     <td style="width:22%"><a href="/rest/{{id}}/{{uid}}">{{store_name}}</a></td>
@@ -74,72 +80,28 @@
                     <td style="width:18%">{{store_phone}}</td>
                     <td style="width:6%">{{store_star}}</td>
                 </tr>
-            {{/searchList}}
+            {{/filterList}}
             </tbody>
         </table>
+
+        {{! Page }}
         <div class="next">
             {{#hasPrev}}
-                <a href="/storelist/search/{{uid}}?search={{keyword}}&page={{previous}}" role="button" class="btn btn-lg
-                bi
+                <a href="?page={{previous}}" role="button" class="btn btn-lg bi
                 bi-caret-left-square-fill">이전</a>{{/hasPrev}}
             {{^hasPrev}}
-                <a href="/storelist/search/{{uid}}?search={{keyword}}&page={{previous}}" role="button" class="btn btn-lg
-                bi
-                bi-caret-left-square-fill disabled"></a>{{/hasPrev}}
+                <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill
+                disabled"></a>{{/hasPrev}}
             {{#hasNext}}
-                <a href="/storelist/search/{{uid}}?search={{keyword}}&page={{next}}" role="button" class="btn btn-lg bi
-                bi-caret-right-square-fill">다음</a>
+                <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill">다음</a>
             {{/hasNext}}
             {{^hasNext}}
-                <a href="/storelist/search/{{uid}}?search={{keyword}}&page={{next}}" role="button" class="btn btn-lg bi
-                bi-caret-right-square-fill disabled"></a>
+                <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill disabled"></a>
             {{/hasNext}}
         </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggleDropdown = (toggleButton, optionsContainer, optionItems) => {
-            // 목록 열기/닫기
-            toggleButton.addEventListener('click', () => {
-                optionsContainer.style.display =
-                        optionsContainer.style.display === 'block' ? 'none' : 'block';
-            });
-
-            // 항목 클릭 시 선택 및 드롭다운 닫기
-            optionItems.forEach((item) => {
-                item.addEventListener('click', () => {
-                    optionItems.forEach((i) => i.classList.remove('selected'));
-                    item.classList.add('selected');
-                    toggleButton.textContent = item.textContent;
-                    optionsContainer.style.display = 'none';
-                });
-            });
-
-            // 외부 클릭 시 닫기
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.options-wrapper')) {
-                    optionsContainer.style.display = 'none';
-                }
-            });
-        };
-
-        // 지역 드롭다운
-        const regionToggleButton = document.getElementById('regionToggleButton');
-        const regionOptionsContainer = document.getElementById('regionOptionsContainer');
-        const regionItems = document.querySelectorAll('#regionOptionsContainer .option-item');
-
-        toggleDropdown(regionToggleButton, regionOptionsContainer, regionItems);
-
-        // 메뉴 드롭다운
-        const menuToggleButton = document.getElementById('menuToggleButton');
-        const menuOptionsContainer = document.getElementById('menuOptionsContainer');
-        const menuItems = document.querySelectorAll('#menuOptionsContainer .option-item');
-
-        toggleDropdown(menuToggleButton, menuOptionsContainer, menuItems);
-    });
-</script>
-
+<script src="/js/store/storelist.js"></script>
+</section>
 </body>
 </html>
