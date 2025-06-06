@@ -150,9 +150,9 @@ public class RestController {
     }
 
     //rest detail
-    @GetMapping("/rest/{id}/{uid}") //매장 상세페이지
-    public String show(@PathVariable("id") Long id, @PathVariable String uid, Model model) {
-
+    @GetMapping("/rest/{id}") //매장 상세페이지
+    public String show(@PathVariable("id") Long id, Model model) {
+        String uid = CustomUserDetailsService.getCurrentUserFromSecurityContext().getUid();
         log.info("id = " + id);
         // 1. id를 조회해 데이터 가져오기
         log.info("detail uid = " + uid);
