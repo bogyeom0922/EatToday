@@ -35,12 +35,12 @@ public class UserReservationController {
         return ResponseEntity.ok().body(reservation);
     }
 
-    @GetMapping("/show")
-    public String show(@RequestBody Long userId, Model model){
+    @GetMapping("/{uid}/reservation")
+    public String show(@PathVariable("uid") Long userId, Model model) {
         List<UserReservation> userReservationsList = userReservationService.showReservation(userId);
         model.addAttribute("reservation", userReservationsList);
 
-        return "reservation/show";
+        return "userinfo/info_reservation";
     }
 
 }

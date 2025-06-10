@@ -3,6 +3,7 @@ package com.eattoday.Eattoday.user.controller;
 import com.eattoday.Eattoday.like.dto.LikeDto;
 import com.eattoday.Eattoday.like.service.LikeService;
 import com.eattoday.Eattoday.email.service.EmailSendService;
+import com.eattoday.Eattoday.reservation.domain.UserReservation;
 import com.eattoday.Eattoday.user.service.UserService;
 import com.eattoday.Eattoday.user.mapper.UserForm;
 import com.eattoday.Eattoday.review.entity.Review;
@@ -24,10 +25,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
@@ -151,7 +149,6 @@ public class UserController {
         model.addAttribute("user", userEntity);
 
         return "userinfo/info";
-
     }
 
     @GetMapping("/{uid}/review")

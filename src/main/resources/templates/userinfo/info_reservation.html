@@ -16,25 +16,17 @@
             <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/reservation\''" id="reserve" class="userinfo_reservation">예약 관리</p>
         </div>
 
-        <!--    닉네임 변경, 계정 삭제-->
         <div class="userinfo_background">
-            <div class="update_profile">
-                <p>아이디: <span th:text="${user.uid}"></span></p>
-                <p>이메일: <span th:text="${user.email}"></span></p>
-                <p>닉네임: <span th:text="${user.uname}"></span></p>
-                <div class="update_profile_delete">
-                    <p>닉네임 변경: </p>
-                    <form action="/uname/update" method="post">
-                        <input name="id" type="hidden" th:value="${user.id}">
-                        <input name="uid" type="hidden" th:value="${user.uid}">
-                        <input name="upassword" type="hidden" th:value="${user.upassword}">
-                        <input name="email" type="hidden" th:value="${user.email}">
-                        <input type="text" name="uname" placeholder="새로운 닉네임을 입력하세요.">
-                        <button type="submit">변경</button>
-                    </form>
-                    <a th:href="@{/${user.uid}/delete}">계정 삭제</a>
-                </div>
-            </div>
+            <h1>예약 목록</h1>
+
+            <ul>
+                {{#reservation}}
+                <li>
+                    <span>{{store}}</span> |
+                    <span>{{reservationDate}}</span>
+                </li>
+                {{/reservation}}
+            </ul>
         </div>
     </div>
 
