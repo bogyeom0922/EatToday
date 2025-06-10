@@ -158,7 +158,7 @@ a:hover {
     white-space: nowrap;
 }
 
-.review_link {
+.more_view {
     margin-top: 30px;
     padding: 10px;
     width: 170px;
@@ -245,7 +245,7 @@ a:hover {
 
 .review {
     position: absolute;
-    top: 720px;
+    margin-top: 150px;
     left: 10%;
     font-size: 18px;
     width: 70%;

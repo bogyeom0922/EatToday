@@ -1,24 +1,21 @@
-document.querySelector('.review_link').addEventListener('click', function () {
-    document.querySelector('.rest_detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".review-form");
-  const textarea = form.querySelector("textarea");
-
-  form.addEventListener("submit", function (e) {
-    if (!textarea.value.trim()) {
-      e.preventDefault();
-      alert("리뷰를 입력해주세요.");
-    }
-  });
-
-  const deleteForms = document.querySelectorAll(".review-item form");
-  deleteForms.forEach(form => {
-    form.addEventListener("submit", function (e) {
-      if (!confirm("리뷰를 삭제하시겠습니까?")) {
-        e.preventDefault();
-      }
+  const reviewCreateBtn = document.querySelector("#review-create-btn");
+  reviewCreateBtn.addEventListener("click", function () {
+    const review = {
+      userid: document.querySelector("#new-review-userid").value,
+      body: document.querySelector("#new-review-body").value,
+      storeid: document.querySelector("#new-review-store-id").value,
+    };
+    console.log(review);
+    const url = "/api/stores/" + review.storeid + "/reviews";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(review)
+    }).then(response => {
+      window.location.reload();
     });
   });
 });

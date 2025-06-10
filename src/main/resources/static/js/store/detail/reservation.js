@@ -1,10 +1,12 @@
 function toggleCalendar() {
     let calendar = document.getElementById("calendar");
-    calendar.style.display = calendar.style.display === "none" ? "table" : "none";
-    if (calendar.innerHTML === "") generateCalendar();
+    calendar.style.display = (calendar.style.display === "none" || calendar.style.display === "") ? "table" : "none";
+    if (calendar.innerHTML === "") {
+        generateCalendar();
+    }
 }
 
-let selectedDate = "";
+let selectedDate = "";  // 사용자가 선택한 날짜를 저장할 변수
 
 function generateCalendar() {
     let calendar = document.getElementById("calendar");
@@ -14,6 +16,7 @@ function generateCalendar() {
 
     let firstDay = new Date(year, month, 1).getDay();
     let lastDate = new Date(year, month + 1, 0).getDate();
+
     let days = ["일", "월", "화", "수", "목", "금", "토"];
     let html = "<tr>" + days.map(day => `<th>${day}</th>`).join("") + "</tr>";
 
@@ -21,44 +24,96 @@ function generateCalendar() {
     for (let i = 0; i < 6; i++) {
         let row = "<tr>";
         for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay || date > lastDate) {
+            if (i === 0 && j < firstDay) {
+                row += "<td></td>";
+            } else if (date > lastDate) {
                 row += "<td></td>";
             } else {
                 row += `<td onclick="selectDate(${year}, ${month + 1}, ${date})">${date}</td>`;
                 date++;
             }
         }
-        html += row + "</tr>";
+        row += "</tr>";
+        html += row;
         if (date > lastDate) break;
     }
     calendar.innerHTML = html;
 }
 
 function selectDate(year, month, day) {
+    let reservationDate = document.getElementById("reservationDate");
+    let timePickerContainer = document.getElementById("timePickerContainer");
+    let timePicker = document.getElementById("timePicker");
+
+    // 선택한 날짜 저장 (YYYY-MM-DD 형식)
     selectedDate = `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
-    document.getElementById("timePickerContainer").style.display = "block";
+
+    // 기존 옵션 초기화
+    timePicker.innerHTML = "";
+
+    // 1시간 단위로 시간 옵션 추가
+    for (let hour = 0; hour < 24; hour++) {
+        let time = `${hour.toString().padStart(2, "0")}:00`;
+        let option = document.createElement("option");
+        option.value = time;
+        option.textContent = time;
+        timePicker.appendChild(option);
+    }
+
+    // 시간 선택 드롭다운 표시
+    timePickerContainer.style.display = "block";
+
+    // 기본 시간 설정 후 input에 반영
     updateReservationDate();
 }
 
 function updateReservationDate() {
-    let time = document.getElementById("timePicker").value;
-    if (selectedDate && time) {
-        document.getElementById("reservationDate").value = `${selectedDate} ${time}`;
+    let reservationDate = document.getElementById("reservationDate");
+    let timePicker = document.getElementById("timePicker");
+
+    if (selectedDate && timePicker.value) {
+        reservationDate.value = `${selectedDate} ${timePicker.value}`;
     }
 }
 
-document.getElementById('reserve-button').addEventListener('click', function () {
-    const userId = document.querySelector("#new-like-userid").value;
-    const storeId = document.querySelector("#new-like-store-id").value;
-    const date = document.getElementById("reservationDate").value;
+generateCalendar();
 
+document.getElementById('reserve-button').addEventListener('click', function () {
+    const id = document.querySelector("#new-like-userid").value;
+    if(id){
+        console.log(id);
+    }
+    else{
+        console.log("null id")
+    }
+
+    const storeId = document.querySelector("#new-like-store-id").value;
+    if(storeId)
+        console.log(storeId);
+    else{
+        console.log("null storeid")
+    }
+    const reservationDate = document.getElementById('reservationDate').value;
+    if(reservationDate)
+        console.log(reservationDate);
+    else{
+        console.log("null date")
+    }
     fetch("/reservation/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, storeId, reservationDate: date })
-    }).then(res => {
-        alert(res.ok ? "예약이 완료되었습니다!" : "예약 실패. 다시 시도해주세요.");
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            userId : id,
+            storeId : storeId,
+            reservationDate : reservationDate
+        })
+    }).then(response => {
+        if (response.ok) {
+            alert("예약이 완료되었습니다!");
+        } else {
+            alert("예약 실패. 다시 시도해주세요.");
+        }
     });
 });
-
-generateCalendar();

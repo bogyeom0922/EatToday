@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<body>
+<section layout:fragment="content">
+    <div th:if="${user != null}">
+        <div class="userinfo_title">
+            <p>MY PAGE</p>
+        </div>
+
+        <div class="userinfo_category">
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '\''" class="userinfo_category_link active">회원정보 수정</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/review\''" class="userinfo_category_link">리뷰 관리</p>
+            <p th:onclick="'window.location.href=\'/api/' + ${user.uid} + '/like\''" class="userinfo_category_link">즐겨찾기 관리</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/reservation\''" id="reserve" class="userinfo_reservation">예약 관리</p>
+        </div>
+
+        <!--    닉네임 변경, 계정 삭제-->
+        <div class="userinfo_background">
+            <div class="update_profile">
+                <p>아이디: <span th:text="${user.uid}"></span></p>
+                <p>이메일: <span th:text="${user.email}"></span></p>
+                <p>닉네임: <span th:text="${user.uname}"></span></p>
+                <div class="update_profile_delete">
+                    <p>닉네임 변경: </p>
+                    <form action="/uname/update" method="post">
+                        <input name="id" type="hidden" th:value="${user.id}">
+                        <input name="uid" type="hidden" th:value="${user.uid}">
+                        <input name="upassword" type="hidden" th:value="${user.upassword}">
+                        <input name="email" type="hidden" th:value="${user.email}">
+                        <input type="text" name="uname" placeholder="새로운 닉네임을 입력하세요.">
+                        <button type="submit">변경</button>
+                    </form>
+                    <a th:href="@{/${user.uid}/delete}">계정 삭제</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('.userinfo_category_link');
+
+        // 클릭 이벤트 추가
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                // 모든 링크의 active 클래스 제거
+                links.forEach(l => l.classList.remove('active'));
+                // 클릭된 링크에 active 클래스 추가
+                link.classList.add('active');
+            });
+        });
+    </script>
+</section>
+</body>
+</html>

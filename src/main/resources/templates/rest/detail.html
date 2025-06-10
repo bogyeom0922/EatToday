@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:with="user=${user}"
+      layout:decorate="~{layout/layout}">
+<body>
+<section layout:fragment="content">
+
+<div th:if="${user != null}">
+    <input type="hidden" id="new-like-userid" th:value="${user.id}">
+</div>
+<div th:if="${rest != null}">
+    <input type="hidden" id="new-like-store-id" th:value="${rest.id}">
+    <div class="image-container">
+        <img th:src="${rest.store_img}" class="rest_img" alt="매장 이미지">
+        <div class="title_background">
+            <div class="store_name">
+                <span th:text="${rest.store_name}"></span>
+            </div>
+            <button class="more_view">더 알아보기</button>
+        </div>
+    </div>
+
+    <div class="rest_detail">
+        <table>
+            <tr>
+                <td style="width:25%;">영업시간</td>
+                <td style="width:75%;" th:text="${rest.store_time}"></td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td id="storeAddress" th:text="${rest.store_address}"></td>
+            </tr>
+            <tr>
+                <td>대표번호</td>
+                <td th:text="${rest.store_phone}"></td>
+            </tr>
+            <tr>
+                <td>별점</td>
+                <td th:text="${rest.store_star}"></td>
+            </tr>
+            <tr>
+                <td>메뉴</td>
+                <td>
+                    <div id="MenuDisplay" class="rest_menu_list"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="rest_button">
+                        <div th:id="'like-' + ${rest.id}">
+                            <p id="bookmark_button" class="like">즐겨찾기</p>
+                        </div>
+                        <p id="reserve_button" class="reservation">예약하기</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div id="MenuSentence" th:text="${rest.store_menu}">
+        </div>
+
+        <div class="map_section">
+            <button id="directionsButton" class="direction">길찾기</button>
+            <div id="map" class="map"></div>
+        </div>
+
+        <div class="review">
+            <p>리뷰</p>
+            <div id="reviews-new">
+                <form class="rest_review_form">
+                    <input name="uid" type="hidden" th:value="${user.uid}" id="new-review-userid" />
+                    <textarea type="text" id="new-review-body" class="review_form_textarea"></textarea>
+                    <input type="hidden" th:value="${rest.id}" id="new-review-store-id" />
+                    <button type="button" id="review-create-btn" class="review_form_button">등록</button>
+                </form>
+            </div>
+
+            <div id="reviews-list root" class="rest_review_list_api">
+                <div th:each="review : ${reviewDtos}">
+                    <p><span th:text="${review.userid}"></span>: <span th:text="${review.body}"></span></p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="container">
+        <h2>예약 날짜 선택</h2>
+        <label for="reservationDate">날짜 선택:</label>
+        <input type="text" id="reservationDate" name="reservationDate" readonly required>
+        <button type="button" onclick="toggleCalendar()">📅 날짜 선택</button>
+
+        <table id="calendar" class="calendar"></table>
+
+        <div id="timePickerContainer" style="display: none;">
+            <label for="timePicker">시간 선택:</label>
+            <select id="timePicker" onchange="updateReservationDate()"></select>
+        </div>
+
+        <button id="reserve-button" type="submit">예약하기</button>
+    </div>
+</div>
+
+<script type="text/javascript"
+        th:src="'//dapi.kakao.com/v2/maps/sdk.js?appkey=' + ${kakaoApiKey} + '&libraries=services'">
+</script>
+<script src="/js/store/detail/like.js"></script>
+<script src="/js/store/detail/map.js"></script>
+<script src="/js/store/detail/menu.js"></script>
+<script src="/js/store/detail/reservation.js"></script>
+<script src="/js/store/detail/review.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = document.querySelector(".more_view");
+        const target = document.querySelector(".rest_detail");
+
+        if (button && target) {
+            button.addEventListener("click", function () {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        }
+    });
+</script>
+</section>
+</body>
+</html>
