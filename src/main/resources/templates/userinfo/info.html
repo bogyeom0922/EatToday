@@ -1,5 +1,9 @@
-{{>layout/header}}
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:with="user=${user}"
+      layout:decorate="~{layout/layout}">
+<body>
 {{#user}}
     <div class="userinfo_title">
         <p>MY PAGE</p>

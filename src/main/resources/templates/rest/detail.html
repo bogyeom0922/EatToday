@@ -67,24 +67,19 @@
 
         <div class="review">
             <p>리뷰</p>
-            <div class="review-form">
-                <form id="reviewForm" th:action="@{/review/save}" method="post">
-                    <input type="hidden" name="storeId" th:value="${rest.id}" />
-                    <input type="hidden" name="userId" th:value="${user.id}" />
-                    <textarea name="content" placeholder="리뷰를 작성해주세요" required></textarea>
-                    <button type="submit">리뷰 작성</button>
+            <div id="reviews-new">
+                <form class="rest_review_form">
+                    <input name="uid" type="hidden" th:value="${user.uid}" id="new-review-userid" />
+                    <textarea type="text" id="new-review-body" class="review_form_textarea"></textarea>
+                    <input type="hidden" th:value="${rest.id}" id="new-review-store-id" />
+                    <button type="button" id="review-create-btn" class="review_form_button">등록</button>
                 </form>
             </div>
 
-            <div class="review-list">
+            <div id="reviews-list root" class="rest_review_list_api">
                 <div th:each="review : ${reviewDtos}">
-                    <p><strong th:text="${review.user.nickname}">닉네임</strong></p>
-                    <p th:text="${review.content}">리뷰 내용</p>
-                    <hr>
+                    <p><span th:text="${review.userid}"></span>: <span th:text="${review.body}"></span></p>
                 </div>
-            </div>
-            <div class="rest_review_list">
-                <div id="ReviewDisplay"></div>
             </div>
         </div>
         <br>
@@ -113,7 +108,7 @@
 <script src="/js/store/detail/map.js"></script>
 <script src="/js/store/detail/menu.js"></script>
 <script src="/js/store/detail/reservation.js"></script>
-<script src="/js/store/detail/reviews.js"></script>
+<script src="/js/store/detail/review.js"></script>
 
 </section>
 </body>

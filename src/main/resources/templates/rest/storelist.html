@@ -74,7 +74,7 @@
             <tbody id="tbody">
             <tr th:each="store : ${list}">
                 <td style="width:7%"><img th:src="@{${store.store_img}}" /></td>
-                <td style="width:22%"><a th:href="@{/rest/{id}/{uid}(id=${store.id}, uid=${uid})}" th:text="${store.store_name}"></a></td>
+                <td style="width:22%"><a th:href="@{/rest/{id}(id=${store.id})}" th:text="${store.store_name}"></a></td>
                 <td style="width:47%" th:text="${store.store_time}"></td>
                 <td style="width:18%" th:text="${store.store_phone}"></td>
                 <td style="width:6%" th:text="${store.store_star}"></td>

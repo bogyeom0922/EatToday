@@ -245,7 +245,7 @@ a:hover {
 
 .review {
     position: absolute;
-    top: 720px;
+    margin-top: 150px;
     left: 10%;
     font-size: 18px;
     width: 70%;
