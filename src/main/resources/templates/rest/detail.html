@@ -17,7 +17,7 @@
             <div class="store_name">
                 <span th:text="${rest.store_name}"></span>
             </div>
-            <button class="review_link">더 알아보기</button>
+            <button class="more_view">더 알아보기</button>
         </div>
     </div>
 
@@ -109,7 +109,18 @@
 <script src="/js/store/detail/menu.js"></script>
 <script src="/js/store/detail/reservation.js"></script>
 <script src="/js/store/detail/review.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = document.querySelector(".more_view");
+        const target = document.querySelector(".rest_detail");
 
+        if (button && target) {
+            button.addEventListener("click", function () {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        }
+    });
+</script>
 </section>
 </body>
 </html>
