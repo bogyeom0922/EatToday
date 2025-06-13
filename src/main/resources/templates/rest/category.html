@@ -16,7 +16,14 @@
       <div class="main_headline2">WHAT SHOULD I EAT TODAY?</div>
       <img src="/img/ex.avif" class="main_image">
   </div>
-  <div class="recommend-stores">
+  <div class="recommend">
+      <div class="random_store_title">
+          Today's recommended restaurant
+      </div>
+
+      <!-- JavaScript로 렌더링할 공간 -->
+      <div class="random_store_container">
+      </div>
   </div>
 
   <div class="category">
@@ -49,22 +56,20 @@
             .then(data => {
                 console.log(data);
                 if(Array.isArray(data)) {
-                    const storesContainer = document.querySelector('.recommend-stores');
+                    const storesContainer = document.querySelector('.random_store_container');
 
-                    data.forEach((store) => {
+                    data.forEach((store, index) => {
                         const storeDiv = document.createElement("div");
-                        storeDiv.classList.add("recommend-store"); // 필요한 class 이름 추가
-
-                        storeDiv.onclick = function () {
-                            window.location.href = `/rest/${store.id}`;
-                        };
+                        storeDiv.classList.add(`random_store${index === 0 ? '' : index + 1}`);
 
                         storeDiv.innerHTML = `
-                  <img src="${store.store_img}" class="random_store_img">
-                <p class="random_store_name">${store.store_name}</p>
-                <p class="random_store_address">${store.store_address}</p>
-            `;
-
+                            <img src="${store.store_img}" class="random_store_img">
+                            <p class="random_store_name">${store.store_name}</p>
+                            <p class="random_store_address">${store.store_address}</p>
+                        `;
+                        storeDiv.onclick = function () {
+                            window.location.href = `/rest/${store.id}/${store.uid}`;
+                        };
                         storesContainer.appendChild(storeDiv);
                     });
                 }
