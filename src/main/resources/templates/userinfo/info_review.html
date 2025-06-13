@@ -15,14 +15,15 @@
     <p onclick="window.location.href='/api/' + [[${user.uid}]] + '/like'" class="userinfo_category_link">즐겨찾기 관리</p>
 </div>
 
-<!-- 리뷰 조회, 수정, 삭제 -->
 <div class="userinfo_background_review">
     <table class="userinfo_review_table">
         <tbody>
         <th:block th:each="review : ${reviews}">
             <tr>
                 <th:block th:if="${review.store != null}">
-                    <td style="width:20%;"><p th:onclick="'window.location.href=\'/rest/' + ${review.id} + '/' + ${user.uid} + '\'" th:text="${review.store.store_name}"></p></td>
+                    <td style="width:20%;"><p
+                            th:onclick="'window.location.href=\'/rest/' + ${review.id} + '/' + ${user.uid} + '\'"
+                            th:text="${review.store.store_name}"></p></td>
                     <td style="width:30%;" th:text="${review.store.store_address}"></td>
                 </th:block>
                 <td style="width:35%;" class="userinfo_review_body" th:text="${review.body}"></td>
@@ -30,9 +31,11 @@
                     <button class="button userinfo_button" onclick="openModal()"
                             data-bs-toggle="modal"
                             data-bs-target="#review-edit-Modal"
-                            th:attr="data-bs-id=${review.id},data-bs-store=${review.store},data-bs-userid=${review.userid},data-bs-body=${review.body}">수정
+                            th:attr="data-bs-id=${review.id},data-bs-store=${review.store},data-bs-userid=${review.userid},data-bs-body=${review.body}">
+                        수정
                     </button>
-                    <button class="button review-delete-btn userinfo_button" th:attr="data-review-id=${review.id}">삭제</button>
+                    <button class="button review-delete-btn userinfo_button" th:attr="data-review-id=${review.id}">삭제
+                    </button>
                 </td>
             </tr>
         </th:block>
@@ -55,11 +58,12 @@
         </div>
     </div>
 
-    <!-- 페이지네이션 버튼 -->
     <div class="pagination userinfo_review_next">
-        <button class="next_button" th:onclick="'changePage(' + ${previousPage} + ')'" th:attrappend="disabled=${isFirstPage} ? 'disabled' : null">이전
+        <button class="next_button" th:onclick="'changePage(' + ${previousPage} + ')'"
+                th:attrappend="disabled=${isFirstPage} ? 'disabled' : null">이전
         </button>
-        <button class="next_button" th:onclick="'changePage(' + ${nextPage} + ')'" th:attrappend="disabled=${isLastPage} ? 'disabled' : null">다음
+        <button class="next_button" th:onclick="'changePage(' + ${nextPage} + ')'"
+                th:attrappend="disabled=${isLastPage} ? 'disabled' : null">다음
         </button>
     </div>
 

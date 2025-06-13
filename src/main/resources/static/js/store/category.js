@@ -1,17 +1,12 @@
-// 페이지 로드 시 호출
 document.addEventListener('DOMContentLoaded', function () {
-    // 현재 페이지의 상태를 설정
     history.replaceState(null, null, location.href);
 
-    // 뒤로 가기 버튼 클릭 시 동작
     window.onpopstate = function (event) {
-        // 페이지가 히스토리에서 이동하지 않도록 막음
         history.go(1);
     };
 });
 
 function logout() {
-    // 세션 처리 후 리디렉션
     fetch('/logout', {method: 'POST'})
         .then(response => {
             if (response.ok) {

@@ -6,7 +6,7 @@ function toggleCalendar() {
     }
 }
 
-let selectedDate = "";  // 사용자가 선택한 날짜를 저장할 변수
+let selectedDate = "";
 
 function generateCalendar() {
     let calendar = document.getElementById("calendar");
@@ -45,13 +45,10 @@ function selectDate(year, month, day) {
     let timePickerContainer = document.getElementById("timePickerContainer");
     let timePicker = document.getElementById("timePicker");
 
-    // 선택한 날짜 저장 (YYYY-MM-DD 형식)
     selectedDate = `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
 
-    // 기존 옵션 초기화
     timePicker.innerHTML = "";
 
-    // 1시간 단위로 시간 옵션 추가
     for (let hour = 0; hour < 24; hour++) {
         let time = `${hour.toString().padStart(2, "0")}:00`;
         let option = document.createElement("option");
@@ -60,10 +57,8 @@ function selectDate(year, month, day) {
         timePicker.appendChild(option);
     }
 
-    // 시간 선택 드롭다운 표시
     timePickerContainer.style.display = "block";
 
-    // 기본 시간 설정 후 input에 반영
     updateReservationDate();
 }
 

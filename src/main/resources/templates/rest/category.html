@@ -9,40 +9,39 @@
 </head>
 
 <body>
-  <section layout:fragment="content">
-  <div th:replace="layout/layout :: header"></div>
-  <div class="main">
-      <div class="main_headline1">YOUR ULTIMATE MEAL FINDER</div>
-      <div class="main_headline2">WHAT SHOULD I EAT TODAY?</div>
-      <img src="/img/ex.avif" class="main_image">
-  </div>
-  <div class="recommend">
-      <div class="random_store_title">
-          Today's recommended restaurant
-      </div>
+<section layout:fragment="content">
+    <div th:replace="layout/layout :: header"></div>
+    <div class="main">
+        <div class="main_headline1">YOUR ULTIMATE MEAL FINDER</div>
+        <div class="main_headline2">WHAT SHOULD I EAT TODAY?</div>
+        <img src="/img/ex.avif" class="main_image">
+    </div>
+    <div class="recommend">
+        <div class="random_store_title">
+            Today's recommended restaurant
+        </div>
 
-      <!-- JavaScript로 렌더링할 공간 -->
-      <div class="random_store_container">
-      </div>
-  </div>
+        <div class="random_store_container">
+        </div>
+    </div>
 
-  <div class="category">
-      <p>CATEGORY</p>
-      <div class="category_img">
-          <img src="/img/한식.png" onclick="window.location.href='/storelist/${uid}'">
-          <img src="/img/중식.png">
-          <img src="/img/일식.png">
-          <img src="/img/양식.png">
-          <img src="/img/아시안.png">
-          <img src="/img/패스트푸드.png">
-          <img src="/img/술.png">
-          <img src="/img/중식.png">
-      </div>
-  </div>
+    <div class="category">
+        <p>CATEGORY</p>
+        <div class="category_img">
+            <img src="/img/한식.png" onclick="window.location.href='/storelist/${uid}'">
+            <img src="/img/중식.png">
+            <img src="/img/일식.png">
+            <img src="/img/양식.png">
+            <img src="/img/아시안.png">
+            <img src="/img/패스트푸드.png">
+            <img src="/img/술.png">
+            <img src="/img/중식.png">
+        </div>
+    </div>
 </section>
 
-  <section layout:fragment="scripts">
-      <script src="/js/store/category.js"></script>
-  </section>
+<section layout:fragment="scripts">
+    <script src="/js/store/category.js"></script>
+</section>
 </body>
 </html>

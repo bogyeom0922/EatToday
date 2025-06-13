@@ -10,10 +10,14 @@
         </div>
 
         <div class="userinfo_category">
-            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '\''" class="userinfo_category_link active">회원정보 수정</p>
-            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/review\''" class="userinfo_category_link">리뷰 관리</p>
-            <p th:onclick="'window.location.href=\'/api/' + ${user.uid} + '/like\''" class="userinfo_category_link">즐겨찾기 관리</p>
-            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/reservation\''" id="reserve" class="userinfo_reservation">예약 관리</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '\''" class="userinfo_category_link active">회원정보
+                                                                                                                  수정</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/review\''" class="userinfo_category_link">리뷰
+                                                                                                                  관리</p>
+            <p th:onclick="'window.location.href=\'/api/' + ${user.uid} + '/like\''" class="userinfo_category_link">즐겨찾기
+                                                                                                                    관리</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/reservation\''" id="reserve"
+               class="userinfo_reservation">예약 관리</p>
         </div>
 
         <div class="userinfo_background">
