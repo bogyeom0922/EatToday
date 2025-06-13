@@ -1,4 +1,3 @@
-<!-- 모달 열기, 닫기 -->
 function openModal() {
     document.getElementById("review-edit-Modal").style.display = "block";
 }
@@ -7,7 +6,6 @@ document.getElementById("closeModal").onclick = function () {
     document.getElementById("review-edit-Modal").style.display = "none";
 }
 
-<!-- 리뷰 수정 -->
 document.querySelectorAll(".button[data-bs-toggle='modal']").forEach(btn => {
     btn.addEventListener("click", event => {
         const review = event.target;
@@ -41,7 +39,6 @@ document.querySelector("#review-update-btn").addEventListener("click", () => {
     });
 });
 
-<!-- 리뷰 삭제 -->
 document.querySelectorAll(".review-delete-btn").forEach(btn => {
     btn.addEventListener("click", event => {
         const reviewId = event.target.getAttribute("data-review-id");
@@ -63,7 +60,6 @@ document.querySelectorAll(".review-delete-btn").forEach(btn => {
     });
 });
 
-<!-- 페이지네이션 -->
 function changePage(page) {
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.set('page', page);
@@ -72,12 +68,9 @@ function changePage(page) {
 
 const links = document.querySelectorAll('.userinfo_category_link');
 
-// 클릭 이벤트 추가
 links.forEach(link => {
     link.addEventListener('click', () => {
-        // 모든 링크의 active 클래스 제거
         links.forEach(l => l.classList.remove('active'));
-        // 클릭된 링크에 active 클래스 추가
         link.classList.add('active');
     });
 });

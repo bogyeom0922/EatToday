@@ -10,13 +10,16 @@
         </div>
 
         <div class="userinfo_category">
-            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '\''" class="userinfo_category_link active">회원정보 수정</p>
-            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/review\''" class="userinfo_category_link">리뷰 관리</p>
-            <p th:onclick="'window.location.href=\'/api/' + ${user.uid} + '/like\''" class="userinfo_category_link">즐겨찾기 관리</p>
-            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/reservation\''" id="reserve" class="userinfo_reservation">예약 관리</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '\''" class="userinfo_category_link active">회원정보
+                                                                                                                  수정</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/review\''" class="userinfo_category_link">리뷰
+                                                                                                                  관리</p>
+            <p th:onclick="'window.location.href=\'/api/' + ${user.uid} + '/like\''" class="userinfo_category_link">즐겨찾기
+                                                                                                                    관리</p>
+            <p th:onclick="'window.location.href=\'/' + ${user.uid} + '/reservation\''" id="reserve"
+               class="userinfo_reservation">예약 관리</p>
         </div>
 
-        <!--    닉네임 변경, 계정 삭제-->
         <div class="userinfo_background">
             <div class="update_profile">
                 <p>아이디: <span th:text="${user.uid}"></span></p>
